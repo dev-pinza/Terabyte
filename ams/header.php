@@ -196,18 +196,18 @@
                             <div class="dropdown-menu animated bounceInDown">
                                 <div class="mega-dropdown-menu row">
                                     <div class="col-lg-3 col-xlg-2 mb-4">
-                                        <h5 class="mb-3">CAROUSEL</h5>
+                                        <h5 class="mb-3">24/7 TECH SUPPORT</h5>
                                         <!-- CAROUSEL -->
                                         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                                             <div class="carousel-inner" role="listbox">
                                                 <div class="carousel-item active">
-                                                    <div class="container p-0"> <img class="d-block img-fluid" src="../assets/images/big/img1.jpg" alt="First slide"></div>
+                                                    <div class="container p-0"> <img class="d-block img-fluid" src="../user_img/log.jpeg" alt="First slide"></div>
                                                 </div>
                                                 <div class="carousel-item">
-                                                    <div class="container p-0"><img class="d-block img-fluid" src="../assets/images/big/img2.jpg" alt="Second slide"></div>
+                                                    <div class="container p-0"><img class="d-block img-fluid" src="../user_img/log.jpeg" alt="Second slide"></div>
                                                 </div>
                                                 <div class="carousel-item">
-                                                    <div class="container p-0"><img class="d-block img-fluid" src="../assets/images/big/img3.jpg" alt="Third slide"></div>
+                                                    <div class="container p-0"><img class="d-block img-fluid" src="../user_img/log.jpeg" alt="Third slide"></div>
                                                 </div>
                                             </div>
                                             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a>
@@ -216,14 +216,14 @@
                                         <!-- End CAROUSEL -->
                                     </div>
                                     <div class="col-lg-3 mb-4">
-                                        <h5 class="mb-3">ACCORDION</h5>
+                                        <h5 class="mb-3">Tech Tips</h5>
                                         <!-- Accordian -->
                                         <div id="accordion" class="accordion">
                                             <div class="card mb-1">
                                                 <div class="card-header" id="headingOne">
                                                     <h5 class="mb-0">
                                                 <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                  Collapsible Group Item #1
+                                                  TIP 1
                                                 </button>
                                               </h5>
                                                 </div>
@@ -237,7 +237,7 @@
                                                 <div class="card-header" id="headingTwo">
                                                     <h5 class="mb-0">
                                                 <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                  Collapsible Group Item #2
+                                                  TIP 2
                                                 </button>
                                               </h5>
                                                 </div>
@@ -251,7 +251,7 @@
                                                 <div class="card-header" id="headingThree">
                                                     <h5 class="mb-0">
                                                 <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                  Collapsible Group Item #3
+                                                  TIP 3
                                                 </button>
                                               </h5>
                                                 </div>
@@ -278,14 +278,14 @@
                                         </form>
                                     </div>
                                     <div class="col-lg-3 col-xlg-4 mb-4">
-                                        <h5 class="mb-3">LIST STYLE</h5>
+                                        <h5 class="mb-3">#STAY HAPPY AND SAVE</h5>
                                         <!-- List style -->
                                         <ul class="list-style-none">
-                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> You can give link</a></li>
-                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> Give link</a></li>
-                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> Another Give link</a></li>
-                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> Forth link</a></li>
-                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> Another fifth link</a></li>
+                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> 1. Always Wash Your Hands</a></li>
+                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> 2. Practice Social Distancing</a></li>
+                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> 3. Avoid Crowded Places</a></li>
+                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> 4. Stay Happy with Pinza Studio</a></li>
+                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> 5. Stay Positive with Terabyte</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -313,15 +313,15 @@
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="../assets/images/users/1.jpg" alt="user" class="rounded-circle" width="36">
-                                <span class="ml-2 font-medium">Steve</span><span class="fas fa-angle-down ml-2"></span>
+                                <img src="../user_img/log.jpeg" alt="user" class="rounded-circle" width="36">
+                                <span class="ml-2 font-medium">Pinza</span><span class="fas fa-angle-down ml-2"></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
                                 <div class="d-flex no-block align-items-center p-3 mb-2 border-bottom">
-                                    <div class=""><img src="../assets/images/users/1.jpg" alt="user" class="rounded" width="80"></div>
+                                    <div class=""><img src="../user_img/log.jpeg" alt="user" class="rounded" width="80"></div>
                                     <div class="ml-2">
-                                        <h4 class="mb-0">Steave Jobs</h4>
-                                        <p class=" mb-0 text-muted">varun@gmail.com</p>
+                                        <h4 class="mb-0">Pinza Studio</h4>
+                                        <p class=" mb-0 text-muted">pinzastudio2020@gmail.com</p>
                                         <a href="javascript:void(0)" class="btn btn-sm btn-danger text-white mt-2 btn-rounded">View Profile</a>
                                     </div>
                                 </div>
@@ -355,8 +355,8 @@
                     <ul id="sidebarnav">
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow waves-effect waves-dark profile-dd" href="javascript:void(0)" aria-expanded="false">
-                                <img src="../assets/images/users/1.jpg" class="rounded-circle ml-2" width="30">
-                                <span class="hide-menu">Steve Jection </span>
+                                <img src="../user_img/log.jpeg" class="rounded-circle ml-2" width="30">
+                                <span class="hide-menu">Pinza Studio </span>
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level">
                                 <li class="sidebar-item">
@@ -407,171 +407,86 @@
                                 <li class="sidebar-item">
                                     <a href="#" class="sidebar-link">
                                         <i class="mdi mdi-adjust"></i>
-                                        <span class="hide-menu"> Sales Report </span>
+                                        <span class="hide-menu"> Financial Report </span>
                                     </a>
                                 </li>
                             </ul>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
-                                <i class="mdi mdi-cart-outline"></i>
-                                <span class="hide-menu">Ecommerce</span>
+                                <i class="fas fa-hand-holding-usd"></i>
+                                <span class="hide-menu">Promotion</span>
                             </a>
                             <ul aria-expanded="false" class="collapse first-level">
                                 <li class="sidebar-item">
-                                    <a href="eco-products.html" class="sidebar-link">
-                                        <i class="mdi mdi-cards-variant"></i>
-                                        <span class="hide-menu">Products</span>
+                                    <a href="#" class="sidebar-link">
+                                        <i class="fas fa-chart-line"></i>
+                                        <span class="hide-menu">Active</span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="eco-products-cart.html" class="sidebar-link">
-                                        <i class="mdi mdi-cart"></i>
-                                        <span class="hide-menu">Products Cart</span>
+                                    <a href="#" class="sidebar-link">
+                                        <i class="fas fa-retweet"></i>
+                                        <span class="hide-menu">Inactive</span>
                                     </a>
                                 </li>
-                                <li class="sidebar-item">
-                                    <a href="eco-products-edit.html" class="sidebar-link">
-                                        <i class="mdi mdi-cart-plus"></i>
-                                        <span class="hide-menu">Products Edit</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="eco-products-detail.html" class="sidebar-link">
-                                        <i class="mdi mdi-camera-burst"></i>
-                                        <span class="hide-menu">Product Details</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="eco-products-orders.html" class="sidebar-link">
-                                        <i class="mdi mdi-chart-pie"></i>
-                                        <span class="hide-menu">Product Orders</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
+                                <!-- <li class="sidebar-item">
                                     <a href="eco-products-checkout.html" class="sidebar-link">
                                         <i class="mdi mdi-clipboard-check"></i>
                                         <span class="hide-menu">Products Checkout</span>
                                     </a>
-                                </li>
+                                </li> -->
                             </ul>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
-                                <i class="mdi mdi-format-color-fill"></i>
-                                <span class="hide-menu">Ui Elements </span>
-                                <span class="badge badge-info badge-pill ml-auto mr-3 font-medium px-2 py-1">12</span>
+                                <i class="fas fa-sitemap"></i>
+                                <span class="hide-menu"> Activity Control </span>
+                                <span class="badge badge-info badge-pill ml-auto mr-3 font-medium px-2 py-1">3</span>
                             </a>
                             <ul aria-expanded="false" class="collapse first-level">
                                 <li class="sidebar-item">
-                                    <a href="ui-buttons.html" class="sidebar-link">
-                                        <i class="mdi mdi-toggle-switch"></i>
-                                        <span class="hide-menu"> Buttons</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-modals.html" class="sidebar-link">
-                                        <i class="mdi mdi-tablet"></i>
-                                        <span class="hide-menu"> Modals</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-tab.html" class="sidebar-link">
-                                        <i class="mdi mdi-sort-variant"></i>
-                                        <span class="hide-menu"> Tab</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-tooltip-popover.html" class="sidebar-link">
-                                        <i class="mdi mdi-image-filter-vintage"></i>
-                                        <span class="hide-menu"> Tooltip &amp; Popover</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-notification.html" class="sidebar-link">
-                                        <i class="mdi mdi-message-bulleted"></i>
-                                        <span class="hide-menu"> Notification</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-progressbar.html" class="sidebar-link">
-                                        <i class="mdi mdi-poll"></i>
-                                        <span class="hide-menu"> Progressbar</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-typography.html" class="sidebar-link">
-                                        <i class="mdi mdi-format-line-spacing"></i>
-                                        <span class="hide-menu"> Typography</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-bootstrap.html" class="sidebar-link">
-                                        <i class="mdi mdi-bootstrap"></i>
-                                        <span class="hide-menu"> Bootstrap Ui</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-breadcrumb.html" class="sidebar-link">
-                                        <i class="mdi mdi-equal"></i>
-                                        <span class="hide-menu"> Breadcrumb</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-list-media.html" class="sidebar-link">
-                                        <i class="mdi mdi-file-video"></i>
-                                        <span class="hide-menu"> List Media</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-grid.html" class="sidebar-link">
-                                        <i class="mdi mdi-view-module"></i>
-                                        <span class="hide-menu"> Grid</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-carousel.html" class="sidebar-link">
+                                    <a href="#" class="sidebar-link">
                                         <i class="mdi mdi-view-carousel"></i>
-                                        <span class="hide-menu"> Carousel</span>
+                                        <span class="hide-menu"> User Management</span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="ui-scrollspy.html" class="sidebar-link">
+                                    <a href="#" class="sidebar-link">
+                                        <i class="mdi mdi-view-carousel"></i>
+                                        <span class="hide-menu"> Sub Account </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="#" class="sidebar-link">
                                         <i class="mdi mdi-crop-free"></i>
-                                        <span class="hide-menu"> Scrollspy</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-spinner.html" class="sidebar-link">
-                                        <i class="mdi mdi-application"></i>
-                                        <span class="hide-menu"> Spinner</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-toasts.html" class="sidebar-link">
-                                        <i class="mdi mdi-apple-safari"></i>
-                                        <span class="hide-menu"> Toasts</span>
+                                        <span class="hide-menu"> Roles and Permission</span>
                                     </a>
                                 </li>
                             </ul>
                         </li>
-                      
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#" aria-expanded="false">
+                                <i class="fas fa-truck-loading"></i>
+                                <span class="hide-menu">Archive</span>
+                            </a>
+                        </li>
                         <div class="devider"></div>
                        
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="../docs/documentation.html" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#" aria-expanded="false">
                                 <i class="mdi mdi-adjust text-danger"></i>
-                                <span class="hide-menu">Guide & Documentation</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="authentication-login1.html" aria-expanded="false">
-                                <i class="mdi mdi-adjust text-info"></i>
                                 <span class="hide-menu">Log Out</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="pages-faq.html" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#" aria-expanded="false">
+                                <i class="mdi mdi-adjust text-info"></i>
+                                <span class="hide-menu">Guide & Documentation</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#" aria-expanded="false">
                                 <i class="mdi mdi-adjust text-success"></i>
                                 <span class="hide-menu">FAQs</span>
                             </a>
