@@ -9,7 +9,7 @@ include("header.php");
                     <div class="col-md-6 col-lg-3">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title text-uppercase">New Clients</h5>
+                                <h5 class="card-title text-uppercase">Total Clients</h5>
                                 <div class="d-flex align-items-center mb-2 mt-4">
                                     <h2 class="mb-0 display-5"><i class="icon-people text-info"></i></h2>
                                     <div class="ml-auto">
@@ -22,9 +22,9 @@ include("header.php");
                     <div class="col-md-6 col-lg-3">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title text-uppercase">New Projects</h5>
+                                <h5 class="card-title text-uppercase">Total Promoted Ads</h5>
                                 <div class="d-flex align-items-center mb-2 mt-4">
-                                    <h2 class="mb-0 display-5"><i class="icon-folder text-primary"></i></h2>
+                                    <h2 class="mb-0 display-5"><i class="fas fa-chart-line text-primary"></i></h2>
                                     <div class="ml-auto">
                                         <h2 class="mb-0 display-6"><span class="font-normal">169</span></h2>
                                     </div>
@@ -35,9 +35,9 @@ include("header.php");
                     <div class="col-md-6 col-lg-3">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title text-uppercase">Open Projects</h5>
+                                <h5 class="card-title text-uppercase">Total Conversion Rate</h5>
                                 <div class="d-flex align-items-center mb-2 mt-4">
-                                    <h2 class="mb-0 display-5"><i class="icon-folder-alt text-danger"></i></h2>
+                                    <h2 class="mb-0 display-5"><i class="fas fa-balance-scale text-danger"></i></h2>
                                     <div class="ml-auto">
                                         <h2 class="mb-0 display-6"><span class="font-normal">311</span></h2>
                                     </div>
@@ -48,11 +48,11 @@ include("header.php");
                     <div class="col-md-6 col-lg-3">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title text-uppercase">New Invoices</h5>
+                                <h5 class="card-title text-uppercase">Tera Wallet</h5>
                                 <div class="d-flex align-items-center mb-2 mt-4">
                                     <h2 class="mb-0 display-5"><i class="ti-wallet text-success"></i></h2>
                                     <div class="ml-auto">
-                                        <h2 class="mb-0 display-6"><span class="font-normal">117</span></h2>
+                                        <h2 class="mb-0 display-6"><span class="font-normal">&#8358;1.2 M</span></h2>
                                     </div>
                                 </div>
                             </div>
@@ -66,7 +66,7 @@ include("header.php");
                     <div class="col-md-12 col-lg-6">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title text-uppercase">Country Visit</h5>
+                                <h5 class="card-title text-uppercase">Universities Conversion</h5>
                                 <div id="usa" style="height: 382px"></div>
                             </div>
                         </div>
@@ -75,7 +75,7 @@ include("header.php");
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex align-items-center mb-3">
-                                    <h5 class="card-title text-uppercase mb-0">Mothly Site Traffic</h5>
+                                    <h5 class="card-title text-uppercase mb-0">Institution Income</h5>
                                     <div class="ml-auto">
                                         <small class="text-success"><i class="fas fa-sort-up"></i> 18% High then last month</small>
                                     </div>
@@ -96,7 +96,7 @@ include("header.php");
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex align-items-center mb-3">
-                                    <h5 class="card-title text-uppercase mb-0">Weekly Site Traffic</h5>
+                                    <h5 class="card-title text-uppercase mb-0">Site Traffic</h5>
                                     <div class="ml-auto">
                                         <small class="text-danger"><i class="fas fa-sort-down"></i> 18% High then last month</small>
                                     </div>
@@ -123,11 +123,11 @@ include("header.php");
                     <div class="col-md-12 col-lg-4">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title text-uppercase">Client countries</h5>
+                                <h5 class="card-title text-uppercase">Campus</h5>
                                 <ul class="list-style-none country-state mt-4">
                                    <li class="mb-4">
                                         <h2 class="mb-0">6350</h2>
-                                        <small>From Nigeria</small>
+                                        <small>From Uni-lag</small>
                                         <div class="float-right">48% <i class="fas fa-level-up-alt text-success"></i></div>
                                         <div class="progress">
                                             <div class="progress-bar bg-success" role="progressbar" style="width: 48%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
@@ -135,7 +135,7 @@ include("header.php");
                                     </li>
                                     <li class="mb-4">
                                         <h2 class="mb-0">6350</h2>
-                                        <small>From India</small>
+                                        <small>From Uni-Ben</small>
                                         <div class="float-right">48% <i class="fas fa-level-up-alt text-success"></i></div>
                                         <div class="progress">
                                             <div class="progress-bar bg-success" role="progressbar" style="width: 48%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
@@ -143,7 +143,7 @@ include("header.php");
                                     </li>
                                     <li class="mb-4">
                                         <h2 class="mb-0">3250</h2>
-                                        <small>From UAE</small>
+                                        <small>From Uni-Abuja</small>
                                         <div class="float-right">98% <i class="fas fa-level-up-alt text-success"></i></div>
                                         <div class="progress">
                                             <div class="progress-bar bg-info" role="progressbar" style="width: 48%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
@@ -151,7 +151,7 @@ include("header.php");
                                     </li>
                                     <li class="mb-4">
                                         <h2 class="mb-0">1250</h2>
-                                        <small>From Australia</small>
+                                        <small>From FUTA</small>
                                         <div class="float-right">75% <i class="fas fa-level-down-alt text-danger"></i></div>
                                         <div class="progress">
                                             <div class="progress-bar bg-inverse" role="progressbar" style="width: 48%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
@@ -159,7 +159,7 @@ include("header.php");
                                     </li>
                                     <li class="mb-4">
                                         <h2 class="mb-0">1350</h2>
-                                        <small>From USA</small>
+                                        <small>From FUTO</small>
                                         <div class="float-right">48% <i class="fas fa-level-up-alt text-success"></i></div>
                                         <div class="progress">
                                             <div class="progress-bar bg-warning" role="progressbar" style="width: 48%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
@@ -167,7 +167,7 @@ include("header.php");
                                     </li>
                                     <li class="mb-4">
                                         <h2 class="mb-0">6350</h2>
-                                        <small>From India</small>
+                                        <small>From LASU</small>
                                         <div class="float-right">48% <i class="fas fa-level-up-alt text-success"></i></div>
                                         <div class="progress">
                                             <div class="progress-bar bg-success" role="progressbar" style="width: 48%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
@@ -175,7 +175,7 @@ include("header.php");
                                     </li>
                                     <li class="mb-4">
                                         <h2 class="mb-0">3250</h2>
-                                        <small>From UAE</small>
+                                        <small>From KWASU</small>
                                         <div class="float-right">98% <i class="fas fa-level-up-alt text-success"></i></div>
                                         <div class="progress">
                                             <div class="progress-bar bg-info" role="progressbar" style="width: 48%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
@@ -183,7 +183,7 @@ include("header.php");
                                     </li>
                                     <li>
                                         <h2 class="mb-0">1250</h2>
-                                        <small>From Australia</small>
+                                        <small>From BABCOCK</small>
                                         <div class="float-right">75% <i class="fas fa-level-down-alt text-danger"></i></div>
                                         <div class="progress">
                                             <div class="progress-bar bg-inverse" role="progressbar" style="width: 48%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
@@ -197,8 +197,8 @@ include("header.php");
                         <div class="card">
                             <div class="card-body bg-primary text-white">
                                 <div class="pb-4">
-                                    <h2 class="display-7">Kufri, Himachal Pradesh</h2>
-                                    <h4 class="font-light">Friday, 19 Jan 2018</h4>
+                                    <h2 class="display-7">OSUN, IFFE</h2>
+                                    <h4 class="font-light">Friday, 19 June 2020</h4>
                                 </div>
                                 <div class="d-flex align-items-center mt-4">
                                     <span><i class="wi wi-day-hail display-5"></i></span>
