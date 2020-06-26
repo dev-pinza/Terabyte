@@ -152,11 +152,11 @@
                             <div class="message-center chat-scroll">
                                 <a href="javascript:void(0)" class="message-item" id='chat_user_1' data-user-id='1'>
                                     <span class="user-img">
-                                        <img src="../assets/images/users/1.jpg" alt="user" class="rounded-circle">
+                                        <img src="../user_img/log.jpeg" alt="user" class="rounded-circle">
                                         <span class="profile-status online pull-right"></span>
                                     </span>
                                     <div class="mail-contnet">
-                                        <h5 class="message-title">Pavan kumar</h5>
+                                        <h5 class="message-title">Samuel Pinza</h5>
                                         <span class="mail-desc">Just see the my admin!</span>
                                         <span class="time">9:30 AM</span>
                                     </div>
@@ -164,17 +164,17 @@
                                 <!-- Message -->
                                 <a href="javascript:void(0)" class="message-item" id='chat_user_2' data-user-id='2'>
                                     <span class="user-img">
-                                        <img src="../assets/images/users/2.jpg" alt="user" class="rounded-circle">
+                                        <img src="../user_img/log.jpeg" alt="user" class="rounded-circle">
                                         <span class="profile-status busy pull-right"></span>
                                     </span>
                                     <div class="mail-contnet">
-                                        <h5 class="message-title">Sonu Nigam</h5>
+                                        <h5 class="message-title">Ene Pinza</h5>
                                         <span class="mail-desc">I've sung a song! See you at</span>
                                         <span class="time">9:10 AM</span>
                                     </div>
                                 </a>
                                 <!-- Message -->
-                                <a href="javascript:void(0)" class="message-item" id='chat_user_3' data-user-id='3'>
+                                <!-- <a href="javascript:void(0)" class="message-item" id='chat_user_3' data-user-id='3'>
                                     <span class="user-img">
                                         <img src="../assets/images/users/3.jpg" alt="user" class="rounded-circle">
                                         <span class="profile-status away pull-right"></span>
@@ -184,9 +184,9 @@
                                         <span class="mail-desc">I am a singer!</span>
                                         <span class="time">9:08 AM</span>
                                     </div>
-                                </a>
+                                </a> -->
                                 <!-- Message -->
-                                <a href="javascript:void(0)" class="message-item" id='chat_user_4' data-user-id='4'>
+                                <!-- <a href="javascript:void(0)" class="message-item" id='chat_user_4' data-user-id='4'>
                                     <span class="user-img">
                                         <img src="../assets/images/users/4.jpg" alt="user" class="rounded-circle">
                                         <span class="profile-status offline pull-right"></span>
@@ -196,23 +196,23 @@
                                         <span class="mail-desc">Just see the my admin!</span>
                                         <span class="time">9:02 AM</span>
                                     </div>
-                                </a>
+                                </a> -->
                                 <!-- Message -->
                                 <!-- Message -->
                                 <a href="javascript:void(0)" class="message-item" id='chat_user_5' data-user-id='5'>
                                     <span class="user-img">
-                                        <img src="../assets/images/users/5.jpg" alt="user" class="rounded-circle">
+                                        <img src="../user_img/log.jpeg" alt="user" class="rounded-circle">
                                         <span class="profile-status offline pull-right"></span>
                                     </span>
                                     <div class="mail-contnet">
-                                        <h5 class="message-title">Sunil Joshi</h5>
+                                        <h5 class="message-title">Celement Tera</h5>
                                         <span class="mail-desc">Just see the my admin!</span>
                                         <span class="time">9:02 AM</span>
                                     </div>
                                 </a>
                                 <!-- Message -->
                                 <!-- Message -->
-                                <a href="javascript:void(0)" class="message-item" id='chat_user_6' data-user-id='6'>
+                                <!-- <a href="javascript:void(0)" class="message-item" id='chat_user_6' data-user-id='6'>
                                     <span class="user-img">
                                         <img src="../assets/images/users/6.jpg" alt="user" class="rounded-circle">
                                         <span class="profile-status offline pull-right"></span>
@@ -222,10 +222,10 @@
                                         <span class="mail-desc">Just see the my admin!</span>
                                         <span class="time">9:02 AM</span>
                                     </div>
-                                </a>
+                                </a> -->
                                 <!-- Message -->
                                 <!-- Message -->
-                                <a href="javascript:void(0)" class="message-item" id='chat_user_7' data-user-id='7'>
+                                <!-- <a href="javascript:void(0)" class="message-item" id='chat_user_7' data-user-id='7'>
                                     <span class="user-img">
                                         <img src="../assets/images/users/7.jpg" alt="user" class="rounded-circle">
                                         <span class="profile-status offline pull-right"></span>
@@ -235,10 +235,10 @@
                                         <span class="mail-desc">Just see the my admin!</span>
                                         <span class="time">9:02 AM</span>
                                     </div>
-                                </a>
+                                </a> -->
                                 <!-- Message -->
                                 <!-- Message -->
-                                <a href="javascript:void(0)" class="message-item" id='chat_user_8' data-user-id='8'>
+                                <!-- <a href="javascript:void(0)" class="message-item" id='chat_user_8' data-user-id='8'>
                                     <span class="user-img">
                                         <img src="../assets/images/users/8.jpg" alt="user" class="rounded-circle">
                                         <span class="profile-status offline pull-right"></span>
@@ -248,7 +248,7 @@
                                         <span class="mail-desc">Just see the my admin!</span>
                                         <span class="time">9:02 AM</span>
                                     </div>
-                                </a>
+                                </a> -->
                                 <!-- Message -->
                             </div>
                         </li>
@@ -281,7 +281,7 @@
                         </div>
                         <div class="sl-item">
                             <div class="sl-left">
-                                <img class="rounded-circle" alt="user" src="../assets/images/users/2.jpg"> </div>
+                                <img class="rounded-circle" alt="user" src="../user_img/log.jpeg"> </div>
                             <div class="sl-right">
                                 <div class="font-medium">Go to the Doctor
                                     <span class="sl-date">5 minutes ago</span>
@@ -291,7 +291,7 @@
                         </div>
                         <div class="sl-item">
                             <div class="sl-left">
-                                <img class="rounded-circle" alt="user" src="../assets/images/users/1.jpg"> </div>
+                                <img class="rounded-circle" alt="user" src="../user_img/log.jpeg"> </div>
                             <div class="sl-right">
                                 <div>
                                     <a href="javascript:void(0)">Stephen</a>
@@ -322,7 +322,7 @@
                         </div>
                         <div class="sl-item">
                             <div class="sl-left">
-                                <img class="rounded-circle" alt="user" src="../assets/images/users/4.jpg"> </div>
+                                <img class="rounded-circle" alt="user" src="../user_img/log.jpeg"> </div>
                             <div class="sl-right">
                                 <div class="font-medium">Go to the Doctor
                                     <span class="sl-date">5 minutes ago</span>
@@ -332,7 +332,7 @@
                         </div>
                         <div class="sl-item">
                             <div class="sl-left">
-                                <img class="rounded-circle" alt="user" src="../assets/images/users/6.jpg"> </div>
+                                <img class="rounded-circle" alt="user" src="../user_img/log.jpeg"> </div>
                             <div class="sl-right">
                                 <div>
                                     <a href="javascript:void(0)">Stephen</a>

@@ -54,17 +54,17 @@
                         <b class="logo-icon">
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
-                            <img src="../assets/images/logos/logo-icon.png" alt="homepage" class="dark-logo" />
+                            <!-- <img src="../brand_logo/tera1.pmg" alt="homepage" class="dark-logo" /> -->
                             <!-- Light Logo icon -->
-                            <img src="../assets/images/logos/logo-light-icon.png" alt="homepage" class="light-logo" />
+                            <!-- <img src="../assets/images/logos/logo-light-icon.png" alt="homepage" class="light-logo" /> -->
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <span class="logo-text">
                              <!-- dark Logo text -->
-                             <img src="../assets/images/logos/logo-text.png" alt="homepage" class="dark-logo" />
+                             <!-- <img src="../assets/images/logos/logo-text.png" alt="homepage" class="dark-logo" /> -->
                              <!-- Light Logo text -->    
-                             <img src="../assets/images/logos/logo-light-text.png" class="light-logo" alt="homepage" />
+                             <!-- <img src="../assets/images/logos/logo-light-text.png" class="light-logo" alt="homepage" /> -->
                         </span>
                     </a>
                     <!-- ============================================================== -->
@@ -97,33 +97,21 @@
                             <div class="dropdown-menu dropdown-menu-left mailbox animated bounceInDown" aria-labelledby="2">
                                 <ul class="list-style-none">
                                     <li>
-                                        <div class="drop-title border-bottom">You have 4 new messanges</div>
+                                        <div class="drop-title border-bottom">You have 2 new messanges</div>
                                     </li>
                                     <li>
                                         <div class="message-center message-body">
                                             <!-- Message -->
                                             <a href="javascript:void(0)" class="message-item">
-                                                <span class="user-img"> <img src="../assets/images/users/1.jpg" alt="user" class="rounded-circle"> <span class="profile-status online pull-right"></span> </span>
+                                                <span class="user-img"> <img src="../user_img/log.jpeg" alt="user" class="rounded-circle"> <span class="profile-status online pull-right"></span> </span>
                                                 <span class="mail-contnet">
-                                                    <h5 class="message-title">Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:30 AM</span> </span>
+                                                    <h5 class="message-title">Pinza Studio</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:30 AM</span> </span>
                                             </a>
                                             <!-- Message -->
                                             <a href="javascript:void(0)" class="message-item">
-                                                <span class="user-img"> <img src="../assets/images/users/2.jpg" alt="user" class="rounded-circle"> <span class="profile-status busy pull-right"></span> </span>
+                                                <span class="user-img"> <img src="../user_img/log.jpeg" alt="user" class="rounded-circle"> <span class="profile-status busy pull-right"></span> </span>
                                                 <span class="mail-contnet">
-                                                    <h5 class="message-title">Sonu Nigam</h5> <span class="mail-desc">I've sung a song! See you at</span> <span class="time">9:10 AM</span> </span>
-                                            </a>
-                                            <!-- Message -->
-                                            <a href="javascript:void(0)" class="message-item">
-                                                <span class="user-img"> <img src="../assets/images/users/3.jpg" alt="user" class="rounded-circle"> <span class="profile-status away pull-right"></span> </span>
-                                                <span class="mail-contnet">
-                                                    <h5 class="message-title">Arijit Sinh</h5> <span class="mail-desc">I am a singer!</span> <span class="time">9:08 AM</span> </span>
-                                            </a>
-                                            <!-- Message -->
-                                            <a href="javascript:void(0)" class="message-item">
-                                                <span class="user-img"> <img src="../assets/images/users/4.jpg" alt="user" class="rounded-circle"> <span class="profile-status offline pull-right"></span> </span>
-                                                <span class="mail-contnet">
-                                                    <h5 class="message-title">Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:02 AM</span> </span>
+                                                    <h5 class="message-title">Han Tera</h5> <span class="mail-desc">I've sung a song! See you at</span> <span class="time">9:10 AM</span> </span>
                                             </a>
                                         </div>
                                     </li>
@@ -170,11 +158,11 @@
                                                     <h5 class="message-title">Settings</h5> <span class="mail-desc">You can customize this template as you want</span> <span class="time">9:08 AM</span> </span>
                                             </a>
                                             <!-- Message -->
-                                            <a href="javascript:void(0)" class="message-item">
+                                            <!-- <a href="javascript:void(0)" class="message-item">
                                                 <span class="btn btn-primary btn-circle"><i class="ti-user"></i></span>
                                                 <span class="mail-contnet">
                                                     <h5 class="message-title">Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:02 AM</span> </span>
-                                            </a>
+                                            </a> -->
                                         </div>
                                     </li>
                                     <li>
@@ -399,15 +387,15 @@
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level">
                                 <li class="sidebar-item">
-                                    <a href="#" class="sidebar-link">
+                                    <a href="dashboard.php" class="sidebar-link">
                                         <i class="mdi mdi-adjust"></i>
                                         <span class="hide-menu"> General Overview </span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="#" class="sidebar-link">
+                                    <a href="finance.php" class="sidebar-link">
                                         <i class="mdi mdi-adjust"></i>
-                                        <span class="hide-menu"> Financial Report </span>
+                                        <span class="hide-menu"> Financial Activity </span>
                                     </a>
                                 </li>
                             </ul>
@@ -440,8 +428,8 @@
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
-                                <i class="fas fa-sitemap"></i>
-                                <span class="hide-menu"> Activity Control </span>
+                                <i class="mdi mdi-webhook"></i>
+                                <span class="hide-menu"> Configuration </span>
                                 <span class="badge badge-info badge-pill ml-auto mr-3 font-medium px-2 py-1">3</span>
                             </a>
                             <ul aria-expanded="false" class="collapse first-level">
@@ -467,7 +455,19 @@
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#" aria-expanded="false">
-                                <i class="fas fa-truck-loading"></i>
+                                <i class="mdi mdi-message-processing"></i>
+                                <span class="hide-menu">Tera Chat</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#" aria-expanded="false">
+                                <i class="mdi mdi-bullseye"></i>
+                                <span class="hide-menu">Activity Management</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#" aria-expanded="false">
+                                <i class="mdi mdi-archive"></i>
                                 <span class="hide-menu">Archive</span>
                             </a>
                         </li>

@@ -405,7 +405,7 @@ include("header.php");
                                     <tr>
                                       <th scope="col" class="border-0 text-uppercase font-medium pl-4">#</th>
                                       <th scope="col" class="border-0 text-uppercase font-medium">Name</th>
-                                      <th scope="col" class="border-0 text-uppercase font-medium">Occupation</th>
+                                      <th scope="col" class="border-0 text-uppercase font-medium">Role & University</th>
                                       <th scope="col" class="border-0 text-uppercase font-medium">Email</th>
                                       <th scope="col" class="border-0 text-uppercase font-medium">Added</th>
                                       <th scope="col" class="border-0 text-uppercase font-medium">Category</th>
@@ -420,195 +420,28 @@ include("header.php");
                                           <span class="text-muted">Texas, Unitedd states</span>
                                       </td>
                                       <td>
-                                          <span class="text-muted">Visual Designer</span><br>
-                                          <span class="text-muted">Past : teacher</span>
+                                          <span class="text-muted">Lead Manager</span><br>
+                                          <span class="text-muted">BABCOCK</span>
                                       </td>
                                       <td>
-                                          <span class="text-muted">daniel@website.com</span><br>
-                                          <span class="text-muted">999 - 444 - 555</span>
+                                          <span class="text-muted">daniel@gmail.com</span><br>
+                                          <span class="text-muted">+234 - 8162399614</span>
                                       </td>
                                       <td>
-                                          <span class="text-muted">15 Mar 1988</span><br>
+                                          <span class="text-muted">15 Mar 2020</span><br>
                                           <span class="text-muted">10: 55 AM</span>
                                       </td>
                                       <td>
                                         <select class="form-control category-select" id="exampleFormControlSelect1">
-                                          <option>Modulator</option>
-                                          <option>Admin</option>
-                                          <option>User</option>
-                                          <option>Subscriber</option>
+                                          <option>Super Admin</option>
+                                          <option>Manager</option>
                                         </select>
                                       </td>
                                       <td>
                                         <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle"><i class="ti-key"></i> </button>
                                         <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="icon-trash"></i> </button>
                                         <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="ti-pencil-alt"></i> </button>
-                                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="ti-upload"></i> </button>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td class="pl-4">2</td>
-                                      <td>
-                                          <h5 class="font-medium mb-0">Emma Smith</h5>
-                                          <span class="text-muted">Texas, Unitedd states</span>
-                                      </td>
-                                      <td>
-                                          <span class="text-muted">Visual Designer</span><br>
-                                          <span class="text-muted">Past : teacher</span>
-                                      </td>
-                                      <td>
-                                          <span class="text-muted">daniel@website.com</span><br>
-                                          <span class="text-muted">999 - 444 - 555</span>
-                                      </td>
-                                      <td>
-                                          <span class="text-muted">15 Mar 1855</span><br>
-                                          <span class="text-muted">10: 00 AM</span>
-                                      </td>
-                                      <td>
-                                        <select class="form-control category-select" id="exampleFormControlSelect1">
-                                          <option>Modulator</option>
-                                          <option>Admin</option>
-                                          <option>User</option>
-                                          <option>Subscriber</option>
-                                        </select>
-                                      </td>
-                                      <td>
-                                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle"><i class="ti-key"></i> </button>
-                                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="icon-trash"></i> </button>
-                                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="ti-pencil-alt"></i> </button>
-                                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="ti-upload"></i> </button>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td class="pl-4">3</td>
-                                      <td>
-                                          <h5 class="font-medium mb-0">Olivia Johnson</h5>
-                                          <span class="text-muted">Texas, Unitedd states</span>
-                                      </td>
-                                      <td>
-                                          <span class="text-muted">Visual Designer</span><br>
-                                          <span class="text-muted">Past : teacher</span>
-                                      </td>
-                                      <td>
-                                          <span class="text-muted">daniel@website.com</span><br>
-                                          <span class="text-muted">999 - 444 - 555</span>
-                                      </td>
-                                      <td>
-                                          <span class="text-muted">17 Aug 1988</span><br>
-                                          <span class="text-muted">12: 55 AM</span>
-                                      </td>
-                                      <td>
-                                        <select class="form-control category-select" id="exampleFormControlSelect1">
-                                          <option>Modulator</option>
-                                          <option>Admin</option>
-                                          <option>User</option>
-                                          <option>Subscriber</option>
-                                        </select>
-                                      </td>
-                                      <td>
-                                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle"><i class="ti-key"></i> </button>
-                                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="icon-trash"></i> </button>
-                                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="ti-pencil-alt"></i> </button>
-                                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="ti-upload"></i> </button>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td class="pl-4">4</td>
-                                      <td>
-                                          <h5 class="font-medium mb-0">Isabella Williams</h5>
-                                          <span class="text-muted">Texas, Unitedd states</span>
-                                      </td>
-                                      <td>
-                                          <span class="text-muted">Visual Designer</span><br>
-                                          <span class="text-muted">Past : teacher</span>
-                                      </td>
-                                      <td>
-                                          <span class="text-muted">daniel@website.com</span><br>
-                                          <span class="text-muted">999 - 444 - 555</span>
-                                      </td>
-                                      <td>
-                                          <span class="text-muted">26 Mar 1999</span><br>
-                                          <span class="text-muted">10: 55 AM</span>
-                                      </td>
-                                      <td>
-                                        <select class="form-control category-select" id="exampleFormControlSelect1">
-                                          <option>Modulator</option>
-                                          <option>Admin</option>
-                                          <option>User</option>
-                                          <option>Subscriber</option>
-                                        </select>
-                                      </td>
-                                      <td>
-                                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle"><i class="ti-key"></i> </button>
-                                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="icon-trash"></i> </button>
-                                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="ti-pencil-alt"></i> </button>
-                                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="ti-upload"></i> </button>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td class="pl-4">5</td>
-                                      <td>
-                                          <h5 class="font-medium mb-0">Sophia Jones</h5>
-                                          <span class="text-muted">Texas, Unitedd states</span>
-                                      </td>
-                                      <td>
-                                          <span class="text-muted">Visual Designer</span><br>
-                                          <span class="text-muted">Past : teacher</span>
-                                      </td>
-                                      <td>
-                                          <span class="text-muted">daniel@website.com</span><br>
-                                          <span class="text-muted">999 - 444 - 555</span>
-                                      </td>
-                                      <td>
-                                          <span class="text-muted">16 Aug 2001</span><br>
-                                          <span class="text-muted">10: 55 AM</span>
-                                      </td>
-                                      <td>
-                                        <select class="form-control category-select" id="exampleFormControlSelect1">
-                                          <option>Modulator</option>
-                                          <option>Admin</option>
-                                          <option>User</option>
-                                          <option>Subscriber</option>
-                                        </select>
-                                      </td>
-                                      <td>
-                                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle"><i class="ti-key"></i> </button>
-                                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="icon-trash"></i> </button>
-                                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="ti-pencil-alt"></i> </button>
-                                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="ti-upload"></i> </button>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td class="pl-4">6</td>
-                                      <td>
-                                          <h5 class="font-medium mb-0">Charlotte Brown</h5>
-                                          <span class="text-muted">Texas, Unitedd states</span>
-                                      </td>
-                                      <td>
-                                          <span class="text-muted">Visual Designer</span><br>
-                                          <span class="text-muted">Past : teacher</span>
-                                      </td>
-                                      <td>
-                                          <span class="text-muted">daniel@website.com</span><br>
-                                          <span class="text-muted">999 - 444 - 555</span>
-                                      </td>
-                                      <td>
-                                          <span class="text-muted">15 Mar 1988</span><br>
-                                          <span class="text-muted">10: 55 AM</span>
-                                      </td>
-                                      <td>
-                                        <select class="form-control category-select" id="exampleFormControlSelect1">
-                                          <option>Modulator</option>
-                                          <option>Admin</option>
-                                          <option>User</option>
-                                          <option>Subscriber</option>
-                                        </select>
-                                      </td>
-                                      <td>
-                                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle"><i class="ti-key"></i> </button>
-                                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="icon-trash"></i> </button>
-                                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="ti-pencil-alt"></i> </button>
-                                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="ti-upload"></i> </button>
+                                        <!-- <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="ti-upload"></i> </button> -->
                                       </td>
                                     </tr>
                                   </tbody>
