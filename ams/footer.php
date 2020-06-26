@@ -368,6 +368,8 @@
     <script src="../dist/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="../dist/js/custom.min.js"></script>
+    <script src="../assets/libs/jquery-steps/build/jquery.steps.min.js"></script>
+    <script src="../assets/libs/jquery-validation/dist/jquery.validate.min.js"></script>
     <!-- This Page JS -->
     <script src="../assets/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js"></script>
     <script src="../assets/extra-libs/jvector/jquery-jvectormap-world-mill-en.js"></script>
@@ -378,6 +380,16 @@
     <script src="../assets/libs/chartist/dist/chartist.min.js"></script>
     <script src="../dist/js/pages/chartist/chartist-plugin-tooltip.js"></script>
     <script src="../dist/js/pages/dashboards/dashboard3.js"></script>
+    <!-- Morris Js -->
+    <script src="../assets/libs/morris.js/morris.min.js"></script>
+    <script src="../assets/libs/raphael/raphael.min.js"></script>
+    <!-- Animated skill bar -->
+    <script src="../assets/libs/gaugeJS/dist/gauge.min.js"></script>
+    <script src="../dist/js/pages/dashboards/dashboard5.js"></script>
+    <!-- MSK -->
+    <script src="../assets/libs/wnumb/wNumb.js"></script>
+    <script src="../assets/libs/nouislider/distribute/nouislider.min.js"></script>
+    <script src="../assets/extra-libs/nouislider/nouislider-init.js"></script>
     <script>
       $(function() {
         $('#usa').vectorMap({

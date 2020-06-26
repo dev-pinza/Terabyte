@@ -10,15 +10,26 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../brand_logo/tera1.png">
-    <title>Terbyte - Dashboard</title>
-	<link rel="canonical" href="https://www.wrappixel.com/templates/ampleadmin/" />
+    <title>Terabyte - Dashboard</title>
+	<link rel="canonical" href="#" />
     <!-- This Page CSS -->
+    <link href="../assets/libs/jquery-steps/jquery.steps.css" rel="stylesheet">
+    <link href="../assets/libs/jquery-steps/steps.css" rel="stylesheet">
     <link href="../assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
     <link href="../assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css" rel="stylesheet">
     <link href="../assets/extra-libs/jvector/jvector.css" rel="stylesheet" />
     <link href="../assets/extra-libs/jvector/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
     <!-- needed css -->
+    <link href="../dist/js/pages/chartist/chartist-init.css" rel="stylesheet">
+    <link href="../assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css" rel="stylesheet">
+    <!--morris CSS -->
+    <link href="../assets/libs/morris.js/morris.css" rel="stylesheet">
+    <!-- NEEDED FOR FINANCE -->
+    <link href="../assets/libs/nouislider/distribute/nouislider.min.css" rel="stylesheet">
+    <link href="../assets/extra-libs/nouislider/palette-noui.css" rel="stylesheet">
+    <link href="../assets/extra-libs/nouislider/noui-slider.min.css" rel="stylesheet">
     <link href="../dist/css/style.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../assets/extra-libs/css-chart/css-chart.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -407,13 +418,13 @@
                             </a>
                             <ul aria-expanded="false" class="collapse first-level">
                                 <li class="sidebar-item">
-                                    <a href="#" class="sidebar-link">
+                                    <a href="active_promo.php" class="sidebar-link">
                                         <i class="fas fa-chart-line"></i>
                                         <span class="hide-menu">Active</span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="#" class="sidebar-link">
+                                    <a href="inactive_promo.php" class="sidebar-link">
                                         <i class="fas fa-retweet"></i>
                                         <span class="hide-menu">Inactive</span>
                                     </a>
@@ -513,7 +524,7 @@
                         <h5 class="font-medium text-uppercase mb-0">Dashboard</h5>
                     </div>
                     <div class="col-lg-9 col-md-8 col-xs-12 align-self-center">
-                        <button class="btn btn-danger text-white float-right ml-3 d-none d-md-block">+ Promotion</button>
+                        <a class="btn btn-danger text-white float-right ml-3 d-none d-md-block" href="create_promotion.php">+ Promotion</a>
                         <nav aria-label="breadcrumb" class="mt-2 float-md-right float-left">
                             <ol class="breadcrumb mb-0 justify-content-end p-0">
                                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
