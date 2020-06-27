@@ -50,7 +50,7 @@ include("header.php")
                                 </div>
                                 <div class="form-group mb-0 mt-2">
                                     <div class="col-sm-12 text-center">
-                                        Don't have an account? <a href="authentication-register1.html" class="text-info ml-1"><b>Sign Up</b></a>
+                                        Don't have an account? <a href="ams/dashboard.php" class="text-info ml-1"><b>Sign Up</b></a>
                                     </div>
                                 </div>
                             </form>
@@ -65,7 +65,7 @@ include("header.php")
                     </div>
                     <div class="row mt-3">
                         <!-- Form -->
-                        <form class="col-12" action="index.html">
+                        <form class="col-12" action="ams/dashboard.php">
                             <!-- email -->
                             <div class="form-group row">
                                 <div class="col-12">

@@ -13,7 +13,7 @@ include("header.php")
                     <!-- Form -->
                     <div class="row">
                         <div class="col-12">
-                            <form class="form-horizontal mt-3" action="index.html">
+                            <form class="form-horizontal mt-3" action="ams/dashboard.php">
                                 <div class="form-group row">
                                     <div class="col-12">
                                         <input class="form-control form-control-lg" type="password" required="" placeholder="Password">

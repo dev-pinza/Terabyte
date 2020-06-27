@@ -224,11 +224,11 @@ include("header.php");
 												<div>
 													<!-- Content -->
 													<div class="content-todo">
-														<h5 class="font-medium font-16 todo-header mb-0" data-todo-header="Launch new template using Vuejs within 20 hours">Launch new template using Vuejs within 20 hours</h5>
+														<h5 class="font-medium font-16 todo-header mb-0" data-todo-header="Launch new template using Vuejs within 20 hours">Task Details Heading</h5>
 														<div class="todo-subtext text-muted" 
 															data-todosubtext-html="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pulvinar feugiat consequat. Duis lacus nibh, sagittis id varius vel, aliquet non augue. </p>" 
 															data-todosubtextText='{"ops":[{"insert":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pulvinar feugiat consequat. Duis lacus nibh, sagittis id varius vel, aliquet non augue. \n"}]}'>
-															Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pulvinar feugiat consequat. Duis lacus nibh, sagittis id varius vel, aliquet non augue. 
+															Task Descrption
 														</div>
 														<span class="todo-time font-12 text-muted"><i class="icon-calender mr-1"></i>20 Oct 2020</span>
 													</div>
