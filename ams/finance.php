@@ -366,9 +366,9 @@ include("header.php");
                             </div>
                             <div class="card-body bg-light">
                                 <div class="d-flex align-items-center py-3">
-                                    <img src="../assets/images/users/1.jpg" class="rounded-circle" width="60">
+                                    <!-- <img src="../assets/images/users/1.jpg" class="rounded-circle" width="60"> -->
                                     <div class="ml-3">
-                                        <h4 class="font-normal mb-0">Andrew Simon</h4>
+                                        <h4 class="font-normal mb-0">192.168.4778:9 Nigeria | Abuja</h4>
                                         <span class="text-muted">10-11-2016</span>
                                     </div>
                                     <div class="ml-auto">
@@ -376,9 +376,9 @@ include("header.php");
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-center py-3">
-                                    <img src="../assets/images/users/2.jpg" class="rounded-circle" width="60">
+                                    <!-- <img src="../assets/images/users/2.jpg" class="rounded-circle" width="60"> -->
                                     <div class="ml-3">
-                                        <h4 class="font-normal mb-0">John Deo</h4>
+                                        <h4 class="font-normal mb-0">192.168.4878:9 Nigeria | Kano</h4>
                                         <span class="text-muted">01-11-2020</span>
                                     </div>
                                     <div class="ml-auto">
@@ -386,9 +386,9 @@ include("header.php");
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-center py-3">
-                                    <img src="../assets/images/users/3.jpg" class="rounded-circle" width="60">
+                                    <!-- <img src="../assets/images/users/3.jpg" class="rounded-circle" width="60"> -->
                                     <div class="ml-3">
-                                        <h4 class="font-normal mb-0">Shaina Nehwal</h4>
+                                        <h4 class="font-normal mb-0">192.168.4778:97 Nigeria | Lagos</h4>
                                         <span class="text-muted">26-03-2020</span>
                                     </div>
                                     <div class="ml-auto">
@@ -396,9 +396,9 @@ include("header.php");
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-center py-3">
-                                    <img src="../assets/images/users/1.jpg" class="rounded-circle" width="60">
+                                    <!-- <img src="../assets/images/users/1.jpg" class="rounded-circle" width="60"> -->
                                     <div class="ml-3">
-                                        <h4 class="font-normal mb-0">Emily Sion</h4>
+                                        <h4 class="font-normal mb-0">192.165.4778:9 Nigeria | Abuja</h4>
                                         <span class="text-muted">14-04-2020</span>
                                     </div>
                                     <div class="ml-auto">

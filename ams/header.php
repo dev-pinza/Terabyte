@@ -24,11 +24,13 @@
     <link href="../assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css" rel="stylesheet">
     <!--morris CSS -->
     <link href="../assets/libs/morris.js/morris.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../assets/libs/quill/dist/quill.snow.css">
     <!-- NEEDED FOR FINANCE -->
     <link href="../assets/libs/nouislider/distribute/nouislider.min.css" rel="stylesheet">
     <link href="../assets/extra-libs/nouislider/palette-noui.css" rel="stylesheet">
     <link href="../assets/extra-libs/nouislider/noui-slider.min.css" rel="stylesheet">
     <link href="../dist/css/style.min.css" rel="stylesheet">
+    <link href="../assets/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../assets/extra-libs/css-chart/css-chart.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -321,16 +323,16 @@
                                     <div class="ml-2">
                                         <h4 class="mb-0">Pinza Studio</h4>
                                         <p class=" mb-0 text-muted">pinzastudio2020@gmail.com</p>
-                                        <a href="javascript:void(0)" class="btn btn-sm btn-danger text-white mt-2 btn-rounded">View Profile</a>
+                                        <a href="tera_profile.php" class="btn btn-sm btn-danger text-white mt-2 btn-rounded">View Profile</a>
                                     </div>
                                 </div>
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user mr-1 ml-1"></i> My Profile</a>
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet mr-1 ml-1"></i> My Balance</a>
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email mr-1 ml-1"></i> Inbox</a>
+                                <a class="dropdown-item" href="tera_profile.php"><i class="ti-user mr-1 ml-1"></i> My Profile</a>
+                                <a class="dropdown-item" href="finance.php"><i class="ti-wallet mr-1 ml-1"></i> My Earning</a>
+                                <!-- <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email mr-1 ml-1"></i> Inbox</a> -->
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-settings mr-1 ml-1"></i> Account Setting</a>
+                                <!-- <a class="dropdown-item" href="javascript:void(0)"><i class="ti-settings mr-1 ml-1"></i> Account Setting</a> -->
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="fa fa-power-off mr-1 ml-1"></i> Logout</a>
+                                <a class="dropdown-item" href="../logout.php"><i class="fa fa-power-off mr-1 ml-1"></i> Logout</a>
                             </div>
                         </li>
                         <!-- ============================================================== -->
@@ -359,7 +361,7 @@
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level">
                                 <li class="sidebar-item">
-                                    <a href="javascript:void(0)" class="sidebar-link">
+                                    <a href="tera_profile.php" class="sidebar-link">
                                         <i class="ti-user"></i>
                                         <span class="hide-menu"> My Profile </span>
                                     </a>
@@ -367,23 +369,23 @@
                                 <li class="sidebar-item">
                                     <a href="javascript:void(0)" class="sidebar-link">
                                         <i class="ti-wallet"></i>
-                                        <span class="hide-menu"> My Balance </span>
+                                        <span class="hide-menu"> My Earning </span>
                                     </a>
                                 </li>
-                                <li class="sidebar-item">
-                                    <a href="javascript:void(0)" class="sidebar-link">
+                                <!-- <li class="sidebar-item">
+                                    <a href="tera_box.php" class="sidebar-link">
                                         <i class="ti-email"></i>
                                         <span class="hide-menu"> Inbox </span>
                                     </a>
-                                </li>
-                                <li class="sidebar-item">
+                                </li> -->
+                                <!-- <li class="sidebar-item">
                                     <a href="javascript:void(0)" class="sidebar-link">
                                         <i class="ti-settings"></i>
                                         <span class="hide-menu"> Account Setting </span>
                                     </a>
-                                </li>
+                                </li> -->
                                 <li class="sidebar-item">
-                                    <a href="javascript:void(0)" class="sidebar-link">
+                                    <a href="../logout.php" class="sidebar-link">
                                         <i class="fas fa-power-off"></i>
                                         <span class="hide-menu"> Logout </span>
                                     </a>
@@ -445,19 +447,19 @@
                             </a>
                             <ul aria-expanded="false" class="collapse first-level">
                                 <li class="sidebar-item">
-                                    <a href="#" class="sidebar-link">
+                                    <a href="user_management.php" class="sidebar-link">
                                         <i class="mdi mdi-view-carousel"></i>
                                         <span class="hide-menu"> User Management</span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="#" class="sidebar-link">
+                                    <a href="sub_account.php" class="sidebar-link">
                                         <i class="mdi mdi-view-carousel"></i>
-                                        <span class="hide-menu"> Sub Account </span>
+                                        <span class="hide-menu"> Sub Account & Pay Roll </span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="#" class="sidebar-link">
+                                    <a href="coming_soon.php" class="sidebar-link">
                                         <i class="mdi mdi-crop-free"></i>
                                         <span class="hide-menu"> Roles and Permission</span>
                                     </a>
@@ -465,19 +467,19 @@
                             </ul>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="tera_chat.php" aria-expanded="false">
                                 <i class="mdi mdi-message-processing"></i>
                                 <span class="hide-menu">Tera Chat</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="activity.php" aria-expanded="false">
                                 <i class="mdi mdi-bullseye"></i>
                                 <span class="hide-menu">Activity Management</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="coming_soonx.php" aria-expanded="false">
                                 <i class="mdi mdi-archive"></i>
                                 <span class="hide-menu">Archive</span>
                             </a>
@@ -485,19 +487,19 @@
                         <div class="devider"></div>
                        
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="../logout.php" aria-expanded="false">
                                 <i class="mdi mdi-adjust text-danger"></i>
                                 <span class="hide-menu">Log Out</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="coming_soonxx.php" aria-expanded="false">
                                 <i class="mdi mdi-adjust text-info"></i>
                                 <span class="hide-menu">Guide & Documentation</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="faq.php" aria-expanded="false">
                                 <i class="mdi mdi-adjust text-success"></i>
                                 <span class="hide-menu">FAQs</span>
                             </a>

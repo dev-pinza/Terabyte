@@ -368,6 +368,11 @@
     <script src="../dist/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="../dist/js/custom.min.js"></script>
+    <script src="../dist/js/pages/chat/chat.js"></script>
+    <!--This page JavaScript -->
+	<script src="../assets/libs/quill/dist/quill.min.js"></script>
+    <!-- Initialize Quill editor -->
+	<script src="../dist/js/pages/todo/todo.js"></script>
     <script src="../assets/libs/jquery-steps/build/jquery.steps.min.js"></script>
     <script src="../assets/libs/jquery-validation/dist/jquery.validate.min.js"></script>
     <!-- This Page JS -->
@@ -384,12 +389,27 @@
     <script src="../assets/libs/morris.js/morris.min.js"></script>
     <script src="../assets/libs/raphael/raphael.min.js"></script>
     <!-- Animated skill bar -->
+    <!--This page JavaScript -->
+    <script src="../assets/libs/block-ui/jquery.blockUI.js"></script>
+    <script src="../assets/extra-libs/block-ui/block-ui.js"></script>
+    <!-- JJJ -->
     <script src="../assets/libs/gaugeJS/dist/gauge.min.js"></script>
     <script src="../dist/js/pages/dashboards/dashboard5.js"></script>
     <!-- MSK -->
     <script src="../assets/libs/wnumb/wNumb.js"></script>
     <script src="../assets/libs/nouislider/distribute/nouislider.min.js"></script>
     <script src="../assets/extra-libs/nouislider/nouislider-init.js"></script>
+    <!-- END -->
+    <script src="../assets/extra-libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <!-- start - This is for export functionality only -->
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
+    <script src="../dist/js/pages/datatable/datatable-advanced.init.js"></script>
     <script>
       $(function() {
         $('#usa').vectorMap({
