@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../brand_logo/tera1.png">
-    <title>Terabyte - Dashboard</title>
+    <title>Terabyte - <?php echo $web_title; ?></title>
 	<link rel="canonical" href="#" />
     <!-- This Page CSS -->
     <link href="../assets/libs/jquery-steps/jquery.steps.css" rel="stylesheet">

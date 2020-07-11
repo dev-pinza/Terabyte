@@ -2,6 +2,36 @@
 include("header.php");
 ?>
 <!-- START FROM HOME -->
+
+<style> 
+  
+.rangeslider{ 
+    width: 100%; 
+} 
+  
+.myslider { 
+    -webkit-appearance: none; 
+    background: #FCF3CF  ; 
+    width: 100%; 
+    height: 20px; 
+    opacity: 2; 
+   } 
+  
+  
+.myslider::-webkit-slider-thumb { 
+    -webkit-appearance: none; 
+    cursor: pointer; 
+    background: #34495E  ; 
+    width: 5%; 
+    height: 20px; 
+} 
+  
+  
+.myslider:hover { 
+    opacity: 1; 
+} 
+  
+</style> 
  <!-- Container fluid  -->
             <!-- ============================================================== -->
             <div class="page-content container-fluid">
@@ -38,7 +68,7 @@ include("header.php");
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="wlastName2"> Fire-Link Address : <span class="danger">*</span> </label>
-                                                    <input type="url" class="form-control required" id="webUrl3" name="webUrl3"> </div>
+                                                    <input type="url" class="form-control required" value="https://" id="webUrl3" name="webUrl3"> </div>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -148,34 +178,113 @@ include("header.php");
                                             <div class="col-md-6">
                                             <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Budget</h4>
+                                <h4 class="card-title">Budget - NGN <span id="demo" >0</span> </h4>
                                 <div class="form-group">
-                                    <div id="snap" class="mt-3 mb-3"></div>
+                                <div class="rangeslider"> 
+                                    <input type="range" min="1500" max="500000" value="10"
+                                    class="myslider" id="sliderRange">
+                                </div> 
                                 </div>
-                                <h4 class="card-title">Duration</h4>
+                                <h4 class="card-title">Duration - <span id="demoa">0</span> Day(s)</h4>
                                 <div class="form-group">
-                                    <div id="snap" class="mt-3 mb-3"></div>
+                                <div class="rangeslider">
+                                    <input type="range" min="7" max="360" value="10"
+                                    class="myslider" id="sliderRangea">
+                                </div> 
                                 </div>
                             </div>
-                        </div>
+                            <script> 
+                            var rangeslider = document.getElementById("sliderRange");
+                            var output = document.getElementById("demo");
+                            var calc_reach = document.getElementById("est_reach");
+                            var calc_click = document.getElementById("clicks");
+                            var calc_conv = document.getElementById("conversion");
+                            output.innerHTML = rangeslider.value; 
+                            rangeslider.oninput = function() { 
+                            output.innerHTML = this.value; 
+                            // GET Min Aud
+                            var x = 50;
+                            // Total No of Rep
+                            var y = 2000;
+                            // Total Conversion
+                            var z = 10000;
+                            // Min ad Amt
+                            var a = 1500;
+                            // D Dura  
+                            var d = document.getElementById("sliderRangea").value;
+                            // Budget amt.
+                            var ba = document.getElementById("sliderRange").value;
+                            // DO THE MATHS
+                            var fst = ((ba / a) * x) * d;
+                            var snd = fst - (y + z);
+                            if ( snd < fst) {
+                                Reach = snd * 0.7;
+                            } 
+                            else if (snd >= fst) {
+                                Reach = snd + (y + z);
+                            }
+                            Max_r  = Reach + (y + z);
+                            calc_reach.innerHTML = Math.round(Max_r);
+                            calc_click.innerHTML = Math.round(Max_r * 0.2);
+                            calc_conv.innerHTML = Math.round(Max_r * 0.4);
+                            }
+                            </script>
+                             <script> 
+                            var rangeslidera = document.getElementById("sliderRangea"); 
+                            var outputa = document.getElementById("demoa"); 
+                            var calc_reach = document.getElementById("est_reach");
+                            var calc_click = document.getElementById("clicks");
+                            var calc_conv = document.getElementById("conversion");
+                            outputa.innerHTML = rangeslidera.value; 
+                            rangeslidera.oninput = function() { 
+                            outputa.innerHTML = this.value; 
+                            // GET Min Aud
+                            var x = 50;
+                            // Total No of Rep
+                            var y = 2000;
+                            // Total Conversion
+                            var z = 10000;
+                            // Min ad Amt
+                            var a = 1500;
+                            // D Dura  
+                            var d = document.getElementById("sliderRangea").value;
+                            // Budget amt.
+                            var ba = document.getElementById("sliderRange").value;
+                            // DO THE MATHS
+                            var fst = ((ba / a) * x) * d;
+                            var snd = fst - (y + z);
+                            if ( snd < fst) {
+                                Reach = snd * 0.7;
+                            } 
+                            else if (snd >= fst) {
+                                Reach = snd + (y + z);
+                            }
+                            Max_r  = Reach + (y + z);
+                            calc_reach.innerHTML = Math.round(Max_r);
+                            calc_click.innerHTML = Math.round(Max_r * 0.2);
+                            calc_conv.innerHTML = Math.round(Max_r * 0.4);
+                            } 
+                            </script>
+                            </div>
                                             </div>
                                             <div class="col-md-6">
                                             <div class="card">
+                                                <!-- incalculating, you need MIN REACH, NO of Rep -->
                                 <div class="card-body text-center">
                                     <h4 class="text-center text-info">Est. Reach</h4>
-                                    <h2>1200</h2>
+                                    <h2> <span id="est_reach">55</span> </h2>
                                     <div class="row pt-2 pb-2">
                                         <!-- Column -->
                                         <div class="col text-center align-self-center">
-                                            <div data-label="20%" class="css-bar mb-0 css-bar-primary css-bar-20"><i class="display-6 mdi mdi-account-circle"></i></div>
+                                            <div data-label="100%" class="css-bar mb-0 css-bar-primary css-bar-20"><i class="display-6 mdi mdi-account-circle"></i></div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6 col-sm-12">
-                                            <h4 class="font-medium mb-0"><i class="ti-angle-up text-success"></i> <br> 12056</h4>
+                                            <h4 class="font-medium mb-0"><i class="ti-angle-up text-success"></i> <br> clicks <span id="clicks">50</span> </h4>
                                         </div>
                                         <div class="col-md-6 col-sm-12">
-                                            <h4 class="font-medium mb-0"><i class="ti-angle-down text-danger"></i> <br> 145</h4>
+                                            <h4 class="font-medium mb-0"><i class="ti-angle-down text-danger"></i> <br> conversion <span id="conversion">50</span> </h4>
                                         </div>
                                     </div>
                                 </div>
