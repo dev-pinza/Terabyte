@@ -1,4 +1,5 @@
 <?php
+$web_title = "Create Promotion";
 include("header.php");
 ?>
 <!-- START FROM HOME -->
@@ -49,7 +50,7 @@ include("header.php");
                             <div class="card-body wizard-content">
                                 <h4 class="card-title">Promote your Business</h4>
                                 <h6 class="card-subtitle">create a promoted AD</h6>
-                                <form action="#" class="validation-wizard wizard-circle mt-5">
+                                <form action="../function/create_promotion.php" method="POST" class="validation-wizard wizard-circle mt-5" enctype="multipart/form-data">
                                     <!-- Step 1 -->
                                     <h6>Step 1 - Destination</h6>
                                     <section>
@@ -74,8 +75,8 @@ include("header.php");
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="wdate2">Ad Lunch Date :</label>
-                                                    <input type="date" class="form-control" id="wdate2"> </div>
+                                                    <label for="wdate2">Image:</label>
+                                                    <input type="file" class="form-control" id="wdate2"> </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
@@ -192,6 +193,12 @@ include("header.php");
                                     class="myslider" id="sliderRangea">
                                 </div> 
                                 </div>
+                                <div class="form-group">
+                                <input type="text" value="3845" name="total_reach" id="tot_rch">
+                                <input type="text" value="1538" name="total_click" id="clk">
+                                <input type="text" value="769" name="total_conver" id="cnv">
+                                <input type="number" value="1500" name="amount" id="cash_paid">
+                                </div>
                             </div>
                             <script> 
                             var rangeslider = document.getElementById("sliderRange");
@@ -199,6 +206,8 @@ include("header.php");
                             var calc_reach = document.getElementById("est_reach");
                             var calc_click = document.getElementById("clicks");
                             var calc_conv = document.getElementById("conversion");
+                            // aiit
+                            // AIIT
                             output.innerHTML = rangeslider.value; 
                             rangeslider.oninput = function() { 
                             output.innerHTML = this.value; 
@@ -225,8 +234,13 @@ include("header.php");
                             }
                             Max_r  = Reach + (y + z);
                             calc_reach.innerHTML = Math.round(Max_r);
-                            calc_click.innerHTML = Math.round(Max_r * 0.2);
-                            calc_conv.innerHTML = Math.round(Max_r * 0.4);
+                            calc_click.innerHTML = Math.round(Max_r * 0.4);
+                            calc_conv.innerHTML = Math.round(Max_r * 0.2);
+                            // showing
+                            $('#tot_rch').val(Math.round(Max_r));
+                            $('#clk').val(Math.round(Max_r * 0.4));
+                            $('#cnv').val(Math.round(Max_r * 0.2));
+                            $('#cash_paid').val(ba);
                             }
                             </script>
                              <script> 
@@ -261,8 +275,14 @@ include("header.php");
                             }
                             Max_r  = Reach + (y + z);
                             calc_reach.innerHTML = Math.round(Max_r);
-                            calc_click.innerHTML = Math.round(Max_r * 0.2);
-                            calc_conv.innerHTML = Math.round(Max_r * 0.4);
+                            calc_click.innerHTML = Math.round(Max_r * 0.4);
+                            calc_conv.innerHTML = Math.round(Max_r * 0.2);
+                            // showing
+                            $('#tot_rch').val(Math.round(Max_r));
+                            $('#clk').val(Math.round(Max_r * 0.4));
+                            $('#cnv').val(Math.round(Max_r * 0.2));
+                            $('#cash_paid').val(ba);
+                            // DATE
                             } 
                             </script>
                             </div>
@@ -272,19 +292,19 @@ include("header.php");
                                                 <!-- incalculating, you need MIN REACH, NO of Rep -->
                                 <div class="card-body text-center">
                                     <h4 class="text-center text-info">Est. Reach</h4>
-                                    <h2> <span id="est_reach">55</span> </h2>
+                                    <h2> <span id="est_reach">3845</span> </h2>
                                     <div class="row pt-2 pb-2">
                                         <!-- Column -->
                                         <div class="col text-center align-self-center">
-                                            <div data-label="100%" class="css-bar mb-0 css-bar-primary css-bar-20"><i class="display-6 mdi mdi-account-circle"></i></div>
+                                            <div data-label="100%" class="css-bar mb-0 css-bar-primary css-bar-100"><i class="display-6 mdi mdi-account-circle"></i></div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6 col-sm-12">
-                                            <h4 class="font-medium mb-0"><i class="ti-angle-up text-success"></i> <br> clicks <span id="clicks">50</span> </h4>
+                                            <h4 class="font-medium mb-0"><i class="ti-angle-up text-success"></i> <br> clicks <span id="clicks">1538</span> </h4>
                                         </div>
                                         <div class="col-md-6 col-sm-12">
-                                            <h4 class="font-medium mb-0"><i class="ti-angle-down text-danger"></i> <br> conversion <span id="conversion">50</span> </h4>
+                                            <h4 class="font-medium mb-0"><i class="ti-angle-down text-danger"></i> <br> conversion <span id="conversion">769</span> </h4>
                                         </div>
                                     </div>
                                 </div>
