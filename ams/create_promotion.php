@@ -74,9 +74,15 @@ include("header.php");
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="wdate2">Image:</label>
-                                                    <input type="file" class="form-control" id="wdate2"> </div>
+                                            <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Ad Image (Fake Path for Encryption)</span>
+                                        </div>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" accept="image/*">
+                                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                        </div>
+                                    </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
