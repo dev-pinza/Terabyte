@@ -200,10 +200,10 @@ include("header.php");
                                 </div> 
                                 </div>
                                 <div class="form-group">
-                                <input type="text" value="3845" name="total_reach" id="tot_rch">
-                                <input type="text" value="1538" name="total_click" id="clk">
-                                <input type="text" value="769" name="total_conver" id="cnv">
-                                <input type="number" value="1500" name="amount" id="cash_paid">
+                                <input type="text" value="3845" name="total_reach" id="tot_rch" hidden>
+                                <input type="text" value="1538" name="total_click" id="clk" hidden>
+                                <input type="text" value="769" name="total_conver" id="cnv" hidden>
+                                <input type="number" value="1500" name="amount" id="cash_paid" hidden>
                                 </div>
                             </div>
                             <script> 
