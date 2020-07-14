@@ -185,30 +185,31 @@ include("header.php");
                                             <div class="col-md-6">
                                             <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Budget - NGN <span id="demo" >0</span> </h4>
+                                <h4 class="card-title">Budget - NGN <span id="demo" >1500</span> (Amount Due - NGN <span id="amt_due">1500</span>) </h4>
                                 <div class="form-group">
                                 <div class="rangeslider"> 
-                                    <input type="range" min="1500" max="500000" value="10"
+                                    <input type="range" min="1500" max="500000" value="1500"
                                     class="myslider" id="sliderRange">
                                 </div> 
                                 </div>
                                 <h4 class="card-title">Duration - <span id="demoa">0</span> Day(s)</h4>
                                 <div class="form-group">
                                 <div class="rangeslider">
-                                    <input type="range" min="7" max="360" value="10"
+                                    <input type="range" min="1" max="360" value="1"
                                     class="myslider" id="sliderRangea">
                                 </div> 
                                 </div>
                                 <div class="form-group">
-                                <input type="text" value="3845" name="total_reach" id="tot_rch" hidden>
-                                <input type="text" value="1538" name="total_click" id="clk" hidden>
-                                <input type="text" value="769" name="total_conver" id="cnv" hidden>
-                                <input type="number" value="1500" name="amount" id="cash_paid" hidden>
+                                <input type="text" value="1818" name="total_reach" id="tot_rch" hidden>
+                                <input type="text" value="727" name="total_click" id="clk" hidden>
+                                <input type="text" value="364" name="total_conver" id="cnv" hidden>
+                                <input type="number" value="1500" name="amount" id="cash_paid">
                                 </div>
                             </div>
                             <script> 
                             var rangeslider = document.getElementById("sliderRange");
                             var output = document.getElementById("demo");
+                            var qamt = document.getElementById("amt_due");
                             var calc_reach = document.getElementById("est_reach");
                             var calc_click = document.getElementById("clicks");
                             var calc_conv = document.getElementById("conversion");
@@ -239,19 +240,27 @@ include("header.php");
                                 Reach = snd + (y + z);
                             }
                             Max_r  = Reach + (y + z);
+                            if (d < 7 && ba < 500000) {
+                                Max_r = Max_r * 0.5;
+                            }
+                            // showing
+                            var amount_due = d * ba;
+                            // end
                             calc_reach.innerHTML = Math.round(Max_r);
                             calc_click.innerHTML = Math.round(Max_r * 0.4);
                             calc_conv.innerHTML = Math.round(Max_r * 0.2);
-                            // showing
+                            qamt.innerHTML = amount_due;
+                            // geting amount
                             $('#tot_rch').val(Math.round(Max_r));
                             $('#clk').val(Math.round(Max_r * 0.4));
                             $('#cnv').val(Math.round(Max_r * 0.2));
-                            $('#cash_paid').val(ba);
+                            $('#cash_paid').val(amount_due);
                             }
                             </script>
                              <script> 
                             var rangeslidera = document.getElementById("sliderRangea"); 
                             var outputa = document.getElementById("demoa"); 
+                            var qamt = document.getElementById("amt_due");
                             var calc_reach = document.getElementById("est_reach");
                             var calc_click = document.getElementById("clicks");
                             var calc_conv = document.getElementById("conversion");
@@ -271,6 +280,7 @@ include("header.php");
                             // Budget amt.
                             var ba = document.getElementById("sliderRange").value;
                             // DO THE MATHS
+                            // we good
                             var fst = ((ba / a) * x) * d;
                             var snd = fst - (y + z);
                             if ( snd < fst) {
@@ -280,14 +290,22 @@ include("header.php");
                                 Reach = snd + (y + z);
                             }
                             Max_r  = Reach + (y + z);
+                            if (d < 7 && ba < 500000) {
+                                Max_r = Max_r * 0.5;
+                            }
+                            // amount
+                            var amount_due = d * ba;
+                            // done with
                             calc_reach.innerHTML = Math.round(Max_r);
                             calc_click.innerHTML = Math.round(Max_r * 0.4);
                             calc_conv.innerHTML = Math.round(Max_r * 0.2);
+                            qamt.innerHTML = amount_due;
                             // showing
                             $('#tot_rch').val(Math.round(Max_r));
                             $('#clk').val(Math.round(Max_r * 0.4));
                             $('#cnv').val(Math.round(Max_r * 0.2));
-                            $('#cash_paid').val(ba);
+                            $('#cash_paid').val(amount_due);
+                            // $('#amt_due').val(amount_due);
                             // DATE
                             } 
                             </script>
@@ -298,7 +316,7 @@ include("header.php");
                                                 <!-- incalculating, you need MIN REACH, NO of Rep -->
                                 <div class="card-body text-center">
                                     <h4 class="text-center text-info">Est. Reach</h4>
-                                    <h2> <span id="est_reach">3845</span> </h2>
+                                    <h2> <span id="est_reach">1818</span> </h2>
                                     <div class="row pt-2 pb-2">
                                         <!-- Column -->
                                         <div class="col text-center align-self-center">
@@ -307,10 +325,10 @@ include("header.php");
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6 col-sm-12">
-                                            <h4 class="font-medium mb-0"><i class="ti-angle-up text-success"></i> <br> clicks <span id="clicks">1538</span> </h4>
+                                            <h4 class="font-medium mb-0"><i class="ti-angle-up text-success"></i> <br> clicks <span id="clicks">727</span> </h4>
                                         </div>
                                         <div class="col-md-6 col-sm-12">
-                                            <h4 class="font-medium mb-0"><i class="ti-angle-down text-danger"></i> <br> conversion <span id="conversion">769</span> </h4>
+                                            <h4 class="font-medium mb-0"><i class="ti-angle-down text-danger"></i> <br> conversion <span id="conversion">364</span> </h4>
                                         </div>
                                     </div>
                                 </div>
@@ -468,7 +486,7 @@ include("footer.php");
             return form.validate().settings.ignore = ":disabled", form.valid()
         },
         onFinished: function(event, currentIndex) {
-            swal("Form Submitted!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat eleifend ex semper, lobortis purus sed.");
+            swal("Form Submitted!", "Ad Content has been submitted sucessfully!.");
         }
     }), $(".validation-wizard").validate({
         ignore: "input[type=hidden]",
