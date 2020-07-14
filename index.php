@@ -1,4 +1,5 @@
 <?php
+$type = "Login";
 include("header.php")
 ?>
         <!-- Login box.scss -->
@@ -50,7 +51,7 @@ include("header.php")
                                 </div>
                                 <div class="form-group mb-0 mt-2">
                                     <div class="col-sm-12 text-center">
-                                        Don't have an account? <a href="ams/dashboard.php" class="text-info ml-1"><b>Sign Up</b></a>
+                                        Don't have an account? <a href="signup.php" class="text-info ml-1"><b>Sign Up</b></a>
                                     </div>
                                 </div>
                             </form>
@@ -59,17 +60,19 @@ include("header.php")
                 </div>
                 <div id="recoverform">
                     <div class="logo">
-                        <span class="db"><img src="assets/images/logos/logo-icon.png" alt="logo" /></span>
+                        <span class="db">
+                            <!-- <img src="assets/images/logos/logo-icon.png" alt="logo" /> -->
+                        </span>
                         <h5 class="font-medium mb-3">Recover Password</h5>
                         <span>Enter your Email and instructions will be sent to you!</span>
                     </div>
                     <div class="row mt-3">
                         <!-- Form -->
-                        <form class="col-12" action="ams/dashboard.php">
+                        <form class="col-12" action="#">
                             <!-- email -->
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <input class="form-control form-control-lg" type="email" required="" placeholder="Username">
+                                    <input class="form-control form-control-lg" type="email" required="" placeholder="Email">
                                 </div>
                             </div>
                             <!-- pwd -->

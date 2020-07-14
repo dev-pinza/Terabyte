@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="brand_logo/terabrand2.png">
-    <title>Terabyte - Login</title>
+    <title>Terabyte - <?php echo $type; ?></title>
 	<link rel="canonical" href="https://www.wrappixel.com/templates/ampleadmin/" />
     <!-- Custom CSS -->
     <link href="dist/css/style.min.css" rel="stylesheet">
