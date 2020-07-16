@@ -2,10 +2,10 @@
 /* Database credentials. Assuming you are running MySQL
 server with default setting (user 'root' with no pssword) */
 define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'bfslcom_apply');
-define('DB_PASSWORD', 'Apply633#@');
+define('DB_USERNAME', 'thisiste_base');
+define('DB_PASSWORD', '@8;WKJddKqTo');
 define('DB_CHARSET', 'utf8');
-define('DB_NAME', 'bfslcom_bfsl');
+define('DB_NAME', 'thisiste_tera');
 // hello
 // test
 // define('DB_SERVER', 'localhost');

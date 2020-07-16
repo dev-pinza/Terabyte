@@ -1,4 +1,5 @@
 <?php
+$web_title = "Manage Promotion";
 include("header.php");
 ?>
 <!-- check -->
@@ -25,7 +26,7 @@ include("header.php");
                                                 <h6 class="text-muted">Total Audience Reached</h6></div>
                                             <!-- Column -->
                                             <div class="col text-right align-self-center">
-                                                <div data-label="20%" class="css-bar mb-0 css-bar-primary css-bar-20"><i class="mdi mdi-account-circle"></i></div>
+                                                <div data-label="20%" class="css-bar mb-0 css-bar-primary css-bar-80"><i class="mdi mdi-account-circle"></i></div>
                                             </div>
                                         </div>
                                     </div>

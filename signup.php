@@ -36,9 +36,9 @@ if (count([$res]) == 1) {
    $msg = "Image Failed";
  }
 //  wow
-    if ($username !== $ui && $email !== $ei) {
+    if ($un !== $ui && $em !== $ei) {
         // add up
-        $insert = mysqli_query($connection, "INSERT INTO `users` (`username`, `email`, `password`, `phone`, `usertype`, `created_date`, `gender`, `account_id`, `img`) VALUES ('{$un}', '{$em}', '{$hash}', '{$ph}', '{client}', '{$date_time}', '{$gn}', '0', '{$sig_passport_one}')");
+        $insert = mysqli_query($connection, "INSERT INTO `users` (`username`, `email`, `password`, `phone`, `usertype`, `created_date`, `gender`, `account_id`, `img`) VALUES ('{$un}', '{$em}', '{$hash}', '{$ph}', 'client', '{$date_time}', '{$gn}', '0', '{$sig_passport_one}')");
         if ($insert) {
             // select user
             $select_user = mysqli_query($connection, "SELECT * FROM `users` WHERE username = '$un' AND email = '$em'");
@@ -48,13 +48,160 @@ if (count([$res]) == 1) {
             // create an account 
             if ($insert_account) {
                 // echo msg email
+                $gen_date = date('Y-m-d');
+             // begining of mail
+             $mail = new PHPMailer;
+             // from email addreess and name
+             $mail->From = "info@thisistera.com";
+             $mail->FromName = "Terabyte";
+             // to adress and name
+             $mail->addAddress($em, $un);
+             // reply address
+             //Address to which recipient will reply
+             // progressive html images
+             $mail->addReplyTo("contactus@thisistera.com", "Reply");
+             // CC and BCC
+             //CC and BCC
+             // $mail->addCC("cc@example.com");
+             // $mail->addBCC("bcc@example.com");
+             // Send HTML or Plain Text Email
+             $mail->isHTML(true);
+             $mail->Subject = "WELCOME TO Terabyte";
+             $mail->Body = "<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+             <html dir='ltr' xmlns='http://www.w3.org/1999/xhtml'>
+             
+             <head>
+                 <meta name='viewport' content='width=device-width' />
+                 <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+                 <title>Application Successful</title>
+             </head>
+             
+             <body style='margin:0px; background: #f8f8f8; '>
+                 <div width='100%' style='background: #f8f8f8; padding: 0px 0px; font-family:arial; line-height:28px; height:100%;  width: 100%; color: #514d6a;'>
+                     <div style='max-width: 700px; padding:50px 0;  margin: 0px auto; font-size: 14px'>
+                         <table border='0' cellpadding='0' cellspacing='0' style='width: 100%; margin-bottom: 20px'>
+                             <tbody>
+                                 <tr>
+                                     <td style='vertical-align: top; padding-bottom:30px;' align='center'>
+                                    Terabyte
+                                     </td>
+                                 </tr>
+                             </tbody>
+                         </table>
+                         <table border='0' cellpadding='0' cellspacing='0' style='width: 100%;'>
+                             <tbody>
+                                 <tr>
+                                     <td style='background:#413e39; padding:20px; color:#fff; text-align:center;'> Admin Registration Successful. </td>
+                                 </tr>
+                             </tbody>
+                         </table>
+                         <div style='padding: 40px; background: #fff;'>
+                             <table border='0' cellpadding='0' cellspacing='0' style='width: 100%;'>
+                                 <tbody>
+                                     <tr>
+                                         <td>
+                                             <p>Submitted Date <b>$gen_date</b></p>
+                                             <p>WELCOME TO TERABYTE</p>
+                                             <p>Find Below Your Login Credentials</p>
+                                             <p>Username: $un</p>
+                                             <p>Password: $pass</p>
+                                             <center>
+                                                 <a href='https://thisistera.com/index.php' style='display: inline-block; padding: 11px 30px; margin: 20px 0px 30px; font-size: 15px; color: #fff; background: #4fc3f7; border-radius: 60px; text-decoration:none;'>Login</a>
+                                             </center>
+                                             <b>- Thanks (Terabyte Email Robot)</b> </td>
+                                     </tr>
+                                 </tbody>
+                             </table>
+                         </div>
+                         <div style='text-align: center; font-size: 12px; color: #b2b2b5; margin-top: 20px'>
+                             <p> Powered by Terabyte
+                                 <br>
+                                 <a href='javascript: void(0);' style='color: #b2b2b5; text-decoration: underline;'>Unsubscribe</a> </p>
+                         </div>
+                     </div>
+                 </div>
+             </body>
+             
+             </html>";
+             $mail->AltBody = "This is the plain text version of the email content";
+             // mail system
+             if(!$mail->send()) 
+             {
+                 echo "Mailer Error: " . $mail->ErrorInfo;
+                 echo '<script type="text/javascript">
+    $(document).ready(function(){
+        swal({
+            type: "success",
+            title: "Account Created",
+            text: "Thank you!",
+            showConfirmButton: false,
+            timer: 4000
+        })
+    });
+    </script>
+    ';
+                 echo header ("Location: index.php");
+             } else
+             {
+                 echo "Message has been sent successfully";
+                 echo '<script type="text/javascript">
+    $(document).ready(function(){
+        swal({
+            type: "success",
+            title: "Account Created",
+            text: "Thank you!",
+            showConfirmButton: false,
+            timer: 4000
+        })
+    });
+    </script>
+    ';
+                 echo header ("Location: index.php");
+             }
+                // end email
             } else {
                 // client account not created
+                echo '
+                 <script>
+                     Swal.fire({
+                title: "User Account Failed",
+                animation: true,
+                customClass: {
+                    popup: "animated tada"
+                }
+            })
+                 </script>
+                 ';
             }
         } else {
             // echo account user not created
+            echo '<script type="text/javascript">
+    $(document).ready(function(){
+        swal({
+            type: "error",
+            title: "Account Error",
+            text: "User Creation Failed",
+            showConfirmButton: false,
+            timer: 4000
+        })
+    });
+    </script>
+    ';
         }
     } else {
+        echo '<script type="text/javascript">
+    $(document).ready(function(){
+        swal({
+            type: "error",
+            title: "Registration Error",
+            text: "You Have an Error",
+            showConfirmButton: false,
+            timer: 4000
+        })
+    });
+    </script>
+    ';
+                 echo "Reg Error";
         // $_SESSION["Lack_of_intfund_$randms"] = "Registration Ex";
         // echo header ("Location: index.php?message3=$randms");
         // Echo Name Exist
@@ -141,7 +288,7 @@ if (count([$res]) == 1) {
                                 </div>
                                 <div class="form-group text-center ">
                                     <div class="col-xs-12 pb-3 ">
-                                        <button class="btn btn-block btn-lg btn-dark" type="submit ">SIGN UP</button>
+                                        <button class="btn btn-block btn-lg btn-dark" type="submit">SIGN UP</button>
                                     </div>
                                 </div>
                                 <div class="form-group mb-0 mt-2 ">

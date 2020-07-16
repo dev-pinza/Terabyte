@@ -19,6 +19,9 @@
     <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
     <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- ============================================================== -->
+    <script src="dist/js/custom.min.js"></script>
+    <script src="assets/libs/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script src="assets/libs/sweetalert2/sweet-alert.init.js"></script>
     <!-- This page plugin js -->
     <!-- ============================================================== -->
     <script>

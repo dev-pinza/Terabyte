@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -52,6 +51,30 @@
     </div>
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
+    <?php
+    session_start();
+    include("../function/db/connect.php");
+    // display
+    $user_id = $_SESSION["id"];
+    $username = $_SESSION["username"];
+    $email = $_SESSION["email"];
+    $usertype = $_SESSION["usertype"];
+    // get user more detials
+    $select_user = mysqli_query($connection, "SELECT * FROM `users` WHERE id = '$user_id'");
+    $pip = mysqli_fetch_array($select_user);
+    $user_img = $pip["img"];
+
+    // page control
+    if(!$_SESSION["username"] != ""){
+        header("location: ../index.php");
+        exit;
+    }
+    // aiit
+    if($usertype == ""){
+        header("location: ../index.php");
+        exit;
+    }
+    ?>
     <!-- ============================================================== -->
     <div id="main-wrapper">
         <!-- ============================================================== -->
@@ -62,7 +85,7 @@
                 <div class="navbar-header border-right">
                     <!-- This is for the sidebar toggle which is visible on mobile only -->
                     <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="dashboard.php">
                         <!-- Logo icon -->
                         <b class="logo-icon">
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
@@ -137,6 +160,9 @@
                         <!-- ============================================================== -->
                         <!-- Comment -->
                         <!-- ============================================================== -->
+                        <?php
+                    if ($usertype != "client" && $usertype != "rep") {
+                        ?>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-check-circle font-18"></i>
                                 <div class="notify">
@@ -184,13 +210,19 @@
                                 </ul>
                             </div>
                         </li>
+                        <?php
+                    }
+                        ?>
                         <!-- ============================================================== -->
                         <!-- End Comment -->
                         <!-- ============================================================== -->
                         <!-- ============================================================== -->
                         <!-- mega menu -->
                         <!-- ============================================================== -->
-                        <li class="nav-item dropdown mega-dropdown"><a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <?php
+                        if ($usertype != "client" && $usertype != "rep") {
+                            ?>
+                            <li class="nav-item dropdown mega-dropdown"><a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="d-none d-md-block">Tech Support <i class="icon-options-vertical"></i></span>
                              <span class="d-block d-md-none"><i class="mdi mdi-dialpad font-24"></i></span>
                             </a>
@@ -292,6 +324,9 @@
                                 </div>
                             </div>
                         </li>
+                            <?php
+                        }
+                        ?>
                         <!-- ============================================================== -->
                         <!-- End mega menu -->
                         <!-- ============================================================== -->
@@ -314,25 +349,31 @@
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="../user_img/log.jpeg" alt="user" class="rounded-circle" width="36">
+                                <img src="../client_img/<?php echo $user_img; ?>" alt="user" class="rounded-circle" width="36">
                                 <span class="ml-2 font-medium">Pinza</span><span class="fas fa-angle-down ml-2"></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
                                 <div class="d-flex no-block align-items-center p-3 mb-2 border-bottom">
-                                    <div class=""><img src="../user_img/log.jpeg" alt="user" class="rounded" width="80"></div>
+                                    <div class=""><img src="../client_img/<?php echo $user_img; ?>" alt="user" class="rounded" width="80"></div>
                                     <div class="ml-2">
-                                        <h4 class="mb-0">Pinza Studio</h4>
-                                        <p class=" mb-0 text-muted">pinzastudio2020@gmail.com</p>
+                                        <h4 class="mb-0"><?php echo $username; ?></h4>
+                                        <p class=" mb-0 text-muted"><?php echo $email; ?></p>
                                         <a href="tera_profile.php" class="btn btn-sm btn-danger text-white mt-2 btn-rounded">View Profile</a>
                                     </div>
                                 </div>
                                 <a class="dropdown-item" href="tera_profile.php"><i class="ti-user mr-1 ml-1"></i> My Profile</a>
+                                <?php
+                                if ($usertype != "client"){
+                                    ?>
                                 <a class="dropdown-item" href="finance.php"><i class="ti-wallet mr-1 ml-1"></i> My Earning</a>
+                                <?php
+                                }
+                                 ?>
                                 <!-- <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email mr-1 ml-1"></i> Inbox</a> -->
                                 <div class="dropdown-divider"></div>
                                 <!-- <a class="dropdown-item" href="javascript:void(0)"><i class="ti-settings mr-1 ml-1"></i> Account Setting</a> -->
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="../logout.php"><i class="fa fa-power-off mr-1 ml-1"></i> Logout</a>
+                                <a class="dropdown-item" href="../function/logout.php"><i class="fa fa-power-off mr-1 ml-1"></i> Logout</a>
                             </div>
                         </li>
                         <!-- ============================================================== -->
@@ -356,8 +397,8 @@
                     <ul id="sidebarnav">
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow waves-effect waves-dark profile-dd" href="javascript:void(0)" aria-expanded="false">
-                                <img src="../user_img/log.jpeg" class="rounded-circle ml-2" width="30">
-                                <span class="hide-menu">Pinza Studio </span>
+                                <img src="../client_img/<?php echo $user_img; ?>" class="rounded-circle ml-2" width="30">
+                                <span class="hide-menu"><?php echo $username; ?> </span>
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level">
                                 <li class="sidebar-item">
@@ -366,12 +407,18 @@
                                         <span class="hide-menu"> My Profile </span>
                                     </a>
                                 </li>
+                                <?php
+                                if ($usertype != "client"){
+                                    ?>
                                 <li class="sidebar-item">
                                     <a href="javascript:void(0)" class="sidebar-link">
                                         <i class="ti-wallet"></i>
                                         <span class="hide-menu"> My Earning </span>
                                     </a>
                                 </li>
+                                <?php
+                                }
+                                ?>
                                 <!-- <li class="sidebar-item">
                                     <a href="tera_box.php" class="sidebar-link">
                                         <i class="ti-email"></i>
@@ -385,13 +432,16 @@
                                     </a>
                                 </li> -->
                                 <li class="sidebar-item">
-                                    <a href="../logout.php" class="sidebar-link">
+                                    <a href="../function/logout.php" class="sidebar-link">
                                         <i class="fas fa-power-off"></i>
                                         <span class="hide-menu"> Logout </span>
                                     </a>
                                 </li>
                             </ul>
                         </li>
+                        <?php
+                        if ($usertype != "client"){
+                            ?>
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
                                 <i class="mdi mdi-av-timer"></i>
@@ -413,12 +463,21 @@
                                 </li>
                             </ul>
                         </li>
+                        <?php
+                        }
+                        ?>
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
                                 <i class="fas fa-hand-holding-usd"></i>
                                 <span class="hide-menu">Promotion</span>
                             </a>
                             <ul aria-expanded="false" class="collapse first-level">
+                            <li class="sidebar-item">
+                                    <a href="create_promotion.php" class="sidebar-link">
+                                        <i class="fas fa-chart-line"></i>
+                                        <span class="hide-menu">Create</span>
+                                    </a>
+                                </li>
                                 <li class="sidebar-item">
                                     <a href="active_promo.php" class="sidebar-link">
                                         <i class="fas fa-chart-line"></i>
@@ -439,6 +498,9 @@
                                 </li> -->
                             </ul>
                         </li>
+                        <?php
+                        if ($usertype != "client" && $usertype != "rep"){
+                            ?>
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
                                 <i class="mdi mdi-webhook"></i>
@@ -452,6 +514,9 @@
                                         <span class="hide-menu"> User Management</span>
                                     </a>
                                 </li>
+                                <?php
+                                if ($usertype != "man") {
+                                ?>
                                 <li class="sidebar-item">
                                     <a href="sub_account.php" class="sidebar-link">
                                         <i class="mdi mdi-view-carousel"></i>
@@ -464,20 +529,38 @@
                                         <span class="hide-menu"> Roles and Permission</span>
                                     </a>
                                 </li>
+                                <?php
+                                }
+                                ?>
                             </ul>
                         </li>
+                        <?php
+                        }
+                        ?>
+                        <?php
+                        if ($usertype != "client"){
+                            ?>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="tera_chat.php" aria-expanded="false">
                                 <i class="mdi mdi-message-processing"></i>
                                 <span class="hide-menu">Tera Chat</span>
                             </a>
                         </li>
+                        <?php
+                        }
+                        ?>
+                        <?php
+                        if ($usertype != "client"){
+                            ?>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="activity.php" aria-expanded="false">
                                 <i class="mdi mdi-bullseye"></i>
                                 <span class="hide-menu">Activity Management</span>
                             </a>
                         </li>
+                        <?php
+                        }
+                        ?>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="coming_soonx.php" aria-expanded="false">
                                 <i class="mdi mdi-archive"></i>
@@ -487,17 +570,23 @@
                         <div class="devider"></div>
                        
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="../logout.php" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="../function/logout.php" aria-expanded="false">
                                 <i class="mdi mdi-adjust text-danger"></i>
                                 <span class="hide-menu">Log Out</span>
                             </a>
                         </li>
+                        <?php
+                        if ($usertype != "client"){
+                            ?>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="coming_soonxx.php" aria-expanded="false">
                                 <i class="mdi mdi-adjust text-info"></i>
                                 <span class="hide-menu">Guide & Documentation</span>
                             </a>
                         </li>
+                        <?php
+                        }
+                        ?>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="faq.php" aria-expanded="false">
                                 <i class="mdi mdi-adjust text-success"></i>
@@ -523,7 +612,7 @@
             <div class="page-breadcrumb border-bottom">
                 <div class="row">
                     <div class="col-lg-3 col-md-4 col-xs-12 align-self-center">
-                        <h5 class="font-medium text-uppercase mb-0">Dashboard</h5>
+                        <h5 class="font-medium text-uppercase mb-0"><?php echo $web_title; ?></h5>
                     </div>
                     <div class="col-lg-9 col-md-8 col-xs-12 align-self-center">
                         <a class="btn btn-danger text-white float-right ml-3 d-none d-md-block" href="create_promotion.php">+ Promotion</a>
