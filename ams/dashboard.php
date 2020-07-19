@@ -1,4 +1,5 @@
 <?php
+$web_title = "Dashboard";
 include("header.php");
 ?>
   <div class="page-content container-fluid">
@@ -123,7 +124,7 @@ include("header.php");
                     <div class="col-md-12 col-lg-4">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title text-uppercase">Campus</h5>
+                                <h5 class="card-title text-uppercase">Institution</h5>
                                 <ul class="list-style-none country-state mt-4">
                                    <li class="mb-4">
                                         <h2 class="mb-0">6350</h2>

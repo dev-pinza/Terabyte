@@ -1,4 +1,5 @@
 <?php
+$web_title = "Earning";
 include("header.php");
 ?>
 <!-- start the html -->

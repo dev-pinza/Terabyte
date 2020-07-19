@@ -195,7 +195,7 @@ include("header.php");
                                 <h4 class="card-title">Duration - <span id="demoa">0</span> Day(s)</h4>
                                 <div class="form-group">
                                 <div class="rangeslider">
-                                    <input type="range" min="1" max="360" value="1"
+                                    <input type="range" min="1" max="30" value="1"
                                     class="myslider" id="sliderRangea">
                                 </div> 
                                 </div>

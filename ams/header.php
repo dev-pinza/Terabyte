@@ -22,6 +22,7 @@
     <link href="../dist/js/pages/chartist/chartist-init.css" rel="stylesheet">
     <link href="../assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css" rel="stylesheet">
     <!--morris CSS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="../assets/libs/morris.js/morris.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../assets/libs/quill/dist/quill.snow.css">
     <!-- NEEDED FOR FINANCE -->
@@ -75,6 +76,7 @@
         exit;
     }
     ?>
+    <input type="text" value="<?php echo $usertype ?>" id="main_user" hidden>
     <!-- ============================================================== -->
     <div id="main-wrapper">
         <!-- ============================================================== -->
@@ -349,7 +351,7 @@
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="../client_img/<?php echo $user_img; ?>" alt="user" class="rounded-circle" width="36">
+                                <img src="../client_img/<?php echo $user_img; ?>" height="40px" width="40px" alt="user" class="rounded-circle" width="36">
                                 <span class="ml-2 font-medium">Pinza</span><span class="fas fa-angle-down ml-2"></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
@@ -397,7 +399,7 @@
                     <ul id="sidebarnav">
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow waves-effect waves-dark profile-dd" href="javascript:void(0)" aria-expanded="false">
-                                <img src="../client_img/<?php echo $user_img; ?>" class="rounded-circle ml-2" width="30">
+                                <img src="../client_img/<?php echo $user_img; ?>" height="40px" width="40px" class="rounded-circle ml-2" width="30">
                                 <span class="hide-menu"><?php echo $username; ?> </span>
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level">
@@ -449,18 +451,37 @@
                                 <span class="badge badge-inverse badge-pill ml-auto mr-3 font-medium px-2 py-1">2</span>
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level">
+                                <?php
+                                if ($usertype == "super") {
+                                ?>
                                 <li class="sidebar-item">
                                     <a href="dashboard.php" class="sidebar-link">
                                         <i class="mdi mdi-adjust"></i>
                                         <span class="hide-menu"> General Overview </span>
                                     </a>
                                 </li>
+                                <?php
+                                } else if ($usertype == "man") {
+                                ?>
                                 <li class="sidebar-item">
-                                    <a href="finance.php" class="sidebar-link">
+                                    <a href="man_dash.php" class="sidebar-link">
                                         <i class="mdi mdi-adjust"></i>
-                                        <span class="hide-menu"> Financial Activity </span>
+                                        <span class="hide-menu"> Institution Activity </span>
                                     </a>
                                 </li>
+                                <?php
+                                }
+                            else if ($usertype == "rep") {
+                            ?>
+                            <li class="sidebar-item">
+                                <a href="finance.php" class="sidebar-link">
+                                    <i class="mdi mdi-adjust"></i>
+                                    <span class="hide-menu"> Financial Activity </span>
+                                </a>
+                            </li>
+                            <?php
+                            }
+                            ?>
                             </ul>
                         </li>
                         <?php
@@ -472,7 +493,10 @@
                                 <span class="hide-menu">Promotion</span>
                             </a>
                             <ul aria-expanded="false" class="collapse first-level">
-                            <li class="sidebar-item">
+                                <?php
+                                if ($usertype == "client") {
+                                    ?>
+                                    <li class="sidebar-item">
                                     <a href="create_promotion.php" class="sidebar-link">
                                         <i class="fas fa-chart-line"></i>
                                         <span class="hide-menu">Create</span>
@@ -490,6 +514,33 @@
                                         <span class="hide-menu">Inactive</span>
                                     </a>
                                 </li>
+                                    <?php
+                                } else if ($usertype == "man") {
+                                    ?>
+                                <li class="sidebar-item">
+                                    <a href="ad_man.php" class="sidebar-link">
+                                        <i class="fas fa-chart-line"></i>
+                                        <span class="hide-menu">Ads Management</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="ad_history.php" class="sidebar-link">
+                                        <i class="fas fa-retweet"></i>
+                                        <span class="hide-menu">Ad History</span>
+                                    </a>
+                                </li>
+                                    <?php
+                                } else if ($usertype == "rep") {
+                                    ?>
+                                    <li class="sidebar-item">
+                                    <a href="share_ad.php" class="sidebar-link">
+                                        <i class="fas fa-chart-line"></i>
+                                        <span class="hide-menu">Share Ads</span>
+                                    </a>
+                                </li>
+                                    <?php
+                                }
+                                ?>
                                 <!-- <li class="sidebar-item">
                                     <a href="eco-products-checkout.html" class="sidebar-link">
                                         <i class="mdi mdi-clipboard-check"></i>

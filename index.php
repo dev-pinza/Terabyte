@@ -13,7 +13,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     exit;
   } 
   elseif($_SESSION["usertype"] == "rep"){
-    header("location: ams/rep_dash.php");
+    header("location: ams/finance.php");
     exit;
   }
   elseif($_SESSION["usertype"] == "man"){
@@ -100,7 +100,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             if ($stmt->num_rows ==1 && $_SESSION["usertype"] =="client") {
                               header("location: ams/active_promo.php");
                             }elseif ($stmt->num_rows ==1 && $_SESSION["usertype"] =="rep"){
-                                header("location: ams/rep_dash.php");
+                                header("location: ams/finance.php");
                             }elseif ($stmt->num_rows ==1 && $_SESSION["usertype"] =="man"){
                                 header("location: ams/man_dash.php");
                             }elseif ($stmt->num_rows ==1 && $_SESSION["usertype"] =="super"){
@@ -156,8 +156,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                     </div>
                                     <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>"></div>
                                     <input type="password" class="form-control form-control-lg" placeholder="Password" name="password" aria-label="Password" aria-describedby="basic-addon1">
-                                    <span class="help-block"><?php echo $password_err; ?></span>
                                 </div>
+                                <span class="help-block"><?php echo $password_err; ?></span>
                                 <div class="form-group row">
                                     <div class="col-md-12">
                                         <div class="custom-control custom-checkbox">

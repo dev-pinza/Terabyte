@@ -382,6 +382,7 @@
     <script src="../assets/extra-libs/jvector/jquery-jvectormap-us-aea-en.js"></script>
     <script src="../assets/extra-libs/jvector/jquery-jvectormap-uk-mill-en.js"></script>
     <script src="../assets/extra-libs/jvector/jquery-jvectormap-au-mill.js"></script>
+    <script src="../assets/extra-libs/jvector/jquery-jvectormap-africa-mill.js"></script>
     <script src="../assets/libs/chartist/dist/chartist.min.js"></script>
     <script src="../dist/js/pages/chartist/chartist-plugin-tooltip.js"></script>
     <script src="../dist/js/pages/dashboards/dashboard3.js"></script>
@@ -413,14 +414,35 @@
     <script>
       $(function() {
         $('#usa').vectorMap({
-          map : 'us_aea_en',
+          map : 'africa_mill',
           backgroundColor : 'transparent',
           zoomOnScroll: false,
           regionStyle : {
               initial : {
-                  fill : '#2cabe3'
+                  fill : '#008080'
               }
-          }
+          },
+          markerStyle: {
+      initial: {
+        r: 9,
+        'fill': '#fff',
+        'fill-opacity':1,
+        'stroke': '#000',
+        'stroke-width' : 5,
+        'stroke-opacity': 0.4
+        },
+       },
+       enableZoom: true,
+    hoverColor: '#2962FF',
+    markers : [{
+        latLng : [9.081244, 7.463084],
+        name : 'My Location'
+      },
+      {
+        latLng : [2.081244, 7.463084],
+        name : 'My Location'
+      }
+    ],
         });
       });
     </script>
