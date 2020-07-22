@@ -1,3 +1,0 @@
-<?php
-echo "SET UP YOUR PAYSTACK ACCOUNT";
-?>

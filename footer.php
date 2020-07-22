@@ -21,7 +21,7 @@
     <!-- ============================================================== -->
     <script src="dist/js/custom.min.js"></script>
     <script src="assets/libs/sweetalert2/dist/sweetalert2.all.min.js"></script>
-    <script src="assets/libs/sweetalert2/sweet-alert.init.js"></script>
+    <script src="../assets/libs/sweetalert2/dist/sweetalert2.min.js"></script>
     <!-- This page plugin js -->
     <!-- ============================================================== -->
     <script>

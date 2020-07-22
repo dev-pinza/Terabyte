@@ -135,7 +135,7 @@ if (count([$res]) == 1) {
                  echo "Mailer Error: " . $mail->ErrorInfo;
                  echo '<script type="text/javascript">
     $(document).ready(function(){
-        swal({
+        Swal.fire({
             type: "success",
             title: "Account Created",
             text: "Thank you!",
@@ -151,7 +151,7 @@ if (count([$res]) == 1) {
                  echo "Message has been sent successfully";
                  echo '<script type="text/javascript">
     $(document).ready(function(){
-        swal({
+        Swal.fire({
             type: "success",
             title: "Account Created",
             text: "Thank you!",
@@ -168,7 +168,7 @@ if (count([$res]) == 1) {
                 // client account not created
                 echo '
                  <script>
-                     Swal.fire({
+                     Swal.fire.fire({
                 title: "User Account Failed",
                 animation: true,
                 customClass: {
@@ -182,7 +182,7 @@ if (count([$res]) == 1) {
             // echo account user not created
             echo '<script type="text/javascript">
     $(document).ready(function(){
-        swal({
+        Swal.fire({
             type: "error",
             title: "Account Error",
             text: "User Creation Failed",
@@ -196,7 +196,7 @@ if (count([$res]) == 1) {
     } else {
         echo '<script type="text/javascript">
     $(document).ready(function(){
-        swal({
+        Swal.fire({
             type: "error",
             title: "Registration Error",
             text: "You Have an Error",

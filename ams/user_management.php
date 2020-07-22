@@ -9,7 +9,7 @@ if (isset($_GET["message1"])) {
     if ($tt !== $_SESSION["lack_of_intfund_$key"]) {
     echo '<script type="text/javascript">
     $(document).ready(function(){
-        swal({
+        Swal.fire({
             type: "success",
             title: "Success",
             text: "Insitution Created",
@@ -27,7 +27,7 @@ if (isset($_GET["message1"])) {
     if ($tt !== $_SESSION["lack_of_intfund_$key"]) {
     echo '<script type="text/javascript">
     $(document).ready(function(){
-        swal({
+        Swal.fire({
             type: "error",
             title: "A problem!",
             text: "Insitution Creation Failed",
@@ -45,7 +45,7 @@ if (isset($_GET["message1"])) {
     if ($tt !== $_SESSION["lack_of_intfund_$key"]) {
     echo '<script type="text/javascript">
     $(document).ready(function(){
-        swal({
+        Swal.fire({
             type: "success",
             title: "Account Creation Successful",
             text: "A New User Has Been Added",
@@ -63,7 +63,7 @@ if (isset($_GET["message1"])) {
     if ($tt !== $_SESSION["lack_of_intfund_$key"]) {
     echo '<script type="text/javascript">
     $(document).ready(function(){
-        swal({
+        Swal.fire({
             type: "success",
             title: "Account Created but Email Failed",
             text: "Please Contact This User and Send Password: Terapass2020",
@@ -81,7 +81,7 @@ if (isset($_GET["message1"])) {
     if ($tt !== $_SESSION["lack_of_intfund_$key"]) {
     echo '<script type="text/javascript">
     $(document).ready(function(){
-        swal({
+        Swal.fire({
             type: "error",
             title: "A problem!",
             text: "Account Creation Failed",
@@ -99,7 +99,7 @@ if (isset($_GET["message1"])) {
     if ($tt !== $_SESSION["lack_of_intfund_$key"]) {
     echo '<script type="text/javascript">
     $(document).ready(function(){
-        swal({
+        Swal.fire({
             type: "error",
             title: "A problem!",
             text: "User Creation Failed",
@@ -117,7 +117,7 @@ if (isset($_GET["message1"])) {
     if ($tt !== $_SESSION["lack_of_intfund_$key"]) {
     echo '<script type="text/javascript">
     $(document).ready(function(){
-        swal({
+        Swal.fire({
             type: "error",
             title: "A problem!",
             text: "User Exist Already",

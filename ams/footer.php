@@ -368,6 +368,8 @@
     <script src="../dist/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="../dist/js/custom.min.js"></script>
+    <script src="../assets/libs/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script src="../assets/libs/sweetalert2/dist/sweetalert2.min.js"></script>
     <script src="../dist/js/pages/chat/chat.js"></script>
     <!--This page JavaScript -->
 	<script src="../assets/libs/quill/dist/quill.min.js"></script>
@@ -403,6 +405,13 @@
     <!-- END -->
     <script src="../assets/extra-libs/datatables.net/js/jquery.dataTables.min.js"></script>
     <!-- start - This is for export functionality only -->
+    <script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
+    <script src="../assets/libs/bootstrap-table/dist/bootstrap-table.min.js"></script>
+    <script src="../assets/libs/bootstrap-table/dist/bootstrap-table-locale-all.min.js"></script>
+    <script src="../assets/libs/bootstrap-table/dist/extensions/export/bootstrap-table-export.min.js"></script>
+    <script src="../dist/js/pages/tables/bootstrap-table.init.js"></script>
+    <!-- weee -->
+    
     <script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
@@ -411,6 +420,8 @@
     <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
     <script src="../dist/js/pages/datatable/datatable-advanced.init.js"></script>
+    <script src="../assets/libs/tablesaw/dist/tablesaw.jquery.js"></script>
+    <script src="../assets/libs/tablesaw/dist/tablesaw-init.js"></script>
     <script>
       $(function() {
         $('#usa').vectorMap({

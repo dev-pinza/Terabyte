@@ -3,7 +3,25 @@ $web_title = "Create Promotion";
 include("header.php");
 ?>
 <!-- START FROM HOME -->
+<!-- <script src="..assets/libs/jquery/dist/jquery.min.js"></script> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script> -->
+<script>
+//     setInterval(function() {
+//         $(document).ready(function () {
+//     // alert('I will appear every 4 seconds');
+//     swal.fire({
+//             type: "success",
+//             title: "Account Created",
+//             text: "Thank you!",
+//             showConfirmButton: false,
+//             timer: 4000
+//     });
+//     // alert("HOLLA");
+// });
+// }, 3000);   // Interval set to 4 seconds
 
+</script>
+<!-- ALI -->
 <style> 
   
 .rangeslider{ 
@@ -44,13 +62,60 @@ include("header.php");
                 <div class="row">
                        <!-- ============================================================== -->
                     <!-- Example -->
+                    <?php
+                    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                        // BASIC DATAs
+                        $client_id = $user_id;
+                        // we are ready to start
+                        $dest = $_POST["location"];
+                        $fire = $_POST["webUrl3"];
+                        $cat = $_POST["ad_cat"];
+                        $head = $_POST["head"];
+                        $title = $_POST["title"];
+                        $body = $_POST["body"];
+                        $aud_name = $_POST["aud_name"];
+                        $age_gend = $_POST["wintType1"];
+                        $int_loc = $_POST["int_loc"];
+                        $auto_renew = $_POST["customRadio"];
+                        // PICTURES
+                        $temp1 = explode(".", $_FILES['chooseFile']['name']);
+                        $digits = 10;
+                        $randms1 = str_pad(rand(0, pow(10, $digits)-1), $digits, '0', STR_PAD_LEFT);
+                        $sig_passport_one = $randms1. '.' .end($temp1);
+                        if (move_uploaded_file($_FILES['chooseFile']['tmp_name'], "client_img/" . $sig_passport_one)) {
+                        $msg = "Image uploaded successfully";
+                        } else {
+                          $msg = "Image Failed";
+                        }
+                       $mex = substr($sig_passport_one, -3);
+                       if ($mex != "png" && $mex != "jpg" && $mex != "peg") {
+                          $sig_passport_one = "av.jpg";
+                        }
+                        // POST LINK GEN
+                        $digits = 5;
+                        $randms = str_pad(rand(0, pow(10, $digits)-1), $digits, '0', STR_PAD_LEFT);
+                        $hitcode = $randms;
+                        $post_link = $aud_name.$hitcode;
+                        // now we will talk about Ad promotion tables AND the POST ID
+                        $tot_rch = $_POST["total_reach"];
+                        $tot_clk = $_POST["total_click"];
+                        $tot_con = $_POST["total_conver"];
+                        $tot_amt = $_POST["amount"];
+
+                        // query to get client account
+                        // get balance
+                        // take cash to ad promotion
+                        // record cash
+                        // update
+                    }
+                    ?>
                     <!-- ============================================================== -->
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body wizard-content">
                                 <h4 class="card-title">Promote your Business</h4>
                                 <h6 class="card-subtitle">create a promoted AD</h6>
-                                <form action="../function/create_promotion.php" method="POST" class="validation-wizard wizard-circle mt-5" enctype="multipart/form-data">
+                                <form method="POST" id="dman_sub" class="validation-wizard wizard-circle mt-5" enctype="multipart/form-data">
                                     <!-- Step 1 -->
                                     <h6>Step 1 - Destination</h6>
                                     <section>
@@ -76,10 +141,10 @@ include("header.php");
                                             <div class="col-md-6">
                                             <div class="input-group mb-3">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text">Ad Image (Fake Path for Encryption)</span>
+                                            <span class="input-group-text">Ad Image Path(Encrypted)</span>
                                         </div>
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" accept="image/*">
+                                            <input type="file" class="custom-file-input" name="chooseFile" accept="image/*">
                                             <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                                         </div>
                                     </div>
@@ -87,7 +152,7 @@ include("header.php");
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="wlocation2"> Ad Category : <span class="danger">*</span> </label>
-                                                    <select class="custom-select form-control required" id="wlocation2" name="location">
+                                                    <select class="custom-select form-control required" id="wlocation2" name="ad_cat">
                                                         <option value="1">Finance & Investment</option>
                                                         <option value="2">Transportation</option>
                                                         <option value="3">Software/Computer & Eletronic Gadget</option>
@@ -113,18 +178,18 @@ include("header.php");
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="jobTitle2">Ad Heading :</label>
-                                                    <input type="text" class="form-control required" id="jobTitle2">
+                                                    <input type="text" name="head" class="form-control required" id="jobTitle2">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="webUrl3">Ad Sub-Heading :</label>
-                                                    <input type="text" class="form-control required" id="jobTitle2"> </div>
+                                                    <input type="text" name="title" class="form-control required" id="jobTitle2"> </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label for="shortDescription3">Short Description :</label>
-                                                    <textarea name="shortDescription" id="shortDescription3" rows="6" class="form-control"></textarea>
+                                                    <textarea name="shortDescription" name="body" id="shortDescription3" rows="6" class="form-control"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -136,7 +201,7 @@ include("header.php");
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="wint1">Audience Name :</label>
-                                                    <input type="text" class="form-control required" id="wint1"> </div>
+                                                    <input type="text" class="form-control required" name="aud_name" id="wint1"> </div>
                                                 <div class="form-group">
                                                     <label for="wintType1">Age & Gender :</label>
                                                     <select class="custom-select form-control required" id="wintType1" data-placeholder="Type to search cities" name="wintType1">
@@ -148,29 +213,68 @@ include("header.php");
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="wLocation1">Campus Location :</label>
-                                                    <select class="custom-select form-control required" id="wLocation1" name="wlocation">
-                                                        <option value="0">All</option>
-                                                        <option value="1">Uni Abuja</option>
-                                                        <option value="2">Uni Benin</option>
-                                                        <option value="3">Uni Lagos</option>
-                                                    </select>
+                                                    <?php
+                                                    $digits = 9;
+                                                    $randms = str_pad(rand(0, pow(10, $digits)-1), $digits, '0', STR_PAD_LEFT);
+                                                    $cache_id = $randms;
+                                                    $_SESSION["cache_id"] = $cache_id;
+                                                    // random ID
+                                                    ?>
+                                                    <div id="hide_later">
+                                                    <?php
+function fill_in($connection)
+{
+    $get_cache = mysqli_query($connection, "SELECT * FROM `institution` WHERE active = '1'");
+    $output = '';
+    while($rowx = mysqli_fetch_array($get_cache)) {
+        $output .= '<option value = "'.$rowx["id"].'"> '.strtoupper($rowx["name"]).' </option>';
+    }
+return $output;
+}
+?>
+<label for="wLocation1">Campus Location :</label>
+<select class="custom-select form-control required" id="wLocation1" name="int_loc">
+    <option value="all">All</option>
+<?php 
+// echo fill_in($connection) 
+?>
+</select>
+                                                    </div>
+                                                   <!-- <div id="show_int"></div> -->
                                                 </div>
                                             </div>
+                                            <input type="text" value="<?php echo $cache_id; ?>" id ="cache_id" hidden>
+<script>
+                               $(document).ready(function () {
+             $('#wLocation1').on("change", function () {
+               var c_id = $('#cache_id').val();
+               var int_id = $('#wLocation1').val();
+                if (int_id != "all") {
+                    $.ajax({
+                 url: "ajax_post/aud_show.php",
+                 method: "POST",
+                 data:{c_id:c_id, int_id:int_id},
+                 success: function (data) {
+                   $('#aud_rec').html(data);
+                 }
+               });
+                }
+             });
+           });                
+</script>
                                             <div class="col-md-6">
-                                                <!-- <div class="form-group">
-                                                    <label for="wjobTitle2">Interview Date :</label>
-                                                    <input type="date" class="form-control required" id="wjobTitle2">
-                                                </div> -->
+                                                <div class="form-group">
+                                                    <div id="aud_rec"></div>
+                                                </div>
                                                 <div class="form-group">
                                                     <label>Auto Renew:</label>
                                                     <div class="c-inputs-stacked">
                                                         <div class="custom-control custom-radio custom-control-inline">
-                                                            <input type="radio" id="customRadio16" name="customRadio" class="custom-control-input">
+                                                            <input type="radio" id="customRadio16" value="1" name="customRadio" class="custom-control-input">
                                                             <label class="custom-control-label" for="customRadio16">Yes</label>
                                                         </div>
                                                         <div class="custom-control custom-radio custom-control-inline">
-                                                            <input type="radio" id="customRadio17" name="customRadio" class="custom-control-input">
+                                                            <input type="radio" id="customRadio17" value="0" name="customRadio" class="custom-control-input">
                                                             <label class="custom-control-label" for="customRadio17">No</label>
                                                         </div>
                                                     </div>
@@ -203,7 +307,7 @@ include("header.php");
                                 <input type="text" value="1818" name="total_reach" id="tot_rch" hidden>
                                 <input type="text" value="727" name="total_click" id="clk" hidden>
                                 <input type="text" value="364" name="total_conver" id="cnv" hidden>
-                                <input type="number" value="1500" name="amount" id="cash_paid">
+                                <input type="number" value="1500" name="amount" id="cash_paid" hidden>
                                 </div>
                             </div>
                             <script> 
@@ -463,7 +567,7 @@ include("footer.php");
             finish: "Submit"
         },
         onFinished: function(event, currentIndex) {
-            swal("Form Submitted!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat eleifend ex semper, lobortis purus sed.");
+            swal.fire("Form Submitted!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat eleifend ex semper, lobortis purus sed.");
 
         }
     });
@@ -486,7 +590,36 @@ include("footer.php");
             return form.validate().settings.ignore = ":disabled", form.valid()
         },
         onFinished: function(event, currentIndex) {
-            swal("Form Submitted!", "Ad Content has been submitted sucessfully!.");
+            let timerInterval
+Swal.fire({
+  title: 'Processing!',
+  html: 'Please Wait! <b></b> .',
+  timer: 2000,
+  timerProgressBar: true,
+  onBeforeOpen: () => {
+    Swal.showLoading()
+    timerInterval = setInterval(() => {
+      const content = Swal.getContent()
+      if (content) {
+        const b = content.querySelector('b')
+        if (b) {
+          b.textContent = Swal.getTimerLeft()
+        }
+      }
+    }, 100)
+  },
+  onClose: () => {
+    clearInterval(timerInterval)
+  }
+}).then((result) => {
+  /* Read more about handling dismissals below */
+  if (result.dismiss === Swal.DismissReason.timer) {
+    console.log('I was closed by the timer')
+  }
+  document.getElementById("dman_sub").submit();
+})
+// HERE I WILL HAVE MY AJAX
+// HERE I WILL END MY AJAX
         }
     }), $(".validation-wizard").validate({
         ignore: "input[type=hidden]",
