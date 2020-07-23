@@ -8,28 +8,33 @@ include("header.php");
                 <!-- ============================================================== -->
                 <div class="row">
                     <!-- Column -->
+                    <?php
+                if(isset($_GET["no"])) {
+                    $post_id = $_GET["no"];
+                    $person = mysqli_query($connection, "SELECT * FROM `client_post` WHERE post_link = '$post_id' AND client_id = '$user_id'");
+                    $n = mysqli_fetch_array($person);
+                    // display result
+                    $lunch_date  = $n["lunch_date"];
+                    $fire_link = $n["fire_link"];
+                    $destination = $n["destination"];
+                    $ad_category = $n["ad_category"];
+                    $head = $n["ad_head"];
+                    $title = $n["ad_sub_head"];
+                    $body = $n["short_description"];
+                    $aud_name = $n["aud_name"];
+                    $age_gend = $n["age_gend"];
+                    $img = $n["img"];
+                    $end_date = $n["end_date"];
+                ?>
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <h3 class="card-title">Rounded Chair</h3>
-                                <h6 class="card-subtitle">globe type chair for rest</h6>
+                                <h3 class="card-title"><?php echo $head; ?></h3>
+                                <!-- <h6 class="card-subtitle">globe type chair for rest</h6> -->
                                 <div class="row">
-                                    <div class="col-lg-3 col-md-3 col-sm-6">
-                                        <div class="white-box text-center"> <img src="../../assets/images/gallery/chair.jpg" class="img-responsive"> </div>
-                                    </div>
-                                    <div class="col-lg-9 col-md-9 col-sm-6">
-                                        <h4 class="box-title mt-5">Product description</h4>
-                                        <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. but the majority have suffered alteration in some form, by injected humour</p>
-                                        <h2 class="mt-5">$153 <small class="text-success">(36% off)</small></h2>
-                                        <button class="btn btn-dark btn-rounded mr-1" data-toggle="tooltip" title="" data-original-title="Add to cart"><i class="ti-shopping-cart"></i> </button>
-                                        <button class="btn btn-primary btn-rounded"> Buy Now </button>
-                                        <h3 class="box-title mt-5">Key Highlights</h3>
-                                        <ul class="list-unstyled">
-                                            <li><i class="fa fa-check text-success"></i> Sturdy structure</li>
-                                            <li><i class="fa fa-check text-success"></i> Designed to foster easy portability</li>
-                                            <li><i class="fa fa-check text-success"></i> Perfect furniture to flaunt your wonderful collectibles</li>
-                                        </ul>
-                                    </div>
+                                    <!-- <div class="col-lg-3 col-md-3 col-sm-6">
+                                        <div class="white-box text-center"> <img src="ad_img/<?php echo $img; ?>" class="img-responsive" height="400px" width="400px"/> </div>
+                                    </div> -->
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <h3 class="box-title mt-5">General Info</h3>
                                         <div class="table-responsive">
@@ -103,8 +108,16 @@ include("header.php");
                             </div>
                         </div>
                     </div>
+                    <?php
+                } else {
+                    ?>
+                    <h1>404 ERROR</h1>
+                    <?php
+                }
+                   ?>
                     <!-- Column -->
                 </div>
+                
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
