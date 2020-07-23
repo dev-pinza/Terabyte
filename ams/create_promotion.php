@@ -9,13 +9,13 @@ include("header.php");
 //     setInterval(function() {
 //         $(document).ready(function () {
 //     // alert('I will appear every 4 seconds');
-//     swal.fire({
-//             type: "success",
-//             title: "Account Created",
-//             text: "Thank you!",
-//             showConfirmButton: false,
-//             timer: 4000
-//     });
+    // swal.fire({
+    //         type: "success",
+    //         title: "Account Created",
+    //         text: "Thank you!",
+    //         showConfirmButton: false,
+    //         timer: 4000
+    // });
 //     // alert("HOLLA");
 // });
 // }, 3000);   // Interval set to 4 seconds
@@ -72,7 +72,7 @@ include("header.php");
                         $cat = $_POST["ad_cat"];
                         $head = $_POST["head"];
                         $title = $_POST["title"];
-                        $body = $_POST["body"];
+                        $body = $_POST["shortDescription"];
                         $aud_name = $_POST["aud_name"];
                         $age_gend = $_POST["wintType1"];
                         $int_loc = $_POST["int_loc"];
@@ -82,7 +82,7 @@ include("header.php");
                         $digits = 10;
                         $randms1 = str_pad(rand(0, pow(10, $digits)-1), $digits, '0', STR_PAD_LEFT);
                         $sig_passport_one = $randms1. '.' .end($temp1);
-                        if (move_uploaded_file($_FILES['chooseFile']['tmp_name'], "client_img/" . $sig_passport_one)) {
+                        if (move_uploaded_file($_FILES['chooseFile']['tmp_name'], "ad_img/" . $sig_passport_one)) {
                         $msg = "Image uploaded successfully";
                         } else {
                           $msg = "Image Failed";
@@ -95,15 +95,182 @@ include("header.php");
                         $digits = 5;
                         $randms = str_pad(rand(0, pow(10, $digits)-1), $digits, '0', STR_PAD_LEFT);
                         $hitcode = $randms;
+                        $trans = "TERA".$hitcode;
                         $post_link = $aud_name.$hitcode;
                         // now we will talk about Ad promotion tables AND the POST ID
                         $tot_rch = $_POST["total_reach"];
                         $tot_clk = $_POST["total_click"];
                         $tot_con = $_POST["total_conver"];
                         $tot_amt = $_POST["amount"];
-
+                        // AD End date
+                        $gen_date = date('Y-m-d');
+                        $date2 = date('Y-m-d H:i:s');
+                        $dura = $_POST["duration"];
                         // query to get client account
+                        $actualend_date = date('Y-m-d', strtotime("+".$dura." days", strtotime($gen_date)));
+                        // my liver
+                        $get_client_account = mysqli_query($connection, "SELECT * FROM `account` WHERE user_id = '$user_id'");
+                        $gca = mysqli_fetch_array($get_client_account);
+                        $pre_bal = $gca["balance_derived"];
+                        $pre_with = $gca["total_with"];
+                        $tot_with = $pre_with + $tot_amt;
+                        $tot_bal = $pre_bal - $tot_amt;
                         // get balance
+                        if ($pre_bal >= $tot_amt) {
+                            // make a move here
+                            $get_available = mysqli_query($connection, "SELECT * FROM `client_post` WHERE post_link = '$post_link'");
+                            $if = mysqli_num_rows($get_available);
+                            if ($if <= 0) {
+                                // do the update
+                                $paid_promo = mysqli_query($connection, "UPDATE `account` SET `balance_derived` = '$tot_bal', `total_with` = '$tot_with' WHERE `account`.`user_id` = '$user_id'");
+                                if ($paid_promo) {
+                                    $insert_transaction = mysqli_query($connection, "INSERT INTO `acct_transaction` (`user_id`, `transaction_id`, `transaction_type`, `amount`, `account_balance`, `credit`, `debit`, `transaction_date`) VALUES ('{$user_id}', '{$trans}', 'ad creation', '{$tot_amt}', '{$tot_bal}', '0.00', '{$tot_amt}', '{$date2}')");
+                                    if ($insert_transaction) {
+                                        // move to the next thung
+                                        $cli_post = mysqli_query($connection, "INSERT INTO `client_post` (`client_id`, `lunch_date`, `post_link`, `fire_link`, `destination`, `ad_category`, `ad_head`, `ad_sub_head`, `short_description`, `aud_name`, `age_gend`, `img`, `auto_renew`, `approval_status`, `end_date`, `days`) VALUES ('{$user_id}', '{$gen_date}', '{$post_link}', '{$fire}', '{$dest}', '{$cat}', '{$head}', '{$title}', '{$body}', '{$aud_name}', '{$age_gend}', '{$sig_passport_one}', '{$auto_renew}', '0', '{$actualend_date}', '{$dura}')");
+                                        if ($cli_post) {
+                                            // amonk
+                                            $get_ava = mysqli_query($connection, "SELECT * FROM `client_post` WHERE post_link = '$post_link'");
+                                            $er = mysqli_fetch_array($get_ava);
+                                            $post_id = $er["id"];
+                                            // alon
+                                            $push_promotion = mysqli_query($connection, "INSERT INTO `ad_promotion` (`client_id`, `est_reach`, `est_click`, `est_con`, `aud_reach`, `tot_click`, `tot_con`, `budget_amount`, `used_amount`, `post_id`, `payment_status`, `shared`, `created_date`) VALUES ('{$user_id}', '{$tot_rch}', '{$tot_clk}', '{$tot_con}', '0', '0', '0', '{$tot_amt}', '0.00', '{$post_id}', 'active', '0', '{$gen_date}')");
+                                            if ($push_promotion) {
+                                                // transaction
+                                                $promo_trans = mysqli_query($connection, "INSERT INTO `ad_transaction` (`transaction_id`, `client_id`, `transaction_type`, `amount`, `credit`, `debit`, `created_date`, `user_id`, `ip_address`) VALUES ('{$post_link}', '{$user_id}', 'ad credit', '{$tot_amt}', '{$tot_amt}', '0.00', '{$date2}', '{$user_id}', '0')");
+                                                // check
+                                                if ($promo_trans) {
+                                                    // echo sometho
+                                                    echo '
+                        <script>
+                        $(document).ready(function(){
+                            swal.fire({
+                                type: "success",
+                                title: "Ad Successfully Created",
+                                text: "Thank you! Ad Has been Posted for Review and Approval",
+                                showConfirmButton: false,
+                                timer: 3000
+                        });
+                        });
+                        </script>
+                        ';
+                        $URL="active_promo.php";
+                        echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
+                                                } else {
+                                                    echo '
+                                                <script>
+                                                $(document).ready(function(){
+                                                    swal.fire({
+                                                        type: "error",
+                                                        title: "System Error",
+                                                        text: "Post Didnt Happen, Keep Calm call for Support You Have been Debited",
+                                                        showConfirmButton: false,
+                                                        timer: 7000
+                                                });
+                                                });
+                                                </script>
+                                                ';
+                                                }
+                                            } else {
+                                                echo '
+                                                <script>
+                                                $(document).ready(function(){
+                                                    swal.fire({
+                                                        type: "error",
+                                                        title: "System Error",
+                                                        text: "Post Didnt Happen, Keep Calm call for Support You Have been Debited",
+                                                        showConfirmButton: false,
+                                                        timer: 7000
+                                                });
+                                                });
+                                                </script>
+                                                ';
+                                            }
+                                        } else {
+                                            echo '
+                                        <script>
+                                        $(document).ready(function(){
+                                            swal.fire({
+                                                type: "error",
+                                                title: "System Error",
+                                                text: "Post Didnt Happen, Keep Calm call for Support You Have been Debited",
+                                                showConfirmButton: false,
+                                                timer: 7000
+                                        });
+                                        });
+                                        </script>
+                                        ';
+                                        }
+                                        // next
+                                    } else {
+                                        echo '
+                                        <script>
+                                        $(document).ready(function(){
+                                            swal.fire({
+                                                type: "error",
+                                                title: "System Error",
+                                                text: "Post Didnt Happen, Keep Calm call for Support You Have been Debited",
+                                                showConfirmButton: false,
+                                                timer: 7000
+                                        });
+                                        });
+                                        </script>
+                                        ';
+                                    }
+                                } else {
+                                    echo '
+                        <script>
+                        $(document).ready(function(){
+                            swal.fire({
+                                type: "error",
+                                title: "System Error",
+                                text: "Post Didnt Happen, Call for Support",
+                                showConfirmButton: false,
+                                timer: 7000
+                        });
+                        });
+                        </script>
+                        ';
+                                }
+                            } else {
+                                echo '
+                        <script>
+                        $(document).ready(function(){
+                            swal.fire({
+                                type: "error",
+                                title: "Post already exist",
+                                text: "sorry it seems this post exist",
+                                showConfirmButton: false,
+                                timer: 3000
+                        });
+                        });
+                        </script>
+                        ';
+                        $URL="create_promotion.php";
+                        echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
+                            }
+                            // out
+                        } else {
+                            // qwerty
+                            echo '
+                        <script>
+                        $(document).ready(function(){
+                            swal.fire({
+                                type: "error",
+                                title: "Insufficient Fund",
+                                text: "Refill your Tera-wallet",
+                                showConfirmButton: false,
+                                timer: 3000
+                        });
+                        });
+                        </script>
+                        ';
+                        $URL="client_bal.php";
+                        echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
+                            // throw an error here
+                        }
+                        // calculate balance
+                        
                         // take cash to ad promotion
                         // record cash
                         // update
@@ -189,7 +356,7 @@ include("header.php");
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label for="shortDescription3">Short Description :</label>
-                                                    <textarea name="shortDescription" name="body" id="shortDescription3" rows="6" class="form-control"></textarea>
+                                                    <textarea name="shortDescription" id="shortDescription3" rows="6" class="form-control"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -300,7 +467,7 @@ return $output;
                                 <div class="form-group">
                                 <div class="rangeslider">
                                     <input type="range" min="1" max="30" value="1"
-                                    class="myslider" id="sliderRangea">
+                                    class="myslider" id="sliderRangea" name="duration">
                                 </div> 
                                 </div>
                                 <div class="form-group">
