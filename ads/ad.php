@@ -5,13 +5,15 @@ if (isset($_GET["no"]) && isset($_GET["harsh"])) {
     // give it a link push
     $post_link = $_GET["no"];
     $rep_id = $_GET["harsh"];
+    $digits = 7;
+    $trans = str_pad(rand(0, pow(10, $digits)-1), $digits, '0', STR_PAD_LEFT);
     // select * from users check a usertype
     $sel_rep = mysqli_query($connection, "SELECT * FROM `users` WHERE id='$rep_id'");
     $o = mysqli_fetch_array($sel_rep);
+    $user_id = $o["id"];
     $is_dis = $o["is_disabled"];
     $int_id = $o["int_id"];
     $user_type = $o["usertype"];
-    $fullname = $o["fullname"];
     // if the user has been disabled
     if ($is_dis == "0" && $user_type == "rep" || $user_type == "man") {
         // making a  move  with URL https
@@ -35,15 +37,240 @@ if (isset($_GET["no"]) && isset($_GET["harsh"])) {
         // select user account
         if (mysqli_num_rows($getip) <= 0) {
             // done making a move
+            $acct_query = mysqli_query($connection, "SELECT * FROM `account` WHERE user_id = '$user_id'");
+            $aq = mysqli_fetch_array($acct_query);
+            $tot_dep = $aq["total_dep"];
+            $tot_bal  = $aq["balance_derived"];
+            // NO TOT MAN
+            $sel_rep = mysqli_query($connection, "SELECT * FROM `users` WHERE usertype = 'man'");
+            $man_count = mysqli_num_rows($sel_rep);
+            // YOU NEED TO CALL THE MANAGER WHO APPROVED HERE
+            $man_query = mysqli_query($connection, "SELECT * FROM `man_approval` WHERE post_link = '$post_link' AND int_id = '$int_id' ORDER BY id ASC LIMIT 1");
+            $mq = mysqli_fetch_array($man_query);
+            $int_id = $mq["int_id"];
+            $man_id = $mq["man_id"];
+            // open manager's account
+            // OPEN SPACE FOR SENOIR MANAGERS
+            $acct1_query = mysqli_query($connection, "SELECT * FROM `account` WHERE user_id = '$man_id'");
+            $aq1 = mysqli_fetch_array($acct1_query);
+            $man_tot_dep = $aq1["total_dep"];
+            $man_tot_bal  = $aq1["balance_derived"];
+            // YOU NEED THE TABLE FOR THAT PARTICULALR POST
+            $post_query = mysqli_query($connection, "SELECT * FROM `client_post` WHERE post_link = '$post_link'");
+            $pq = mysqli_fetch_array($post_query);
+            $p_id = $pq["id"];
+            $client_id = $pq["client_id"];
+            $fire_link = $pq["fire_link"];
+            $ap_status = $pq["approval_status"];
+            $ad_end_date = $pq["end_date"];
+            $days = $pq["days"];
+            // promo
+            $promotion_query = mysqli_query($connection, "SELECT * FROM `ad_promotion` WHERE post_id = '$p_id'");
+            $ppq = mysqli_fetch_array($promotion_query);
+            $est_rch = $ppq["est_reach"];
+            $est_clk = $ppq["est_click"];
+            $est_con = $ppq["est_con"];
+            $aud_rch = $ppq["aud_reach"];
+            $aud_clk = $ppq["tot_click"];
+            $aud_con = $ppq["tot_con"];
+            $budget_amt = $ppq["budget_amount"];
+            $used_amt = $ppq["used_amount"];
+            $pay_stat = $ppq["payment_status"];
+            // get the promotion\
+            $gen_date = date('Y-m-d');
+            $gen_date1 = date('Y-m-d H:i:s');
+            // select * from the post
+            function add_up($connection, $aud_clk, $aud_con, $aud_rch) {
+                // here we will add up
+                // stop here
+            }
+            // make an add up function
+            if ($ad_end_date >= $gen_date && $pay_stat == "Active" && $ap_status == "1") {
+                // if the post is active and approved
+                // get reps 50%
+                $rep_share = $budget_amt * (50/100);
+                // get Man 10%
+                $man_share = $budget_amt * (10/100);
+                // get BOD  20%
+                // $bod_share = $budget_amt * (20/100);
+                // get PRO 20%
+                // $pro_share = $budget_amt * (20/100);
+                if ($used_amt <= $budget_amt) {
+                    // done process
+                    $each_earn = $rep_share / $est_rch;
+                    $each_man_earn = ($man_share / $days) / $man_count;
+                    // test each earn
+                    $check_rep_out = $used_amt + $each_earn;
+                    $check_man_out = $used_amt + $each_man_earn;
+                    if ($each_earn <= $check_rep_out && $rep_id != "" || $rep_id != 0) {
+                        // update
+                        $rep_bal = $tot_bal + $each_earn;
+                        $rep_dep = $tot_dep + $each_earn;
+                        $update_rep = mysqli_query($connection, "UPDATE `account` SET `balance_derived` = '$rep_bal', `total_dep` = '$rep_dep' WHERE `account`.`user_id` = '$user_id'");
+                        if ($update_rep) {
+                            // rep transaction
+                            $update_rep_trans = mysqli_query($connection, "INSERT INTO `acct_transaction` (`user_id`, `transaction_id`, `transaction_type`, `amount`, `account_balance`, `credit`, `debit`, `transaction_date`) VALUES ('{$rep_id}', '{$trans}', 'rep earning', '{$each_earn}', '{$rep_bal}', '{$each_earn}', '0.00', '{$gen_date1}')");
+                            if ($update_rep_trans) {
+                                // UPDATE THE POST
+                                $pro_rch = $aud_rch + 2;
+                                $pro_clk = $aud_clk + 1;
+                                $pro_con = $aud_con + 1;
+                                // insert into POST TRANS
+                                $update_pro = mysqli_query($connection, "UPDATE `ad_promotion` SET `used_amount` = '$check_rep_out', `aud_reach` = '$pro_rch', `tot_click` = '$pro_clk', `tot_con` = '$pro_con' WHERE `ad_promotion`.`post_id` = '$p_id'");
+                                if ($update_pro) {
+                                    // oya o
+                                    $update_trans = mysqli_query($connection, "INSERT INTO `ad_transaction` (`transaction_id`, `client_id`, `transaction_type`, `amount`, `credit`, `debit`, `created_date`, `user_id`, `ip_address`) VALUES ('{$trans}', '{$client_id}', 'rep debit', '{$each_earn}', '0.00', '{$each_earn}', '{$gen_date1}', '{$rep_id}', '{$ip}')");
+                                    // thinking
+                                } else {
+                                    echo "A PROBLEM";
+                                }
+                            } else {
+                                echo "A PROBLEM";
+                            }
+                            // alright
+                        } else {
+                            echo "A PROBLEM";
+                        }
+                    } else {
+                        echo add_up($connection, $aud_clk, $aud_con, $aud_rch);
+                    }
+                    // HERE WE WILL DROP A FUNCTION TO ROLL
+                    // END FUNCTION
+                    if ($each_man_earn <= $check_man_out && $man_id != 0) {
+                        // update
+                        $man_bal = $man_tot_bal + $each_man_earn;
+                        $man_dep = $man_tot_dep + $each_man_earn;
+                        $update_man = mysqli_query($connection, "UPDATE `account` SET `balance_derived` = '$man_bal', `total_dep` = '$man_dep' WHERE `account`.`user_id` = '$man_id'");
+                        if ($update_man) {
+                            // rep transaction
+                            $update_man_trans = mysqli_query($connection, "INSERT INTO `acct_transaction` (`user_id`, `transaction_id`, `transaction_type`, `amount`, `account_balance`, `credit`, `debit`, `transaction_date`) VALUES ('{$man_id}', '{$trans}', 'man earning', '{$each_man_earn}', '{$man_bal}', '{$each_man_earn}', '0.00', '{$gen_date1}')");
+                            // alright
+                            if ($update_man_trans) {
+                                $pro_rch = $aud_rch + 2;
+                                $pro_clk = $aud_clk + 1;
+                                $pro_con = $aud_con + 1;
+                                $check_man_out_1 = $check_man_out + $check_rep_out;
+                                // insert into POST TRANS
+                                $update_pro = mysqli_query($connection, "UPDATE `ad_promotion` SET `used_amount` = '$check_man_out_1', `aud_reach` = '$pro_rch', `tot_click` = '$pro_clk', `tot_con` = '$pro_con' WHERE `ad_promotion`.`post_id` = '$p_id'");
+                                if ($update_pro) {
+                                    // oya o
+                                    $update_trans = mysqli_query($connection, "INSERT INTO `ad_transaction` (`transaction_id`, `client_id`, `transaction_type`, `amount`, `credit`, `debit`, `created_date`, `user_id`, `ip_address`) VALUES ('{$trans}', '{$client_id}', 'man debit', '{$each_man_earn}', '0.00', '{$each_man_earn}', '{$gen_date1}', '{$man_id}', '{$ip}')");
+                                    // thinking
+                                } else {
+                                    echo "A PROBLEM";
+                                }
+                            } else {
+                                echo "A SYSTEM PROBLEM";
+                            }
+                        } else {
+                            echo "A SYSTEM PROBLEM";
+                        }
+                    } else {
+                        $pro_rch = $aud_rch + 1;
+                        $pro_clk = $aud_clk + 1;
+                        $pro_con = $aud_con + 1;
+                        $update_pro = mysqli_query($connection, "UPDATE `ad_promotion` SET `aud_reach` = '$pro_rch', `tot_click` = '$pro_clk', `tot_con` = '$pro_con' WHERE `ad_promotion`.`post_id` = '$p_id'");
+                        if ($update_pro) {
+                            $URL=$fire_link;
+                        echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
+                        } else {
+                            echo "err update";
+                        }
+                    }
+                    // MAKE SURE YOU ROLL
+                    $URL=$fire_link;
+                    echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
+                    // MAKE THE AD ROW
+                } else {
+                    // done
+                    $pro_rch = $aud_rch + 1;
+                        $pro_clk = $aud_clk + 1;
+                        $pro_con = $aud_con + 1;
+                        $update_pro = mysqli_query($connection, "UPDATE `ad_promotion` SET `aud_reach` = '$pro_rch', `tot_click` = '$pro_clk', `tot_con` = '$pro_con' WHERE `ad_promotion`.`post_id` = '$p_id'");
+                        if ($update_pro) {
+                            $URL=$fire_link;
+                        echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
+                        } else {
+                            echo "err update";
+                        }
+                }
+            // remember to add to transaction with IP address
+            } else {
+                // echo Ad has been suspended
+                echo "AD HAS BEEN SUSPENDED OR AWAITING APPROVAL";
+            }
          } else {
-            //  make a new moove
+            //  make a normal earning
+            $post_query = mysqli_query($connection, "SELECT * FROM `client_post` WHERE post_link = '$post_link'");
+            $pq = mysqli_fetch_array($post_query);
+            $p_id = $pq["id"];
+            $client_id = $pq["client_id"];
+            $fire_link = $pq["fire_link"];
+            $ap_status = $pq["approval_status"];
+            $ad_end_date = $pq["end_date"];
+            $days = $pq["days"];
+            // promo
+            $promotion_query = mysqli_query($connection, "SELECT * FROM `ad_promotion` WHERE post_id = '$p_id'");
+            $ppq = mysqli_fetch_array($promotion_query);
+            $est_rch = $ppq["est_reach"];
+            $est_clk = $ppq["est_click"];
+            $est_con = $ppq["est_con"];
+            $aud_rch = $ppq["aud_reach"];
+            $aud_clk = $ppq["tot_click"];
+            $aud_con = $ppq["tot_con"];
+            $budget_amt = $ppq["budget_amount"];
+            $used_amt = $ppq["used_amount"];
+            $pay_stat = $ppq["payment_status"];
+            // echo add_up($connection, $aud_clk, $aud_con, $aud_rch);
+            $pro_rch = $aud_rch + 1;
+            $pro_clk = $aud_clk + 1;
+            $pro_con = $aud_con + 1;
+            $update_pro = mysqli_query($connection, "UPDATE `ad_promotion` SET `aud_reach` = '$pro_rch', `tot_click` = '$pro_clk', `tot_con` = '$pro_con' WHERE `ad_promotion`.`post_id` = '$p_id'");
+            if ($update_pro) {
+                $URL=$fire_link;
+            echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
+            } else {
+                echo "err update";
+            }
          }
         // making a new move
     } else {
         // echo function to next
+        $post_query = mysqli_query($connection, "SELECT * FROM `client_post` WHERE post_link = '$post_link'");
+            $pq = mysqli_fetch_array($post_query);
+            $p_id = $pq["id"];
+            $client_id = $pq["client_id"];
+            $fire_link = $pq["fire_link"];
+            $ap_status = $pq["approval_status"];
+            $ad_end_date = $pq["end_date"];
+            $days = $pq["days"];
+            // promo
+            $promotion_query = mysqli_query($connection, "SELECT * FROM `ad_promotion` WHERE post_id = '$p_id'");
+            $ppq = mysqli_fetch_array($promotion_query);
+            $est_rch = $ppq["est_reach"];
+            $est_clk = $ppq["est_click"];
+            $est_con = $ppq["est_con"];
+            $aud_rch = $ppq["aud_reach"];
+            $aud_clk = $ppq["tot_click"];
+            $aud_con = $ppq["tot_con"];
+            $budget_amt = $ppq["budget_amount"];
+            $used_amt = $ppq["used_amount"];
+            $pay_stat = $ppq["payment_status"];
+            // echo add_up($connection, $aud_clk, $aud_con, $aud_rch);
+            $pro_rch = $aud_rch + 1;
+            $pro_clk = $aud_clk + 1;
+            $pro_con = $aud_con + 1;
+            $update_pro = mysqli_query($connection, "UPDATE `ad_promotion` SET `aud_reach` = '$pro_rch', `tot_click` = '$pro_clk', `tot_con` = '$pro_con' WHERE `ad_promotion`.`post_id` = '$p_id'");
+            if ($update_pro) {
+                $URL=$fire_link;
+            echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
+            } else {
+                echo "err update";
+            }
     }
 } else {
     // make a new stuff
+    echo "NOTHING OVER HERE";
     // add up for normal earning
 }
 ?>

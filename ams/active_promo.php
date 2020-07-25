@@ -147,7 +147,7 @@ include("header.php");
                                     <div class="el-overlay">
                                         <ul class="list-style-none el-info">
                                             <li class="el-item"><a class="btn default btn-outline image-popup-vertical-fit el-link" href="single_ad.php?no=<?php echo $row["post_link"]; ?>"><i class="icon-magnifier"></i></a></li>
-                                            <li class="el-item"><a class="btn default btn-outline el-link" href="https://thisistera.com/ads/ad.php?no=<?php echo $row["post_link"]; ?>"><i class="icon-link"></i></a></li>
+                                            <li class="el-item"><a class="btn default btn-outline el-link" href="https://thisistera.com/ads/ad.php?no=<?php echo $row["post_link"]; ?>&harsh=<?php echo "0"; ?>"><i class="icon-link"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
