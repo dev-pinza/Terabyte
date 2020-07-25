@@ -412,7 +412,7 @@ return $output;
                                             </div>
                                             <input type="text" value="<?php echo $cache_id; ?>" id ="cache_id" hidden>
 <script>
-                               $(document).ready(function () {
+$(document).ready(function () {
              $('#wLocation1').on("change", function () {
                var c_id = $('#cache_id').val();
                var int_id = $('#wLocation1').val();
