@@ -157,7 +157,7 @@ include("header.php");
                                         <?php
                                         $a_s = $row["approval_status"];
                                         if ($a_s == "0") {
-                                            $ap_stat = "Pending Approvals";
+                                            $ap_stat = "Pending Approval";
                                             $color = "warning";
                                         } else {
                                             $ap_stat = "Active";

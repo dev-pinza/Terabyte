@@ -70,6 +70,7 @@
     $select_user = mysqli_query($connection, "SELECT * FROM `users` WHERE id = '$user_id'");
     $pip = mysqli_fetch_array($select_user);
     $user_img = $pip["img"];
+    $int_id = $pip["int_id"];
 
     // page control
     if(!$_SESSION["username"] != ""){
@@ -545,12 +546,6 @@
                                     <a href="ad_man.php" class="sidebar-link">
                                         <i class="fas fa-chart-line"></i>
                                         <span class="hide-menu">Ads Management</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ad_history.php" class="sidebar-link">
-                                        <i class="fas fa-retweet"></i>
-                                        <span class="hide-menu">Ad History</span>
                                     </a>
                                 </li>
                                     <?php

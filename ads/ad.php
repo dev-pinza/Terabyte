@@ -119,7 +119,7 @@ if (isset($_GET["no"]) && isset($_GET["harsh"])) {
                                 $update_pro = mysqli_query($connection, "UPDATE `ad_promotion` SET `used_amount` = '$check_rep_out', `aud_reach` = '$pro_rch', `tot_click` = '$pro_clk', `tot_con` = '$pro_con' WHERE `ad_promotion`.`post_id` = '$p_id'");
                                 if ($update_pro) {
                                     // oya o
-                                    $update_trans = mysqli_query($connection, "INSERT INTO `ad_transaction` (`transaction_id`, `client_id`, `transaction_type`, `amount`, `credit`, `debit`, `created_date`, `user_id`, `ip_address`) VALUES ('{$trans}', '{$client_id}', 'rep debit', '{$each_earn}', '0.00', '{$each_earn}', '{$gen_date1}', '{$rep_id}', '{$ip}')");
+                                    $update_trans = mysqli_query($connection, "INSERT INTO `ad_transaction` (`transaction_id`, `client_id`, `transaction_type`, `amount`, `credit`, `debit`, `created_date`, `user_id`, `ip_address`, `int_id`) VALUES ('{$trans}', '{$client_id}', 'rep debit', '{$each_earn}', '0.00', '{$each_earn}', '{$gen_date1}', '{$rep_id}', '{$ip}', '{$int_id}')");
                                     // thinking
                                 } else {
                                     echo "A PROBLEM";
@@ -154,7 +154,7 @@ if (isset($_GET["no"]) && isset($_GET["harsh"])) {
                                 $update_pro = mysqli_query($connection, "UPDATE `ad_promotion` SET `used_amount` = '$check_man_out_1', `aud_reach` = '$pro_rch', `tot_click` = '$pro_clk', `tot_con` = '$pro_con' WHERE `ad_promotion`.`post_id` = '$p_id'");
                                 if ($update_pro) {
                                     // oya o
-                                    $update_trans = mysqli_query($connection, "INSERT INTO `ad_transaction` (`transaction_id`, `client_id`, `transaction_type`, `amount`, `credit`, `debit`, `created_date`, `user_id`, `ip_address`) VALUES ('{$trans}', '{$client_id}', 'man debit', '{$each_man_earn}', '0.00', '{$each_man_earn}', '{$gen_date1}', '{$man_id}', '{$ip}')");
+                                    $update_trans = mysqli_query($connection, "INSERT INTO `ad_transaction` (`transaction_id`, `client_id`, `transaction_type`, `amount`, `credit`, `debit`, `created_date`, `user_id`, `ip_address`, `int_id`) VALUES ('{$trans}', '{$client_id}', 'man debit', '{$each_man_earn}', '0.00', '{$each_man_earn}', '{$gen_date1}', '{$man_id}', '{$ip}', '{$int_id}')");
                                     // thinking
                                 } else {
                                     echo "A PROBLEM";
