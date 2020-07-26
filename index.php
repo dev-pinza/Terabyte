@@ -136,7 +136,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <div id="loginform">
                     <div class="logo">
                         <!-- <span class="db"><img src="assets/images/logos/logo-icon.png" alt="logo" /></span> -->
-                        <h5 class="font-medium mb-3"><b>Terabyte</b> Sign in</h5>
+                        <h5 class="font-medium mb-3"><b>Terabyte - BETA 1.0 (note: report any bug)</b> Sign in</h5>
                     </div>
                     <!-- Form -->
                     <div class="row">
