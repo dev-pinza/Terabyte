@@ -128,10 +128,10 @@ if ($un !== $ui && $em !== $ei) {
                                              <p>Username: $un</p>
                                              <p>Password: $pass</p>
                                              <center>
-                                                 <a href='https://thisistera.com/index.php' style='display: inline-block; padding: 11px 30px; margin: 20px 0px 30px; font-size: 15px; color: #fff; background: #4fc3f7; border-radius: 60px; text-decoration:none;'>Login</a>
+                                                 <a href='https://thisistera.com/index.php' style='display: inline-block; padding: 11px 30px; margin: 20px 0px 30px; font-size: 15px; color: #fff; background: #008080; border-radius: 60px; text-decoration:none;'>Login</a>
                                              </center>
                                              <center>
-                                                 <a href='https://thisistera.com/change_pass.php' style='display: inline-block; padding: 11px 30px; margin: 20px 0px 30px; font-size: 15px; color: #fff; background: #4fc3f7; border-radius: 60px; text-decoration:none;'>Change Password</a>
+                                                 <a href='https://thisistera.com/change_pass.php' style='display: inline-block; padding: 11px 30px; margin: 20px 0px 30px; font-size: 15px; color: #fff; background: #008080; border-radius: 60px; text-decoration:none;'>Change Password</a>
                                              </center>
                                              <b>- Thanks (Terabyte Email Robot)</b> </td>
                                      </tr>

@@ -68,12 +68,12 @@ include("header.php");
                         $client_id = $user_id;
                         // we are ready to start
                         $dest = $_POST["location"];
-                        $fire = $_POST["webUrl3"];
+                        $fire = $connection->mysqli_real_escape_string($_POST["webUrl3"]);
                         $cat = $_POST["ad_cat"];
-                        $head = $_POST["head"];
-                        $title = $_POST["title"];
-                        $body = $_POST["shortDescription"];
-                        $aud_name = $_POST["aud_name"];
+                        $head = $connection->mysqli_real_escape_string($_POST["head"]);
+                        $title = $connection->mysqli_real_escape_string($_POST["title"]);
+                        $body = $connection->mysqli_real_escape_string($_POST["shortDescription"]);
+                        $aud_name = $connection->mysqli_real_escape_string($_POST["aud_name"]);
                         $age_gend = $_POST["wintType1"];
                         $int_loc = $_POST["int_loc"];
                         $auto_renew = $_POST["customRadio"];
@@ -140,14 +140,89 @@ include("header.php");
                                                 $promo_trans = mysqli_query($connection, "INSERT INTO `ad_transaction` (`transaction_id`, `client_id`, `transaction_type`, `amount`, `credit`, `debit`, `created_date`, `user_id`, `ip_address`) VALUES ('{$post_link}', '{$user_id}', 'ad credit', '{$tot_amt}', '{$tot_amt}', '0.00', '{$date2}', '{$user_id}', '0')");
                                                 // check
                                                 if ($promo_trans) {
-                                                    // echo sometho
-                                                    echo '
+                                                    // send MAIL
+                                                    $gen_date = date('Y-m-d');
+             // begining of mail
+             $mail = new PHPMailer;
+             // from email addreess and name
+             $mail->From = "info@thisistera.com";
+             $mail->FromName = "Terabyte";
+             // to adress and name
+             $mail->addAddress($email, $username);
+             // reply address
+             //Address to which recipient will reply
+             // progressive html images
+             $mail->addReplyTo("contactus@thisistera.com", "Reply");
+             // CC and BCC
+             //CC and BCC
+             // $mail->addCC("cc@example.com");
+             // $mail->addBCC("bcc@example.com");
+             // Send HTML or Plain Text Email
+             $mail->isHTML(true);
+             $mail->Subject = "Ad creation";
+             $mail->Body = "<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+             <html dir='ltr' xmlns='http://www.w3.org/1999/xhtml'>
+             
+             <head>
+                 <meta name='viewport' content='width=device-width' />
+                 <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+                 <title>Application Successful</title>
+             </head>
+             
+             <body style='margin:0px; background: #008080; '>
+                 <div width='100%' style='background: #008080; padding: 0px 0px; font-family:arial; line-height:28px; height:100%;  width: 100%; color: #514d6a;'>
+                     <div style='max-width: 700px; padding:50px 0;  margin: 0px auto; font-size: 14px'>
+                         <table border='0' cellpadding='0' cellspacing='0' style='width: 100%; margin-bottom: 20px'>
+                             <tbody>
+                                 <tr>
+                                     <td style='vertical-align: top; padding-bottom:30px;' align='center'>
+                                    Terabyte
+                                     </td>
+                                 </tr>
+                             </tbody>
+                         </table>
+                         <table border='0' cellpadding='0' cellspacing='0' style='width: 100%;'>
+                             <tbody>
+                                 <tr>
+                                     <td style='background:#008080; padding:20px; color:#fff; text-align:center;'> Admin Registration Successful. </td>
+                                 </tr>
+                             </tbody>
+                         </table>
+                         <div style='padding: 40px; background: #fff;'>
+                             <table border='0' cellpadding='0' cellspacing='0' style='width: 100%;'>
+                                 <tbody>
+                                     <tr>
+                                         <td>
+                                             <p>Ad Creation Date <b>$gen_date</b></p>
+                                             <p>You Just Created an Ad</p>
+                                             <p>Thank you. you can monitor your ad progress in your dashboard</p>
+                                             <b>- Thanks (Terabyte Email Robot)</b> </td>
+                                     </tr>
+                                 </tbody>
+                             </table>
+                         </div>
+                         <div style='text-align: center; font-size: 12px; color: #008080; margin-top: 20px'>
+                             <p> Powered by Terabyte
+                                 <br>
+                                 <a href='javascript: void(0);' style='color: #008080; text-decoration: underline;'>Unsubscribe</a> </p>
+                         </div>
+                     </div>
+                 </div>
+             </body>
+             
+             </html>";
+             $mail->AltBody = "This is the plain text version of the email content";
+             // mail system
+             if(!$mail->send()) 
+             {
+                //  echo email bad
+                echo '
                         <script>
                         $(document).ready(function(){
                             swal.fire({
                                 type: "success",
                                 title: "Ad Successfully Created",
-                                text: "Thank you! Ad Has been Posted for Review and Approval",
+                                text: "Thank you! Ad Has been Posted for Review and Approval, E-mail not sent",
                                 showConfirmButton: false,
                                 timer: 3000
                         });
@@ -156,6 +231,25 @@ include("header.php");
                         ';
                         $URL="active_promo.php";
                         echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
+             } else {
+                //  echo email good
+                echo '
+                <script>
+                $(document).ready(function(){
+                    swal.fire({
+                        type: "success",
+                        title: "Ad Successfully Created",
+                        text: "Thank you! Ad Has been Posted for Review and Approval, E-mail sent",
+                        showConfirmButton: false,
+                        timer: 3000
+                });
+                });
+                </script>
+                ';
+                $URL="active_promo.php";
+                echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
+             }
+                                                    // echo sometho
                                                 } else {
                                                     echo '
                                                 <script>

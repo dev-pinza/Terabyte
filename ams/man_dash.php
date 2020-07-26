@@ -1,7 +1,13 @@
 <?php
 $web_title = "Dashboard";
 include("header.php");
-?>
+if ($usertype == "man") {
+                $query_us = mysqli_query($connection, "SELECT * FROM users WHERE id = '$user_id'");
+                $qu = mysqli_fetch_array($query_us);
+                $is_dis = $qu["is_disabled"];
+                $int_id = $qu["int_id"];
+                if ($is_dis == "0") {
+            ?>
   <div class="page-content container-fluid">
                 <!-- ============================================================== -->
                 <!-- First Cards Row  -->
@@ -9,12 +15,16 @@ include("header.php");
                 <div class="row">
                     <div class="col-md-6 col-lg-3">
                         <div class="card">
+                        <?php
+                                                $client_q = mysqli_query($connection, "SELECT * FROM `man_approval` WHERE int_id = '$int_id'");
+                                                $no_client = mysqli_num_rows($client_q);
+                                                ?>
                             <div class="card-body">
                                 <h5 class="card-title text-uppercase">Total Clients</h5>
                                 <div class="d-flex align-items-center mb-2 mt-4">
                                     <h2 class="mb-0 display-5"><i class="icon-people text-info"></i></h2>
                                     <div class="ml-auto">
-                                        <h2 class="mb-0 display-6"><span class="font-normal">23</span></h2>
+                                        <h2 class="mb-0 display-6"><span class="font-normal"><?php echo $no_client; ?></span></h2>
                                     </div>
                                 </div>
                             </div>
@@ -22,12 +32,16 @@ include("header.php");
                     </div>
                     <div class="col-md-6 col-lg-3">
                         <div class="card">
+                        <?php
+                                                $shrd = mysqli_query($connection, "SELECT * FROM `ad_transaction` WHERE int_id = '$int_id'");
+                                                $no_sh = mysqli_num_rows($shrd);
+                                                ?>
                             <div class="card-body">
                                 <h5 class="card-title text-uppercase">Total Shared Ads</h5>
                                 <div class="d-flex align-items-center mb-2 mt-4">
                                     <h2 class="mb-0 display-5"><i class="fas fa-chart-line text-primary"></i></h2>
                                     <div class="ml-auto">
-                                        <h2 class="mb-0 display-6"><span class="font-normal">169</span></h2>
+                                        <h2 class="mb-0 display-6"><span class="font-normal"><?php echo $no_sh; ?></span></h2>
                                     </div>
                                 </div>
                             </div>
@@ -35,12 +49,16 @@ include("header.php");
                     </div>
                     <div class="col-md-6 col-lg-3">
                         <div class="card">
+                        <?php
+                                                $shrd = mysqli_query($connection, "SELECT * FROM `ad_transaction` WHERE int_id = '$int_id'");
+                                                $no_sh = (mysqli_num_rows($shrd) / 20000) * 100;
+                                                ?>
                             <div class="card-body">
-                                <h5 class="card-title text-uppercase">Total Conversion Rate</h5>
+                                <h5 class="card-title text-uppercase">Total Conversion Rate - 20,000 Goal</h5>
                                 <div class="d-flex align-items-center mb-2 mt-4">
                                     <h2 class="mb-0 display-5"><i class="fas fa-balance-scale text-danger"></i></h2>
                                     <div class="ml-auto">
-                                        <h2 class="mb-0 display-6"><span class="font-normal">311</span></h2>
+                                        <h2 class="mb-0 display-6"><span class="font-normal"><?php echo $no_sh."%"; ?></span></h2>
                                     </div>
                                 </div>
                             </div>
@@ -48,12 +66,17 @@ include("header.php");
                     </div>
                     <div class="col-md-6 col-lg-3">
                         <div class="card">
+                        <?php
+                                             $sql1 = mysqli_query($connection,"SELECT * FROM `account` WHERE user_id = '$user_id'");
+                                             $q1 = mysqli_fetch_array($sql1);
+                                             $reach = number_format($q1["balance_derived"], 2);
+                                            ?>
                             <div class="card-body">
                                 <h5 class="card-title text-uppercase">Institution Earning</h5>
                                 <div class="d-flex align-items-center mb-2 mt-4">
                                     <h2 class="mb-0 display-5"><i class="ti-wallet text-success"></i></h2>
                                     <div class="ml-auto">
-                                        <h2 class="mb-0 display-6"><span class="font-normal">&#8358;1.2 M</span></h2>
+                                        <h2 class="mb-0 display-6"><span class="font-normal">&#8358; <?php echo $reach; ?></span></h2>
                                     </div>
                                 </div>
                             </div>
@@ -127,67 +150,11 @@ include("header.php");
                                 <h5 class="card-title text-uppercase">Institution Sales Rank</h5>
                                 <ul class="list-style-none country-state mt-4">
                                    <li class="mb-4">
-                                        <h2 class="mb-0">6350</h2>
-                                        <small>From Uni-lag</small>
-                                        <div class="float-right">48% <i class="fas fa-level-up-alt text-success"></i></div>
+                                        <h2 class="mb-0">635x</h2>
+                                        <small>From Uni-x</small>
+                                        <div class="float-right">4x% <i class="fas fa-level-up-alt text-success"></i></div>
                                         <div class="progress">
                                             <div class="progress-bar bg-success" role="progressbar" style="width: 48%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </li>
-                                    <li class="mb-4">
-                                        <h2 class="mb-0">6350</h2>
-                                        <small>From Uni-Ben</small>
-                                        <div class="float-right">48% <i class="fas fa-level-up-alt text-success"></i></div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-success" role="progressbar" style="width: 48%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </li>
-                                    <li class="mb-4">
-                                        <h2 class="mb-0">3250</h2>
-                                        <small>From Uni-Abuja</small>
-                                        <div class="float-right">98% <i class="fas fa-level-up-alt text-success"></i></div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-info" role="progressbar" style="width: 48%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </li>
-                                    <li class="mb-4">
-                                        <h2 class="mb-0">1250</h2>
-                                        <small>From FUTA</small>
-                                        <div class="float-right">75% <i class="fas fa-level-down-alt text-danger"></i></div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-inverse" role="progressbar" style="width: 48%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </li>
-                                    <li class="mb-4">
-                                        <h2 class="mb-0">1350</h2>
-                                        <small>From FUTO</small>
-                                        <div class="float-right">48% <i class="fas fa-level-up-alt text-success"></i></div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-warning" role="progressbar" style="width: 48%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </li>
-                                    <li class="mb-4">
-                                        <h2 class="mb-0">6350</h2>
-                                        <small>From LASU</small>
-                                        <div class="float-right">48% <i class="fas fa-level-up-alt text-success"></i></div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-success" role="progressbar" style="width: 48%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </li>
-                                    <li class="mb-4">
-                                        <h2 class="mb-0">3250</h2>
-                                        <small>From KWASU</small>
-                                        <div class="float-right">98% <i class="fas fa-level-up-alt text-success"></i></div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-info" role="progressbar" style="width: 48%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <h2 class="mb-0">1250</h2>
-                                        <small>From BABCOCK</small>
-                                        <div class="float-right">75% <i class="fas fa-level-down-alt text-danger"></i></div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-inverse" role="progressbar" style="width: 48%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </li>
                                 </ul>
@@ -202,7 +169,7 @@ include("header.php");
                                         <h5 class="card-title text-uppercase">Daliy Sales</h5>
                                         <div class="text-right">
                                             <span class="text-muted font-light">Today's Income</span>
-                                            <h2 class="mt-2 display-7"><sup><i class="ti-arrow-up text-success"></i></sup>&#8358;12,000</h2>
+                                            <h2 class="mt-2 display-7"><sup><i class="ti-arrow-up text-success"></i></sup>&#8358;12,00x</h2>
                                         </div>
                                         <span class="text-success">20%</span>
                                         <div class="progress">
@@ -215,7 +182,7 @@ include("header.php");
                                         <h5 class="card-title text-uppercase">Weekly Sales</h5>
                                         <div class="text-right">
                                             <span class="text-muted font-light">Weekly Income</span>
-                                            <h2 class="mt-2 display-7"><sup><i class="ti-arrow-down text-danger"></i></sup>&#8358;5,000</h2>
+                                            <h2 class="mt-2 display-7"><sup><i class="ti-arrow-down text-danger"></i></sup>&#8358;5,00x</h2>
                                         </div>
                                         <span class="text-success">30%</span>
                                         <div class="progress">
@@ -230,7 +197,7 @@ include("header.php");
                                         <h5 class="card-title text-uppercase">Monthly Sales</h5>
                                         <div class="text-right">
                                             <span class="text-muted font-light">Monthly Income</span>
-                                            <h2 class="mt-2 display-7"><sup><i class="ti-arrow-up text-info"></i></sup>&#8358;10,000</h2>
+                                            <h2 class="mt-2 display-7"><sup><i class="ti-arrow-up text-info"></i></sup>&#8358;10,00x</h2>
                                         </div>
                                         <span class="text-info">60%</span>
                                         <div class="progress">
@@ -243,7 +210,7 @@ include("header.php");
                                         <h5 class="card-title text-uppercase">Yearly Sales</h5>
                                         <div class="text-right">
                                             <span class="text-muted font-light">Yearly Income</span>
-                                            <h2 class="mt-2 display-7"><sup><i class="ti-arrow-up text-inverse"></i></sup>&#8358;9,000</h2>
+                                            <h2 class="mt-2 display-7"><sup><i class="ti-arrow-up text-inverse"></i></sup>&#8358;9,00x</h2>
                                         </div>
                                         <span class="text-inverse">20%</span>
                                         <div class="progress">
@@ -265,11 +232,15 @@ include("header.php");
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title text-uppercase mb-0">Institution Users</h5>
+                                <h5 class="card-title text-uppercase mb-0">Institution Active Users</h5>
                             </div>
                             <div class="table-responsive">
                                 <table class="table no-wrap user-table mb-0">
                                   <thead>
+                                  <?php
+                        $query1 = "SELECT * FROM `users` WHERE int_id = '$int_id'";
+                        $result1 = mysqli_query($connection, $query1);
+                      ?>
                                     <tr>
                                       <th scope="col" class="border-0 text-uppercase font-medium pl-4">#</th>
                                       <th scope="col" class="border-0 text-uppercase font-medium">Name</th>
@@ -280,23 +251,37 @@ include("header.php");
                                     </tr>
                                   </thead>
                                   <tbody>
+                                  <?php if (mysqli_num_rows($result1) > 0) {
+                        while($row1 = mysqli_fetch_array($result1, MYSQLI_ASSOC)) {?>
                                     <tr>
                                       <td class="pl-4">1</td>
                                       <td>
-                                          <h5 class="font-medium mb-0">Daniel Kristeen</h5>
-                                          <span class="text-muted">Texas, Unitedd states</span>
+                                          <h5 class="font-medium mb-0"><?php echo $row1["fullname"]; ?></h5>
+                                      </td>
+                                      <?php
+                                                if ($row1["usertype"] == "rep") {
+                                                    $t = "Rep";
+                                                } else if ($row1["usertype"] == "man") {
+                                                    $t = "Manager";
+                                                }
+                                                ?>
+                                      <td>
+                                          <span class="text-muted"><?php echo $t; ?></span><br>
+                                          <?php
+                                                $int = $row1["int_id"];
+                                                $slect_int = mysqli_query($connection, "SELECT * FROM `institution` WHERE id ='$int'");
+                                                $mp = mysqli_fetch_array($slect_int);
+                                                $int_name = $mp["name"];
+                                                ?>
+                                          <span class="text-muted"><?php echo $int_name; ?></span>
                                       </td>
                                       <td>
-                                          <span class="text-muted">Lead Manager</span><br>
-                                          <span class="text-muted">BABCOCK</span>
+                                          <span class="text-muted"><?php echo $row1["email"];?></span><br>
+                                          <span class="text-muted"><?php echo $row1["phone"];?></span>
                                       </td>
                                       <td>
-                                          <span class="text-muted">daniel@gmail.com</span><br>
-                                          <span class="text-muted">+234 - 8162399614</span>
-                                      </td>
-                                      <td>
-                                          <span class="text-muted">15 Mar 2020</span><br>
-                                          <span class="text-muted">10: 55 AM</span>
+                                          <!-- <span class="text-muted">15 Mar 2020</span><br> -->
+                                          <span class="text-muted"><?php echo $row1["created_date"]; ?></span>
                                       </td>
                                       <!-- <td>
                                         <select class="form-control category-select" id="exampleFormControlSelect1">
@@ -311,6 +296,12 @@ include("header.php");
                                         <!-- <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="ti-upload"></i> </button> -->
                                       </td>
                                     </tr>
+                                    <?php }
+                                          }
+                                    else {
+                                    // echo "0 Document";
+                                    }
+                                    ?>
                                   </tbody>
                                 </table>
                             </div>
@@ -319,5 +310,11 @@ include("header.php");
                 </div>
             </div>
 <?php
+                } else {
+                ?>
+                <h1>YOU HAVE BEEN DISABLED</h1>
+                <?php
+                }
+            }
 include("footer.php");
 ?>

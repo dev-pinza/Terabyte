@@ -53,14 +53,14 @@ include("header.php");
                                         <div class="row pt-2 pb-2">
                                             <!-- Column -->
                                             <?php
-                                            $sql1 = mysqli_query($connection,"SELECT * FROM `client_post` WHERE approval_status = '1'");
+                                            $sql1 = mysqli_query($connection,"SELECT * FROM `man_approval` WHERE int_id = '$int_id'");
                                             $q1 = mysqli_num_rows($sql1);
-                                            $sql2 = mysqli_query($connection,"SELECT * FROM `client_post` WHERE approval_status = '0'");
+                                            $sql2 = mysqli_query($connection,"SELECT * FROM `client_post`");
                                             $q2 = mysqli_num_rows($sql2);
                                             ?>
                                             <div class="col pr-0">
                                                 <h1 class="font-light"><?php echo $q1; ?>/<?php echo $q2; ?></h1>
-                                                <h6 class="text-muted">Approved/Pending Ads</h6></div>
+                                                <h6 class="text-muted">Total Approved/Total Ads</h6></div>
                                             <!-- Column -->
                                             <div class="col text-right align-self-center">
                                                 <div data-label="30%" class="css-bar mb-0 css-bar-danger css-bar-100"><i class="mdi mdi-briefcase-check"></i></div>
@@ -146,11 +146,13 @@ include("header.php");
                                     <div class="ml-3">
                                         <h4 class="mb-0"><?php echo $row["ad_head"]; ?></h4>
                                         <?php
-                                        $a_s = $row["approval_status"];
-                                        if ($a_s == "0") {
+                                        $a_s = $row["post_link"];
+                                        $select_man = mysqli_query($connection, "SELECT * FROM `man_approval` WHERE post_link = '$a_s' AND int_id = '$int_id'");
+                                        $xm = mysqli_num_rows($select_man);
+                                        if ($xm <= "0") {
                                             $ap_stat = "Pending Approval";
                                             $color = "warning";
-                                        } else {
+                                        } else if ($xm >= 1) {
                                             $ap_stat = "Active";
                                             $color = "success";
                                         }

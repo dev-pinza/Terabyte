@@ -422,7 +422,45 @@
     <script src="../dist/js/pages/datatable/datatable-advanced.init.js"></script>
     <script src="../assets/libs/tablesaw/dist/tablesaw.jquery.js"></script>
     <script src="../assets/libs/tablesaw/dist/tablesaw-init.js"></script>
-    <script>
+    <?php
+    if ($usertype == "man") {
+        ?>
+        <input type="text" value="<?php echo $lnglat; ?>" id="lnglat" hidden>
+        <script>
+      $(function() {
+        $('#usa').vectorMap({
+          map : 'africa_mill',
+          backgroundColor : 'transparent',
+          zoomOnScroll: false,
+          regionStyle : {
+              initial : {
+                  fill : '#008080'
+              }
+          },
+          markerStyle: {
+      initial: {
+        r: 9,
+        'fill': '#fff',
+        'fill-opacity':1,
+        'stroke': '#000',
+        'stroke-width' : 5,
+        'stroke-opacity': 0.4
+        },
+       },
+       enableZoom: true,
+    hoverColor: '#2962FF',
+    markers : [{
+        latLng : [<?php echo $lnglat; ?>],
+        name: 'my Institution Location'
+      }
+    ],
+        });
+      });
+    </script>
+        <?php
+    } else if ($usertype == "super") {
+        ?>
+        <script>
       $(function() {
         $('#usa').vectorMap({
           map : 'africa_mill',
@@ -457,4 +495,7 @@
         });
       });
     </script>
+        <?php
+    }
+    ?>
 </html>

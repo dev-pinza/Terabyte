@@ -71,7 +71,17 @@
     $pip = mysqli_fetch_array($select_user);
     $user_img = $pip["img"];
     $int_id = $pip["int_id"];
-
+    // get
+    if ($int_id != 0) {
+    $get_int = mysqli_query($connection, "SELECT * FROM `institution` WHERE id = '$int_id'");
+    if (mysqli_num_rows($get_int) >= 1) {
+        $mi = mysqli_fetch_array($get_int);
+        $lnglat = $mi["lnglat"];
+        // echo $lnglat;
+    } else {
+        echo " ";
+    }
+}
     // page control
     if(!$_SESSION["username"] != ""){
         header("location: ../index.php");

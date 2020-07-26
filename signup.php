@@ -96,7 +96,7 @@ if (count([$res]) == 1) {
                          <table border='0' cellpadding='0' cellspacing='0' style='width: 100%;'>
                              <tbody>
                                  <tr>
-                                     <td style='background:#413e39; padding:20px; color:#fff; text-align:center;'> Admin Registration Successful. </td>
+                                     <td style='background:#413e39; padding:20px; color:#fff; text-align:center;'> Terabyte Registration Successful. </td>
                                  </tr>
                              </tbody>
                          </table>

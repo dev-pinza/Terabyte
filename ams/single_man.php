@@ -152,9 +152,21 @@ include("header.php");
                                                         <td>Budget Amount</td>
                                                         <td> NGN <?php echo number_format($n["budget_amount"], 2); ?> </td>
                                                     </tr>
+                                                    <?php
+                                        $a_s = $post_id;
+                                        $select_man = mysqli_query($connection, "SELECT * FROM `man_approval` WHERE post_link = '$a_s' AND int_id = '$int_id'");
+                                        $xm = mysqli_num_rows($select_man);
+                                        if ($xm <= "0") {
+                                            $ap_stat = "Pending Approval";
+                                            $color = "warning";
+                                        } else if ($xm >= 1) {
+                                            $ap_stat = "Active";
+                                            $color = "success";
+                                        }
+                                        ?>
                                                     <tr>
                                                         <td>Ad Status</td>
-                                                        <td> <?php echo $n["payment_status"]; ?> </td>
+                                                        <td> <?php echo $ap_stat; ?> </td>
                                                     </tr>
                                                     <tr>
                                                         <td>Created Date</td>
@@ -167,7 +179,7 @@ include("header.php");
                                     
                                 </div>
                                 <?php
-                                    if ($app_status != "1") {
+                                    if ($xm <= 0) {
                                         ?>
                                 <center>
                                 <a class="btn btn-success text-white float-right ml-3 d-none d-md-block" href="approve.php?no=<?php echo $post_id; ?>">Approve Promotion</a>
