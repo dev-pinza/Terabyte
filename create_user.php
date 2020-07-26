@@ -5,7 +5,7 @@ $ut_m = $_SESSION["usertype"];
 // Include config file
 $digits = 10;
 $randms = str_pad(rand(0, pow(10, $digits)-1), $digits, '0', STR_PAD_LEFT);
-if ($ut_m == "super") {
+if ($ut_m == "super" || $ut_m == "man") {
 require_once "bat/phpmailer/PHPMailerAutoload.php";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // import DB
@@ -15,6 +15,9 @@ $em = $_POST["em"];
 $gn = $_POST["gn"];
 $dob = $_POST["dob"];
 $ut = $_POST["ut"];
+if ($ut == "super" && $ut_m != "super") {
+    $ut = "man";
+}
 $int_id = $_POST["int_id"];
 $u_country = $_POST["u_country"];
 $pass = "Terapass2020";

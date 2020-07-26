@@ -12,6 +12,7 @@ include("header.php");
                 $qu = mysqli_fetch_array($query_us);
                 $is_dis = $qu["is_disabled"];
                 $int_id = $qu["int_id"];
+                $gen_date = date('Y-m-d');
                 if ($is_dis == "0") {
             ?>
             <!-- ============================================================== -->
@@ -32,7 +33,7 @@ include("header.php");
                                             <!-- Column -->
                                             <div class="col pr-0">
                                                 <?php
-                                                $client_q = mysqli_query($connection, "SELECT * FROM `man_approval` WHERE int_id = '$int_id'");
+                                                $client_q = mysqli_query($connection, "SELECT * FROM `ad_transaction` WHERE user_id = '$user_id' AND transaction_type = 'rep_share'");
                                                 $no_client = mysqli_num_rows($client_q);
                                                 ?>
                                                 <h1 class="font-light"><?php echo $no_client; ?></h1>
@@ -53,14 +54,12 @@ include("header.php");
                                         <div class="row pt-2 pb-2">
                                             <!-- Column -->
                                             <?php
-                                            $sql1 = mysqli_query($connection,"SELECT * FROM `man_approval` WHERE int_id = '$int_id'");
-                                            $q1 = mysqli_num_rows($sql1);
-                                            $sql2 = mysqli_query($connection,"SELECT * FROM `client_post`");
+                                            $sql2 = mysqli_query($connection,"SELECT * FROM `client_post` WHERE end_date >= $gen_date");
                                             $q2 = mysqli_num_rows($sql2);
                                             ?>
                                             <div class="col pr-0">
-                                                <h1 class="font-light"><?php echo $q1; ?>/<?php echo $q2; ?></h1>
-                                                <h6 class="text-muted">Total Approved/Total Ads</h6></div>
+                                                <h1 class="font-light"><?php echo $q2; ?></h1>
+                                                <h6 class="text-muted">Total Approved Ad</h6></div>
                                             <!-- Column -->
                                             <div class="col text-right align-self-center">
                                                 <div data-label="30%" class="css-bar mb-0 css-bar-danger css-bar-100"><i class="mdi mdi-briefcase-check"></i></div>
@@ -124,7 +123,7 @@ include("header.php");
                 <!-- CHECK PRODUCT -->
                 <?php
                 $gen_date = date('Y-m-d');
-                $result = mysqli_query($connection, "SELECT * FROM `client_post` WHERE end_date > '$gen_date' OR end_date = '$gen_date' ORDER BY id DESC");
+                $result = mysqli_query($connection, "SELECT client_post.`post_link`, client_post.`ad_head`, client_post.`ad_sub_head`, client_post.`short_description`, client_post.`img`, client_post.`approval_status`, client_post.`fire_link` FROM client_post INNER JOIN man_approval ON client_post.`post_link`= man_approval.post_link WHERE man_approval.int_id = '$int_id' AND client_post.end_date > '$gen_date' OR client_post.end_date = '$gen_date' ORDER BY client_post.id DESC");
                 ?>
                 <div class="row el-element-overlay">
                 <?php if (mysqli_num_rows($result) > 0) {
@@ -137,8 +136,6 @@ include("header.php");
                                 <div class="el-card-avatar el-overlay-1"> <img src="ad_img/<?php echo $row["img"]; ?>" alt="user" />
                                     <div class="el-overlay">
                                         <ul class="list-style-none el-info">
-                                            <li class="el-item"><a class="btn default btn-outline image-popup-vertical-fit el-link" href="single_man.php?no=<?php echo $row["post_link"]; ?>"><i class="icon-magnifier"></i></a></li>
-                                            <li class="el-item"><a class="btn default btn-outline el-link" href="https://thisistera.com/ads/ad.php?no=<?php echo $row["post_link"];?>&harsh=<?php echo $user_id; ?>"><i class="icon-link"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -191,12 +188,21 @@ include("header.php");
   width: 50px;
   text-align: center;
   text-decoration: none;"></a>
-  <p>COPY CONTENT TO CLIPBOARD</p>
-<a href="#" class="fa fa-clipboard" style="color: #008080; padding: 20px;
-  font-size: 30px;
-  width: 50px;
-  text-align: center;
-  text-decoration: none;"></a>
+  <p>CLICK THE AREA BELOW TO COPY</p>
+ <?php $head = $row["ad_head"]; ?>
+<?php $sub_head = $row["ad_sub_head"]; ?>
+<?php $body = $row["short_description"]; ?>
+<?php $link = 'https://thisistera.com/ads/ad.php?no='.$row["post_link"].'&harsh='.$user_id.'';?>
+<input class="form-control form-control-lg" onclick="myFunction()" id="myInput" value="<?php echo  $head." \n ".$sub_head." \n ".$body." \n ".$link;?>" readonly>
+  <script>
+function myFunction() {
+  var copyText = document.getElementById("myInput");  
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+  alert("AD COPIED " + copyText.value);
+}
+</script>
                                         </span>
                                     </div>
                                 </div>
@@ -213,7 +219,7 @@ include("header.php");
                                 <div>
                                     <center>
                                     <div class="">
-                                        <a href="create_promotion.php" class="btn btn-dark">Create Promotion</a>
+                                        <a href="#" class="btn btn-dark">No Promotion Currently</a>
                                     </div>
                                     </center>
                                 </div>

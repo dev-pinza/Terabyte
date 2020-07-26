@@ -13,7 +13,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     exit;
   } 
   elseif($_SESSION["usertype"] == "rep"){
-    header("location: ams/finance.php");
+    header("location: ams/share_ad.php");
     exit;
   }
   elseif($_SESSION["usertype"] == "man"){
@@ -100,7 +100,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             if ($stmt->num_rows ==1 && $_SESSION["usertype"] =="client") {
                               header("location: ams/active_promo.php");
                             }elseif ($stmt->num_rows ==1 && $_SESSION["usertype"] =="rep"){
-                                header("location: ams/finance.php");
+                                header("location: ams/share_ad.php");
                             }elseif ($stmt->num_rows ==1 && $_SESSION["usertype"] =="man"){
                                 header("location: ams/man_dash.php");
                             }elseif ($stmt->num_rows ==1 && $_SESSION["usertype"] =="super"){
