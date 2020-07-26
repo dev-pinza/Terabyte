@@ -503,11 +503,11 @@
                             else if ($usertype == "rep") {
                             ?>
                             <li class="sidebar-item">
-                                <a href="finance.php" class="sidebar-link">
-                                    <i class="mdi mdi-adjust"></i>
-                                    <span class="hide-menu"> Financial Activity </span>
-                                </a>
-                            </li>
+                                    <a href="rep_bal.php" class="sidebar-link">
+                                        <i class="ti-wallet"></i>
+                                        <span class="hide-menu">Tera Wallet</span>
+                                    </a>
+                                </li>
                             <?php
                             }
                             ?>

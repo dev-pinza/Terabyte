@@ -98,7 +98,7 @@ include("header.php");
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6 border-right">
+                                <!-- <div class="col-md-6 border-right">
                                     <div class="d-flex align-items-center px-4 py-3">
                                         <h2 class="mb-0 text-info display-7">
                                             <i class="far fa-paper-plane"></i>
@@ -119,7 +119,7 @@ include("header.php");
                                             <h4>Shopping</h4>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -348,7 +348,7 @@ include("header.php");
                 <!-- Earnings & Feed Row  -->
                 <!-- ============================================================== -->
                 <div class="row">
-                    <div class="col-md-12 col-lg-6">
+                    <div class="col-md-12 col-lg-12">
                         <div class="card">
                             <div class="p-4 border-bottom">
                                 <div class="d-flex align-items-center">
