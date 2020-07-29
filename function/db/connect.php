@@ -5,12 +5,6 @@ define('DB_PASSWORD', '@8;WKJddKqTo');
 define('DB_CHARSET', 'utf8');
 define('DB_NAME', 'thisiste_tera');
 // test
-// define('DB_SERVER', 'localhost');
-// define('DB_USERNAME', 'root');
-// define('DB_PASSWORD', 'password');
-// define('DB_CHARSET', 'utf8');
-// define('DB_NAME', 'sekani_admin');
-// alrigh
 
 $connection = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 

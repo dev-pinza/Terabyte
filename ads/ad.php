@@ -33,7 +33,7 @@ if (isset($_GET["no"]) && isset($_GET["harsh"])) {
              return $ip;  
           } 
           $ip = getIPAddress();
-          $getip = mysqli_query($connection, "SELECT * FROM `ad_transaction` WHERE ip_address = '$ip'");
+          $getip = mysqli_query($connection, "SELECT * FROM `ad_transaction` WHERE ip_address = '$ip' AND post_id = '$post_link'");
         // select user account
         if (mysqli_num_rows($getip) <= 0) {
             // done making a move
@@ -85,7 +85,7 @@ if (isset($_GET["no"]) && isset($_GET["harsh"])) {
                 // stop here
             }
             // make an add up function
-            if ($ad_end_date >= $gen_date && $pay_stat == "Active" && $ap_status == "1") {
+            if ($ad_end_date >= $gen_date && $pay_stat == "active" || $pay_stat == "Active" && $ap_status == "1") {
                 // if the post is active and approved
                 // get reps 50%
                 $rep_share = $budget_amt * (50/100);
@@ -154,7 +154,7 @@ if (isset($_GET["no"]) && isset($_GET["harsh"])) {
                                 $update_pro = mysqli_query($connection, "UPDATE `ad_promotion` SET `used_amount` = '$check_man_out_1', `aud_reach` = '$pro_rch', `tot_click` = '$pro_clk', `tot_con` = '$pro_con' WHERE `ad_promotion`.`post_id` = '$p_id'");
                                 if ($update_pro) {
                                     // oya o
-                                    $update_trans = mysqli_query($connection, "INSERT INTO `ad_transaction` (`transaction_id`, `client_id`, `transaction_type`, `amount`, `credit`, `debit`, `created_date`, `user_id`, `ip_address`, `int_id`) VALUES ('{$trans}', '{$client_id}', 'man debit', '{$each_man_earn}', '0.00', '{$each_man_earn}', '{$gen_date1}', '{$man_id}', '{$ip}', '{$int_id}')");
+                                    $update_trans = mysqli_query($connection, "INSERT INTO `ad_transaction` (`transaction_id`, `client_id`, `transaction_type`, `amount`, `credit`, `debit`, `created_date`, `user_id`, `ip_address`, `int_id`, `post_id`) VALUES ('{$trans}', '{$client_id}', 'man debit', '{$each_man_earn}', '0.00', '{$each_man_earn}', '{$gen_date1}', '{$man_id}', '{$ip}', '{$int_id}', '{$post_link}')");
                                     // thinking
                                 } else {
                                     echo "A PROBLEM";

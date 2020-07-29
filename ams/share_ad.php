@@ -33,7 +33,7 @@ include("header.php");
                                             <!-- Column -->
                                             <div class="col pr-0">
                                                 <?php
-                                                $client_q = mysqli_query($connection, "SELECT * FROM `ad_transaction` WHERE user_id = '$user_id' AND transaction_type = 'rep_share'");
+                                                $client_q = mysqli_query($connection, "SELECT * FROM `ad_transaction` WHERE user_id = '$user_id' AND transaction_type = 'rep debit'");
                                                 $no_client = mysqli_num_rows($client_q);
                                                 ?>
                                                 <h1 class="font-light"><?php echo $no_client; ?></h1>
@@ -188,21 +188,12 @@ include("header.php");
   width: 50px;
   text-align: center;
   text-decoration: none;"></a>
-  <p>CLICK THE AREA BELOW TO COPY</p>
+  <p>COPY LINK BELOW</p>
  <?php $head = $row["ad_head"]; ?>
 <?php $sub_head = $row["ad_sub_head"]; ?>
 <?php $body = $row["short_description"]; ?>
 <?php $link = 'https://thisistera.com/ads/ad.php?no='.$row["post_link"].'&harsh='.$user_id.'';?>
-<input class="form-control form-control-lg" onclick="myFunction()" id="myInput" value="<?php echo  $head." \n ".$sub_head." \n ".$body." \n ".$link;?>" readonly>
-  <script>
-function myFunction() {
-  var copyText = document.getElementById("myInput");  
-  copyText.select();
-  copyText.setSelectionRange(0, 99999)
-  document.execCommand("copy");
-  alert("AD COPIED " + copyText.value);
-}
-</script>
+<input class="form-control form-control-lg" id="myInput" value="<?php echo $link;?>">
                                         </span>
                                     </div>
                                 </div>

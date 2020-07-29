@@ -68,16 +68,17 @@ include("header.php");
                         $client_id = $user_id;
                         // we are ready to start
                         $dest = $_POST["location"];
-                        $fire = $connection->mysqli_real_escape_string($_POST["webUrl3"]);
+                        $fire = $_POST["webUrl3"];
                         $cat = $_POST["ad_cat"];
-                        $head = $connection->mysqli_real_escape_string($_POST["head"]);
-                        $title = $connection->mysqli_real_escape_string($_POST["title"]);
-                        $body = $connection->mysqli_real_escape_string($_POST["shortDescription"]);
-                        $aud_name = $connection->mysqli_real_escape_string($_POST["aud_name"]);
+                        $head = $_POST["head"];
+                        $title = $_POST["title"];
+                        $body = $_POST["shortDescription"];
+                        $aud_name = $_POST["aud_name"];
                         $age_gend = $_POST["wintType1"];
                         $int_loc = $_POST["int_loc"];
                         $auto_renew = $_POST["customRadio"];
                         // PICTURES
+                        // END PICTURES
                         $temp1 = explode(".", $_FILES['chooseFile']['name']);
                         $digits = 10;
                         $randms1 = str_pad(rand(0, pow(10, $digits)-1), $digits, '0', STR_PAD_LEFT);
