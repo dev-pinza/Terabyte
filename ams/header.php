@@ -389,14 +389,20 @@
                                 }
                                  ?>
                                  <?php
-                                if ($usertype == "client"){
+                                if ($usertype != ""){
                                     $wal = mysqli_query($connection, "SELECT * FROM `account` WHERE user_id = '$user_id'");
                                     $oq = mysqli_fetch_array($wal);
                                     $wall_bal = number_format($oq["balance_derived"], 2);
                                     $dep_bal = number_format($oq["total_dep"], 2);
                                     $sp_bal = number_format($oq["total_with"], 2);
                                     ?>
+                                    <?php
+                                    if ($usertype == "client"){
+                                    ?>
                                 <a class="dropdown-item" href="client_bal.php"><i class="ti-wallet mr-1 ml-1"></i> Ad Balance &#8358; <?php echo $wall_bal; ?></a>
+                                <?php
+                                }
+                                ?>
                                 <?php
                                 }
                                  ?>
@@ -517,6 +523,15 @@
                         }
                         ?>
                         <li class="sidebar-item">
+                           <a href="client_bal.php" class="sidebar-link">
+                                <i class="ti-wallet"></i>
+                                <span class="hide-menu">Tera Wallet</span>
+                            </a>
+                        </li>
+                        <?php
+                                if ($usertype != "super") {
+                                    ?>
+                        <li class="sidebar-item">
                             <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
                                 <i class="fas fa-hand-holding-usd"></i>
                                 <span class="hide-menu">Promotion</span>
@@ -543,14 +558,9 @@
                                         <span class="hide-menu">Inactive</span>
                                     </a>
                                 </li>
-                                <li class="sidebar-item">
-                                    <a href="client_bal.php" class="sidebar-link">
-                                        <i class="ti-wallet"></i>
-                                        <span class="hide-menu">Tera Wallet</span>
-                                    </a>
-                                </li>
                                     <?php
-                                } else if ($usertype == "man") {
+                                } 
+                                else if ($usertype == "man") {
                                     ?>
                                 <li class="sidebar-item">
                                     <a href="ad_man.php" class="sidebar-link">
@@ -578,6 +588,9 @@
                                 </li> -->
                             </ul>
                         </li>
+                        <?php
+                                }
+                        ?>
                         <?php
                         if ($usertype != "client" && $usertype != "rep"){
                             ?>

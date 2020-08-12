@@ -19,12 +19,15 @@ $transaction_id = "TERA".$randms;
                                                 <i class="cc EOS-alt text-white display-6 mr-3" title="EOS"></i>
                                                 <div class="mt-2">
                                                     <h5 class="text-white font-medium">TERA WALLET BALANCE</h5>
-                                                    <h6 class="text-white">Available Cash for Ad promotion (&#8358; <?php echo $wall_bal; ?>)</h6>
+                                                    <h6 class="text-white">Available Cash (&#8358; <?php echo $wall_bal; ?>)</h6>
                                                 </div>
                                                 <div class="ml-auto mt-3">
                                                     <div class="crypto"></div>
                                                 </div>
                                             </div>
+                                            <?php
+                                            if ($usertype == "client") {
+                                            ?>
                                             <div class="ml-auto">
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-dark" data-toggle="modal"
@@ -33,6 +36,9 @@ $transaction_id = "TERA".$randms;
                                             </button>
                                         </div>
                                     </div>
+                                    <?php
+                                            }
+                                    ?>
                                             <div class="row text-center text-white mt-4">
                                                 <div class="col-4">
                                                     <span class="font-14">Total Deposit</span>

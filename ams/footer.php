@@ -422,6 +422,7 @@
     <script src="../dist/js/pages/datatable/datatable-advanced.init.js"></script>
     <script src="../assets/libs/tablesaw/dist/tablesaw.jquery.js"></script>
     <script src="../assets/libs/tablesaw/dist/tablesaw-init.js"></script>
+    <!-- get all -->
     <?php
     if ($usertype == "man") {
         ?>
@@ -459,8 +460,20 @@
     </script>
         <?php
     } else if ($usertype == "super") {
+        $getint = mysqli_query($connection, "SELECT * FROM `institution` WHERE lnglat IS NOT NULL");
+        // $x = mysqli_fetch_array($getbook);
+        while($row = mysqli_fetch_array($getint))
+        {
+        $llt = $row["lnglat"];
+        // GET A TEST FOR COLOR
+        // $payment_stat = $row["payment_status"];
+            // color
+        $getall[] = array('name'=>$row['name']);
+            $getallx[] = array('latLng'=>'['.$llt.']');
+        }
         ?>
         <script>
+        var j = '<?php  echo json_encode(array($getall));  ?>';
       $(function() {
         $('#usa').vectorMap({
           map : 'africa_mill',
@@ -483,18 +496,14 @@
        },
        enableZoom: true,
     hoverColor: '#2962FF',
-    markers : [{
-        latLng : [9.081244, 7.463084],
-        name : 'My Location'
-      },
-      {
-        latLng : [2.081244, 7.463084],
-        name : 'My Location'
-      }
-    ],
+    markers : <?php echo str_replace("".'"'."","", json_encode($getallx)); ?>,
         });
       });
     </script>
+    <?php
+    //  echo json_encode($getall, JSON_PRETTY_PRINT);
+    // echo str_replace("".'"'."","", json_encode($getallx));
+     ?>
         <?php
     }
     ?>
