@@ -67,6 +67,7 @@ $transaction_id = "TERA".$randms;
                             <div class="card-body">
                                 <h4 class="card-title">Transaction Details</h4>
                                 <h5 class="card-subtitle">View Your Transaction details </h5>
+                                <div class="table-responsive">
                                 <table class="tablesaw table-bordered table-hover table no-wrap" data-tablesaw-mode="swipe"
                                     data-tablesaw-sortable data-tablesaw-sortable-switch data-tablesaw-minimap
                                     data-tablesaw-mode-switch>
@@ -118,6 +119,7 @@ $transaction_id = "TERA".$randms;
                                     ?>
                                     </tbody>
                                 </table>
+                                </div>
                             </div>
                         </div>
                     </div>

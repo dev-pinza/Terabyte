@@ -69,32 +69,6 @@ if ($wall_bal < 100.00) {
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">PRODUCT SUMMARY</h5>
-                                <div class="table-responsive">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th>Photo</th>
-                                                <th>Product</th>
-                                                <th>Quantity</th>
-                                                <th>Price</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><img src="../../assets/images/gallery/chair.jpg" alt="iMac" width="80"></td>
-                                                <td>Rounded Chair</td>
-                                                <td>20</td>
-                                                <td class="font-500">$153</td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="3" class="font-500" align="right">Total Amount</td>
-                                                <td class="font-500">$153</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <hr>
                                 <h5 class="card-title">Choose payment Option</h5>
                                 <ul class="nav nav-tabs" role="tablist">
                                     <li role="presentation" class="nav-item">
