@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Linoor - DIgital Agency HTML Template | Home 03</title>
+    <title>Terabyte | Home</title>
     <!-- Stylesheets -->
     <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link href="css/bootstrap.css" rel="stylesheet" />
@@ -52,7 +52,7 @@
                     <!--Logo-->
                     <div class="logo-box">
                         <div class="logo">
-                            <a href="index.html" title="Linoor - DIgital Agency HTML Template"><img
+                            <a href="index.php" title="Terabyte | Home"><img
                                     src="images/logo-2.png" class="main-logo"
                                     alt="Linoor - DIgital Agency HTML Template"
                                     title="Linoor - DIgital Agency HTML Template" /><img src="images/logo.png"
