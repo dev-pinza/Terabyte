@@ -552,7 +552,7 @@ if (count([$res]) == 1) {
                                 </div>
                                 <div class="form-group mb-0 mt-2 ">
                                     <div class="col-sm-12 text-center ">
-                                        Already have an account? <a href="index.php" class="text-info ml-1 "><b>Sign In</b></a>
+                                        Already have an account? <a href="login.php" class="text-info ml-1 "><b>Sign In</b></a>
                                     </div>
                                 </div>
                             </form>
