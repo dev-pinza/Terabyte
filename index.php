@@ -1,64 +1,9 @@
 <?php
+$web_title = "Home";
+$current = "home";
 include("header_i.php");
 ?>
-<!--Mobile Menu-->
-<div class="side-menu__block">
-            <div class="side-menu__block-overlay custom-cursor__overlay">
-                <div class="cursor"></div>
-                <div class="cursor-follower"></div>
-            </div>
-            <!-- /.side-menu__block-overlay -->
-            <div class="side-menu__block-inner">
-                <div class="side-menu__top justify-content-end">
-                    <a href="#" class="side-menu__toggler side-menu__close-btn"><img src="images/icons/close-1-1.png"
-                            alt="" /></a>
-                </div>
-                <!-- /.side-menu__top -->
 
-                <nav class="mobile-nav__container">
-                    <!-- content is loading via js -->
-                </nav>
-                <div class="side-menu__sep"></div>
-                <!-- /.side-menu__sep -->
-                <div class="side-menu__content">
-                    <p>
-                        Linoor is a premium Template for Digital Agencies, Start Ups,
-                        Small Business and a wide range of other agencies.
-                    </p>
-                    <p>
-                        <a href="mailto:needhelp@linoor.com">needhelp@linoor.com</a>
-                        <br />
-                        <a href="tel:888-999-0000">888 999 0000</a>
-                    </p>
-                    <div class="side-menu__social">
-                        <a href="#"><i class="fab fa-facebook-square"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                    </div>
-                </div>
-                <!-- /.side-menu__content -->
-            </div>
-            <!-- /.side-menu__block-inner -->
-        </div>
-        <!-- /.side-menu__block -->
-
-        <!--Search Popup-->
-        <div class="search-popup">
-            <div class="search-popup__overlay custom-cursor__overlay">
-                <div class="cursor"></div>
-                <div class="cursor-follower"></div>
-            </div>
-            <!-- /.search-popup__overlay -->
-            <div class="search-popup__inner">
-                <form action="#" class="search-popup__form">
-                    <input type="text" name="search" placeholder="Type here to Search...." />
-                    <button type="submit"><i class="fa fa-search"></i></button>
-                </form>
-            </div>
-            <!-- /.search-popup__inner -->
-        </div>
-        <!-- /.search-popup -->
 
         <!-- Banner Section -->
         <section class="banner-section banner-three">
@@ -66,7 +11,7 @@ include("header_i.php");
                 <div class="base-inner">
                     <div class="hours">
                         <ul class="clearfix">
-                            <li><span>mon - fri</span></li>
+                            <li><span>support: mon - fri</span></li>
                             <li><span>9am - 7pm</span></li>
                         </ul>
                     </div>
@@ -94,17 +39,42 @@ include("header_i.php");
                 <div class="slide-item">
                     <div class="round-shape-1"></div>
                     <div class="round-image">
-                        <div class="image" style="background-image: url(images/main-slider/image-1.jpg);"></div>
+                        <div class="image" style="background-image: url(img/black-businessman.jpg);"></div>
                     </div>
                     <div class="auto-container">
                         <div class="content-box">
                             <div class="content">
                                 <div class="inner">
-                                    <h1>Best Digital <br />Marketing <br />Agency</h1>
+                                    <h1>Promote <br /> Your Business <br />With Terabyte</h1>
                                     <div class="text">
                                         We are committed to providing our customers with
-                                        exceptional service while offering our employees the best
-                                        training.
+                                        exceptional service we will market your business all the way
+                                    </div>
+                                    <div class="link-box">
+                                        <a class="theme-btn btn-style-two" href="about.html">
+                                            <i class="btn-curve"></i>
+                                            <span class="btn-title">Get Started</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide Item -->
+                <div class="slide-item">
+                    <div class="round-shape-1"></div>
+                    <div class="round-image">
+                        <div class="image" style="background-image: url(img/social-sht.jpg);"></div>
+                    </div>
+                    <div class="auto-container">
+                        <div class="content-box">
+                            <div class="content">
+                                <div class="inner">
+                                    <h1>Terabyte <br />Best in <br />Digital Marketing</h1>
+                                    <div class="text">
+                                        Would you love to run campainge, sell your business brand, connect thousands of people with your business.
                                     </div>
                                     <div class="link-box">
                                         <a class="theme-btn btn-style-two" href="about.html">
@@ -122,50 +92,20 @@ include("header_i.php");
                 <div class="slide-item">
                     <div class="round-shape-1"></div>
                     <div class="round-image">
-                        <div class="image" style="background-image: url(images/main-slider/image-1.jpg);"></div>
+                        <div class="image" style="background-image: url(img/student-laptop.jpg);"></div>
                     </div>
                     <div class="auto-container">
                         <div class="content-box">
                             <div class="content">
                                 <div class="inner">
-                                    <h1>Best Digital <br />Marketing <br />Agency</h1>
+                                    <h1>Make <br />Money with <br />Terabyte</h1>
                                     <div class="text">
-                                        We are committed to providing our customers with
-                                        exceptional service while offering our employees the best
-                                        training.
+                                        Signup as a Rep in a campus and begin to earn cash.
                                     </div>
                                     <div class="link-box">
-                                        <a class="theme-btn btn-style-two" href="about.html">
+                                        <a class="theme-btn btn-style-two" href="#">
                                             <i class="btn-curve"></i>
-                                            <span class="btn-title">Discover More</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide Item -->
-                <div class="slide-item">
-                    <div class="round-shape-1"></div>
-                    <div class="round-image">
-                        <div class="image" style="background-image: url(images/main-slider/image-1.jpg);"></div>
-                    </div>
-                    <div class="auto-container">
-                        <div class="content-box">
-                            <div class="content">
-                                <div class="inner">
-                                    <h1>Best Digital <br />Marketing <br />Agency</h1>
-                                    <div class="text">
-                                        We are committed to providing our customers with
-                                        exceptional service while offering our employees the best
-                                        training.
-                                    </div>
-                                    <div class="link-box">
-                                        <a class="theme-btn btn-style-two" href="about.html">
-                                            <i class="btn-curve"></i>
-                                            <span class="btn-title">Discover More</span>
+                                            <span class="btn-title">Sign up</span>
                                         </a>
                                     </div>
                                 </div>
@@ -181,11 +121,11 @@ include("header_i.php");
         <section class="call-to-section-two">
             <div class="auto-container">
                 <div class="inner clearfix">
-                    <h2>We’re Ready to Bring Bigger <br />& Stronger Projects</h2>
+                    <h2>We’re Ready to Bring Bigger <br /> Audience & Stronger Conversion Rate</h2>
                     <div class="link-box">
-                        <a class="theme-btn btn-style-one" href="about.html">
+                        <a class="theme-btn btn-style-one" href="#">
                             <i class="btn-curve"></i>
-                            <span class="btn-title">Contact with us</span>
+                            <span class="btn-title">Contact us</span>
                         </a>
                     </div>
                 </div>
@@ -197,7 +137,7 @@ include("header_i.php");
             <div class="auto-container">
                 <div class="sec-title centered">
                     <h2>
-                        Discover the world of best <br />linoor agency
+                    We use the dominant the <br />social media
                         <span class="dot">.</span>
                     </h2>
                 </div>
@@ -206,11 +146,11 @@ include("header_i.php");
                     <div class="discover-block col-lg-6 col-md-12 col-sm-12">
                         <div class="inner-box">
                             <div class="image-box">
-                                <img src="images/resource/featured-image-11.jpg" alt="" />
+                                <img src="img/crowd.jpg" alt="" />
                             </div>
                             <div class="cap-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
                                 <div class="cap-inner">
-                                    <h5>All-in-One Web Solution for Your Business</h5>
+                                    <h5>Get More Audience for your business through us</h5>
                                     <div class="more-link">
                                         <a href="about.html"><span class="fa fa-angle-right"></span></a>
                                     </div>
@@ -222,11 +162,11 @@ include("header_i.php");
                     <div class="discover-block col-lg-6 col-md-12 col-sm-12">
                         <div class="inner-box">
                             <div class="image-box">
-                                <img src="images/resource/featured-image-12.jpg" alt="" />
+                                <img src="img/social-media-ar.jpg" alt="" />
                             </div>
                             <div class="cap-box wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms">
                                 <div class="cap-inner">
-                                    <h5>The best digital agency you’ll ever need</h5>
+                                    <h5>The fastest growing crowd advertising, digital marketing company</h5>
                                     <div class="more-link">
                                         <a class="theme-btn" href="about.html"><span
                                                 class="fa fa-angle-right"></span></a>
@@ -255,10 +195,10 @@ include("header_i.php");
                                     <span class="flaticon-vector"></span>
                                 </div>
                                 <h5>
-                                    <a href="#">Modern <br />Designing</a>
+                                    <a href="#">Content <br />Development</a>
                                 </h5>
                                 <div class="text">
-                                    Lorem ipsum is are many variations of pass of majority.
+                                    We help produce content that suite your business.
                                 </div>
                                 <div class="link-box">
                                     <a href="#"><span class="fa fa-angle-right"></span></a>
@@ -274,10 +214,10 @@ include("header_i.php");
                                     <span class="flaticon-digital"></span>
                                 </div>
                                 <h5>
-                                    <a href="#">MARKETING <br />STRATEGY</a>
+                                    <a href="#">Digital <br />Marketing</a>
                                 </h5>
                                 <div class="text">
-                                    Lorem ipsum is are many variations of pass of majority.
+                                    We help promote your business on all social platform.
                                 </div>
                                 <div class="link-box">
                                     <a href="#"><span class="fa fa-angle-right"></span></a>
@@ -293,10 +233,10 @@ include("header_i.php");
                                     <span class="flaticon-instant-camera"></span>
                                 </div>
                                 <h5>
-                                    <a href="#">Digital <br />Products</a>
+                                    <a href="#">Personal/Corporate <br />Brnading</a>
                                 </h5>
                                 <div class="text">
-                                    Lorem ipsum is are many variations of pass of majority.
+                                    We take your business to the next level.
                                 </div>
                                 <div class="link-box">
                                     <a href="#"><span class="fa fa-angle-right"></span></a>
@@ -312,10 +252,10 @@ include("header_i.php");
                                     <span class="flaticon-monitor"></span>
                                 </div>
                                 <h5>
-                                    <a href="#">Website <br />Development</a>
+                                    <a href="#">Business <br />Development</a>
                                 </h5>
                                 <div class="text">
-                                    Lorem ipsum is are many variations of pass of majority.
+                                    Meet with us we provide the best sales consultancy.
                                 </div>
                                 <div class="link-box">
                                     <a href="#"><span class="fa fa-angle-right"></span></a>
@@ -336,31 +276,28 @@ include("header_i.php");
                         <div class="left-col col-lg-5 col-md-12 col-sm-12">
                             <div class="inner">
                                 <div class="sec-title">
-                                    <h2>Linoor all core features <span class="dot">.</span></h2>
+                                    <h2>Earn with Terabyte <span class="dot">.</span></h2>
                                 </div>
                                 <div class="features">
                                     <div class="feature">
                                         <div class="count"><span>01</span></div>
-                                        <h5>Professional Staff</h5>
+                                        <h5>Are you in the University?</h5>
                                         <div class="sub-text">
-                                            There are many variations of passages of lorem ipsum
-                                            majority have suffered.
+                                            Only Students in the university are eligible to earn.
                                         </div>
                                     </div>
                                     <div class="feature">
                                         <div class="count"><span>02</span></div>
-                                        <h5>100% Satisfaction</h5>
+                                        <h5>Signup as a Rep</h5>
                                         <div class="sub-text">
-                                            There are many variations of passages of lorem ipsum
-                                            majority have suffered.
+                                            As a rep you will signup choosing your university, providing full details of you.
                                         </div>
                                     </div>
                                     <div class="feature">
                                         <div class="count"><span>03</span></div>
-                                        <h5>Quality designing</h5>
+                                        <h5>Share an ad link</h5>
                                         <div class="sub-text">
-                                            There are many variations of passages of lorem ipsum
-                                            majority have suffered.
+                                            Share an ad link and get clicks for conversion.
                                         </div>
                                     </div>
                                 </div>
@@ -370,10 +307,11 @@ include("header_i.php");
                         <div class="right-col col-lg-7 col-md-12 col-sm-12">
                             <div class="inner">
                                 <div class="image-box wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
-                                    <img src="images/resource/featured-image-13.jpg" alt="" />
+                                    <img src="img/black-woman.jpg" height="1032px" width="669px" alt="" />
                                     <div class="cap-box">
+                                        <!-- 1032 X 669 -->
                                         <div class="cap-inner">
-                                            <h5>Total design freedom for everyone</h5>
+                                            <h5>Earn in Secounds</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -384,156 +322,11 @@ include("header_i.php");
             </div>
         </section>
 
-        <!-- We Work Section -->
-        <section class="we-work-section">
-            <div class="auto-container">
-                <div class="sec-title centered">
-                    <h2>We Work With industries <span class="dot">.</span></h2>
-                </div>
-                <!--Work Tabs-->
-                <div class="work-tabs tabs-box">
-                    <!--Tab Btns-->
-                    <ul class="tab-btns tab-buttons clearfix">
-                        <li data-tab="#tab-1" class="tab-btn active-btn">
-                            <span>Latest technology</span>
-                        </li>
-                        <li data-tab="#tab-2" class="tab-btn">
-                            <span>awesome support</span>
-                        </li>
-                        <li data-tab="#tab-3" class="tab-btn">
-                            <span>1 click demo install</span>
-                        </li>
-                    </ul>
-
-                    <!--Tabs Container-->
-                    <div class="tabs-content">
-                        <!--Tab-->
-                        <div class="tab active-tab" id="tab-1">
-                            <div class="row clearfix">
-                                <div class="image-col col-lg-5 col-md-6 col-sm-12">
-                                    <div class="inner">
-                                        <div class="image">
-                                            <img src="images/resource/featured-image-14.jpg" alt="" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="text-col col-lg-7 col-md-6 col-sm-12">
-                                    <div class="inner">
-                                        <div class="content">
-                                            <div class="text">
-                                                <p>
-                                                    There are many variations of passages of lorem ipsum
-                                                    available, but the majority have suffered alteration
-                                                    in some form, by injected humour, or randomised
-                                                    words which don't look even slightly believable.
-                                                </p>
-                                                <p class="theme_color">
-                                                    If you are going to use a passage of Lorem Ipsum,
-                                                    you need to be sure there isn't anything
-                                                    embarrassing hidden in the middle of text.
-                                                </p>
-                                                <ul>
-                                                    <li>Self-contained, state-of-the-art time clock</li>
-                                                    <li>
-                                                        Scalability of up to 500 employees per time clock
-                                                    </li>
-                                                    <li>The ability to connect up to 32 time clocks</li>
-                                                    <li>Employee self-enrollment</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--Tab-->
-                        <div class="tab" id="tab-2">
-                            <div class="row clearfix">
-                                <div class="image-col col-lg-5 col-md-6 col-sm-12">
-                                    <div class="inner">
-                                        <div class="image">
-                                            <img src="images/resource/featured-image-14.jpg" alt="" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="text-col col-lg-7 col-md-6 col-sm-12">
-                                    <div class="inner">
-                                        <div class="content">
-                                            <div class="text">
-                                                <p>
-                                                    There are many variations of passages of lorem ipsum
-                                                    available, but the majority have suffered alteration
-                                                    in some form, by injected humour, or randomised
-                                                    words which don't look even slightly believable.
-                                                </p>
-                                                <p class="theme_color">
-                                                    If you are going to use a passage of Lorem Ipsum,
-                                                    you need to be sure there isn't anything
-                                                    embarrassing hidden in the middle of text.
-                                                </p>
-                                                <ul>
-                                                    <li>Self-contained, state-of-the-art time clock</li>
-                                                    <li>
-                                                        Scalability of up to 500 employees per time clock
-                                                    </li>
-                                                    <li>The ability to connect up to 32 time clocks</li>
-                                                    <li>Employee self-enrollment</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--Tab-->
-                        <div class="tab" id="tab-3">
-                            <div class="row clearfix">
-                                <div class="image-col col-lg-5 col-md-6 col-sm-12">
-                                    <div class="inner">
-                                        <div class="image">
-                                            <img src="images/resource/featured-image-14.jpg" alt="" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="text-col col-lg-7 col-md-6 col-sm-12">
-                                    <div class="inner">
-                                        <div class="content">
-                                            <div class="text">
-                                                <p>
-                                                    There are many variations of passages of lorem ipsum
-                                                    available, but the majority have suffered alteration
-                                                    in some form, by injected humour, or randomised
-                                                    words which don't look even slightly believable.
-                                                </p>
-                                                <p class="theme_color">
-                                                    If you are going to use a passage of Lorem Ipsum,
-                                                    you need to be sure there isn't anything
-                                                    embarrassing hidden in the middle of text.
-                                                </p>
-                                                <ul>
-                                                    <li>Self-contained, state-of-the-art time clock</li>
-                                                    <li>
-                                                        Scalability of up to 500 employees per time clock
-                                                    </li>
-                                                    <li>The ability to connect up to 32 time clocks</li>
-                                                    <li>Employee self-enrollment</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        
 
         <!-- Testimonials Section -->
         <section class="testimonials-section-two">
-            <div class="image-layer" style="background-image: url(images/background/image-6.jpg);"></div>
+            <div class="image-layer" style="background-image: url(img/business-bg.jpg);"></div>
             <div class="auto-container">
                 <div class="carousel-box">
                     <div class="testimonials-carousel-two owl-theme owl-carousel">
@@ -541,16 +334,25 @@ include("header_i.php");
                             <div class="inner">
                                 <div class="icon"><span>“</span></div>
                                 <div class="text">
-                                    This is due to their excellent service, competitive pricing
-                                    and customer support. It’s throughly refresing to get such a
-                                    personal touch.
+                                We believe everyone deserves to be heard, seen and known across the globe
                                 </div>
                                 <div class="info">
-                                    <div class="name">Christine Eve</div>
+                                    <div class="name">CEO. Clement Oyinwola</div>
                                 </div>
                             </div>
                         </div>
                         <div class="testi-block-two">
+                            <div class="inner">
+                                <div class="icon"><span>“</span></div>
+                                <div class="text">
+                                Our mission is to create a platform that is basic, simple and easy-to-use at the same time affordable.
+                                </div>
+                                <div class="info">
+                                    <div class="name">CEO. Clement Oyinwola</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="testi-block-two">
                             <div class="inner">
                                 <div class="icon"><span>“</span></div>
                                 <div class="text">
@@ -562,20 +364,7 @@ include("header_i.php");
                                     <div class="name">Christine Eve</div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="testi-block-two">
-                            <div class="inner">
-                                <div class="icon"><span>“</span></div>
-                                <div class="text">
-                                    This is due to their excellent service, competitive pricing
-                                    and customer support. It’s throughly refresing to get such a
-                                    personal touch.
-                                </div>
-                                <div class="info">
-                                    <div class="name">Christine Eve</div>
-                                </div>
-                            </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -640,10 +429,10 @@ include("header_i.php");
                         <div class="inner">
                             <div class="image-box wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
                                 <div class="image">
-                                    <img src="images/resource/featured-image-15.jpg" alt="" />
+                                    <img src="img/Logo.png" alt="" />
                                 </div>
                                 <div class="since">
-                                    <span class="txt">Since <br />2008</span>
+                                    <span class="txt">Since <br />2019</span>
                                 </div>
                             </div>
                         </div>
@@ -652,1330 +441,6 @@ include("header_i.php");
             </div>
         </section>
 
-        <!-- Gallery Section -->
-        <section class="gallery-section-two alternate">
-            <div class="auto-container">
-                <div class="sec-title centered">
-                    <h2>Our work showcase <span class="dot">.</span></h2>
-                </div>
-            </div>
-            <!--Porfolio Tabs-->
-            <div class="project-tab">
-                <div class="auto-container">
-                    <div class="tab-btns-box">
-                        <!--Tabs Header-->
-                        <div class="tabs-header">
-                            <ul class="product-tab-btns clearfix">
-                                <li class="p-tab-btn active-btn" data-tab="#p-tab-1">
-                                    All<sup>[6]</sup>
-                                </li>
-                                <li class="p-tab-btn" data-tab="#p-tab-2">
-                                    Branding<sup>[8]</sup>
-                                </li>
-                                <li class="p-tab-btn" data-tab="#p-tab-3">
-                                    illustration<sup>[7]</sup>
-                                </li>
-                                <li class="p-tab-btn" data-tab="#p-tab-4">
-                                    Photography<sup>[10]</sup>
-                                </li>
-                                <li class="p-tab-btn" data-tab="#p-tab-5">
-                                    Web Design<sup>[9]</sup>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="auto-container">
-                    <!--Tabs Content-->
-                    <div class="p-tabs-content">
-                        <!--Portfolio Tab / Active Tab-->
-                        <div class="p-tab active-tab" id="p-tab-1">
-                            <div class="project-carousel-two owl-theme owl-carousel">
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/1.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/1.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/2.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/2.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/3.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/3.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/4.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/4.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/5.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/5.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/6.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/6.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/1.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/1.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/2.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/2.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/3.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/3.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/4.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/4.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/5.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/5.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/6.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/6.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--Portfolio Tab -->
-                        <div class="p-tab" id="p-tab-2">
-                            <div class="project-carousel-two owl-theme owl-carousel">
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/1.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/1.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/2.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/2.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/3.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/3.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/4.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/4.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/5.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/5.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/6.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/6.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/1.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/1.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/2.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/2.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/3.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/3.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/4.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/4.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/5.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/5.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/6.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/6.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--Portfolio Tab -->
-                        <div class="p-tab" id="p-tab-3">
-                            <div class="project-carousel-two owl-theme owl-carousel">
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/1.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/1.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/2.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/2.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/3.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/3.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/4.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/4.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/5.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/5.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/6.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/6.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/1.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/1.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/2.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/2.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/3.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/3.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/4.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/4.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/5.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/5.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/6.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/6.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--Portfolio Tab -->
-                        <div class="p-tab" id="p-tab-4">
-                            <div class="project-carousel-two owl-theme owl-carousel">
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/1.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/1.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/2.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/2.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/3.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/3.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/4.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/4.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/5.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/5.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/6.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/6.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/1.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/1.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/2.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/2.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/3.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/3.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/4.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/4.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/5.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/5.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/6.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/6.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--Portfolio Tab -->
-                        <div class="p-tab" id="p-tab-5">
-                            <div class="project-carousel-two owl-theme owl-carousel">
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/1.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/1.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/2.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/2.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/3.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/3.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/4.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/4.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/5.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/5.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/6.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/6.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/1.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/1.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/2.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/2.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/3.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/3.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/4.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/4.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/5.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/5.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Gallery Item -->
-                                <div class="gallery-item">
-                                    <div class="inner-box">
-                                        <figure class="image">
-                                            <img src="images/gallery/6.jpg" alt="" />
-                                        </figure>
-                                        <a href="images/gallery/6.jpg" class="lightbox-image overlay-box"
-                                            data-fancybox="gallery"></a>
-                                        <div class="cap-box">
-                                            <div class="cap-inner">
-                                                <div class="cat"><span>Graphic</span></div>
-                                                <div class="title">
-                                                    <h5>
-                                                        <a href="portfolio-single.html">Fimlor Experience</a>
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!--Get Quote Section-->
         <section class="get-quote-two">
@@ -1998,17 +463,18 @@ include("header_i.php");
                                     <li class="address">
                                         <span class="icon flaticon-pin-1"></span>
                                         <strong>Visit Us</strong>
-                                        66 Broklyn Street, New York. USA
+                                        Block 19 zone B central market,
+Obafemi Awolowo University, <br />Ile-Ife Osun state Nigeria
                                     </li>
                                     <li>
                                         <span class="icon flaticon-email-2"></span>
                                         <strong>Email address</strong>
-                                        <a href="mailto:needhelp@linoor.com">needhelp@linoor.com</a>
+                                        <a href="mailto:support@thisistera.com">support@thisistera.com</a>
                                     </li>
                                     <li>
                                         <span class="icon flaticon-call"></span>
                                         <strong>Call now</strong>
-                                        <a href="tel:666888000">666 888 000</a>
+                                        <a href="tel:+2347030316605">+234 703 031 6605</a>
                                     </li>
                                 </ul>
                             </div>
@@ -2071,13 +537,12 @@ include("header_i.php");
             <div class="auto-container">
                 <div class="map-container">
                     <iframe class="map-iframe"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d230899.1642407818!2d145.06327708904033!3d-37.792102974783376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65cd0db468a97%3A0xb61fde84306fc38a!2sMelbourne%20Zoo!5e0!3m2!1sen!2s!4v1592307685926!5m2!1sen!2s"
+                    src="https://maps.google.com/maps?q=Block%2019%20zone%20B%20central%20market%2C%20Obafemi%20Awolowo%20University%2C%20Ile-Ife%20Osun%20state%20Nigeria&t=&z=13&ie=UTF8&iwloc=&output=embed"
                         style="border: 0;" aria-hidden="false" tabindex="0"></iframe>
                 </div>
             </div>
         </div>
 
-        <!--Sponsors Section-->
         <section class="sponsors-section-two">
             <div class="auto-container">
                 <!--Sponsors Carousel-->
@@ -2091,7 +556,7 @@ include("header_i.php");
                         </div>
                     </div>
 
-                    <div class="logo-col col-xl-7 col-lg-12 col-md-12">
+                    <!-- <div class="logo-col col-xl-7 col-lg-12 col-md-12">
                         <div class="row clearfix">
                             <div class="logo-block col-xl-4 col-lg-3 col-md-4 col-sm-6 col-xs-12">
                                 <div class="image-box">
@@ -2119,7 +584,7 @@ include("header_i.php");
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </section>

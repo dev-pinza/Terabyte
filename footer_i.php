@@ -9,11 +9,10 @@
                             <div class="footer-widget logo-widget">
                                 <div class="widget-content">
                                     <div class="logo">
-                                        <a href="index.html"><img id="fLogo" src="images/footer-logo.png" alt="" /></a>
+                                        <!-- <a href="index.html"><img id="fLogo" src="images/footer-logo.png" alt="" /></a> -->
                                     </div>
                                     <div class="text">
-                                        Welcome to our web design agency. Lorem ipsum simply free
-                                        text dolor sited amet cons cing elit.
+                                        Welcome to our Terabyte. You can Always count on terabyte
                                     </div>
                                     <ul class="social-links clearfix">
                                         <li>
@@ -24,9 +23,6 @@
                                         </li>
                                         <li>
                                             <a href="#"><span class="fab fa-instagram"></span></a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><span class="fab fa-pinterest-p"></span></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -68,16 +64,15 @@
                                     <h6>Contact</h6>
                                     <ul class="contact-info">
                                         <li class="address">
-                                            <span class="icon flaticon-pin-1"></span> 66 Broklyn
-                                            Street, New York <br />United States of America
+                                            <span class="icon flaticon-pin-1"></span> Block 19 zone B central market,
+Obafemi Awolowo University, <br />Ile-Ife Osun state Nigeria
                                         </li>
                                         <li>
-                                            <span class="icon flaticon-call"></span><a href="tel:666888000">666 888
-                                                000</a>
+                                            <span class="icon flaticon-call"></span><a href="tel:+2347030316605">+234 703 031 6605</a>
                                         </li>
                                         <li>
                                             <span class="icon flaticon-email-2"></span><a
-                                                href="mailto:needhelp@linoor.com">needhelp@linoor.com</a>
+                                                href="mailto:support@thisistera.com">support@thisistera.com</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -90,7 +85,7 @@
                                 <div class="widget-content">
                                     <h6>Newsletter</h6>
                                     <div class="newsletter-form">
-                                        <form method="post" action="contact.html">
+                                        <form>
                                             <div class="form-group clearfix">
                                                 <input type="email" name="email" value="" placeholder="Email Address"
                                                     required="" />
@@ -116,7 +111,7 @@
                 <div class="auto-container">
                     <div class="inner clearfix">
                         <div class="copyright">
-                            &copy; copyright 2020 by Layerdrops.com
+                            &copy; copyright <?php echo date('Y'); ?> by thisistera.com
                         </div>
                     </div>
                 </div>

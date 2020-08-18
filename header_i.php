@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Terabyte | Home</title>
+    <title>Terabyte | <?php echo $web_title; ?></title>
     <!-- Stylesheets -->
     <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link href="css/bootstrap.css" rel="stylesheet" />
@@ -53,11 +53,11 @@
                     <div class="logo-box">
                         <div class="logo">
                             <a href="index.php" title="Terabyte | Home"><img
-                                    src="images/logo-2.png" class="main-logo"
-                                    alt="Linoor - DIgital Agency HTML Template"
-                                    title="Linoor - DIgital Agency HTML Template" /><img src="images/logo.png"
-                                    id="thm-logo" alt="Linoor - DIgital Agency HTML Template"
-                                    title="Linoor - DIgital Agency HTML Template" class="stricked-logo" /></a>
+                                    src="images/Terabyte-logo-06.png" class="main-logo"
+                                    alt="Linoor - Terabyte"
+                                    title="Linoor - Terabyte" /><img src="images/Terabyte-logo-06.png"
+                                    id="thm-logo" alt="Linoor - Terabyte"
+                                    title="Linoor - Terabyte" class="stricked-logo" /></a>
                         </div>
                     </div>
                     <div class="nav-outer clearfix">
@@ -70,68 +70,19 @@
                         <nav class="main-menu navbar-expand-md navbar-light">
                             <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                                 <ul class="navigation clearfix">
-                                    <li class="current dropdown">
-                                        <a href="index.html">Home</a>
-                                        <ul>
-                                            <li><a href="index.html">Home Style 01</a></li>
-                                            <li><a href="index-2.html">Home Style 02</a></li>
-                                            <li><a href="index-3.html">Home Style 03</a></li>
-                                            <li>
-                                                <a href="one-page.html">Home One Page <span>new</span></a>
-                                            </li>
-                                        </ul>
+                                    <li class="<?php if ($current == "home"){ echo "current";} ?> dropdown">
+                                        <a href="index.php">Home</a>
                                     </li>
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li class="dropdown">
-                                        <a href="team.html">Pages</a>
-                                        <ul>
-                                            <li><a href="team.html">Our Team</a></li>
-                                            <li><a href="testimonials.html">Testimonials</a></li>
-                                            <li><a href="faqs.html">FAQs</a></li>
-                                            <li><a href="not-found.html">404 Page</a></li>
-                                        </ul>
+                                    <li class="<?php if ($current == "about"){ echo "current";} ?> "><a href="about.php">About Us</a></li>
+                                    <li class="<?php if ($current == "service"){ echo "current";} ?>">
+                                        <a href="service.php">Services</a>
                                     </li>
-                                    <li class="dropdown">
-                                        <a href="services.html">Services</a>
-                                        <ul>
-                                            <li><a href="services.html">All Services</a></li>
-                                            <li>
-                                                <a href="web-development.html">Website Development</a>
-                                            </li>
-                                            <li>
-                                                <a href="graphic-designing.html">Graphic Designing</a>
-                                            </li>
-                                            <li>
-                                                <a href="digital-marketing.html">Digital Marketing</a>
-                                            </li>
-                                            <li><a href="seo.html">SEO & Content Writting</a></li>
-                                            <li>
-                                                <a href="app-development.html">App Development</a>
-                                            </li>
-                                            <li><a href="ui-designing.html">UI/UX Designing</a></li>
-                                        </ul>
+                                    <li>
+                                        <a href="#">Blog</a>
                                     </li>
-                                    <li class="dropdown">
-                                        <a href="portfolio.html">Portfolio</a>
-                                        <ul>
-                                            <li><a href="portfolio.html">Portfolio</a></li>
-                                            <li>
-                                                <a href="portfolio-single.html">Portfolio Single 01</a>
-                                            </li>
-                                            <li>
-                                                <a href="portfolio-single-2.html">Portfolio Single 02</a>
-                                            </li>
-                                        </ul>
+                                    <li class="<?php if ($current == "contact"){ echo "current";} ?>">
+                                        <a href="contact.php">Contact</a>
                                     </li>
-                                    <li class="dropdown">
-                                        <a href="blog-grid.html">Blog</a>
-                                        <ul>
-                                            <li><a href="blog.html">Blog Sidebar</a></li>
-                                            <li><a href="blog-grid.html">Blog Grid View</a></li>
-                                            <li><a href="blog-single.html">Blog Single</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="contact.html">Contact</a></li>
                                 </ul>
                             </div>
                         </nav>
@@ -142,14 +93,15 @@
                         <div class="search-btn">
                             <button type="button" class="theme-btn search-toggler">
                                 <span class="flaticon-loupe"></span>
+                                <!-- <span>s i g n u p / l o g i n</span> -->
                             </button>
                         </div>
                         <div class="link-box">
                             <div class="call-us">
-                                <a class="link" href="tel:6668880000">
+                                <a class="link" href="tel:+2347030316605">
                                     <span class="icon"></span>
                                     <span class="sub-text">Call Anytime</span>
-                                    <span class="number">666 888 0000</span>
+                                    <span class="number">+234 703 031 6605</span>
                                 </a>
                             </div>
                         </div>
@@ -159,3 +111,44 @@
             <!--End Header Upper-->
         </header>
         <!-- End Main Header -->
+        <!--Mobile Menu-->
+<div class="side-menu__block">
+            <div class="side-menu__block-overlay custom-cursor__overlay">
+                <div class="cursor"></div>
+                <div class="cursor-follower"></div>
+            </div>
+            <!-- /.side-menu__block-overlay -->
+            <div class="side-menu__block-inner">
+                <div class="side-menu__top justify-content-end">
+                    <a href="#" class="side-menu__toggler side-menu__close-btn"><img src="images/icons/close-1-1.png"
+                            alt="" /></a>
+                </div>
+                <!-- /.side-menu__top -->
+
+                <nav class="mobile-nav__container">
+                    <!-- content is loading via js -->
+                </nav>
+                <div class="side-menu__sep"></div>
+                <!-- /.side-menu__sep -->
+                <!-- /.side-menu__content -->
+            </div>
+            <!-- /.side-menu__block-inner -->
+        </div>
+        <!-- /.side-menu__block -->
+
+        <!--Search Popup-->
+        <div class="search-popup">
+            <div class="search-popup__overlay custom-cursor__overlay">
+                <div class="cursor"></div>
+                <div class="cursor-follower"></div>
+            </div>
+            <!-- /.search-popup__overlay -->
+            <div class="search-popup__inner">
+                <form action="#" class="search-popup__form">
+                    <input type="text" name="search" placeholder="Type here to Search...." />
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+            <!-- /.search-popup__inner -->
+        </div>
+        <!-- /.search-popup -->
