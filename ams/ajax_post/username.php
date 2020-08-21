@@ -1,5 +1,5 @@
 <?php
-$username = $_POST["username"];
+$username = preg_replace('/[^\w]/', '', $_POST["username"]);
 $email = $_POST["email"];
 if ($username != "" || $email != "") {
     include("../../function/db/connect.php");

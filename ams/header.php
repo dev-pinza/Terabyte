@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../brand_logo/tera1.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon.png">
     <title>Terabyte - <?php echo $web_title; ?></title>
 	<link rel="canonical" href="#" />
     <!-- This Page CSS -->
@@ -66,6 +66,11 @@
     $username = $_SESSION["username"];
     $email = $_SESSION["email"];
     $usertype = $_SESSION["usertype"];
+    $status = $_SESSION["status"];
+    // we are done!
+    if ($usertype == "rep" && $status == "0" || $status == NULL) {
+        echo header("location:  ../function/logout.php");
+    }
     // get user more detials
     $select_user = mysqli_query($connection, "SELECT * FROM `users` WHERE id = '$user_id'");
     $pip = mysqli_fetch_array($select_user);

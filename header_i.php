@@ -83,6 +83,9 @@
                                     <li class="<?php if ($current == "contact"){ echo "current";} ?>">
                                         <a href="contact.php">Contact</a>
                                     </li>
+                                    <li>
+                                        <a href="login.php">Login/Signup</a>
+                                    </li>
                                 </ul>
                             </div>
                         </nav>

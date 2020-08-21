@@ -5,18 +5,27 @@ $ut_m = $_SESSION["usertype"];
 // Include config file
 $digits = 10;
 $randms = str_pad(rand(0, pow(10, $digits)-1), $digits, '0', STR_PAD_LEFT);
-if ($ut_m == "super" || $ut_m == "man") {
+if ($ut_m == "super" || $ut_m == "man" || $ut_m == "" || $ut_m == NULL) {
 require_once "bat/phpmailer/PHPMailerAutoload.php";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // import DB
-$un = $_POST["un"];
-$fn = $_POST["fn"];
+$un = preg_replace('/[^\w]/', '', $_POST["un"]);
+$fn = preg_replace('/[^\w]/', '', $_POST["fn"]);
 $em = $_POST["em"];
 $gn = $_POST["gn"];
 $dob = $_POST["dob"];
+$matric = "0";
 $ut = $_POST["ut"];
 if ($ut == "super" && $ut_m != "super") {
     $ut = "man";
+}
+if ($ut == "rep") {
+    $matric = $_POST["matric"];
+} else {
+    $matric = "0";
+}
+if ($ut_m == "") {
+    $ut = "rep";
 }
 $int_id = $_POST["int_id"];
 $u_country = $_POST["u_country"];
@@ -57,7 +66,7 @@ if (count([$res]) == 1) {
 // proper
 if ($un !== $ui && $em !== $ei) {
     // add up
-    $insert = mysqli_query($connection, "INSERT INTO `users` (`username`, `email`, `fullname`, `password`, `phone`, `usertype`, `created_date`, `gender`, `dob`, `account_id`, `img`, `country`, `int_id`) VALUES ('{$un}', '{$em}', '{$fn}', '{$hash}', '{$ph}', '{$ut}', '{$date_time}', '{$gn}', '{$dob}', '0', '{$sig_passport_one}', '{$u_country}', '{$int_id}')");
+    $insert = mysqli_query($connection, "INSERT INTO `users` (`username`, `email`, `fullname`, `password`, `phone`, `usertype`, `created_date`, `gender`, `dob`, `account_id`, `img`, `country`, `int_id`, `matric`) VALUES ('{$un}', '{$em}', '{$fn}', '{$hash}', '{$ph}', '{$ut}', '{$date_time}', '{$gn}', '{$dob}', '0', '{$sig_passport_one}', '{$u_country}', '{$int_id}', '{$matric}')");
         if ($insert) {
              // select user
              $select_user = mysqli_query($connection, "SELECT * FROM `users` WHERE username = '$un' AND email = '$em'");
@@ -116,7 +125,7 @@ if ($un !== $ui && $em !== $ei) {
                          <table border='0' cellpadding='0' cellspacing='0' style='width: 100%;'>
                              <tbody>
                                  <tr>
-                                     <td style='background:#413e39; padding:20px; color:#fff; text-align:center;'> Admin Registration Successful. </td>
+                                     <td style='background:#413e39; padding:20px; color:#fff; text-align:center;'> $ut Registration Successful. </td>
                                  </tr>
                              </tbody>
                          </table>
@@ -156,27 +165,49 @@ if ($un !== $ui && $em !== $ei) {
              if(!$mail->send()) 
              {
                 //  echo email bad
+                if ($ut_m != "") {
                 $_SESSION["Lack_of_intfund_$randms"] = "Creation Successful";
         echo header ("Location: ams/user_management.php?message1011=$randms");
              } else {
+                //  reg successful
+                echo header ("Location: rep_return.php");
+             }
+             } else {
                 //  echo email good
+                if ($ut_m != "") {
                 $_SESSION["Lack_of_intfund_$randms"] = "Creation Successful";
         echo header ("Location: ../ams/user_management.php?message101=$randms");
+                } else {
+                    // echo registration successful
+                    echo header ("Location: rep_return.php");
+                }
              }
              } else {
                 //  echo users bad
+                if ($ut_m != "") {
                 $_SESSION["Lack_of_intfund_$randms"] = "User Creation Bad";
         echo header ("Location: ../ams/user_management.php?message102=$randms");
+                } else {
+                    echo header ("Location: rep_return.php?BAD102CREATIONFAILED");
+                }
              }
         } else {
             // echo users account bad
+            if ($ut_m != "") {
             $_SESSION["Lack_of_intfund_$randms"] = "User Account Creation Failed";
         echo header ("Location: ../ams/user_management.php?message103=$randms");
+            } else {
+                echo header ("Location: rep_return.php?BAD103ACCOUNTFAILED");
+            }
         }
 } else {
     // echo User Exist
+    if ($ut_m != ""){ 
     $_SESSION["Lack_of_intfund_$randms"] = "User Exist";
         echo header ("Location: ../ams/user_management.php?message104=$randms");
+    } else {
+        echo header ("Location: rep_return.php?ACCOUNTEXIST405");
+    }
 }
 }
 }

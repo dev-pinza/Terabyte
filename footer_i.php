@@ -72,7 +72,7 @@ Obafemi Awolowo University, <br />Ile-Ife Osun state Nigeria
                                         </li>
                                         <li>
                                             <span class="icon flaticon-email-2"></span><a
-                                                href="mailto:support@thisistera.com">support@thisistera.com</a>
+                                                href="mailto:contactus@thisistera.com">contactus@thisistera.com</a>
                                         </li>
                                     </ul>
                                 </div>

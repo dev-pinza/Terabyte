@@ -43,7 +43,7 @@ include("header_i.php");
                                         <li>Block 19 zone B central market,
 Obafemi Awolowo University, <br />Ile-Ife Osun state Nigeria</li>
 <li>
-                                            <a href="mailto:support@thisistera.com">support@thisistera.com</a>
+                                            <a href="mailto:contactus@thisistera.com">contactus@thisistera.com</a>
                                         </li>
                                         <li><a href="tel:+2347030316605">+234 703 031 6605</a></li>
                                     </ul>
@@ -59,7 +59,7 @@ Obafemi Awolowo University, <br />Ile-Ife Osun state Nigeria</li>
                                     <ul class="info">
                                         <li>Coming soon!</li>
                                         <li>
-                                            <a href="mailto:support@thisistera.com">support@thisistera.com</a>
+                                            <a href="mailto:contactus@thisistera.com">contactus@thisistera.com</a>
                                         </li>
                                         <li><a href="tel:+2347030316605">+234 703 031 6605</a></li>
                                     </ul>
@@ -75,7 +75,7 @@ Obafemi Awolowo University, <br />Ile-Ife Osun state Nigeria</li>
                                 <ul class="info">
                                         <li>Coming soon!</li>
                                         <li>
-                                            <a href="mailto:support@thisistera.com">support@thisistera.com</a>
+                                            <a href="mailto:contactus@thisistera.com">contactus@thisistera.com</a>
                                         </li>
                                         <li><a href="tel:+2347030316605">+234 703 031 6605</a></li>
                                     </ul>
@@ -90,7 +90,7 @@ Obafemi Awolowo University, <br />Ile-Ife Osun state Nigeria</li>
                                 <ul class="info">
                                         <li>Coming soon!</li>
                                         <li>
-                                            <a href="mailto:support@thisistera.com">support@thisistera.com</a>
+                                            <a href="mailto:contactus@thisistera.com">contactus@thisistera.com</a>
                                         </li>
                                         <li><a href="tel:+2347030316605">+234 703 031 6605</a></li>
                                     </ul>

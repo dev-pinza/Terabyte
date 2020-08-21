@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="brand_logo/terabrand2.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
     <title>Terabyte - <?php echo $type; ?></title>
 	<link rel="canonical" href="https://thisistera.com/" />
     <!-- Custom CSS -->

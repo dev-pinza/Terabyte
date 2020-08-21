@@ -11,7 +11,7 @@ include("header_i.php");
                 <div class="base-inner">
                     <div class="hours">
                         <ul class="clearfix">
-                            <li><span>support: mon - fri</span></li>
+                            <li><span>contactus: mon - fri</span></li>
                             <li><span>9am - 7pm</span></li>
                         </ul>
                     </div>
@@ -51,7 +51,7 @@ include("header_i.php");
                                         exceptional service we will market your business all the way
                                     </div>
                                     <div class="link-box">
-                                        <a class="theme-btn btn-style-two" href="about.html">
+                                        <a class="theme-btn btn-style-two" href="signup.php">
                                             <i class="btn-curve"></i>
                                             <span class="btn-title">Get Started</span>
                                         </a>
@@ -77,7 +77,7 @@ include("header_i.php");
                                         Would you love to run campainge, sell your business brand, connect thousands of people with your business.
                                     </div>
                                     <div class="link-box">
-                                        <a class="theme-btn btn-style-two" href="about.html">
+                                        <a class="theme-btn btn-style-two" href="about.php">
                                             <i class="btn-curve"></i>
                                             <span class="btn-title">Discover More</span>
                                         </a>
@@ -103,7 +103,7 @@ include("header_i.php");
                                         Signup as a Rep in a campus and begin to earn cash.
                                     </div>
                                     <div class="link-box">
-                                        <a class="theme-btn btn-style-two" href="#">
+                                        <a class="theme-btn btn-style-two" href="rep_registration.php">
                                             <i class="btn-curve"></i>
                                             <span class="btn-title">Sign up</span>
                                         </a>
@@ -357,7 +357,7 @@ include("header_i.php");
                                 <div class="icon"><span>“</span></div>
                                 <div class="text">
                                     This is due to their excellent service, competitive pricing
-                                    and customer support. It’s throughly refresing to get such a
+                                    and customer contactus. It’s throughly refresing to get such a
                                     personal touch.
                                 </div>
                                 <div class="info">
@@ -469,7 +469,7 @@ Obafemi Awolowo University, <br />Ile-Ife Osun state Nigeria
                                     <li>
                                         <span class="icon flaticon-email-2"></span>
                                         <strong>Email address</strong>
-                                        <a href="mailto:support@thisistera.com">support@thisistera.com</a>
+                                        <a href="mailto:contactus@thisistera.com">contactus@thisistera.com</a>
                                     </li>
                                     <li>
                                         <span class="icon flaticon-call"></span>
