@@ -37,6 +37,16 @@ $transaction_id = "TERA".$randms;
                                         </div>
                                     </div>
                                     <?php
+                                            } else {
+                                                ?>
+                                                <div class="ml-auto">
+                                        <div class="btn-group">
+                                            <a type="button" class="btn btn-dark" href="withdrawal.php">
+                                                Withdrawal Earning
+                                            </a>
+                                        </div>
+                                    </div>
+                                                <?php
                                             }
                                     ?>
                                             <div class="row text-center text-white mt-4">
