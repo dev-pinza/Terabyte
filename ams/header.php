@@ -389,7 +389,7 @@
                                 <?php
                                 if ($usertype != "client"){
                                     ?>
-                                <a class="dropdown-item" href="finance.php"><i class="ti-wallet mr-1 ml-1"></i> My Earning</a>
+                                <a class="dropdown-item" href="client_bal.php"><i class="ti-wallet mr-1 ml-1"></i> My Earning</a>
                                 <?php
                                 }
                                  ?>
@@ -488,7 +488,7 @@
                             <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
                                 <i class="mdi mdi-av-timer"></i>
                                 <span class="hide-menu">Dashboard</span> 
-                                <span class="badge badge-inverse badge-pill ml-auto mr-3 font-medium px-2 py-1">2</span>
+                                <!-- <span class="badge badge-inverse badge-pill ml-auto mr-3 font-medium px-2 py-1">2</span> -->
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level">
                                 <?php
@@ -514,9 +514,9 @@
                             else if ($usertype == "rep") {
                             ?>
                             <li class="sidebar-item">
-                                    <a href="rep_bal.php" class="sidebar-link">
+                                    <a href="withdrawal.php" class="sidebar-link">
                                         <i class="ti-wallet"></i>
-                                        <span class="hide-menu">Tera Wallet</span>
+                                        <span class="hide-menu">Withdrawal Earning</span>
                                     </a>
                                 </li>
                             <?php

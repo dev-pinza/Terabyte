@@ -14,7 +14,11 @@ include("header.php");
                                 <div class="d-flex align-items-center mb-2 mt-4">
                                     <h2 class="mb-0 display-5"><i class="icon-people text-info"></i></h2>
                                     <div class="ml-auto">
-                                        <h2 class="mb-0 display-6"><span class="font-normal">23</span></h2>
+                                        <?php
+                                        $check_client = mysqli_query($connection, "SELECT * FROM users WHERE usertype = 'client'");
+                                        $c_d = number_format(mysqli_num_rows($check_client));
+                                         ?>
+                                        <h2 class="mb-0 display-6"><span class="font-normal"><?php echo $c_d; ?></span></h2>
                                     </div>
                                 </div>
                             </div>
@@ -27,7 +31,11 @@ include("header.php");
                                 <div class="d-flex align-items-center mb-2 mt-4">
                                     <h2 class="mb-0 display-5"><i class="fas fa-chart-line text-primary"></i></h2>
                                     <div class="ml-auto">
-                                        <h2 class="mb-0 display-6"><span class="font-normal">169</span></h2>
+                                    <?php
+                                        $check_pro = mysqli_query($connection, "SELECT * FROM ad_promotion WHERE payment_status = 'active'");
+                                        $pro = number_format(mysqli_num_rows($check_pro));
+                                         ?>
+                                        <h2 class="mb-0 display-6"><span class="font-normal"><?php echo $pro; ?></span></h2>
                                     </div>
                                 </div>
                             </div>
@@ -40,7 +48,12 @@ include("header.php");
                                 <div class="d-flex align-items-center mb-2 mt-4">
                                     <h2 class="mb-0 display-5"><i class="fas fa-balance-scale text-danger"></i></h2>
                                     <div class="ml-auto">
-                                        <h2 class="mb-0 display-6"><span class="font-normal">311</span></h2>
+                                        <?php
+                                        $q_q = mysqli_query($connection, "SELECT SUM(aud_reach) AS reach FROM ad_promotion WHERE payment_status = 'active'");
+                                        $mx = mysqli_fetch_array($q_q);
+                                        $reach = number_format($mx["reach"]);
+                                        ?>
+                                        <h2 class="mb-0 display-6"><span class="font-normal"><?php echo $reach; ?></span></h2>
                                     </div>
                                 </div>
                             </div>
@@ -53,7 +66,12 @@ include("header.php");
                                 <div class="d-flex align-items-center mb-2 mt-4">
                                     <h2 class="mb-0 display-5"><i class="ti-wallet text-success"></i></h2>
                                     <div class="ml-auto">
-                                        <h2 class="mb-0 display-6"><span class="font-normal">&#8358;1.2 M</span></h2>
+                                    <?php
+                                        $q_b = mysqli_query($connection, "SELECT SUM(balance_derived) AS balance FROM account");
+                                        $mb = mysqli_fetch_array($q_b);
+                                        $balance = number_format($mb["balance"], 2);
+                                        ?>
+                                        <h2 class="mb-0 display-6"><span class="font-normal">&#8358; <?php echo $balance; ?></span></h2>
                                     </div>
                                 </div>
                             </div>
