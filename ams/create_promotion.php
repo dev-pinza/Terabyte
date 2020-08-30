@@ -1,68 +1,10 @@
 <?php
 $web_title = "Create Promotion";
 include("header.php");
+require_once "../bat/phpmailer/PHPMailerAutoload.php";
 ?>
 <!-- START FROM HOME -->
-<!-- <script src="..assets/libs/jquery/dist/jquery.min.js"></script> -->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script> -->
-<script>
-//     setInterval(function() {
-//         $(document).ready(function () {
-//     // alert('I will appear every 4 seconds');
-    // swal.fire({
-    //         type: "success",
-    //         title: "Account Created",
-    //         text: "Thank you!",
-    //         showConfirmButton: false,
-    //         timer: 4000
-    // });
-//     // alert("HOLLA");
-// });
-// }, 3000);   // Interval set to 4 seconds
-
-</script>
-<!-- ALI -->
-<style> 
-  
-.rangeslider{ 
-    width: 100%; 
-} 
-  
-.myslider { 
-    -webkit-appearance: none; 
-    background: #FCF3CF  ; 
-    width: 100%; 
-    height: 20px; 
-    opacity: 2; 
-   } 
-  
-  
-.myslider::-webkit-slider-thumb { 
-    -webkit-appearance: none; 
-    cursor: pointer; 
-    background: #34495E  ; 
-    width: 5%; 
-    height: 20px; 
-} 
-  
-  
-.myslider:hover { 
-    opacity: 1; 
-} 
-  
-</style> 
- <!-- Container fluid  -->
-            <!-- ============================================================== -->
-            <div class="page-content container-fluid">
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
-                <div class="row">
-                       <!-- ============================================================== -->
-                    <!-- Example -->
-                    <?php
+<?php
                     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         // BASIC DATAs
                         $client_id = $user_id;
@@ -70,10 +12,10 @@ include("header.php");
                         $dest = $_POST["location"];
                         $fire = $_POST["webUrl3"];
                         $cat = $_POST["ad_cat"];
-                        $head = preg_replace('/[^\w]/', '', $_POST["head"]);
-                        $title = preg_replace('/[^\w]/', '', $_POST["title"]);
-                        $body = preg_replace('/[^\w]/', '', $_POST["shortDescription"]);
-                        $aud_name = preg_replace('/[^\w]/', '', $_POST["aud_name"]);
+                        $head = preg_replace('/[^\w]/', ' ', $_POST["head"]);
+                        $title = preg_replace('/[^\w]/', ' ', $_POST["title"]);
+                        $body = preg_replace('/[^\w]/', ' ', $_POST["shortDescription"]);
+                        $aud_name = preg_replace('/[^\w]/', ' ', $_POST["aud_name"]);
                         $age_gend = $_POST["wintType1"];
                         $int_loc = $_POST["int_loc"];
                         $auto_renew = $_POST["customRadio"];
@@ -225,13 +167,11 @@ include("header.php");
                                 title: "Ad Successfully Created",
                                 text: "Thank you! Ad Has been Posted for Review and Approval, E-mail not sent",
                                 showConfirmButton: false,
-                                timer: 3000
+                                timer: 5000
                         });
                         });
                         </script>
                         ';
-                        $URL="active_promo.php";
-                        echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
              } else {
                 //  echo email good
                 echo '
@@ -242,13 +182,11 @@ include("header.php");
                         title: "Ad Successfully Created",
                         text: "Thank you! Ad Has been Posted for Review and Approval, E-mail sent",
                         showConfirmButton: false,
-                        timer: 3000
+                        timer: 5000
                 });
                 });
                 </script>
                 ';
-                $URL="active_promo.php";
-                echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
              }
                                                     // echo sometho
                                                 } else {
@@ -341,8 +279,6 @@ include("header.php");
                         });
                         </script>
                         ';
-                        $URL="create_promotion.php";
-                        echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
                             }
                             // out
                         } else {
@@ -360,8 +296,6 @@ include("header.php");
                         });
                         </script>
                         ';
-                        $URL="client_bal.php";
-                        echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
                             // throw an error here
                         }
                         // calculate balance
@@ -371,6 +305,51 @@ include("header.php");
                         // update
                     }
                     ?>
+<!-- <script src="..assets/libs/jquery/dist/jquery.min.js"></script> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script> -->
+
+<!-- ALI -->
+<style> 
+  
+.rangeslider{ 
+    width: 100%; 
+} 
+  
+.myslider { 
+    -webkit-appearance: none; 
+    background: #FCF3CF  ; 
+    width: 100%; 
+    height: 20px; 
+    opacity: 2; 
+   } 
+  
+  
+.myslider::-webkit-slider-thumb { 
+    -webkit-appearance: none; 
+    cursor: pointer; 
+    background: #34495E  ; 
+    width: 5%; 
+    height: 20px; 
+} 
+  
+  
+.myslider:hover { 
+    opacity: 1; 
+} 
+  
+</style> 
+ <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="page-content container-fluid">
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="row">
+                       <!-- ============================================================== -->
+                    <!-- Example -->
+                  
                     <!-- ============================================================== -->
                     <div class="col-12">
                         <div class="card">
