@@ -139,7 +139,7 @@ include("header.php");
                 <!-- Country Visit, Weather cards Row  -->
                 <!-- ============================================================== -->
                 <div class="row">
-                    <div class="col-md-12 col-lg-4">
+                    <div class="col-md-12 col-lg-12">
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title text-uppercase">Institution</h5>
@@ -209,86 +209,6 @@ include("header.php");
                                         </div>
                                     </li>
                                 </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-lg-8">
-                        <div class="card">
-                            <div class="card-body bg-primary text-white">
-                                <div class="pb-4">
-                                    <h2 class="display-7">OSUN, IFFE</h2>
-                                    <h4 class="font-light">Friday, 19 June 2020</h4>
-                                </div>
-                                <div class="d-flex align-items-center mt-4">
-                                    <span><i class="wi wi-day-hail display-5"></i></span>
-                                    <div class="ml-4">
-                                        <h2 class="display-7"><span class="font-medium">25°</span></h2>
-                                        <p class="font-14 mb-0 font-light">Mostly Sunny</p>
-                                    </div>
-                                    <div class="ml-auto">
-                                        <ul class="list-style-none">
-                                            <li class="py-2">
-                                                <span><i class="wi wi-day-sunny mr-1"></i></span>
-                                                <span class="font-light font-14">Humidity 38%</span>
-                                            </li>
-                                            <li class="py-2">
-                                                <span><i class="wi wi-day-windy mr-1"></i></span>
-                                                <span class="font-light font-14">Wind 38%</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- Chart -->
-                                <div class="mt-1">
-                                    <div id="ct-city-wth"></div>
-                                </div>
-                            </div>
-                            <div class="row no-gutters">
-                                <div class="col-12">
-                                    <div class="row text-center no-gutters">
-                                        <div class="col-6 col-md-2 border-right py-4 weather-report">
-                                            <div class="mb-3 font-16 font-light">TUE</div>
-                                            <h2 class="weather-type"><i class="wi wi-day-cloudy mb-2"></i></h2>
-                                            <div class="font-16 font-light">32 <sup>°F</sup>
-                                            </div>
-                                        </div>
-                                        <div class="col-6 col-md-2 border-right py-4 weather-report">
-                                            <div class="mb-3 font-16 font-light">WED</div>
-                                            <h2 class="weather-type"><i class="wi wi-day-cloudy mb-2"></i></h2>
-                                            <div class="font-16 font-light">21
-                                                <sup>°F</sup>
-                                            </div>
-                                        </div>
-                                        <div class="col-6 col-md-2 border-right py-4 weather-report">
-                                            <div class="mb-3 font-16 font-light">THU</div>
-                                            <h2 class="weather-type"><i class="wi wi-day-sunny mb-2"></i></h2>
-                                            <div class="font-16 font-light">25
-                                                <sup>°F</sup>
-                                            </div>
-                                        </div>
-                                        <div class="col-6 col-md-2 border-right py-4 weather-report active">
-                                            <div class="mb-3 font-16 font-light">FRI</div>
-                                            <h2 class="weather-type"><i class="wi wi-day-cloudy-gusts mb-2"></i></h2>
-                                            <div class="font-16 font-light">20
-                                                <sup>°F</sup>
-                                            </div>
-                                        </div>
-                                        <div class="col-6 col-md-2 border-right py-4 weather-report">
-                                            <div class="mb-3 font-16 font-light">SAT</div>
-                                            <h2 class="weather-type"><i class="wi wi-day-lightning mb-2"></i></h2>
-                                            <div class="font-16 font-light">18
-                                                <sup>°F</sup>
-                                            </div>
-                                        </div>
-                                        <div class="col-6 col-md-2 py-4 weather-report">
-                                            <div class="mb-3 font-16 font-light">SUN</div>
-                                            <h2 class="weather-type"><i class="wi wi-day-storm-showers mb-2"></i></h2>
-                                            <div class="font-16 font-light">14
-                                                <sup>°F</sup>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
