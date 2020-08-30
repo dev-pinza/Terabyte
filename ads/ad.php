@@ -15,6 +15,9 @@ if (isset($_GET["no"]) && isset($_GET["harsh"])) {
     $int_id = $o["int_id"];
     $user_type = $o["usertype"];
     // if the user has been disabled
+    $mysqli_ccc = mysqli_query($connection, "SELECT * FROM client_post WHERE post_link = '$post_link'");
+    if (mysqli_num_rows($mysqli_ccc) >= 1) {
+    // check
     if ($is_dis == "0" && $user_type == "rep" || $user_type == "man") {
         // making a  move  with URL https
         function getIPAddress() {
@@ -268,6 +271,9 @@ if (isset($_GET["no"]) && isset($_GET["harsh"])) {
                 echo "err update";
             }
     }
+} else {
+    echo "NO POST";
+}
 } else {
     // make a new stuff
     echo "NOTHING OVER HERE";
