@@ -105,34 +105,74 @@ if ($wall_bal < 100.00) {
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text"><i class="ti-mobile"></i></span>
                                                         </div>
-                                                        <input type="number" class="form-control" placeholder="Enter Number">
+                                                        <input type="number" id="phone_d" class="form-control" placeholder="Enter Number">
                                                     </div>
                                                     <div class="form-group input-group mt-5">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text"><i class="ti-mobile"></i></span>
                                                         </div>
-                                                        <select name="" class="form-control" id="">
+                                                        <select name="" class="form-control" id="network_d">
+                                                            <option value="">SELECT NETWORK</option>
                                                             <option value="MTN">MTN</option>
                                                             <option value="AIRTEL">AIRTEL</option>
                                                             <option value="GLO">GLO</option>
                                                             <option value="9mobile">9MOBILE</option>
                                                         </select>
+                                                        <script>
+                              $(document).ready(function() {
+                                $('#network_d').on("change", function() {
+                                  var net = $('#network_d').val();
+                                  var phone = $('#phone_d').val();
+                                  if (net != "" && phone != "") {
+                                    var phone = $('#phone_d').val();
+                                    $.ajax({
+                                      url:"ajax_post/bill/data_request.php",
+                                      method:"POST",
+                                      data:{net:net, phone:phone},
+                                      success:function(data){
+                                      $('#qwerty').html(data);
+                                    }
+                                  });
+                                  }
+                                });
+                              });
+                            </script>
                                                     </div>
                                                     <div class="row">
-                                                        <div class="col-xs-7 col-md-7">
+                                                        <div class="col-xs-12 col-md-12">
                                                             <div class="form-group">
-                                                                <label>Plan</label>
-                                                                <input type="number" class="form-control" name="Expiry" placeholder="Data Plan" required=""> </div>
+                                                            <div id="qwerty"></div>
+                                                                <!-- <label>Plan</label>
+                                                                <input type="number" class="form-control" name="Expiry" placeholder="Data Plan" required=""> </div> -->
+                                                        </div>
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-12">
                                                             <div class="form-group">
                                                                 <label>Password</label>
-                                                                <input type="password" class="form-control" name="nameCard" placeholder="Enter Password"> </div>
+                                                                <input type="password" id="pin_d" class="form-control" name="nameCard" placeholder="Enter Password"> </div>
                                                         </div>
                                                     </div>
-                                                    <button class="btn btn-info">Buy Mobile Data</button>
+                                                    <a id="data_pay" class="btn btn-info">Buy Mobile Data</a>
+                                                    <script>
+        $(document).ready(function() {
+            $('#data_pay').on("click", function() {
+                                  var phone = $('#phone_d').val();
+                                  var net = $('#network_d').val();
+                                  var pin = $('#pin_d').val();
+                                  $.ajax({
+                                    url:"ajax_post/bill/data.php",
+                                    method:"POST",
+                                    data:{ phone:phone, net:net, pin:pin},
+                                    success:function(data){
+                                      $('#finish_buying').html(data);
+                                    }
+                                  });
+                                });
+                              });
+                            </script>
+                            <div id="finish_buying"></div>
                                                 </form>
                                             </div>
                                             <div class="col-md-4 ml-auto">
@@ -141,6 +181,7 @@ if ($wall_bal < 100.00) {
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- airtime -->
                                     <div role="tabpanel" class="tab-pane active" id="iairtime">
                                         <div class="row">
                                             <div class="col-md-7">
@@ -149,7 +190,7 @@ if ($wall_bal < 100.00) {
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text"><i class="ti-mobile"></i></span>
                                                         </div>
-                                                        <select name="" class="form-control" id="">
+                                                        <select name="" id="network" class="form-control">
                                                             <option value="MTN">MTN</option>
                                                             <option value="AIRTEL">AIRTEL</option>
                                                             <option value="GLO">GLO</option>
@@ -160,22 +201,43 @@ if ($wall_bal < 100.00) {
                                                         <div class="col-xs-7 col-md-7">
                                                             <div class="form-group">
                                                                 <label>Phone</label>
-                                                                <input type="number" class="form-control" name="Expiry" placeholder="Enter Phone Number" required=""> </div>
+                                                                <input type="number" id="phone" class="form-control" name="Expiry" placeholder="Enter Phone Number" required=""> </div>
                                                         </div>
                                                         <div class="col-xs-5 col-md-5 pull-right">
                                                             <div class="form-group">
                                                                 <label>Amount</label>
-                                                                <input type="number" class="form-control" name="CVC" placeholder="Enter Amount" required=""> </div>
+                                                                <input type="number" id="amount" class="form-control" name="CVC" placeholder="Enter Amount" required=""> </div>
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-12">
                                                             <div class="form-group">
                                                                 <label>Password</label>
-                                                                <input type="password" class="form-control" name="nameCard" placeholder="Enter Password"> </div>
+                                                                <input type="password" id="pin" class="form-control" name="nameCard" placeholder="Enter Password"> </div>
                                                         </div>
                                                     </div>
-                                                    <button class="btn btn-info">Buy Airtime</button>
+                                                    <a class="btn btn-info" id="submitme">Buy Airtime</a>
+                                                    <script>
+                                    $(document).ready(function() {
+                                $('#submitme').on("click", function() {
+                                  var net = $('#network').val();
+                                  var phone = $('#phone').val();
+                                  var amt = $('#amount').val();
+                                  var pin = $('#pin').val();
+                                  if (net != "" && phone != "" && amt != "" && pin != "") {
+                                    $.ajax({
+                                    url:"ajax_post/bill/airtime.php",
+                                    method:"POST",
+                                    data:{net:net, phone:phone, amt:amt, pin:pin},
+                                    success:function(data){
+                                      $('#coll').html(data);
+                                    }
+                                  });
+                                  }
+                                });
+                              });
+                            </script>
+                            <div id="coll"></div>
                                                 </form>
                                             </div>
                                             <div class="col-md-4 ml-auto">
@@ -192,7 +254,7 @@ if ($wall_bal < 100.00) {
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text"><i class="ti-mobile"></i></span>
                                                         </div>
-                                                        <select name="" class="form-control" id="">
+                                                        <select name="" id="disco" class="form-control">
                                                             <option value="">SELECT DISCO</option>
                                                             <option value="AEDC">AEDC: Abuja</option>
                                                             <option value="KAEDC">KAEDC: Kaduna</option>
@@ -209,7 +271,7 @@ if ($wall_bal < 100.00) {
                                                         <div class="col-xs-7 col-md-7">
                                                             <div class="form-group">
                                                                 <label>Type</label>
-                                                                <select name="" class="form-control" id="">
+                                                                <select name="" class="form-control" id="dis_type">
                                                             <option value="PREPAID">PREPAID</option>
                                                             <option value="POSTPAID">POSTPAID</option>
                                                         </select>
@@ -218,17 +280,84 @@ if ($wall_bal < 100.00) {
                                                         <div class="col-xs-5 col-md-5 pull-right">
                                                             <div class="form-group">
                                                                 <label>Meter No</label>
-                                                                <input type="number" class="form-control" name="CVC" placeholder="Enter Amount" required=""> </div>
+                                                                <input type="number" id="meter_no" class="form-control" name="CVC" placeholder="Enter Amount" required=""> </div>
                                                         </div>
                                                     </div>
+                                                    <div id="m_checkx"></div>
+                                                    <div id="make_display"></div>
                                                     <div class="row">
                                                         <div class="col-md-12">
                                                             <div class="form-group">
                                                                 <label>Password</label>
-                                                                <input type="password" class="form-control" name="nameCard" placeholder="Enter Password"> </div>
+                                                                <input type="password" id="pine" class="form-control" name="nameCard" placeholder="Enter Password"> </div>
                                                         </div>
                                                     </div>
-                                                    <button class="btn btn-info">Buy Electricity</button>
+                                                    <a id="submitmex"  class="btn btn-info">Buy Electricity</a>
+                                                    <script>
+                              $(document).ready(function() {
+                                $('#meter_no').on("change keyup paste click", function() {
+                                  var disco = $('#disco').val();
+                                  var dis_type = $('#dis_type').val();
+                                  var meter = $('#meter_no').val();
+                                  $.ajax({
+                                    url:"ajax_post/bill/disco_check.php",
+                                    method:"POST",
+                                    data:{disco:disco, meter:meter, dis_type:dis_type},
+                                    success:function(data){
+                                      $('#m_checkx').html(data);
+                                    }
+                                  });
+                                });
+                                $('#disco').on("change", function() {
+                                  var disco = $('#disco').val();
+                                  var dis_type = $('#dis_type').val();
+                                  var meter = $('#meter_no').val();
+                                  $.ajax({
+                                    url:"ajax_post/bill/disco_check.php",
+                                    method:"POST",
+                                    data:{disco:disco, meter:meter, dis_type:dis_type},
+                                    success:function(data){
+                                      $('#m_checkx').html(data);
+                                    }
+                                  });
+                                });
+                                $('#dis_type').on("change", function() {
+                                  var disco = $('#disco').val();
+                                  var dis_type = $('#dis_type').val();
+                                  var meter = $('#meter_no').val();
+                                  $.ajax({
+                                    url:"ajax_post/bill/disco_check.php",
+                                    method:"POST",
+                                    data:{disco:disco, meter:meter, dis_type:dis_type},
+                                    success:function(data){
+                                      $('#m_checkx').html(data);
+                                    }
+                                  });
+                                });
+                              });
+                            </script>
+                            <script>
+                              $(document).ready(function() {
+                                $('#submitmex').on("click", function() {
+                                  var disco = $('#disco').val();
+                                  var dis_type = $('#dis_type').val();
+                                  var meter = $('#meter_no').val();
+                                  var amt = $('#amount').val();
+                                  var name = $('#name').val();
+                                  var phone = $('#phonenumber').val();
+                                  var address = $('#customerAddress').val();
+                                  var pin = $('#pine').val();
+                                  $.ajax({
+                                    url:"ajax_post/bill/disco.php",
+                                    method:"POST",
+                                    data:{disco:disco, dis_type:dis_type, meter:meter, amt:amt, name:name, phone:phone, address:address, pin:pin},
+                                    success:function(data){
+                                      $('#coll').html(data);
+                                    }
+                                  });
+                                });
+                              });
+                            </script>
                                                 </form>
                                             </div>
                                             <div class="col-md-4 ml-auto">
@@ -276,6 +405,7 @@ if ($wall_bal < 100.00) {
                                             <div class="col-md-4 ml-auto">
                                                 <h4 class="card-title mt-4">General Info</h4>
                                                 <p>Any Bank.</p>
+                                                <!-- last  -->
                                             </div>
                                         </div>
                                     </div>
