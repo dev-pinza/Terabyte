@@ -22,6 +22,7 @@
     <link href="../assets/libs/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
     <link href="../assets/libs/bootstrap-table/dist/bootstrap-table.min.css" rel="stylesheet" type="text/css" />
     <!-- transaction table -->
+    <link href="../assets/extra-libs/toastr/dist/build/toastr.min.css" rel="stylesheet">
     <link href="../assets/libs/tablesaw/dist/tablesaw.css" rel="stylesheet">
     <!-- end transaction table -->
     <link href="../dist/js/pages/chartist/chartist-init.css" rel="stylesheet">
@@ -75,6 +76,7 @@
     $select_user = mysqli_query($connection, "SELECT * FROM `users` WHERE id = '$user_id'");
     $pip = mysqli_fetch_array($select_user);
     $user_img = $pip["img"];
+    $_SESSION["img"] = $user_img;
     $int_id = $pip["int_id"];
     // get
     if ($int_id != 0) {

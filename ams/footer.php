@@ -423,6 +423,9 @@
     <script src="../assets/libs/tablesaw/dist/tablesaw.jquery.js"></script>
     <script src="../assets/libs/tablesaw/dist/tablesaw-init.js"></script>
     <!-- get all -->
+    <script src="../assets/extra-libs/toastr/dist/build/toastr.min.js"></script>
+    <script src="../assets/extra-libs/toastr/toastr-init.js"></script>
+    <!-- NOT -->
     <?php
     if ($usertype == "man") {
         ?>
