@@ -137,7 +137,7 @@ include("header_i.php");
             <div class="auto-container">
                 <div class="sec-title centered">
                     <h2>
-                    We use the dominant the <br />social media
+                    We own the <br />social media
                         <span class="dot">.</span>
                     </h2>
                 </div>

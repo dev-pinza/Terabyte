@@ -676,11 +676,17 @@
                             </a>
                         </li>
                         <?php
-                        if ($usertype != "client"){
+                        if ($usertype != "client" && $usertype != "rep"){
                             ?>
                         <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="create_blog.php" aria-expanded="false">
+                                <i class="mdi mdi-adjust text-success"></i>
+                                <span class="hide-menu">Blog Management</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="coming_soonxx.php" aria-expanded="false">
-                                <i class="mdi mdi-adjust text-info"></i>
+                                <i class="mdi mdi-adjust text-dark"></i>
                                 <span class="hide-menu">Guide & Documentation</span>
                             </a>
                         </li>
@@ -689,7 +695,7 @@
                         ?>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="faq.php" aria-expanded="false">
-                                <i class="mdi mdi-adjust text-success"></i>
+                                <i class="mdi mdi-adjust text-info"></i>
                                 <span class="hide-menu">FAQs</span>
                             </a>
                         </li>

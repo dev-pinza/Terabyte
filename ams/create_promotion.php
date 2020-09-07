@@ -474,12 +474,13 @@ return $output;
 }
 ?>
 <label for="wLocation1">Campus Location :</label>
-<select class="custom-select form-control required" id="wLocation1" name="int_loc">
+<select class="custom-select form-control required" id="au_change" name="int_loc">
     <option value="all">All</option>
 <?php 
-// echo fill_in($connection) 
+echo fill_in($connection);
 ?>
 </select>
+<a id="add_up" class="btn btn-success">add</a>
                                                     </div>
                                                    <!-- <div id="show_int"></div> -->
                                                 </div>
@@ -487,9 +488,9 @@ return $output;
                                             <input type="text" value="<?php echo $cache_id; ?>" id ="cache_id" hidden>
 <script>
 $(document).ready(function () {
-             $('#wLocation1').on("change", function () {
+             $('#add_up').on("click", function (e) {
                var c_id = $('#cache_id').val();
-               var int_id = $('#wLocation1').val();
+               var int_id = $('#au_change').val();
                 if (int_id != "all") {
                     $.ajax({
                  url: "ajax_post/aud_show.php",
@@ -499,13 +500,43 @@ $(document).ready(function () {
                    $('#aud_rec').html(data);
                  }
                });
+               e.stopImmediatePropagation();
+    e.preventDefault();
                 }
              });
+             setInterval(function() {
+                var c_id = $('#cache_id').val();
+                    $.ajax({
+                 url: "ajax_post/show_aud.php",
+                 method: "POST",
+                 data:{c_id:c_id},
+                 success: function (data) {
+                   $('#display_aud').html(data);
+                 }
+               });
+            }, 1000); 
            });                
 </script>
                                             <div class="col-md-6">
+                                            <div id="aud_rec"></div>
                                                 <div class="form-group">
-                                                    <div id="aud_rec"></div>
+                                                <div class="card">
+                            <div class="card-body">
+                                <h6 class="card-subtitle">Audience</h6>
+                                <!-- <table data-toggle="table" data-height="200" data-mobile-responsive="true"
+                                    class="table-striped">
+                                    <thead>
+                                            <th>Audience Name/ Campus Name</th>]
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>DMAN</td>
+                                        </tr> -->
+                                        <div id="display_aud"></div>
+                                    <!-- </tbody>
+                                </table> -->
+                            </div>
+                        </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Auto Renew:</label>
@@ -530,10 +561,10 @@ $(document).ready(function () {
                                             <div class="col-md-6">
                                             <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Budget - NGN <span id="demo" >1500</span> (Amount Due - NGN <span id="amt_due">1500</span>) </h4>
+                                <h4 class="card-title">Budget - NGN <span id="demo" >300</span> (Amount Due - NGN <span id="amt_due">300</span>) </h4>
                                 <div class="form-group">
                                 <div class="rangeslider"> 
-                                    <input type="range" min="1500" max="500000" value="1500"
+                                    <input type="range" min="300" max="500000" value="300"
                                     class="myslider" id="sliderRange">
                                 </div> 
                                 </div>
@@ -548,7 +579,7 @@ $(document).ready(function () {
                                 <input type="text" value="1818" name="total_reach" id="tot_rch" hidden>
                                 <input type="text" value="727" name="total_click" id="clk" hidden>
                                 <input type="text" value="364" name="total_conver" id="cnv" hidden>
-                                <input type="number" value="1500" name="amount" id="cash_paid" hidden>
+                                <input type="number" value="300" name="amount" id="cash_paid" hidden>
                                 </div>
                             </div>
                             <script> 
@@ -570,7 +601,7 @@ $(document).ready(function () {
                             // Total Conversion
                             var z = 10000;
                             // Min ad Amt
-                            var a = 1500;
+                            var a = 300;
                             // D Dura  
                             var d = document.getElementById("sliderRangea").value;
                             // Budget amt.
@@ -611,7 +642,7 @@ $(document).ready(function () {
                             var calc_conv = document.getElementById("conversion");
                             outputa.innerHTML = rangeslidera.value; 
                             rangeslidera.oninput = function() { 
-                            outputa.innerHTML = this.value; 
+                            outputa.innerHTML = this.value;
                             // GET Min Aud
                             var x = 50;
                             // Total No of Rep
@@ -619,7 +650,7 @@ $(document).ready(function () {
                             // Total Conversion
                             var z = 10000;
                             // Min ad Amt
-                            var a = 1500;
+                            var a = 300;
                             // D Dura  
                             var d = document.getElementById("sliderRangea").value;
                             // Budget amt.
@@ -630,7 +661,7 @@ $(document).ready(function () {
                             var snd = fst - (y + z);
                             if ( snd < fst) {
                                 Reach = snd * 0.7;
-                            } 
+                            }
                             else if (snd >= fst) {
                                 Reach = snd + (y + z);
                             }
@@ -668,7 +699,7 @@ $(document).ready(function () {
                                             <div data-label="100%" class="css-bar mb-0 css-bar-primary css-bar-100"><i class="display-6 mdi mdi-account-circle"></i></div>
                                         </div>
                                     </div>
-                                    <div class="row">
+                                    <div class="row" hidden>
                                         <div class="col-md-6 col-sm-12">
                                             <h4 class="font-medium mb-0"><i class="ti-angle-up text-success"></i> <br> clicks <span id="clicks">727</span> </h4>
                                         </div>

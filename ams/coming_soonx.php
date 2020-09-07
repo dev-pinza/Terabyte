@@ -1,4 +1,5 @@
 <?php
+$web_title = "Coming Soon";
 include("header.php");
 ?>
   <div class="page-content container-fluid">

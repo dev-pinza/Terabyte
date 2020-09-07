@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php
+include("function/db/connect.php");
+?>
 <head>
     <meta charset="utf-8" />
     <title>Terabyte | <?php echo $web_title; ?></title>
@@ -77,8 +79,8 @@
                                     <li class="<?php if ($current == "service"){ echo "current";} ?>">
                                         <a href="service.php">Services</a>
                                     </li>
-                                    <li>
-                                        <a href="#">Blog</a>
+                                    <li class="<?php if ($current == "blog"){ echo "current";} ?>">
+                                        <a href="blog.php">Blog</a>
                                     </li>
                                     <li class="<?php if ($current == "contact"){ echo "current";} ?>">
                                         <a href="contact.php">Contact</a>
