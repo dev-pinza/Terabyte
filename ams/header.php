@@ -69,7 +69,7 @@
     $usertype = $_SESSION["usertype"];
     $status = $_SESSION["status"];
     // we are done!
-    if ($usertype == "rep" && $status == "0" || $status == NULL) {
+    if ($usertype == "rep" && $status == "0") {
         echo header("location:  ../function/logout.php");
     }
     // get user more detials
@@ -78,6 +78,9 @@
     $user_img = $pip["img"];
     $_SESSION["img"] = $user_img;
     $int_id = $pip["int_id"];
+    $user_phone = $pip["phone"];
+    $user_location = $pip["country"];
+    $fullname = $pip["fullname"];
     // get
     if ($int_id != 0) {
     $get_int = mysqli_query($connection, "SELECT * FROM `institution` WHERE id = '$int_id'");
@@ -288,7 +291,7 @@
                                                 </div>
                                                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                                                     <div class="card-body">
-                                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry.
+                                                        Make sure you verify your problem very carefully
                                                     </div>
                                                 </div>
                                             </div>
@@ -302,7 +305,7 @@
                                                 </div>
                                                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                                                     <div class="card-body">
-                                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry.
+                                                        Keep a Screenshot and The Page Link
                                                     </div>
                                                 </div>
                                             </div>
@@ -316,7 +319,7 @@
                                                 </div>
                                                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                                                     <div class="card-body">
-                                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry.
+                                                        Make your complain is clear as possible, and include your username on the message.
                                                     </div>
                                                 </div>
                                             </div>

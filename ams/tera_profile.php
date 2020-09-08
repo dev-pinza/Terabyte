@@ -1,4 +1,5 @@
 <?php
+$web_title = "Profile Settings";
 include("header.php");
 ?>
 <!-- stating it here -->
@@ -12,28 +13,26 @@ include("header.php");
                     <div class="col-lg-4 col-xlg-3 col-md-5">
                         <div class="card">
                             <div class="card-body">
-                                <center class="mt-4"> <img src="../user_img/log.jpeg" class="rounded-circle" width="150" />
-                                    <h4 class="card-title mt-2">Pinza Studio</h4>
-                                    <h6 class="card-subtitle">Tech Support</h6>
-                                    <div class="row text-center justify-content-md-center">
+                                <center class="mt-4"> <img src="../client_img/<?php echo $user_img; ?>" class="rounded-circle" width="150" />
+                                    <h4 class="card-title mt-2"><?php echo $username; ?></h4>
+                                    <!-- <h6 class="card-subtitle"></h6> -->
+                                    <!-- <div class="row text-center justify-content-md-center">
                                         <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-people"></i> <font class="font-medium">254</font></a></div>
                                         <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-share"></i> <font class="font-medium">54</font></a></div>
-                                    </div>
+                                    </div> -->
                                 </center>
                             </div>
                             <div>
                                 <hr> </div>
                             <div class="card-body"> <small class="text-muted">Email address </small>
-                                <h6>pinzastudio2020@gmail.com</h6> <small class="text-muted pt-4 db">Phone</small>
-                                <h6>+234-8162399614</h6> <small class="text-muted pt-4 db">Address</small>
-                                <h6>Osun State Nigeria</h6>
-                                <div class="map-box">
-                                    <iframe src="https://www.google.com/maps/embed/v1/place?q=osun&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8" width="100%" height="150" frameborder="0" style="border:0" allowfullscreen></iframe>
-                                </div> <small class="text-muted pt-4 db">Social Profile</small>
+                                <h6><?php echo $email; ?></h6> <small class="text-muted pt-4 db">Phone</small>
+                                <h6><?php echo $user_phone; ?></h6> <small class="text-muted pt-4 db">Location</small>
+                                <h6><?php echo $user_location ?></h6>
+                                <small class="text-muted pt-4 db">Social Profile</small>
                                 <br/>
-                                <button class="btn btn-circle btn-secondary"><i class="fab fa-facebook-f"></i></button>
+                                <!-- <button class="btn btn-circle btn-secondary"><i class="fab fa-facebook-f"></i></button>
                                 <button class="btn btn-circle btn-secondary"><i class="fab fa-twitter"></i></button>
-                                <button class="btn btn-circle btn-secondary"><i class="fab fa-youtube"></i></button>
+                                <button class="btn btn-circle btn-secondary"><i class="fab fa-youtube"></i></button> -->
                             </div>
                         </div>
                     </div>
@@ -116,75 +115,68 @@ include("header.php");
                                         <div class="row">
                                             <div class="col-md-3 col-xs-6 b-r"> <strong>Full Name</strong>
                                                 <br>
-                                                <p class="text-muted">Pinza Studio</p>
+                                                <p class="text-muted"><?php echo $fullname; ?></p>
                                             </div>
                                             <div class="col-md-3 col-xs-6 b-r"> <strong>Mobile</strong>
                                                 <br>
-                                                <p class="text-muted">(234) 8162399614</p>
+                                                <p class="text-muted"><?php echo $user_phone; ?></p>
                                             </div>
                                             <div class="col-md-3 col-xs-6 b-r"> <strong>Email</strong>
                                                 <br>
-                                                <p class="text-muted">pinzastudio2020@gmail.com</p>
+                                                <p class="text-muted"><?php echo $email; ?></p>
                                             </div>
                                             <div class="col-md-3 col-xs-6"> <strong>Location</strong>
                                                 <br>
-                                                <p class="text-muted">https://pinzastudio.com</p>
+                                                <p class="text-muted"><?php echo $user_location; ?></p>
                                             </div>
                                         </div>
                                         <hr>
-                                        <p class="mt-4">Quote Title</p>
-                                        <p>Motivation "quote from Terabyte - Updated Always" </p>
+                                        <p class="mt-4">Quote</p>
+                                        <p>Motivation for the day "JUST KEEP DOING WHAT YOU DO" </p>
                                         <h4 class="font-medium mt-4">Interest Set</h4>
                                         <hr>
-                                        <h5 class="mt-4">Finance & Investment <span class="pull-right">80%</span></h5>
+                                        <?php 
+                                         $don = "SELECT * FROM `interest` WHERE user_id = '$user_id' ORDER BY id DESC";
+                                         $result = mysqli_query($connection, $don);
+                                         if (mysqli_num_rows($result) >= 1) {
+                                         while ($pox = mysqli_fetch_array($result)) {
+                                             $int_no = $pox["interest_id"];
+                                             if ($int_no == 1) {
+                                                 $int_name = "Finance & Investment";
+                                             } else if ($int_no == 2) {
+                                                $int_name = "Transportation";
+                                             } else if ($int_no == 3) {
+                                                $int_name = "Software/Computer & Eletronic Gadget";
+                                             } else if ($int_no == 4) {
+                                                $int_name = "E-commerce";
+                                             } else if ($int_no == 5) {
+                                                $int_name = "Education";
+                                             } else if ($int_no == 6) {
+                                                $int_name = "Health/Skin Care & Pharmacecutical";
+                                             } else if ($int_no == 7) {
+                                                $int_name = "Food & Agriculture";
+                                             } else if ($int_no == 8) {
+                                                $int_name = "Entertainment & Music";
+                                             } else if ($int_no == 9) {
+                                                $int_name = "News & Media";
+                                             } else if ($int_no == 10) {
+                                                $int_name = "Manufacturing";
+                                             } else if ($int_no == 11) {
+                                                $int_name = "Energy and Power";
+                                             } else if ($int_no == 12) {
+                                                $int_name = "Mining";
+                                             }
+                                        ?>
+                                        <h5 class="mt-4"><?php echo $int_name ?> <span class="pull-right"><?php $pox["date"]; ?></span></h5>
                                         <div class="progress">
-                                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
+                                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height:6px;"> <span class="sr-only"></span> </div>
                                         </div>
-                                        <h5 class="mt-4">Transportation <span class="pull-right">90%</span></h5>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
-                                        </div>
-                                        <h5 class="mt-4">Software/Computer & Eletronic Gadget <span class="pull-right">50%</span></h5>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
-                                        </div>
-                                        <h5 class="mt-4">E-commerce <span class="pull-right">70%</span></h5>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
-                                        </div>
-                                        <!-- vg -->
-                                        <h5 class="mt-4">Education <span class="pull-right">70%</span></h5>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
-                                        </div>
-                                        <h5 class="mt-4">Health/Skin Care & Pharmacecutical <span class="pull-right">70%</span></h5>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
-                                        </div>
-                                        <h5 class="mt-4">Food & Agriculture <span class="pull-right">70%</span></h5>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
-                                        </div>
-                                        <h5 class="mt-4">Entertainment & Music<span class="pull-right">70%</span></h5>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
-                                        </div>
-                                         <h5 class="mt-4">News & Media <span class="pull-right">70%</span></h5>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
-                                        </div>
-                                        <h5 class="mt-4">Manufacturing <span class="pull-right">70%</span></h5>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
-                                        </div>
-                                        <h5 class="mt-4">Energy and Power <span class="pull-right">70%</span></h5>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
-                                        </div>
-                                         <h5 class="mt-4">Mining<span class="pull-right">70%</span></h5>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
-                                        </div>
+                                        <?php 
+                                         }
+                                        } else {
+                                            echo "ALL INTEREST ADDED AS DEFUALT";
+                                        }
+                                        ?>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="previous-month" role="tabpanel" aria-labelledby="pills-setting-tab">
@@ -193,41 +185,71 @@ include("header.php");
                                             <div class="form-group">
                                                 <label class="col-md-12">Full Name</label>
                                                 <div class="col-md-12">
-                                                    <input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
+                                                    <input type="text" value="<?php echo $fullname ?>" class="form-control form-control-line" readonly>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="example-email" class="col-md-12">Email</label>
                                                 <div class="col-md-12">
-                                                    <input type="email" placeholder="johnathan@admin.com" class="form-control form-control-line" name="example-email" id="example-email">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-md-12">Password</label>
-                                                <div class="col-md-12">
-                                                    <input type="password" value="password" class="form-control form-control-line">
+                                                    <input type="email" placeholder="<?php echo $email ?>" class="form-control form-control-line" name="example-email" id="example-email" readonly>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-md-12">Phone No</label>
                                                 <div class="col-md-12">
-                                                    <input type="text" placeholder="123 456 7890" class="form-control form-control-line">
+                                                    <input type="text" readonly value="<?php echo $user_phone; ?>" class="form-control form-control-line">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-12">Message</label>
+                                                <label class="col-md-12">Old Password</label>
                                                 <div class="col-md-12">
-                                                    <textarea rows="5" class="form-control form-control-line"></textarea>
+                                                    <input type="password" value="password" class="form-control form-control-line">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-sm-12">Select Institution</label>
+                                                <label class="col-md-12">New Password</label>
+                                                <div class="col-md-12">
+                                                    <input type="password" value="password" class="form-control form-control-line">
+                                                </div>
+                                            </div>
+                                            <div id="in_rec"></div>
+                                            <div class="form-group">
+                                            <input type="text" value="<?php echo $user_id; ?>" id ="user_id" hidden>
+                                            <script>
+$(document).ready(function () {
+    $('#add_in').on("change", function (e) {
+               var u_id = $('#user_id').val();
+               var int_id = $('#add_in').val();
+                if (int_id != "all") {
+                    $.ajax({
+                 url: "ajax_post/add_in.php",
+                 method: "POST",
+                 data:{u_id:u_id, int_id:int_id},
+                 success: function (data) {
+                   $('#in_rec').html(data);
+                 }
+               });
+               e.stopImmediatePropagation();
+    e.preventDefault();
+                }
+             });
+});
+</script>
+                                                <label class="col-sm-12">Select Interest (Default all)</label>
                                                 <div class="col-sm-12">
-                                                    <select class="form-control form-control-line">
-                                                        <option>Uni Abuja</option>
-                                                        <option>Uni Lagos</option>
-                                                        <option>Uni Osun</option>
-                                                        <option>Uni Benin</option>
+                                                    <select id="add_in" class="form-control form-control-line">
+                                                        <option value="1">Finance & Investment</option>
+                                                        <option value="2">Transportation</option>
+                                                        <option value="3">Software/Computer & Eletronic Gadget</option>
+                                                        <option value="4">E-commerce</option>
+                                                        <option value="5">Education</option>
+                                                        <option value="6">Health/Skin Care & Pharmacecutical</option>
+                                                        <option value="7">Food & Agriculture</option>
+                                                        <option value="8">Entertainment & Music</option>
+                                                        <option value="9">News & Media</option>
+                                                        <option value="10">Manufacturing</option>
+                                                        <option value="11">Energy and Power</option>
+                                                        <option value="12">Mining</option>
                                                     </select>
                                                 </div>
                                             </div>

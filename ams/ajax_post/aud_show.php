@@ -13,7 +13,21 @@ if ($int_id != "" && $c_id != "")
     if ($cui <= 0) {
         $push_sql = mysqli_query($connection, "INSERT INTO `adu_cache` (`cache_id`, `int_id`, `aud_name`, `date`) VALUES ('{$c_id}', '{$int_id}', '{$int_name}', '{$date}')");
     if ($push_sql) {
+        echo '<script type="text/javascript">
+        $(document).ready(function(){
+            toastr.success("'.$int_name.'", "Campus Added");
+            $("#check_imp").val("");
+        });
+        </script>
+        ';
     }
+} else {
+    echo '<script type="text/javascript">
+    $(document).ready(function(){
+        toastr.error("Campus Exist", "You Have Added '.$int_name.' Before");
+    });
+    </script>
+    ';
 }
 }
 ?>

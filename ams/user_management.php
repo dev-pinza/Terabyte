@@ -137,7 +137,7 @@ if (isset($_GET["message1"])) {
                 <!-- ============================================================== -->
                 <div class="row">
                     <!-- Column -->
-                    <div class="col-md-8">
+                    <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex no-block align-items-center mb-4">
@@ -155,7 +155,11 @@ if (isset($_GET["message1"])) {
                                     <table id="file_export" class="table table-bordered nowrap display">
                                         <thead>
                                         <?php
-                        $query1 = "SELECT * FROM `users` WHERE usertype = 'man' OR usertype = 'rep'";
+                        if ($usertype == "super") {
+                            $query1 = "SELECT * FROM `users` WHERE usertype = 'man' OR usertype = 'rep'";
+                        } else if ($usertype == "man") {
+                            $query1 = "SELECT * FROM `users` WHERE usertype = 'rep' AND int_id = '$int_id'";
+                        }
                         $result1 = mysqli_query($connection, $query1);
                       ?>
                                             <tr>
@@ -215,10 +219,22 @@ if (isset($_GET["message1"])) {
                                                 ?>
                                                 <td>NGN <?php echo number_format($earning, 2);?></td>
                                                 <td>
-                                                    <a href="#"
+                                                <?php 
+                                                    if ($row1["is_approved"] == 1) {?>
+                                                    <a href="../function/disable_user.php?del=<?php echo $row1["id"]; ?>"
                                                         class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn"
                                                         data-toggle="tooltip" data-original-title="Disable"><i
                                                             class="ti-close" aria-hidden="true"></i></a>
+                                                    <?php
+                                                    } else {
+                                                    ?>
+                                                    <a href="../function/approve_user.php?del=<?php echo $row1["id"]; ?>"
+                                                        class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn"
+                                                        data-toggle="tooltip" data-original-title="Enable"><i
+                                                            class="ti-check" aria-hidden="true"></i></a>
+                                                    <?php
+                                                    }
+                                                    ?>
                                                 </td>
                                             </tr>
                                              <?php }
@@ -263,7 +279,6 @@ if (isset($_GET["message1"])) {
                                                 <th>Key Manager</th>
                                                 <!-- <th>Joining date</th>
                                                 <th>Earning</th> -->
-                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -291,12 +306,6 @@ if (isset($_GET["message1"])) {
                                                 <!-- <td>36</td> -->
                                                 <!-- <td>18-05-2020</td>
                                                 <td>NGN 4200</td> -->
-                                                <td>
-                                                    <button type="button"
-                                                        class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn"
-                                                        data-toggle="tooltip" data-original-title="Disable"><i
-                                                            class="ti-close" aria-hidden="true"></i></button>
-                                                </td>
                                             </tr>
                                             <?php }
                                           }
@@ -312,7 +321,7 @@ if (isset($_GET["message1"])) {
                     </div>
                     <!-- Column -->
                     <!-- Column -->
-                    <div class="col-md-4">
+                    <!-- <div class="col-md-4">
                         <div class="card">
                             <div class="border-bottom p-3">
                                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#Sharemodel"
@@ -381,7 +390,7 @@ if (isset($_GET["message1"])) {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- Column -->
                 </div>
                 <!-- ============================================================== -->
