@@ -562,12 +562,12 @@
                                         <span class="hide-menu">Active</span>
                                     </a>
                                 </li>
-                                <li class="sidebar-item">
+                                <!-- <li class="sidebar-item">
                                     <a href="inactive_promo.php" class="sidebar-link">
                                         <i class="fas fa-retweet"></i>
                                         <span class="hide-menu">Inactive</span>
                                     </a>
-                                </li>
+                                </li> -->
                                     <?php
                                 } 
                                 else if ($usertype == "man") {
