@@ -3,7 +3,6 @@ $web_title = "Rep-Registration";
 $current = "rep";
 include("header_i.php");
 include("ajaxcall.php");
-include("function/db/connect.php");
 ?>
 <!-- Banner Section -->
 <section class="page-banner">

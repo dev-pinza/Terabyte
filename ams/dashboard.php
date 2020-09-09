@@ -94,43 +94,123 @@ include("header.php");
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex align-items-center mb-3">
-                                    <h5 class="card-title text-uppercase mb-0">Institution Income</h5>
+                                    <h5 class="card-title text-uppercase mb-0">Institution Quarter Income</h5>
                                     <div class="ml-auto">
-                                        <small class="text-success"><i class="fas fa-sort-up"></i> 18% High then last month</small>
+                                        <small class="text-success">last 4 months data</small>
                                     </div>
                                  </div>
+                                 <?php
+                                // loan 4 month back transaction
+                                $current_date = date('Y-m-d');
+                                // echo $current_date;
+                                $qtr_date = date('Y-m-d', strtotime("-4 months", strtotime($current_date)));
+                                $month_date = date('Y-m-d', strtotime("-1 months", strtotime($current_date)));
+                                $year_date = date('Y-m-d', strtotime("-1 years", strtotime($current_date)));
+                                $week_date = date('Y-m-d', strtotime("-1 weeks", strtotime($current_date)));
+                                $day_date = date('Y-m-d', strtotime("-1 days", strtotime($current_date)));
+                                // echo $qtr_date;
+                                // SUM SELECT FOR MONTH AND DAY
+                                $sum_month = mysqli_query($connection, "SELECT SUM(amount) AS monthly FROM ad_transaction WHERE (created_date >= '$month_date') AND (created_date <= '$current_date') AND transaction_type = 'ad credit'");
+                                $c = mysqli_fetch_array($sum_month);
+                                $all_month = mysqli_query($connection, "SELECT SUM(amount) AS total_month FROM ad_transaction WHERE (created_date >= '$month_date') AND (created_date <= '$current_date')");
+                                $cx = mysqli_fetch_array($all_month);
+                                $month_amount = $c["monthly"];
+                                $all_month = $cx["total_month"];
+                                $monthly_per = ($month_amount / $all_month) * 100;
+                                // SELECT
+                                $qr_debit = mysqli_query($connection, "SELECT SUM(debit) AS total_debit FROM ad_transaction WHERE (created_date >= '$qtr_date') AND (created_date <= '$current_date')");
+                                $qr_credit = mysqli_query($connection, "SELECT SUM(credit) AS total_credit FROM ad_transaction WHERE (created_date >= '$qtr_date') AND (created_date <= '$current_date')");
+                                $qd = mysqli_fetch_array($qr_debit);
+                                $qc = mysqli_fetch_array($qr_credit);
+                                $all_debit = $qd["total_debit"];
+                                $all_credit = $qc["total_credit"];
+                                $qtr_per = ($all_credit / $all_debit) * 100;
+                                if ($qtr_per > 100) {
+                                    $qtr_per = 99;
+                                }
+                                $get_qtr = mysqli_query($connection, "SELECT * FROM ad_transaction WHERE (created_date >= '$qtr_date') AND (created_date <= '$current_date') AND transaction_type = 'ad credit'");
+                                while($row = mysqli_fetch_array($get_qtr))
+                                 {
+                                   // color
+                                    $getall[] = array($row['amount']);
+                                }
+                                ?>
+                                <?php 
+                                $remodel = str_replace("".'"'."","", json_encode($getall)); 
+                                $final_l = str_replace("[","", $remodel); 
+                                $final_r = str_replace("]","", $final_l); 
+                                // echo $final_r;
+                                // cashflow
+                                $get_cash = mysqli_query($connection, "SELECT * FROM acct_transaction WHERE (transaction_date >= '$qtr_date') AND (transaction_date <= '$current_date')");
+                                while($row = mysqli_fetch_array($get_cash))
+                                 {
+                                   // color
+                                    $getallx[] = array($row['amount']);
+                                    $remodelx = str_replace("".'"'."","", json_encode($getallx)); 
+                                $final_lx = str_replace("[","", $remodelx); 
+                                $final_rx = str_replace("]","", $final_lx); 
+                                }
+                                ?>
+                                <script>
+                                    $(document).ready(function() {
+                                    var Spkup = function() { 
+                                        $('#int_income').sparkline([<?php echo $final_r ?>], {
+                                       type: 'line',
+                                       width: '100%',
+                                       height: '160',
+                                       chartRangeMax: 50,
+                                       resize: true,
+                                       lineColor: '#008080',
+                                       fillColor: 'rgba(0, 110, 90, 0.3)',
+                                       highlightLineColor: 'rgba(0,0,0,.1)',
+                                       highlightSpotColor: 'rgba(0,0,0,.2)',
+                                     });
+                                     $('#cash_flow').sparkline([<?php echo $final_rx ?>], {
+                                       type: 'line',
+                                       width: '100%',
+                                       height: '160',
+                                       chartRangeMax: 50,
+                                       resize: true,
+                                       lineColor: '#ff00dd',
+                                       fillColor: 'rgba(80, 28, 112, 0.3)',
+                                       highlightLineColor: 'rgba(0,0,0,.1)',
+                                       highlightSpotColor: 'rgba(0,0,0,.2)',
+                                     });
+                                   }
+                                   var sparkResize;
+                                   $(window).resize(function(e) {
+                                   clearTimeout(sparkResize);
+                                   sparkResize = setTimeout(Spkup, 500);
+                                  });
+                                  Spkup();
+                                 })
+                                </script>
                                 <div class="d-flex flex-row">
                                     <div class="p-2 pl-0 border-right">
-                                        <h6 class="font-light">Overall Growth</h6><span class="font-medium">80.40%</span></div>
-                                    <div class="p-2 border-right">
-                                        <h6 class="font-light">Montly</h6><span class="font-medium">20.40%</span>
-                                    </div>
+                                        <h6 class="font-light">Overall Growth</h6><span class="font-medium"><?php echo number_format($qtr_per, 2) ?>%</span></div>
                                     <div class="p-2">
-                                        <h6 class="font-light">Day</h6><span class="font-medium">5.40%</span>
+                                        <h6 class="font-light">Monthly</h6><span class="font-medium"><?php echo number_format($monthly_per, 2) ?>%</span>
                                     </div>
                                 </div>
-                                <div id="spark1" class="sparkchart mt-3"></div>
+                                <div id="int_income" class="sparkchart mt-3"></div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex align-items-center mb-3">
-                                    <h5 class="card-title text-uppercase mb-0">Site Traffic</h5>
+                                    <h5 class="card-title text-uppercase mb-0">Cash Flow</h5>
                                     <div class="ml-auto">
-                                        <small class="text-danger"><i class="fas fa-sort-down"></i> 18% High then last month</small>
+                                        <small class="text-success"> Last 4 Months Chart Report</small>
                                     </div>
                                  </div>
                                 <div class="d-flex flex-row">
                                     <div class="p-2 pl-0 border-right">
-                                        <h6 class="font-light">Overall Growth</h6><span class="font-medium">80.40%</span></div>
-                                    <div class="p-2 border-right">
-                                        <h6 class="font-light">Montly</h6><span class="font-medium">20.40%</span>
-                                    </div>
-                                    <div class="p-2">
+                                        <h6 class="font-light">Overall Growth</h6><span class="font-medium"><?php echo number_format($qtr_per, 2) ?>%</span></div>
+                                    <!-- <div class="p-2">
                                         <h6 class="font-light">Day</h6><span class="font-medium">5.40%</span>
-                                    </div>
+                                    </div> -->
                                 </div>
-                                <div id="spark2" class="sparkchart mt-3"></div>
+                                <div id="cash_flow" class="sparkchart mt-3"></div>
                             </div>
                         </div>
                     </div>
@@ -138,99 +218,36 @@ include("header.php");
                 <!-- ============================================================== -->
                 <!-- Country Visit, Weather cards Row  -->
                 <!-- ============================================================== -->
-                <div class="row">
-                    <div class="col-md-12 col-lg-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title text-uppercase">Institution</h5>
-                                <ul class="list-style-none country-state mt-4">
-                                   <li class="mb-4">
-                                        <h2 class="mb-0">6350</h2>
-                                        <small>From Uni-lag</small>
-                                        <div class="float-right">48% <i class="fas fa-level-up-alt text-success"></i></div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-success" role="progressbar" style="width: 48%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </li>
-                                    <li class="mb-4">
-                                        <h2 class="mb-0">6350</h2>
-                                        <small>From Uni-Ben</small>
-                                        <div class="float-right">48% <i class="fas fa-level-up-alt text-success"></i></div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-success" role="progressbar" style="width: 48%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </li>
-                                    <li class="mb-4">
-                                        <h2 class="mb-0">3250</h2>
-                                        <small>From Uni-Abuja</small>
-                                        <div class="float-right">98% <i class="fas fa-level-up-alt text-success"></i></div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-info" role="progressbar" style="width: 48%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </li>
-                                    <li class="mb-4">
-                                        <h2 class="mb-0">1250</h2>
-                                        <small>From FUTA</small>
-                                        <div class="float-right">75% <i class="fas fa-level-down-alt text-danger"></i></div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-inverse" role="progressbar" style="width: 48%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </li>
-                                    <li class="mb-4">
-                                        <h2 class="mb-0">1350</h2>
-                                        <small>From FUTO</small>
-                                        <div class="float-right">48% <i class="fas fa-level-up-alt text-success"></i></div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-warning" role="progressbar" style="width: 48%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </li>
-                                    <li class="mb-4">
-                                        <h2 class="mb-0">6350</h2>
-                                        <small>From LASU</small>
-                                        <div class="float-right">48% <i class="fas fa-level-up-alt text-success"></i></div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-success" role="progressbar" style="width: 48%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </li>
-                                    <li class="mb-4">
-                                        <h2 class="mb-0">3250</h2>
-                                        <small>From KWASU</small>
-                                        <div class="float-right">98% <i class="fas fa-level-up-alt text-success"></i></div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-info" role="progressbar" style="width: 48%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <h2 class="mb-0">1250</h2>
-                                        <small>From BABCOCK</small>
-                                        <div class="float-right">75% <i class="fas fa-level-down-alt text-danger"></i></div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-inverse" role="progressbar" style="width: 48%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+               
                 <!-- ============================================================== -->
                 <!-- Sales cards & Carousel Row  -->
                 <!-- ============================================================== -->
                 <div class="row">
-                    <div class="col-lg-6 col-md-12">
+                    <div class="col-lg-12 col-md-12">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="card">
+                                    <?php
+                                    $sum_day = mysqli_query($connection, "SELECT SUM(amount) AS daily FROM ad_transaction WHERE (created_date >= '$day_date') AND (created_date <= '$current_date') AND transaction_type = 'ad credit'");
+                                    $sd = mysqli_fetch_array($sum_day);
+                                    $sum_week = mysqli_query($connection, "SELECT SUM(amount) AS weekly FROM ad_transaction WHERE (created_date >= '$week_date') AND (created_date <= '$current_date') AND transaction_type = 'ad credit'");
+                                    $cw = mysqli_fetch_array($sum_week);
+                                    $sum_year = mysqli_query($connection, "SELECT SUM(amount) AS yearly FROM ad_transaction WHERE (created_date >= '$year_date') AND (created_date <= '$current_date') AND transaction_type = 'ad credit'");
+                                    $cy = mysqli_fetch_array($sum_year);
+                                    $day = $sd["daily"];
+                                    $week = $cw["weekly"];
+                                    $year = $cy["yearly"];
+                                    ?>
                                     <div class="card-body">
                                         <h5 class="card-title text-uppercase">Daliy Sales</h5>
                                         <div class="text-right">
                                             <span class="text-muted font-light">Today's Income</span>
-                                            <h2 class="mt-2 display-7"><sup><i class="ti-arrow-up text-success"></i></sup>&#8358;12,000</h2>
+                                            <h2 class="mt-2 display-7">&#8358;  <?php echo number_format($day, 2); ?></h2>
                                         </div>
-                                        <span class="text-success">20%</span>
+                                        <!-- <span class="text-success">20%</span>
                                         <div class="progress">
                                             <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                                 <div class="card">
@@ -238,12 +255,12 @@ include("header.php");
                                         <h5 class="card-title text-uppercase">Weekly Sales</h5>
                                         <div class="text-right">
                                             <span class="text-muted font-light">Weekly Income</span>
-                                            <h2 class="mt-2 display-7"><sup><i class="ti-arrow-down text-danger"></i></sup>&#8358;5,000</h2>
+                                            <h2 class="mt-2 display-7">&#8358; <?php echo number_format($week, 2); ?></h2>
                                         </div>
-                                        <span class="text-success">30%</span>
+                                        <!-- <span class="text-success">30%</span>
                                         <div class="progress">
                                             <div class="progress-bar bg-danger" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -253,12 +270,12 @@ include("header.php");
                                         <h5 class="card-title text-uppercase">Monthly Sales</h5>
                                         <div class="text-right">
                                             <span class="text-muted font-light">Monthly Income</span>
-                                            <h2 class="mt-2 display-7"><sup><i class="ti-arrow-up text-info"></i></sup>&#8358;10,000</h2>
+                                            <h2 class="mt-2 display-7"><sup></sup>&#8358; <?php echo number_format($month_amount, 2); ?></h2>
                                         </div>
-                                        <span class="text-info">60%</span>
+                                        <!-- <span class="text-info">60%</span>
                                         <div class="progress">
                                             <div class="progress-bar bg-info" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                                 <div class="card">
@@ -266,18 +283,18 @@ include("header.php");
                                         <h5 class="card-title text-uppercase">Yearly Sales</h5>
                                         <div class="text-right">
                                             <span class="text-muted font-light">Yearly Income</span>
-                                            <h2 class="mt-2 display-7"><sup><i class="ti-arrow-up text-inverse"></i></sup>&#8358;9,000</h2>
+                                            <h2 class="mt-2 display-7">&#8358; <?php echo number_format($year, 2); ?></h2>
                                         </div>
-                                        <span class="text-inverse">20%</span>
+                                        <!-- <span class="text-inverse">2</span>
                                         <div class="progress">
                                             <div class="progress-bar bg-inverse" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-12">
+                    <!-- <div class="col-lg-6 col-md-12">
                         <div class="card">
                             <div id="carouselExampleIndicators" class="carousel slide primary-carousel" data-ride="carousel">
                                 <ol class="carousel-indicators d-none">
@@ -327,12 +344,43 @@ include("header.php");
                                 </a>
                             </div>
                         </div>
+                    </div> -->
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title text-uppercase">Institution Sales/Revenue Rank</h5>
+                                <ul class="list-style-none country-state mt-4">
+                                    <?php
+                                     $don = "SELECT * FROM `institution` ORDER BY revenue ASC";
+                                     $result = mysqli_query($connection, $don);
+                                     if (mysqli_num_rows($result) >= 1) {
+                                     while ($pox = mysqli_fetch_array($result)) {
+                                    ?>
+                                   <li class="mb-4">
+                                        <h2 class="mb-0"><?php echo $pox["name"]; ?></h2>
+                                        <small><?php echo $pox["state"]; ?></small>
+                                        <div class="float-right">48% <i class="fas fa-level-up-alt text-success"></i></div>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: 42%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </li>
+                                    <?php
+                                     }
+                                    } else {
+                                        echo "NO INSTITUTION";
+                                    }
+                                    ?>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- ============================================================== -->
                 <!-- Table Row  -->
                 <!-- ============================================================== -->
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
@@ -388,7 +436,7 @@ include("header.php");
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
 <?php
 include("footer.php");

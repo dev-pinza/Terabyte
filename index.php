@@ -123,7 +123,7 @@ include("header_i.php");
                 <div class="inner clearfix">
                     <h2>We’re Ready to Bring Bigger <br /> Audience & Stronger Conversion Rate</h2>
                     <div class="link-box">
-                        <a class="theme-btn btn-style-one" href="#">
+                        <a class="theme-btn btn-style-one" href="contact.php">
                             <i class="btn-curve"></i>
                             <span class="btn-title">Contact us</span>
                         </a>
@@ -152,7 +152,7 @@ include("header_i.php");
                                 <div class="cap-inner">
                                     <h5>Get More Audience for your business through us</h5>
                                     <div class="more-link">
-                                        <a href="about.html"><span class="fa fa-angle-right"></span></a>
+                                        <a href="about.php"><span class="fa fa-angle-right"></span></a>
                                     </div>
                                 </div>
                             </div>
@@ -168,7 +168,7 @@ include("header_i.php");
                                 <div class="cap-inner">
                                     <h5>The fastest growing crowd advertising, digital marketing company</h5>
                                     <div class="more-link">
-                                        <a class="theme-btn" href="about.html"><span
+                                        <a class="theme-btn" href="about.php"><span
                                                 class="fa fa-angle-right"></span></a>
                                     </div>
                                 </div>
@@ -195,13 +195,13 @@ include("header_i.php");
                                     <span class="flaticon-vector"></span>
                                 </div>
                                 <h5>
-                                    <a href="#">Content <br />Development</a>
+                                    <a href="service.php">Content <br />Development</a>
                                 </h5>
                                 <div class="text">
                                     We help produce content that suite your business.
                                 </div>
                                 <div class="link-box">
-                                    <a href="#"><span class="fa fa-angle-right"></span></a>
+                                    <a href="service.php"><span class="fa fa-angle-right"></span></a>
                                 </div>
                             </div>
                         </div>
@@ -214,13 +214,13 @@ include("header_i.php");
                                     <span class="flaticon-digital"></span>
                                 </div>
                                 <h5>
-                                    <a href="#">Digital <br />Marketing</a>
+                                    <a href="service.php">Digital <br />Marketing</a>
                                 </h5>
                                 <div class="text">
                                     We help promote your business on all social platform.
                                 </div>
                                 <div class="link-box">
-                                    <a href="#"><span class="fa fa-angle-right"></span></a>
+                                    <a href="service.php"><span class="fa fa-angle-right"></span></a>
                                 </div>
                             </div>
                         </div>
@@ -252,13 +252,13 @@ include("header_i.php");
                                     <span class="flaticon-monitor"></span>
                                 </div>
                                 <h5>
-                                    <a href="#">Business <br />Development</a>
+                                    <a href="service.php">Business <br />Development</a>
                                 </h5>
                                 <div class="text">
                                     Meet with us we provide the best sales consultancy.
                                 </div>
                                 <div class="link-box">
-                                    <a href="#"><span class="fa fa-angle-right"></span></a>
+                                    <a href="service.php"><span class="fa fa-angle-right"></span></a>
                                 </div>
                             </div>
                         </div>
@@ -283,14 +283,14 @@ include("header_i.php");
                                         <div class="count"><span>01</span></div>
                                         <h5>Are you in the University?</h5>
                                         <div class="sub-text">
-                                            Only Students in the university are eligible to earn.
+                                            Only Students in the university/Poly/College are eligible to earn.
                                         </div>
                                     </div>
                                     <div class="feature">
                                         <div class="count"><span>02</span></div>
                                         <h5>Signup as a Rep</h5>
                                         <div class="sub-text">
-                                            As a rep you will signup choosing your university, providing full details of you.
+                                            As a rep you will signup choosing your university,Poly or College providing full details of you.
                                         </div>
                                     </div>
                                     <div class="feature">
@@ -311,7 +311,7 @@ include("header_i.php");
                                     <div class="cap-box">
                                         <!-- 1032 X 669 -->
                                         <div class="cap-inner">
-                                            <h5>Earn in Secounds</h5>
+                                            <h5>Earn in Second</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -411,9 +411,9 @@ include("header_i.php");
                                             <div class="graph-outer">
                                                 <input type="text" class="dial" data-fgColor="#ffaa17"
                                                     data-bgColor="none" data-width="140" data-height="140"
-                                                    data-linecap="normal" value="50" data-thickness="0.050" />
+                                                    data-linecap="normal" value="80" data-thickness="0.050" />
                                                 <div class="inner-text count-box">
-                                                    <span class="count-text" data-stop="50"
+                                                    <span class="count-text" data-stop="80"
                                                         data-speed="2000"></span><span class="sign">%</span>
                                                 </div>
                                             </div>

@@ -37,18 +37,18 @@
                                     <div class="row clearfix">
                                         <div class="col-md-6 col-sm-12">
                                             <ul>
-                                                <li><a href="#">About</a></li>
+                                                <li><a href="about.php">About</a></li>
                                                 <li><a href="#">Meet Our Team</a></li>
-                                                <li><a href="#">Our Portfolio</a></li>
-                                                <li><a href="#">Latest News</a></li>
-                                                <li><a href="#">Contact</a></li>
+                                                <!-- <li><a href="#">Our Portfolio</a></li> -->
+                                                <li><a href="blog.php">Latest News</a></li>
+                                                <li><a href="contact.php">Contact</a></li>
                                             </ul>
                                         </div>
                                         <div class="col-md-6 col-sm-12">
                                             <ul>
                                                 <li><a href="#">Support</a></li>
-                                                <li><a href="#">Privacy Policy</a></li>
-                                                <li><a href="#">Terms of Use</a></li>
+                                                <li><a href="privacy.php">Privacy Policy</a></li>
+                                                <li><a href="privacy.php">Terms of Use</a></li>
                                                 <li><a href="#">Help</a></li>
                                             </ul>
                                         </div>

@@ -76,7 +76,7 @@ include("header_i.php");
                                     <span class="flaticon-instant-camera"></span>
                                 </div>
                                 <h5>
-                                    <a href="#">Personal/Corporate <br />Brnading</a>
+                                    <a href="#">Personal/Corporate <br />Branding</a>
                                 </h5>
                                 <div class="text">
                                     We take your business to the next level.
@@ -243,7 +243,7 @@ include("header_i.php");
                                                     Move your Business one step forward with terabyte
                                                 </p>
                                                 <div class="link-box">
-                                        <a class="theme-btn btn-style-two" href="#">
+                                        <a class="theme-btn btn-style-two" href="signup.php">
                                             <i class="btn-curve"></i>
                                             <span class="btn-title">Sign up</span>
                                         </a>
@@ -303,7 +303,7 @@ include("header_i.php");
                                                     Earn real money with Terabyte by sharing ads and making it count. withdrawal by buying AIRTIME, DATA, CABLE TV or CASH.
                                                 </p>
                                                 <div class="link-box">
-                                        <a class="theme-btn btn-style-two" href="contact.php">
+                                        <a class="theme-btn btn-style-two" href="rep_registration.php">
                                             <i class="btn-curve"></i>
                                             <span class="btn-title">signup as rep</span>
                                         </a>

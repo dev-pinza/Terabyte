@@ -292,7 +292,41 @@ include("header_i.php");
             </div>
         </div>
 
-       
+        <div class="team-block col-lg-4 col-md-6 col-sm-12">
+            <div class="inner-box wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms">
+                <div class="image-box">
+                    <a href="about.php"><img src="img/profile/CGA.jpg" alt=""></a>
+                    <ul class="social-links clearfix">
+                        <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
+                        <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                        <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                        <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
+                    </ul>
+                </div>
+                <div class="lower-box">
+                    <h5><a href="#">Dolapo Adegoke</a></h5>
+                    <div class="designation"> Chief Growth Analyst (CGA)</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="team-block col-lg-4 col-md-6 col-sm-12">
+            <div class="inner-box wow fadeInUp" data-wow-delay="600ms" data-wow-duration="1500ms">
+                <div class="image-box">
+                    <a href="about.php"><img src="img/profile/EA.jpg" alt=""></a>
+                    <ul class="social-links clearfix">
+                        <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
+                        <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                        <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                        <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
+                    </ul>
+                </div>
+                <div class="lower-box">
+                    <h5><a href="#">Fanowopo Oyinkansola</a></h5>
+                    <div class="designation"> Executive Assistant </div>
+                </div>
+            </div>
+        </div>
 
         <!--Team-->
         <div class="team-block col-lg-4 col-md-6 col-sm-12">
@@ -313,41 +347,9 @@ include("header_i.php");
             </div>
         </div>
         <!--Team  -->
-        <div class="team-block col-lg-4 col-md-6 col-sm-12">
-            <div class="inner-box wow fadeInUp" data-wow-delay="600ms" data-wow-duration="1500ms">
-                <div class="image-box">
-                    <a href="about.php"><img src="img/profile/EA.jpg" alt=""></a>
-                    <ul class="social-links clearfix">
-                        <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
-                        <li><a href="#"><span class="fab fa-twitter"></span></a></li>
-                        <li><a href="#"><span class="fab fa-instagram"></span></a></li>
-                        <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
-                    </ul>
-                </div>
-                <div class="lower-box">
-                    <h5><a href="#">Fanowopo Oyinkansola</a></h5>
-                    <div class="designation"> Executive Assistant </div>
-                </div>
-            </div>
-        </div>
+        
          <!--Team-->
-         <div class="team-block col-lg-4 col-md-6 col-sm-12">
-            <div class="inner-box wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms">
-                <div class="image-box">
-                    <a href="about.php"><img src="img/profile/CGA.jpg" alt=""></a>
-                    <ul class="social-links clearfix">
-                        <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
-                        <li><a href="#"><span class="fab fa-twitter"></span></a></li>
-                        <li><a href="#"><span class="fab fa-instagram"></span></a></li>
-                        <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
-                    </ul>
-                </div>
-                <div class="lower-box">
-                    <h5><a href="#">Dolapo Adegoke</a></h5>
-                    <div class="designation"> Chief Growth Analyst (CGA)</div>
-                </div>
-            </div>
-        </div>
+         
         <!-- Team1 -->
         <div class="team-block col-lg-4 col-md-6 col-sm-12">
             <div class="inner-box wow fadeInUp" data-wow-delay="600ms" data-wow-duration="1500ms">
