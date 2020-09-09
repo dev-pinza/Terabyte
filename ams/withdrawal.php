@@ -5,7 +5,7 @@ include("header.php");
 <!-- a withdawal page -->
 <!-- check if the account have upto 100 naira -->
 <?php
-if ($wall_bal < 100.00) {
+if ($wall_bal >= 100.00) {
 ?>
 <!-- make  ove -->
 <div class="page-content container-fluid">
