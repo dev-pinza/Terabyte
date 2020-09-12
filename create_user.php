@@ -9,8 +9,8 @@ if ($ut_m == "super" || $ut_m == "man" || $ut_m == "" || $ut_m == NULL) {
 require_once "bat/phpmailer/PHPMailerAutoload.php";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // import DB
-$un = preg_replace('/[^\w]/', '', $_POST["un"]);
-$fn = preg_replace('/[^\w]/', '', $_POST["fn"]);
+$un = preg_replace('/[^\w]/', ' ', $_POST["un"]);
+$fn = preg_replace('/[^\w]/', ' ', $_POST["fn"]);
 $em = $_POST["em"];
 $gn = $_POST["gn"];
 $dob = $_POST["dob"];
