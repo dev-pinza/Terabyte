@@ -277,6 +277,7 @@ if (isset($_GET["message1"])) {
                                                 <th>Date Created</th>
                                                 <th>Total Audience</th>
                                                 <th>Key Manager</th>
+                                                <th>Modify</th>
                                                 <!-- <th>Joining date</th>
                                                 <th>Earning</th> -->
                                             </tr>
@@ -303,7 +304,11 @@ if (isset($_GET["message1"])) {
                                                 }
                                                 ?>
                                                 <td><span class="label label-inverse"><?php echo $km; ?></span></td>
-                                                <!-- <td>36</td> -->
+                                                <td>
+                                                <a href="edit_int.php?edit=<?php echo $row["id"] ?>"
+                                                        class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn"
+                                                        data-toggle="tooltip" data-original-title="Edit"><i
+                                                            class="ti-pencil" aria-hidden="true"></i></a></td>
                                                 <!-- <td>18-05-2020</td>
                                                 <td>NGN 4200</td> -->
                                             </tr>

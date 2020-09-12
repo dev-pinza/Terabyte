@@ -6,6 +6,7 @@ if ($ut == "super") {
 include("db/connect.php");
 
 // now lets gos
+$id = $_POST["id"];
 $i_n = preg_replace('/[^\w]/', ' ', $_POST["int_name"]);
 $i_c = preg_replace('/[^\w]/', ' ', $_POST["int_city"]);
 $i_s = preg_replace('/[^\w]/', ' ', $_POST["int_state"]);
@@ -29,7 +30,7 @@ curl_setopt_array($curl, array(
 $response = curl_exec($curl);
 
 curl_close($curl);
-echo $response;
+// echo $response;
 $obj = json_decode($response, TRUE);
 $co_or_x = $obj['resourceSets'][0]['resources'][0]['geocodePoints'][0]['coordinates'][0];
 $co_or_y = $obj['resourceSets'][0]['resources'][0]['geocodePoints'][0]['coordinates'][1];
@@ -42,29 +43,22 @@ echo $co_or = $co_or_x.",".$co_or_y;
 $digits = 10;
 $randms = str_pad(rand(0, pow(10, $digits)-1), $digits, '0', STR_PAD_LEFT);
 // alright
-$check_sql = mysqli_query($connection, "SELECT * FROM `institution` WHERE name = '$i_n' AND country = '$i_country' AND state = '$i_s' AND zip = '$i_z' AND active = '1'");
-$x = mysqli_num_rows($check_sql);
-if ($x <= 0) {
     // create
-    $insert_sql = mysqli_query($connection, "INSERT INTO `institution` (`name`, `country`, `state`, `city`, `zip`, `date_created`, `population`, `key_manager`, `active`, `lnglat`) VALUES ('{$i_n}', '{$i_country}', '{$i_s}', '{$i_c}', '{$i_z}', '{$gen_date}', '0', NULL, '1', '{$co_or}')");
+    $update_sql = mysqli_query($connection, "UPDATE `institution` SET name = '$i_n', country = '$i_country', state = '$i_s', city = '$i_c', zip = '$i_z', lnglat = '$co_or' WHERE id = '$id'");
     // done
-    if ($insert_sql) {
+    if ($update_sql) {
         // echo correct
         $_SESSION["Lack_of_intfund_$randms"] = "Creation Successful";
         echo "sucess";
-        echo header ("Location: ../ams/user_management.php?message1=$randms");
+        $URL="../ams/user_management.php";
+                        echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
     } else {
         // echo bad data
         $_SESSION["Lack_of_intfund_$randms"] = "Creation Error";
         echo "insert error";
-        echo header ("Location: ../ams/user_management.php?message2=$randms");
+        $URL="../ams/user_management.php";
+                        echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
     }
-} else {
-    // go back
-    $_SESSION["Lack_of_intfund_$randms"] = "Institution Exist";
-        echo header ("Location: ../ams/user_management.php?message1=$randms");
-    // echo Institution Exist
-}
 } else {
     // output a not permitted
     echo "NOT PERMITTED";
