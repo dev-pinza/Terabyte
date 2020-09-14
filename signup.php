@@ -19,12 +19,9 @@ $hash = password_hash($pass, PASSWORD_DEFAULT);
 $ut = "client";
 $date_time = date('Y-m-d H:i:s');
 
-$res = mysqli_query($connection, "SELECT * FROM `users`");
+$res = mysqli_query($connection, "SELECT * FROM `users` WHERE username = '$un'");
 // check if it ex
-if (count([$res]) == 1) {
-    $x = mysqli_fetch_array($res);
-    $ui = $x['username'];
-    $ei = $x['email'];
+if (mysqli_num_rows($res) <= 0) {
 // proper
  // img upload
  $temp1 = explode(".", $_FILES['chooseFile']['name']);
@@ -41,7 +38,7 @@ if (count([$res]) == 1) {
      $sig_passport_one = "av.jpg";
  }
 //  wow
-    if ($un !== $ui && $em !== $ei) {
+    if ($un != "" && $em != "") {
         // add up
         $insert = mysqli_query($connection, "INSERT INTO `users` (`username`, `email`, `fullname`, `password`, `phone`, `usertype`, `created_date`, `gender`, `account_id`, `img`, `country`) VALUES ('{$un}', '{$em}', '{$fn}', '{$hash}', '{$ph}', 'client', '{$date_time}', '{$gn}', '0', '{$sig_passport_one}', '{$country}')");
         if ($insert) {
@@ -145,7 +142,7 @@ if (count([$res]) == 1) {
     });
     </script>
     ';
-                 echo header ("Location: index.php");
+                 echo header ("Location: login.php");
              } else
              {
                  echo "Message has been sent successfully";
@@ -161,7 +158,7 @@ if (count([$res]) == 1) {
     });
     </script>
     ';
-                 echo header ("Location: index.php");
+                 echo header ("Location: login.php");
              }
                 // end email
             } else {
@@ -211,6 +208,19 @@ if (count([$res]) == 1) {
         // echo header ("Location: index.php?message3=$randms");
         // Echo Name Exist
     }
+} else {
+    echo '<script type="text/javascript">
+    $(document).ready(function(){
+        Swal.fire({
+            type: "error",
+            title: "Username Exist",
+            text: "You Have an Error",
+            showConfirmButton: false,
+            timer: 4000
+        })
+    });
+    </script>
+    ';
 }
 
 // insert into client account

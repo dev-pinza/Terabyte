@@ -217,11 +217,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     </div>
                     <div class="row mt-3">
                         <!-- Form -->
-                        <form class="col-12" action="#">
+                        <form class="col-12" action="change_password.php" method="GET">
                             <!-- email -->
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <input class="form-control form-control-lg" type="email" required="" placeholder="Email">
+                                    <input class="form-control form-control-lg" type="text" name="username" required="" placeholder="Username">
                                 </div>
                             </div>
                             <!-- pwd -->
