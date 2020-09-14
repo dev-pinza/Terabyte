@@ -162,7 +162,7 @@
                             <div class="dropdown-menu dropdown-menu-left mailbox animated bounceInDown" aria-labelledby="2">
                                 <ul class="list-style-none">
                                     <li>
-                                        <div class="drop-title border-bottom">You have 2 new messanges</div>
+                                        <div class="drop-title border-bottom">Message Notification Coming Soon!</div>
                                     </li>
                                     <li>
                                         <div class="message-center message-body">
@@ -170,14 +170,13 @@
                                             <a href="javascript:void(0)" class="message-item">
                                                 <span class="user-img"> <img src="../user_img/log.jpeg" alt="user" class="rounded-circle"> <span class="profile-status online pull-right"></span> </span>
                                                 <span class="mail-contnet">
-                                                    <h5 class="message-title">Pinza Studio</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:30 AM</span> </span>
+                                                    <h5 class="message-title">Message Notification goes here</h5> <span class="mail-desc">Holla!</span> <span class="time">9:30 AM</span> </span>
                                             </a>
-                                            <!-- Message -->
-                                            <a href="javascript:void(0)" class="message-item">
+                                            <!-- <a href="javascript:void(0)" class="message-item">
                                                 <span class="user-img"> <img src="../user_img/log.jpeg" alt="user" class="rounded-circle"> <span class="profile-status busy pull-right"></span> </span>
                                                 <span class="mail-contnet">
                                                     <h5 class="message-title">Han Tera</h5> <span class="mail-desc">I've sung a song! See you at</span> <span class="time">9:10 AM</span> </span>
-                                            </a>
+                                            </a> -->
                                         </div>
                                     </li>
                                     <li>
@@ -203,33 +202,24 @@
                                 <span class="with-arrow"><span class="bg-primary"></span></span>
                                 <ul class="list-style-none">
                                     <li>
-                                        <div class="drop-title border-bottom">You have 3 new Tasks</div>
+                                        <div class="drop-title border-bottom">Tasks Notification Coming Soon!</div>
                                     </li>
                                     <li>
                                         <div class="message-center notifications">
-                                            <!-- Message -->
                                             <a href="javascript:void(0)" class="message-item">
                                                 <span class="btn btn-danger btn-circle"><i class="fa fa-link"></i></span>
                                                 <span class="mail-contnet">
-                                                    <h5 class="message-title">Luanch Admin</h5> <span class="mail-desc">Just see the my new admin!</span> <span class="time">9:30 AM</span> </span>
+                                                    <h5 class="message-title">Coming Soon!</h5> <span class="mail-desc">Just see new Task!</span> <span class="time">9:30 AM</span> </span>
                                             </a>
-                                            <!-- Message -->
-                                            <a href="javascript:void(0)" class="message-item">
+                                            <!-- <a href="javascript:void(0)" class="message-item">
                                                 <span class="btn btn-success btn-circle"><i class="ti-calendar"></i></span>
                                                 <span class="mail-contnet">
                                                     <h5 class="message-title">Event today</h5> <span class="mail-desc">Just a reminder that you have event</span> <span class="time">9:10 AM</span> </span>
                                             </a>
-                                            <!-- Message -->
                                             <a href="javascript:void(0)" class="message-item">
                                                 <span class="btn btn-info btn-circle"><i class="ti-settings"></i></span>
                                                 <span class="mail-contnet">
                                                     <h5 class="message-title">Settings</h5> <span class="mail-desc">You can customize this template as you want</span> <span class="time">9:08 AM</span> </span>
-                                            </a>
-                                            <!-- Message -->
-                                            <!-- <a href="javascript:void(0)" class="message-item">
-                                                <span class="btn btn-primary btn-circle"><i class="ti-user"></i></span>
-                                                <span class="mail-contnet">
-                                                    <h5 class="message-title">Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:02 AM</span> </span>
                                             </a> -->
                                         </div>
                                     </li>
@@ -390,7 +380,7 @@
                                         <a href="tera_profile.php" class="btn btn-sm btn-danger text-white mt-2 btn-rounded">View Profile</a>
                                     </div>
                                 </div>
-                                <a class="dropdown-item" href="tera_profile.php"><i class="ti-user mr-1 ml-1"></i> My Profile</a>
+                                <!-- <a class="dropdown-item" href="tera_profile.php"><i class="ti-user mr-1 ml-1"></i> My Profile</a> -->
                                 <?php
                                 if ($usertype != "client"){
                                     ?>
@@ -458,7 +448,7 @@
                                 if ($usertype != "client"){
                                     ?>
                                 <li class="sidebar-item">
-                                    <a href="javascript:void(0)" class="sidebar-link">
+                                    <a href="client_bal.php" class="sidebar-link">
                                         <i class="ti-wallet"></i>
                                         <span class="hide-menu"> My Earning </span>
                                     </a>

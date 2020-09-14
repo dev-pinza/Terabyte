@@ -57,14 +57,11 @@ if ($ut == "man") {
 // do your thing
 $date_time = date('Y-m-d H:i:s');
 
-$res = mysqli_query($connection, "SELECT * FROM `users`");
+$res = mysqli_query($connection, "SELECT * FROM `users` WHERE username = '$un' OR email = '$em'");
 // check if it ex
-if (count([$res]) == 1) {
-    $x = mysqli_fetch_array($res);
-    $ui = $x['username'];
-    $ei = $x['email'];
+if (mysqli_num_rows($res) <= 0) {
 // proper
-if ($un !== $ui && $em !== $ei) {
+if ($un != "" && $em != "") {
     // add up
     $insert = mysqli_query($connection, "INSERT INTO `users` (`username`, `email`, `fullname`, `password`, `phone`, `usertype`, `created_date`, `gender`, `dob`, `account_id`, `img`, `country`, `int_id`, `matric`) VALUES ('{$un}', '{$em}', '{$fn}', '{$hash}', '{$ph}', '{$ut}', '{$date_time}', '{$gn}', '{$dob}', '0', '{$sig_passport_one}', '{$u_country}', '{$int_id}', '{$matric}')");
         if ($insert) {
@@ -209,6 +206,13 @@ if ($un !== $ui && $em !== $ei) {
         echo header ("Location: rep_return.php?ACCOUNTEXIST405");
     }
 }
+} else {
+    if ($ut_m != ""){ 
+        $_SESSION["Lack_of_intfund_$randms"] = "User Exist";
+            echo header ("Location: ../ams/user_management.php?message104=$randms");
+        } else {
+            echo header ("Location: rep_return.php?ACCOUNTEXIST405");
+        }     
 }
 }
 }

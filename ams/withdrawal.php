@@ -3,9 +3,13 @@ $web_title = "Withdrawal Option";
 include("header.php");
 ?>
 <!-- a withdawal page -->
+
 <!-- check if the account have upto 100 naira -->
 <?php
-if ($wall_bal >= 100.00) {
+ $wal = mysqli_query($connection, "SELECT * FROM `account` WHERE user_id = '$user_id'");
+ $oq = mysqli_fetch_array($wal);
+ $wall_bal = $oq["balance_derived"];
+if ($wall_bal >= 100) {
 ?>
 <!-- make  ove -->
 <div class="page-content container-fluid">

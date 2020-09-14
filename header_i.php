@@ -42,9 +42,9 @@ include("function/db/connect.php");
     <div class="page-wrapper">
 
         <!-- Preloader -->
-        <div class="preloader">
+        <!-- <div class="preloader">
             <div class="icon"></div>
-        </div>
+        </div> -->
 
         <!-- Main Header -->
         <header class="main-header header-style-two">
