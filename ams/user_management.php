@@ -141,7 +141,7 @@ if (isset($_GET["message1"])) {
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex no-block align-items-center mb-4">
-                                    <h4 class="card-title">All Managers</h4>
+                                    <h4 class="card-title">All Managers/Reps</h4>
                                     <div class="ml-auto">
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-dark" data-toggle="modal"

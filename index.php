@@ -233,7 +233,7 @@ include("header_i.php");
                                     <span class="flaticon-instant-camera"></span>
                                 </div>
                                 <h5>
-                                    <a href="#">Personal/Corporate <br />Brnading</a>
+                                    <a href="#">Personal/Corporate <br />Branding</a>
                                 </h5>
                                 <div class="text">
                                     We take your business to the next level.

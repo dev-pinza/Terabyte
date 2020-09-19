@@ -1,6 +1,6 @@
 <?php
 include("material.php");
-include("function/db/connect.php");
+// include("function/db/connect.php");
 require_once "bat/phpmailer/PHPMailerAutoload.php";
 
 session_start();
