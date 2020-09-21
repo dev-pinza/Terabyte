@@ -171,8 +171,10 @@ if (isset($_GET["message1"])) {
                                                 <th>Institution</th>
                                                 <th>DOB</th>
                                                 <th>Joining date</th>
+                                                <th>Identfication(Matric, Phone)</th>
                                                 <th>Earning</th>
                                                 <th>Action</th>
+                                                <th>Delete</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -212,6 +214,15 @@ if (isset($_GET["message1"])) {
                                                 <td><?php echo $row1["dob"]; ?></td>
                                                 <td><?php echo $row1["created_date"]; ?></td>
                                                 <?php
+                                                $mx = $row1["matric"]; 
+                                                if ($mx == '0' || $mx == NULL) {
+                                                    $mx = "No ID, tell user to update";
+                                                } else {
+                                                    $mx = $mx;
+                                                }
+                                                ?>
+                                                <td><span class="label label-inverse"><?php echo $mx;?></span></td>
+                                                <?php
                                                 $u_id = $row1["id"];
                                                 $slect_aintx = mysqli_query($connection, "SELECT * FROM `account` WHERE user_id ='$u_id'");
                                                 $acx = mysqli_fetch_array($slect_aintx);
@@ -222,19 +233,31 @@ if (isset($_GET["message1"])) {
                                                 <?php 
                                                     if ($row1["is_approved"] == 1) {?>
                                                     <a href="../function/disable_user.php?del=<?php echo $row1["id"]; ?>"
-                                                        class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn"
-                                                        data-toggle="tooltip" data-original-title="Disable"><i
-                                                            class="ti-close" aria-hidden="true"></i></a>
+                                                        class="btn btn-warning btn-pure btn-outline delete-row-btn"
+                                                        data-toggle="tooltip" data-original-title="Disable">
+                                                        <i class="ti-close" aria-hidden="true"></i>
+                                                        Decommission
+                                                    </a>
                                                     <?php
                                                     } else {
                                                     ?>
                                                     <a href="../function/approve_user.php?del=<?php echo $row1["id"]; ?>"
-                                                        class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn"
+                                                        class="btn btn-success btn-pure btn-outline delete-row-btn"
                                                         data-toggle="tooltip" data-original-title="Enable"><i
-                                                            class="ti-check" aria-hidden="true"></i></a>
+                                                            class="ti-check" aria-hidden="true">
+                                                            Approve Rep
+                                                        </i>
+                                                        </a>
                                                     <?php
                                                     }
                                                     ?>
+                                                </td>
+                                                <td>
+                                                <a href="../function/delete_user.php?del=<?php echo $row1["id"]; ?>"
+                                                        class="btn btn-danger btn-pure btn-outline delete-row-btn"
+                                                        data-toggle="tooltip" data-original-title="Delete">
+                                                        Delete Permanently
+                                                        </a>
                                                 </td>
                                             </tr>
                                              <?php }
@@ -253,6 +276,9 @@ if (isset($_GET["message1"])) {
                             <div class="card-body">
                                 <div class="d-flex no-block align-items-center mb-4">
                                     <h4 class="card-title">All Institution</h4>
+                                    <?php
+                                    if ($usertype == "super") {
+                                    ?>
                                     <div class="ml-auto">
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-dark" data-toggle="modal"
@@ -261,12 +287,20 @@ if (isset($_GET["message1"])) {
                                             </button>
                                         </div>
                                     </div>
+                                    <?php
+                                    }
+                                    ?>
                                 </div>
                                 <div class="table-responsive">
                                     <table id="file_exportm" class="table table-bordered nowrap display">
                                         <thead>
                                         <?php
-                        $query = "SELECT * FROM `institution` WHERE active = '1'";
+                                        if ($usertype == "super") {
+                                            $query = "SELECT * FROM `institution` WHERE active = '1'";
+                                        } else if ($usertype == "man") {
+                                            $query = "SELECT * FROM `institution` WHERE id = '$int_id' AND active = '1'";
+                                        }
+                        
                         $result = mysqli_query($connection, $query);
                       ?>
                                             <tr>

@@ -25,7 +25,10 @@ include("header.php");
                             </div>
                             <div>
                                 <hr> </div>
-                            <div class="card-body"> <small class="text-muted">Email address </small>
+                            <div class="card-body">
+                            <small class="text-muted">Username</small>
+                                <h6><?php echo $_SESSION["username"]; ?></h6>
+                                 <small class="text-muted">Email address </small>
                                 <h6><?php echo $email; ?></h6> <small class="text-muted pt-4 db">Phone</small>
                                 <h6><?php echo $user_phone; ?></h6> <small class="text-muted pt-4 db">Location</small>
                                 <h6><?php echo $user_location ?></h6>
@@ -452,6 +455,12 @@ include("header.php");
                                 <div class="tab-pane fade" id="previous-month" role="tabpanel" aria-labelledby="pills-setting-tab">
                                     <div class="card-body">
                                         <form class="form-horizontal form-material" method="POST">
+                                        <div class="form-group">
+                                                <label class="col-md-12">Username</label>
+                                                <div class="col-md-12">
+                                                    <input type="text" name="username" value="<?php echo $_SESSION["username"] ?>" class="form-control form-control-line" readonly>
+                                                </div>
+                                            </div>
                                             <div class="form-group">
                                                 <label class="col-md-12">Full Name</label>
                                                 <div class="col-md-12">
@@ -482,6 +491,18 @@ include("header.php");
                                                     <input type="password" value="" name="newpasskey" class="form-control form-control-line">
                                                 </div>
                                             </div>
+                                            <?php
+                                            if ($usertype =="rep") {
+                                            ?>
+                                            <div class="form-group">
+                                                <label class="col-md-12">Matric Number</label>
+                                                <div class="col-md-12">
+                                                    <input type="text" value="" name="matric" class="form-control form-control-line">
+                                                </div>
+                                            </div>
+                                            <?php
+                                            }
+                                            ?>
                                             <div id="in_rec"></div>
                                             <div class="form-group">
                                             <input type="text" name="chk" value="<?php echo $user_id; ?>" id ="user_id" hidden>
