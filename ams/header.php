@@ -560,7 +560,7 @@
                                 </li> -->
                                     <?php
                                 } 
-                                else if ($usertype == "man") {
+                                if ($usertype == "man") {
                                     ?>
                                 <li class="sidebar-item">
                                     <a href="ad_man.php" class="sidebar-link">
