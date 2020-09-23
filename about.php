@@ -102,7 +102,7 @@ include("header_i.php");
                         <div class="name">James Kelechi</div>
                         <div class="designation">Musician</div>
                     </div>
-                    <div class="text">I cant thank Terabyte enough, by music is not out there for all hears to stream.</div>
+                    <div class="text">I can't thank Terabyte enough, my music is now out there for all hears to stream.</div>
                 </div>
             </div>
         </div>

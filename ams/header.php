@@ -529,7 +529,7 @@
                             </a>
                         </li>
                         <?php
-                                if ($usertype != "super") {
+                                if ($usertype == "client" || $usertype == "man" || $usertype == "rep" || $usertype == "super") {
                                     ?>
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
@@ -538,7 +538,7 @@
                             </a>
                             <ul aria-expanded="false" class="collapse first-level">
                                 <?php
-                                if ($usertype == "client") {
+                                if ($usertype == "client" || $usertype == "man" || $usertype == "rep" || $usertype == "super") {
                                     ?>
                                     <li class="sidebar-item">
                                     <a href="create_promotion.php" class="sidebar-link">
