@@ -5,7 +5,7 @@ $int_id = $_POST["int_id"];
 $date = date('Y-m-d');
 if ($int_id != "" && $c_id != "")
 {
-    $get_cache = mysqli_query($connection, "SELECT * FROM `institution`");
+    $get_cache = mysqli_query($connection, "SELECT * FROM `institution` WHERE id = '$int_id'");
     $rowx = mysqli_fetch_array($get_cache);
         $int_name = $rowx["name"];
     $sel_c = mysqli_query($connection, "SELECT * FROM adu_cache WHERE int_id = '$int_id' AND cache_id = '$c_id'");

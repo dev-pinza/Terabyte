@@ -6,16 +6,16 @@ require_once "../bat/phpmailer/PHPMailerAutoload.php";
 <!-- START FROM HOME -->
 <?php
                     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                        // BASIC DATAs
+                        // END
                         $client_id = $user_id;
                         // we are ready to start
                         $dest = $_POST["location"];
                         $fire = $_POST["webUrl3"];
                         $cat = $_POST["ad_cat"];
-                        $head = preg_replace('/[^\w]/', ' ', $_POST["head"]);
-                        $title = preg_replace('/[^\w]/', ' ', $_POST["title"]);
-                        $body = preg_replace('/[^\w]/', ' ', $_POST["shortDescription"]);
-                        $aud_name = preg_replace('/[^\w]/', ' ', $_POST["aud_name"]);
+                        $head = addslashes($_POST["head"]);
+                        $title = addslashes( $_POST["title"]);
+                        $body = addslashes($_POST["shortDescription"]);
+                        $aud_name = addslashes($_POST["aud_name"]);
                         $age_gend = $_POST["wintType1"];
                         $int_loc = $_POST["int_loc"];
                         $auto_renew = $_POST["customRadio"];
@@ -49,6 +49,7 @@ require_once "../bat/phpmailer/PHPMailerAutoload.php";
                         $gen_date = date('Y-m-d');
                         $date2 = date('Y-m-d H:i:s');
                         $dura = $_POST["duration"];
+                        $cache_id = $_POST["fake_cache"];
                         // query to get client account
                         $actualend_date = date('Y-m-d', strtotime("+".$dura." days", strtotime($gen_date)));
                         // my liver
@@ -83,6 +84,22 @@ require_once "../bat/phpmailer/PHPMailerAutoload.php";
                                                 $promo_trans = mysqli_query($connection, "INSERT INTO `ad_transaction` (`transaction_id`, `client_id`, `transaction_type`, `amount`, `credit`, `debit`, `created_date`, `user_id`, `ip_address`) VALUES ('{$post_link}', '{$user_id}', 'ad credit', '{$tot_amt}', '{$tot_amt}', '0.00', '{$date2}', '{$user_id}', '0')");
                                                 // check
                                                 if ($promo_trans) {
+                                                    // done with ad trans
+                                                    $select_cache_aud = mysqli_query($connection, "SELECT * FROM `adu_cache` WHERE cache_id = '$cache_id'");
+                                                    if (mysqli_num_rows($select_cache_aud) > 0) {
+                                                        while($av = mysqli_fetch_array($select_cache_aud)) {
+                                                            $aud_int_id = $av["int_id"];
+                                                            $date = date('Y-m-d');
+                                                            // move to the stuff
+                                                            $insert_aud = mysqli_query($connection, "INSERT INTO `adu_post` (`post_id`, `int_id`, `int_name`, `aud_name`, `date`) VALUES ('{$post_id}', '{$aud_int_id}', 'Non', 'Non', '{$date}')");
+                                                            if ($insert_aud) {
+                                                                $delete_cache = mysqli_query($connection, "DELETE FROM `adu_cache` WHERE cache_id = '$cache_id'");
+                                                            }
+                                                        }
+                                                    } else {
+                                                        // make institution update to the audience
+                                                        $insert_aud = mysqli_query($connection, "INSERT INTO `adu_post` (`post_id`, `int_id`, `int_name`, `aud_name`, `date`) VALUES ('{$post_id}', '0', 'All', 'All', '{$date}')");
+                                                    }
                                                     // send MAIL
                                                     $gen_date = date('Y-m-d');
              // begining of mail
@@ -480,7 +497,7 @@ return $output;
 echo fill_in($connection);
 ?>
 </select>
-<a id="add_up" class="btn btn-success">add</a>
+<a id="add_up" class="btn btn-success">Add</a>
                                                     </div>
                                                    <!-- <div id="show_int"></div> -->
                                                 </div>
@@ -533,6 +550,8 @@ $(document).ready(function () {
                                             <td>DMAN</td>
                                         </tr> -->
                                         <div id="display_aud"></div>
+                                        <div id="done_delete"></div>
+
                                     <!-- </tbody>
                                 </table> -->
                             </div>
@@ -550,6 +569,7 @@ $(document).ready(function () {
                                                             <label class="custom-control-label" for="customRadio17">No</label>
                                                         </div>
                                                     </div>
+                                            <input type="text" name="fake_cache" value="<?php echo $cache_id; ?>" id="" readonly>
                                                 </div>
                                             </div>
                                         </div>

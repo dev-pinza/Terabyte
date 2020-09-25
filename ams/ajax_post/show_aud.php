@@ -17,9 +17,29 @@ if ($c_id != "") {
             $display2 = '
             <tr>
             <td>'.$int_name.'</td>
+            <td></td>
+            <td></td>
+            <td><a id="int_del_'.$pox["id"].'" data-aud-id="'.$pox["id"].'" class="btn btn-danger" style="color:white;">delete</a></td>
             </tr>
             ';
             echo $display2;
+            ?>
+            <script>
+ $(document).ready(function() {
+    $('#int_del_<?php echo $pox["id"];?>').on("click", function(){
+        var id = $(this).data("aud-id");
+        $.ajax({
+           url:"ajax_post/delete_aud.php",
+           method:"POST",
+           data:{id:id},
+           success:function(data){
+             $('#done_delete').html(data);
+           }
+      });
+    });
+ });
+</script>
+            <?php
         }
     } else {
         $display2 = '

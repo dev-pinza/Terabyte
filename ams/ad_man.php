@@ -100,7 +100,7 @@ include("header.php");
                                         <div class="row pt-2 pb-2">
                                             <!-- Column -->
                                             <?php
-                                             $sql1 = mysqli_query($connection,"SELECT SUM(debit) AS debit FROM ad_transaction WHERE int_id = '$int_id'");
+                                             $sql1 = mysqli_query($connection,"SELECT SUM(debit) AS debit FROM ad_transaction WHERE int_id = '$int_id' AND (transaction_type = 'rep debit' OR transaction_type = 'man debit')");
                                              $q1 = mysqli_fetch_array($sql1);
                                              $reachx = number_format($q1["debit"], 2);
                                             ?>
