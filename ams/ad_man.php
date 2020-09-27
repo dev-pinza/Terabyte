@@ -124,7 +124,7 @@ include("header.php");
                 <!-- CHECK PRODUCT -->
                 <?php
                 $gen_date = date('Y-m-d');
-                $result = mysqli_query($connection, "SELECT * FROM `client_post` WHERE end_date > '$gen_date' OR end_date = '$gen_date' ORDER BY id DESC");
+                $result = mysqli_query($connection, "SELECT `client_post`.* FROM `client_post` INNER JOIN adu_post ON `client_post`.`id` = adu_post.post_id WHERE (end_date > '$gen_date' OR end_date = '$gen_date') AND (adu_post.int_id = '$int_id' OR adu_post.int_id = '0') ORDER BY id DESC");
                 ?>
                 <div class="row el-element-overlay">
                 <?php if (mysqli_num_rows($result) > 0) {
@@ -134,7 +134,18 @@ include("header.php");
                     <div class="col-lg-3 col-md-6">
                         <div class="card">
                             <div class="el-card-item">
-                                <div class="el-card-avatar el-overlay-1"> <img src="ad_img/<?php echo $row["img"]; ?>" alt="user" />
+                            <?php
+                            $image = $row["img"];
+                            $image_length = strlen($image);
+                            if ($image_length > 10 && $image_length > 11 ) {
+                                $image = $image;
+                            } else {
+                                $image = "https://cdn.pixabay.com/photo/2018/02/15/16/22/puzzle-3155663_960_720.png";
+                            }
+                            ?>
+                                <div class="el-card-avatar el-overlay-1"> <img src="ad_img/<?php echo $image; ?>" alt="user" />
+                                <?php
+                                ?>
                                     <div class="el-overlay">
                                         <ul class="list-style-none el-info">
                                             <li class="el-item"><a class="btn default btn-outline image-popup-vertical-fit el-link" href="single_man.php?no=<?php echo $row["post_link"]; ?>"><i class="icon-magnifier"></i></a></li>
@@ -151,10 +162,12 @@ include("header.php");
                                         $xm = mysqli_num_rows($select_man);
                                         if ($xm <= "0") {
                                             $ap_stat = "Pending Approval";
+                                            $action = "Approve Client Ad";
                                             $color = "warning";
                                         } else if ($xm >= 1) {
                                             $ap_stat = "Active";
                                             $color = "success";
+                                            $action = "Review Client Ad";
                                         }
                                         ?>
                                         <span class="text-muted"><?php echo $row["ad_sub_head"]; ?> | status: <?php echo $ap_stat; ?></span>
@@ -162,7 +175,11 @@ include("header.php");
                                     <div class="ml-auto mr-3">
                                         <button type="button" class="btn btn-<?php echo $color ?> btn-circle">&#8358;</button>
                                     </div>
+                                    <!-- MOVE -->
                                 </div>
+                                    <center>
+                                      <a class="btn btn-<?php echo $color; ?>" href="single_man.php?no=<?php echo $row["post_link"]; ?>"><?php echo $action; ?></a> 
+                                    </center>
                             </div>
                         </div>
                     </div>

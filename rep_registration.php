@@ -184,7 +184,6 @@ include("ajaxcall.php");
                                           }
                                         ?>
                                     <select class="form-control" name="int_id">
-                                    <option value="not">select institution</option>
                                     <?php echo fill_int($connection); ?>
                                     </select>
                                     </div>

@@ -123,7 +123,7 @@ include("header.php");
                 <!-- CHECK PRODUCT -->
                 <?php
                 $gen_date = date('Y-m-d');
-                $result = mysqli_query($connection, "SELECT client_post.`post_link`, client_post.`ad_head`, client_post.`ad_sub_head`, client_post.`short_description`, client_post.`img`, client_post.`approval_status`, client_post.`fire_link` FROM client_post INNER JOIN man_approval ON client_post.`post_link`= man_approval.post_link WHERE man_approval.int_id = '$int_id' AND client_post.end_date > '$gen_date' OR client_post.end_date = '$gen_date' ORDER BY client_post.id DESC");
+                $result = mysqli_query($connection, "SELECT client_post.`post_link`, client_post.`ad_head`, client_post.`ad_sub_head`, client_post.`short_description`, client_post.`img`, client_post.`approval_status`, client_post.`fire_link` FROM client_post INNER JOIN man_approval ON client_post.`post_link`= man_approval.post_link INNER JOIN adu_post ON `client_post`.`id` = adu_post.post_id WHERE man_approval.int_id = '$int_id' AND (client_post.end_date > '$gen_date' OR client_post.end_date = '$gen_date') AND (adu_post.int_id = '$int_id' OR adu_post.int_id = '0') ORDER BY client_post.id DESC");
                 ?>
                 <div class="row el-element-overlay">
                 <?php if (mysqli_num_rows($result) > 0) {
@@ -245,6 +245,11 @@ Swal.fire({
   text-decoration: none;"></a> -->
   <p>COPY LINK BELOW</p>
 <input class="form-control form-control-lg" id="myInput" value="<?php echo $link;?>">
+<br>
+<center>
+<a id="download" class="btn btn-warning" href="ad_img/<?php echo $row["img"]; ?>" download="ad_img/<?php echo $row["img"]; ?>">Download Ad Image</a> 
+</center>
+
 
 <!-- finsh -->
                                         </span>

@@ -15,6 +15,7 @@ if (isset($_GET["no"]) && isset($_GET["harsh"])) {
     $int_id = $o["int_id"];
     $user_type = $o["usertype"];
     // if the user has been disabled
+    $query_share ="";
     $mysqli_ccc = mysqli_query($connection, "SELECT * FROM client_post WHERE post_link = '$post_link'");
     if (mysqli_num_rows($mysqli_ccc) >= 1) {
     // check
@@ -90,21 +91,31 @@ if (isset($_GET["no"]) && isset($_GET["harsh"])) {
             // make an add up function
             if ($ad_end_date >= $gen_date && $pay_stat == "active" || $pay_stat == "Active" && $ap_status == "1") {
                 // if the post is active and approved
+                $query_share = mysqli_query($connection, "SELECT * FROM `payroll_management` ORDER BY id ASC LIMIT 1");
+                if (mysqli_num_rows($query_share) > 0) {
+                    $ds = mysqli_fetch_array($query_share);
+                $rep_per = $ds["rep_per"];
+                $man_per = $ds["man_per"];
+                } else {
+                    $rep_per = 50;
+                    $man_per = 10;
+                }
                 // get reps 50%
-                $rep_share = $budget_amt * (50/100);
+                $rep_share = $budget_amt * ($rep_per/100);
                 // get Man 10%
-                $man_share = $budget_amt * (10/100);
+                $man_share = $budget_amt * ($man_per/100);
                 // get BOD  20%
                 // $bod_share = $budget_amt * (20/100);
                 // get PRO 20%
                 // $pro_share = $budget_amt * (20/100);
+                // est reach
                 if ($used_amt <= $budget_amt) {
                     // done process
                     $each_earn = $rep_share / $est_rch;
                     $each_man_earn = ($man_share / $days) / $man_count;
                     // test each earn
                     $check_rep_out = $used_amt + $each_earn;
-                    $check_man_out = $used_amt + $each_man_earn;
+                    $check_man_out = $check_rep_out + $each_man_earn;
                     if ($each_earn <= $check_rep_out && $rep_id != "" || $rep_id != 0) {
                         // update
                         $rep_bal = $tot_bal + $each_earn;
