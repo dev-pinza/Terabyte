@@ -40,7 +40,7 @@ require_once "../bat/phpmailer/PHPMailerAutoload.php";
                             // take a share and take earning
                             $bod_share = $budget_amt * (20/100);
                            // get PRO 20%
-                          $pro_share = $budget_amt * (20/100);
+                          $pro_share = $bod_share;
                         //   ONE OFF
                         $select_oneoff = mysqli_query($connection, "SELECT * FROM `tera_profit` WHERE post_link = '$post_id'");
                         if (mysqli_num_rows($select_oneoff) <= 0) {
@@ -51,7 +51,7 @@ require_once "../bat/phpmailer/PHPMailerAutoload.php";
                                 $acct_earn = mysqli_query($connection, "SELECT * FROM users WHERE usertype = 'super' AND is_disabled = '0'");
                                 $xx = mysqli_num_rows($acct_earn);
                                 $bod_earn = $bod_share / $xx;
-                                $gen_earn = ($bod_share + $pro_share) + $used_amt;
+                                $gen_earn = ($bod_share) + $used_amt;
                                 while ($ae = mysqli_fetch_array($acct_earn)) {
                                     // check
                                     $s_id = $ae["id"];

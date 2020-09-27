@@ -361,7 +361,7 @@ include("header.php");
                                    <li class="mb-4">
                                         <h2 class="mb-0"><?php echo $pox["name"]; ?></h2>
                                         <small><?php echo $pox["state"]; ?></small>
-                                        <div class="float-right">48% <i class="fas fa-level-up-alt text-success"></i></div>
+                                        <div class="float-right">.<i class="fas fa-level-up-alt text-success"></i></div>
                                         <div class="progress">
                                             <div class="progress-bar bg-success" role="progressbar" style="width: 42%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
@@ -428,7 +428,7 @@ include("header.php");
                                         <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle"><i class="ti-key"></i> </button>
                                         <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="icon-trash"></i> </button>
                                         <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="ti-pencil-alt"></i> </button>
-                                        <!-- <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="ti-upload"></i> </button> -->
+                                        < <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="ti-upload"></i> </button> -->
                                       </td>
                                     </tr>
                                   </tbody>
