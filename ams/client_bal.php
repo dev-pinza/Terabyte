@@ -40,6 +40,13 @@ $transaction_id = "TERA".$randms;
                                             } else {
                                                 ?>
                                                 <div class="ml-auto">
+                                                <div class="btn-group">
+                                            <button type="button" class="btn btn-dark" data-toggle="modal"
+                                                data-target="#createmodelint">
+                                                Refill Account
+                                            </button>
+                                        </div>
+                                                    <!-- end here -->
                                         <div class="btn-group">
                                             <a type="button" class="btn btn-dark" href="withdrawal.php">
                                                 Withdrawal Earning
@@ -154,8 +161,8 @@ $transaction_id = "TERA".$randms;
                             <div class="modal-body">
                                 <div class="input-group mb-3">
                                     <button type="button" class="btn btn-info"><i
-                                            class="ti-cup text-white"></i></button>
-                                    <input type="text" class="form-control" name="amt" placeholder="Enter Amount"
+                                            class="ti-wallet text-white"></i></button>
+                                    <input type="number" class="form-control" name="amt" placeholder="Enter Amount"
                                         aria-label="name">
                                 </div>
                                 <label for="">Transaction no.</label>
