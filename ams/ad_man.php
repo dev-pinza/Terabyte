@@ -3,6 +3,7 @@ $web_title = "Manage Institution Ad";
 include("header.php");
 ?>
 <!-- check -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- ============================================================== -->
             <!-- Container fluid  -->
             <?php
@@ -178,6 +179,87 @@ include("header.php");
                                     <!-- MOVE -->
                                 </div>
                                     <center>
+                                    <?php 
+                                    $head = $row["ad_head"];
+                                    $sub_head = $row["ad_sub_head"]; ?>
+<?php $body = $row["short_description"]; ?>
+<?php $link = 'https://thisistera.com/ads/ad.php?no='.$row["post_link"].'&harsh='.$user_id.'';?>
+<span>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return;
+js = d.createElement(s); js.id = id;
+js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<a class="fa fa-facebook fb-share-button" style="color: #008080; font-size: 30px;" data-href="<?php echo $link; ?>" 
+data-layout="button_count"></a>
+<a href="https://twitter.com/home?status=<?php echo $link; ?> <?php echo $head." \n".$sub_head." \n".$body."\n";?>" class="fa fa-twitter" style="color: #008080; font-size: 30px; padding: 20px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;"></a>
+<a href="mailto:name@yourmail.com?&subject=<?php echo $head; ?>&body=https://pinzastudio.com Click Me! <?php echo $sub_head." ".$body;?>" class="fa fa-google" style="color: #008080; padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;"></a>
+<a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo $link; ?>&title=<?php echo $head; ?>&summary=<?php echo $sub_head." ".$body;?>&source=" class="fa fa-linkedin" style="color: #008080; padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;"></a>
+  <!-- script -->
+  <script>
+      $(document).ready(function() {
+        var isMobile = {
+Android: function() {
+return navigator.userAgent.match(/Android/i);
+},
+BlackBerry: function() {
+return navigator.userAgent.match(/BlackBerry/i);
+},
+iOS: function() {
+return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+},
+Opera: function() {
+return navigator.userAgent.match(/Opera Mini/i);
+},
+Windows: function() {
+return navigator.userAgent.match(/IEMobile/i);
+},
+any: function() {
+return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+}
+};
+$(document).on("click", '.whatsapp', function() {
+if( isMobile.any() ) {
+var text = $(this).attr("data-text");
+var url = $(this).attr("data-link");
+var message = encodeURIComponent(text) + " - " + encodeURIComponent(url);
+var whatsapp_url = "whatsapp://send?text=" + message;
+window.location.href = whatsapp_url;
+} else {
+Swal.fire({
+            type: "error",
+            title: "Mobile Whatsapp Share",
+            text: "Please share this article in mobile device",
+            showConfirmButton: false,
+            timer: 2000
+        })
+}
+});
+});
+  </script>
+<a class="fa fa-whatsapp whatsapp" style="color: #008080; padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;" data-text="<?php echo $head." \n".$sub_head." \n".$body."\n";?>" data-link="<?php echo $link; ?>" ></a>
+<p>COPY LINK BELOW</p>
+<input class="form-control form-control-lg" id="myInput" value="<?php echo $link;?>">
+<a id="download" class="btn btn-warning" href="ad_img/<?php echo $row["img"]; ?>" download="ad_img/<?php echo $row["img"]; ?>">Download Ad Image</a> 
+</span>
                                       <a class="btn btn-<?php echo $color; ?>" href="single_man.php?no=<?php echo $row["post_link"]; ?>"><?php echo $action; ?></a> 
                                     </center>
                             </div>

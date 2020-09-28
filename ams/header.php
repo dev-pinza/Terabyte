@@ -369,7 +369,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img src="../client_img/<?php echo $user_img; ?>" height="40px" width="40px" alt="user" class="rounded-circle" width="36">
-                                <span class="ml-2 font-medium">Pinza</span><span class="fas fa-angle-down ml-2"></span>
+                                <span class="ml-2 font-medium"><?php echo $username; ?></span><span class="fas fa-angle-down ml-2"></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
                                 <div class="d-flex no-block align-items-center p-3 mb-2 border-bottom">
