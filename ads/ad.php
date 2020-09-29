@@ -77,7 +77,7 @@ if (isset($_GET["no"]) && isset($_GET["harsh"])) {
             $aud_rch = $ppq["aud_reach"];
             $aud_clk = $ppq["tot_click"];
             $aud_con = $ppq["tot_con"];
-            $budget_amt = $ppq["budget_amount"];
+            $budget_amt = ($ppq["budget_amount"] - ($ppq["budget_amount"] * 0.2));
             $used_amt = $ppq["used_amount"];
             $pay_stat = $ppq["payment_status"];
             // get the promotion\
@@ -112,7 +112,7 @@ if (isset($_GET["no"]) && isset($_GET["harsh"])) {
                 if ($used_amt <= $budget_amt) {
                     // done process
                     $each_earn = $rep_share / $est_rch;
-                    $each_man_earn = ($man_share / $days) / $man_count;
+                    $each_man_earn = ($man_share / $est_rch) / $man_count;
                     // test each earn
                     $check_rep_out = $used_amt + $each_earn;
                     $check_man_out = $check_rep_out + $each_man_earn;
