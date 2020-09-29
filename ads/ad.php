@@ -161,6 +161,7 @@ if (isset($_GET["no"]) && isset($_GET["harsh"])) {
                         // check if the id is man
                         if ($usert == "man") {
                             $man_bal = $man_bal + $each_earn;
+                            $man_dep = $man_dep + $each_earn;
                         } else {
                             $man_bal = $man_bal;
                         }
