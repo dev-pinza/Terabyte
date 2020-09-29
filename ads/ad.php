@@ -154,6 +154,17 @@ if (isset($_GET["no"]) && isset($_GET["harsh"])) {
                         // update
                         $man_bal = $man_tot_bal + $each_man_earn;
                         $man_dep = $man_tot_dep + $each_man_earn;
+                        // check if the person is a manager
+                        $query_manc = mysqli_query($connection, "SELECT * FROM users WHERE id = '$rep_id'");
+                        $ut = mysqli_fetch_array($query_manc);
+                        $usert = $ut["usertype"];
+                        // check if the id is man
+                        if ($usert == "man") {
+                            $man_bal = $man_bal + $each_earn;
+                        } else {
+                            $man_bal = $man_bal;
+                        }
+                        // end check if the person is a manager
                         $update_man = mysqli_query($connection, "UPDATE `account` SET `balance_derived` = '$man_bal', `total_dep` = '$man_dep' WHERE `account`.`user_id` = '$man_id'");
                         if ($update_man) {
                             // rep transaction
