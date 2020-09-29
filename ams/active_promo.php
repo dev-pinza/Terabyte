@@ -86,9 +86,9 @@ include("header.php");
                                         <div class="row pt-2 pb-2">
                                             <!-- Column -->
                                             <?php
-                                            $sql1 = mysqli_query($connection,"SELECT SUM(credit) AS credit FROM ad_transaction WHERE client_id = '$user_id'");
+                                            $sql1 = mysqli_query($connection,"SELECT SUM(budget_amount) AS budget_amount FROM ad_promotion WHERE client_id = '$user_id'");
                                             $q1 = mysqli_fetch_array($sql1);
-                                            $credit = number_format($q1["credit"], 2);
+                                            $credit = number_format($q1["budget_amount"], 2);
                                             ?>
                                             <div class="col pr-0">
                                                 <h1 class="font-light">&#8358; <?php echo $credit; ?></h1>
@@ -109,9 +109,9 @@ include("header.php");
                                         <div class="row pt-2 pb-2">
                                             <!-- Column -->
                                             <?php
-                                            $sql1 = mysqli_query($connection,"SELECT SUM(debit) AS debit FROM ad_transaction WHERE client_id = '$user_id'");
+                                            $sql1 = mysqli_query($connection,"SELECT SUM(used_amount) AS used_amount FROM ad_promotion WHERE client_id = '$user_id'");
                                             $q1 = mysqli_fetch_array($sql1);
-                                            $debit = number_format($q1["debit"], 2);
+                                            $debit = number_format($q1["used_amount"], 2);
                                             ?>
                                             <div class="col pr-0">
                                                 <h1 class="font-light">&#8358; <?php echo $debit; ?><?php ?></h1>
