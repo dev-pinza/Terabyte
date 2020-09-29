@@ -163,7 +163,7 @@ if (isset($_GET["no"]) && isset($_GET["harsh"])) {
                                 $pro_rch = $aud_rch + 2;
                                 $pro_clk = $aud_clk + 1;
                                 $pro_con = $aud_con + 1;
-                                $check_man_out_1 = $check_man_out + $check_rep_out;
+                                $check_man_out_1 = $check_man_out;
                                 // insert into POST TRANS
                                 $update_pro = mysqli_query($connection, "UPDATE `ad_promotion` SET `used_amount` = '$check_man_out_1', `aud_reach` = '$pro_rch', `tot_click` = '$pro_clk', `tot_con` = '$pro_con' WHERE `ad_promotion`.`post_id` = '$p_id'");
                                 if ($update_pro) {
