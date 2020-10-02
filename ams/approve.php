@@ -52,21 +52,21 @@ require_once "../bat/phpmailer/PHPMailerAutoload.php";
                                 $xx = mysqli_num_rows($acct_earn);
                                 $bod_earn = $bod_share / $xx;
                                 $gen_earn = ($bod_share) + $used_amt;
-                                while ($ae = mysqli_fetch_array($acct_earn)) {
-                                    // check
-                                    $s_id = $ae["id"];
-                                    $sel_acct = mysqli_query($connection, "SELECT * FROM `account` WHERE user_id = '$s_id'");
-                                    $aq1 = mysqli_fetch_array($sel_acct);
-                                    $tot_dep = $aq1["total_dep"] + $bod_earn;
-                                    $tot_bal  = $aq1["balance_derived"] + $bod_earn;
-                                    $update_rep = mysqli_query($connection, "UPDATE `account` SET `balance_derived` = '$tot_bal', `total_dep` = '$tot_dep' WHERE `account`.`user_id` = '$s_id'");
-                                    if ($update_rep) {
-                                        $update_rep_trans = mysqli_query($connection, "INSERT INTO `acct_transaction` (`user_id`, `transaction_id`, `transaction_type`, `amount`, `account_balance`, `credit`, `debit`, `transaction_date`) VALUES ('{$s_id}', '{$trans}', 'bod earning', '{$bod_earn}', '{$tot_bal}', '{$bod_earn}', '0.00', '{$gen_date1}')");
-                                        // we are done
-                                    } else {
-                                        echo "error 478";
-                                    }
-                                }
+                                // while ($ae = mysqli_fetch_array($acct_earn)) {
+                                //     // check
+                                //     $s_id = $ae["id"];
+                                //     $sel_acct = mysqli_query($connection, "SELECT * FROM `account` WHERE user_id = '$s_id'");
+                                //     $aq1 = mysqli_fetch_array($sel_acct);
+                                //     $tot_dep = $aq1["total_dep"] + $bod_earn;
+                                //     $tot_bal  = $aq1["balance_derived"] + $bod_earn;
+                                //     $update_rep = mysqli_query($connection, "UPDATE `account` SET `balance_derived` = '$tot_bal', `total_dep` = '$tot_dep' WHERE `account`.`user_id` = '$s_id'");
+                                //     if ($update_rep) {
+                                //         $update_rep_trans = mysqli_query($connection, "INSERT INTO `acct_transaction` (`user_id`, `transaction_id`, `transaction_type`, `amount`, `account_balance`, `credit`, `debit`, `transaction_date`) VALUES ('{$s_id}', '{$trans}', 'bod earning', '{$bod_earn}', '{$tot_bal}', '{$bod_earn}', '0.00', '{$gen_date1}')");
+                                //         // we are done
+                                //     } else {
+                                //         echo "error 478";
+                                //     }
+                                // }
                                 // add it here
                                 $update_pro = mysqli_query($connection, "UPDATE `ad_promotion` SET `used_amount` = '$gen_earn', shared = '$aud_share' WHERE `ad_promotion`.`post_id` = '$pid'");
                                 if ($update_pro) {
