@@ -14,6 +14,18 @@ $('#file_export').DataTable({
         'copy', 'csv', 'excel', 'pdf', 'print'
     ]
 });
+$('#file_exportx').DataTable({
+    dom: 'Bfrtip',
+    buttons: [
+        'copy', 'csv', 'excel', 'pdf', 'print'
+    ]
+});
+$('#file_exportxx').DataTable({
+    dom: 'Bfrtip',
+    buttons: [
+        'copy', 'csv', 'excel', 'pdf', 'print'
+    ]
+});
 $('.buttons-copy, .buttons-csv, .buttons-print, .buttons-pdf, .buttons-excel').addClass('btn btn-primary mr-1');
 
 //==================================================//
