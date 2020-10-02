@@ -272,6 +272,88 @@ if (isset($_GET["message1"])) {
                             </div>
                         </div>
                         <!-- check -->
+                        <!-- START CLIENT -->
+                        <?php 
+                          if ($usertype == "super") {
+                        ?>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex no-block align-items-center mb-4">
+                                    <h4 class="card-title">All Registered Client</h4>
+                                </div>
+                                <div class="table-responsive">
+                                    <table id="file_export" class="table table-bordered nowrap display">
+                                        <thead>
+                                        <?php
+                        if ($usertype == "super") {
+                            $query1 = "SELECT * FROM `users` WHERE usertype = 'client'";
+                        }
+                        $result1 = mysqli_query($connection, $query1);
+                      ?>
+                                            <tr>
+                                                <th> </th>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                                <th>Phone</th>
+                                                <th>Role</th>
+                                                <th>DOB</th>
+                                                <th>Joining date</th>
+                                                <th>Balance</th>
+                                                <th>Delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php if (mysqli_num_rows($result1) > 0) {
+                        while($row1 = mysqli_fetch_array($result1, MYSQLI_ASSOC)) {?>
+                                            <tr>
+                                                <td>
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            id="customControlValidation25" required>
+                                                        <label class="custom-control-label"
+                                                            for="customControlValidation25"></label>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a href="#"><img
+                                                            src="../client_img/<?php echo $row1["img"] ?>" alt="user"
+                                                            class="rounded-circle" width="30" /> <?php echo $row1["fullname"]; ?></a>
+                                                </td>
+                                                <td><?php echo $row1["email"];?></td>
+                                                <td><?php echo $row1["phone"] ?></td>
+                                                <td><span class="label label-inverse"><?php echo $row1["usertype"]; ?></span></td>
+                                                <td><?php echo $row1["dob"]; ?></td>
+                                                <td><?php echo $row1["created_date"]; ?></td>
+                                                <?php
+                                                $u_id = $row1["id"];
+                                                $slect_aintx = mysqli_query($connection, "SELECT * FROM `account` WHERE user_id ='$u_id'");
+                                                $acx = mysqli_fetch_array($slect_aintx);
+                                                $earning = $acx["balance_derived"];
+                                                ?>
+                                                <td>NGN <?php echo number_format($earning, 2);?></td>
+                                                <td>
+                                                <a href="../function/delete_user.php?del=<?php echo $row1["id"]; ?>"
+                                                        class="btn btn-danger btn-pure btn-outline delete-row-btn"
+                                                        data-toggle="tooltip" data-original-title="Delete">
+                                                        Delete Permanently
+                                                        </a>
+                                                </td>
+                                            </tr>
+                                             <?php }
+                                          }
+                                    else {
+                                    // echo "0 Document";
+                                    }
+                                    ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                          }
+                        ?>
+                        <!-- END CLIENT -->
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex no-block align-items-center mb-4">

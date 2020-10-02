@@ -27,12 +27,46 @@ include("header.php");
                     <div class="col-md-6 col-lg-3">
                         <div class="card">
                             <div class="card-body">
+                                <h5 class="card-title text-uppercase">Total Reps</h5>
+                                <div class="d-flex align-items-center mb-2 mt-4">
+                                    <h2 class="mb-0 display-5"><i class="icon-people text-danger"></i></h2>
+                                    <div class="ml-auto">
+                                        <?php
+                                        $check_client = mysqli_query($connection, "SELECT * FROM users WHERE usertype = 'rep'");
+                                        $c_d = number_format(mysqli_num_rows($check_client));
+                                         ?>
+                                        <h2 class="mb-0 display-6"><span class="font-normal"><?php echo $c_d; ?></span></h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title text-uppercase">Total Managers</h5>
+                                <div class="d-flex align-items-center mb-2 mt-4">
+                                    <h2 class="mb-0 display-5"><i class="icon-people text-dark"></i></h2>
+                                    <div class="ml-auto">
+                                        <?php
+                                        $check_client = mysqli_query($connection, "SELECT * FROM users WHERE usertype = 'man'");
+                                        $c_d = number_format(mysqli_num_rows($check_client));
+                                         ?>
+                                        <h2 class="mb-0 display-6"><span class="font-normal"><?php echo $c_d; ?></span></h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
                                 <h5 class="card-title text-uppercase">Total Promoted Ads</h5>
                                 <div class="d-flex align-items-center mb-2 mt-4">
                                     <h2 class="mb-0 display-5"><i class="fas fa-chart-line text-primary"></i></h2>
                                     <div class="ml-auto">
                                     <?php
-                                        $check_pro = mysqli_query($connection, "SELECT * FROM ad_promotion WHERE payment_status = 'active'");
+                                        $check_pro = mysqli_query($connection, "SELECT * FROM ad_promotion");
                                         $pro = number_format(mysqli_num_rows($check_pro));
                                          ?>
                                         <h2 class="mb-0 display-6"><span class="font-normal"><?php echo $pro; ?></span></h2>
@@ -49,7 +83,7 @@ include("header.php");
                                     <h2 class="mb-0 display-5"><i class="fas fa-balance-scale text-danger"></i></h2>
                                     <div class="ml-auto">
                                         <?php
-                                        $q_q = mysqli_query($connection, "SELECT SUM(aud_reach) AS reach FROM ad_promotion WHERE payment_status = 'active'");
+                                        $q_q = mysqli_query($connection, "SELECT SUM(aud_reach) AS reach FROM ad_promotion");
                                         $mx = mysqli_fetch_array($q_q);
                                         $reach = number_format($mx["reach"]);
                                         ?>
@@ -64,10 +98,46 @@ include("header.php");
                             <div class="card-body">
                                 <h5 class="card-title text-uppercase">Tera Wallet</h5>
                                 <div class="d-flex align-items-center mb-2 mt-4">
-                                    <h2 class="mb-0 display-5"><i class="ti-wallet text-success"></i></h2>
+                                    <h2 class="mb-0 display-5"><i class="ti-wallet text-danger"></i></h2>
                                     <div class="ml-auto">
                                     <?php
                                         $q_b = mysqli_query($connection, "SELECT SUM(balance_derived) AS balance FROM account");
+                                        $mb = mysqli_fetch_array($q_b);
+                                        $balance = number_format($mb["balance"], 2);
+                                        ?>
+                                        <h2 class="mb-0 display-6"><span class="font-normal">&#8358; <?php echo $balance; ?></span></h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title text-uppercase">Tera Ad Payment(Reps & Managers)</h5>
+                                <div class="d-flex align-items-center mb-2 mt-4">
+                                    <h2 class="mb-0 display-5"><i class="ti-wallet text-dark"></i></h2>
+                                    <div class="ml-auto">
+                                    <?php
+                                        $q_b = mysqli_query($connection, "SELECT SUM(used_amount) AS spent FROM `ad_promotion`");
+                                        $mb = mysqli_fetch_array($q_b);
+                                        $balance = number_format($mb["spent"], 2);
+                                        ?>
+                                        <h2 class="mb-0 display-6"><span class="font-normal">&#8358; <?php echo $balance; ?></span></h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title text-uppercase">Tera Profit</h5>
+                                <div class="d-flex align-items-center mb-2 mt-4">
+                                    <h2 class="mb-0 display-5"><i class="ti-wallet text-success"></i></h2>
+                                    <div class="ml-auto">
+                                    <?php
+                                        $q_b = mysqli_query($connection, "SELECT SUM(profit) AS balance FROM `tera_profit`");
                                         $mb = mysqli_fetch_array($q_b);
                                         $balance = number_format($mb["balance"], 2);
                                         ?>
@@ -128,12 +198,16 @@ include("header.php");
                                 if ($qtr_per > 100) {
                                     $qtr_per = 99;
                                 }
-                                $get_qtr = mysqli_query($connection, "SELECT * FROM ad_transaction WHERE created_date BETWEEN '$qtr_date' AND '$current_date' AND transaction_type = 'ad credit'");
+                                $get_qtr = mysqli_query($connection, "SELECT * FROM ad_transaction WHERE (created_date >= '$qtr_date') AND (created_date <= '$current_date') AND transaction_type = 'ad credit'");
+                                if (mysqli_num_rows($get_qtr) > 0) {
                                 while($row = mysqli_fetch_array($get_qtr))
                                  {
                                    // color
                                     $getall[] = array($row['amount']);
                                 }
+                            } else {
+                                echo " ";
+                            }
                                 ?>
                                 <?php
                                 $remodel = str_replace("".'"'."","", json_encode($getall)); 

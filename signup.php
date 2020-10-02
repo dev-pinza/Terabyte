@@ -19,7 +19,7 @@ $hash = password_hash($pass, PASSWORD_DEFAULT);
 $ut = "client";
 $date_time = date('Y-m-d H:i:s');
 
-$res = mysqli_query($connection, "SELECT * FROM `users` WHERE username = '$un'");
+$res = mysqli_query($connection, "SELECT * FROM `users` WHERE username = '$un' OR email = '$em'");
 // check if it ex
 if (mysqli_num_rows($res) <= 0) {
 // proper
