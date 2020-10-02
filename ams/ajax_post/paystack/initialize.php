@@ -24,6 +24,7 @@ curl_setopt_array($curl, array(
     'email'=>$email,
     'firstname'=>$firstname,
     'reference'=>$trans,
+    'channels'=>['card', 'ussd', 'mobile_money'],
     'callback_url' => $callback_url
   ]),
   CURLOPT_HTTPHEADER => [
