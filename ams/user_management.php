@@ -303,6 +303,7 @@ if (isset($_GET["message1"])) {
                                                 <th>Joining date</th>
                                                 <th>Balance</th>
                                                 <th>Delete</th>
+                                                <th>Client Transaction</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -339,6 +340,13 @@ if (isset($_GET["message1"])) {
                                                         class="btn btn-danger btn-pure btn-outline delete-row-btn"
                                                         data-toggle="tooltip" data-original-title="Delete">
                                                         Delete Permanently
+                                                        </a>
+                                                </td>
+                                                <td>
+                                                <a href="client_transaction.php?id=<?php echo $row1["id"]; ?>"
+                                                        class="btn btn-success btn-pure btn-outline delete-row-btn"
+                                                        data-toggle="tooltip" data-original-title="View Transaction">
+                                                        View Transaction
                                                         </a>
                                                 </td>
                                             </tr>
