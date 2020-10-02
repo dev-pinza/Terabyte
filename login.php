@@ -217,7 +217,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     </div>
                     <div class="row mt-3">
                         <!-- Form -->
-                        <form class="col-12" action="change_password.php" method="GET">
+                        <form class="col-12" action="login/change_password.php" method="GET">
                             <!-- email -->
                             <div class="form-group row">
                                 <div class="col-12">
