@@ -134,6 +134,9 @@ if (isset($_GET["message1"])) {
  <div class="page-content container-fluid">
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
+                <script>
+
+                </script>
                 <!-- ============================================================== -->
                 <div class="row">
                     <!-- Column -->
@@ -282,7 +285,7 @@ if (isset($_GET["message1"])) {
                                     <h4 class="card-title">All Registered Client</h4>
                                 </div>
                                 <div class="table-responsive">
-                                    <table id="file_export" class="table table-bordered nowrap display">
+                                    <table id="file_exportxx" class="table table-bordered nowrap display">
                                         <thead>
                                         <?php
                         if ($usertype == "super") {
@@ -374,7 +377,7 @@ if (isset($_GET["message1"])) {
                                     ?>
                                 </div>
                                 <div class="table-responsive">
-                                    <table id="file_exportm" class="table table-bordered nowrap display">
+                                    <table id="file_exportx" class="table table-bordered nowrap display">
                                         <thead>
                                         <?php
                                         if ($usertype == "super") {
