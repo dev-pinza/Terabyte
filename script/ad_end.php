@@ -8,7 +8,7 @@ require_once "../bat/phpmailer/PHPMailerAutoload.php";
 $current_date = date('Y-m-d');
 $date_time = date('Y-m-d H:i:s');
 // get the ads with same end date.
-$query_end_post = mysqli_query($connection, "SELECT * FROM `client_post` WHERE (end_date < '$current_date' OR end_date = '$current_date') AND approval_status = '1'");
+$query_end_post = mysqli_query($connection, "SELECT * FROM `client_post` WHERE (end_date < '$current_date' OR end_date = '$current_date') AND `not_ended_status` = '1'");
 // AUTO RENEWAL, REACH - NOTE ALL
 if (mysqli_num_rows($query_end_post) > 0) {
     // while loop
@@ -40,7 +40,7 @@ if (mysqli_num_rows($query_end_post) > 0) {
         $tot_dep = $ca["total_dep"];
         $account_balance = $ca["balance_derived"];
         if ($used_amount >= $budget_amount){
-            $query_update_pro = mysqli_query($connection, "UPDATE client_post SET approval_status = '0' WHERE id = '$post_id'");
+            $query_update_pro = mysqli_query($connection, "UPDATE client_post SET approval_status = '0', not_ended_status = '0' WHERE id = '$post_id'");
             if ($query_update_pro) {
                 $query_pro = mysqli_query($connection, "UPDATE `ad_promotion` SET payment_status = 'Not Active' WHERE id = '$pro_id'");
                 if ($query_pro) {
@@ -636,7 +636,7 @@ if (mysqli_num_rows($query_end_post) > 0) {
         } else {
             // make the ad return work
             $return_amount = $budget_amount - $used_amount;
-            $query_update_pro = mysqli_query($connection, "UPDATE client_post SET approval_status = '0' WHERE id = '$post_id'");
+            $query_update_pro = mysqli_query($connection, "UPDATE client_post SET approval_status = '0', not_ended_status = '0' WHERE id = '$post_id'");
             if ($query_update_pro) {
                 $new_balance = $account_balance + $return_amount;
                 $new_tot_dep = $tot_dep + $return_amount;
