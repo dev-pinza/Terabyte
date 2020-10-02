@@ -128,24 +128,24 @@ include("header.php");
                                 if ($qtr_per > 100) {
                                     $qtr_per = 99;
                                 }
-                                $get_qtr = mysqli_query($connection, "SELECT * FROM ad_transaction WHERE (created_date >= '$qtr_date') AND (created_date <= '$current_date') AND transaction_type = 'ad credit'");
+                                $get_qtr = mysqli_query($connection, "SELECT * FROM ad_transaction WHERE created_date BETWEEN '$qtr_date' AND '$current_date' AND transaction_type = 'ad credit'");
                                 while($row = mysqli_fetch_array($get_qtr))
                                  {
                                    // color
                                     $getall[] = array($row['amount']);
                                 }
                                 ?>
-                                <?php 
+                                <?php
                                 $remodel = str_replace("".'"'."","", json_encode($getall)); 
                                 $final_l = str_replace("[","", $remodel); 
                                 $final_r = str_replace("]","", $final_l); 
                                 // echo $final_r;
                                 // cashflow
                                 $get_cash = mysqli_query($connection, "SELECT * FROM acct_transaction WHERE (transaction_date >= '$qtr_date') AND (transaction_date <= '$current_date')");
-                                while($row = mysqli_fetch_array($get_cash))
+                                while($rows = mysqli_fetch_array($get_cash))
                                  {
                                    // color
-                                    $getallx[] = array($row['amount']);
+                                    $getallx[] = array($rows['amount']);
                                     $remodelx = str_replace("".'"'."","", json_encode($getallx)); 
                                 $final_lx = str_replace("[","", $remodelx); 
                                 $final_rx = str_replace("]","", $final_lx); 

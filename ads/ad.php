@@ -77,7 +77,7 @@ if (isset($_GET["no"]) && isset($_GET["harsh"])) {
             $aud_rch = $ppq["aud_reach"];
             $aud_clk = $ppq["tot_click"];
             $aud_con = $ppq["tot_con"];
-            $budget_amt = ($ppq["budget_amount"] - ($ppq["budget_amount"] * 0.2));
+            $budget_amt = $ppq["budget_amount"];
             $used_amt = $ppq["used_amount"];
             $pay_stat = $ppq["payment_status"];
             // get the promotion\
@@ -224,6 +224,8 @@ if (isset($_GET["no"]) && isset($_GET["harsh"])) {
             } else {
                 // echo Ad has been suspended
                 echo "AD HAS BEEN SUSPENDED OR AWAITING APPROVAL";
+                $URL="https://thisistera.com";
+                echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
             }
          } else {
             //  make a normal earning

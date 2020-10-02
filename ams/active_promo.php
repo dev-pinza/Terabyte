@@ -69,7 +69,7 @@ include("header.php");
                                             ?>
                                             <div class="col pr-0">
                                                 <h1 class="font-light"><?php echo $q1."/".$q2; ?></h1>
-                                                <h6 class="text-muted">Total Ative Ads</h6></div>
+                                                <h6 class="text-muted">Total Active Ads</h6></div>
                                             <!-- Column -->
                                             <div class="col text-right align-self-center">
                                                 <div data-label="30%" class="css-bar mb-0 css-bar-danger css-bar-<?php echo $per_one; ?>"><i class="mdi mdi-briefcase-check"></i></div>
