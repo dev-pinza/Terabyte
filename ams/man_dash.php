@@ -67,7 +67,7 @@ if ($usertype == "man") {
                     <div class="col-md-6 col-lg-3">
                         <div class="card">
                         <?php
-                                             $sql1 = mysqli_query($connection,"SELECT * FROM `account` WHERE user_id = '$user_id'");
+                                             $sql1 = mysqli_query($connection,"SELECT SUM(debit) AS balance_derived FROM `ad_transaction` WHERE int_id = '$int_id'");
                                              $q1 = mysqli_fetch_array($sql1);
                                              $reach = number_format($q1["balance_derived"], 2);
                                             ?>

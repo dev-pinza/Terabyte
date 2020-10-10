@@ -29,7 +29,12 @@ if ($ut_m == "") {
 }
 $int_id = $_POST["int_id"];
 $u_country = $_POST["u_country"];
-$pass = "Terapass2020";
+$pass = $_POST["password"];
+if (isset($_POST["password"]) || $_POST["password"] != "") {
+    $pass = $_POST["password"];
+} else {
+    $pass = "Terapass2020";
+}
 $hash = password_hash($pass, PASSWORD_DEFAULT);
 // check the picture forum
 $temp1 = explode(".", $_FILES['chooseFile']['name']);
