@@ -402,7 +402,7 @@ require_once "../bat/phpmailer/PHPMailerAutoload.php";
                                             <span class="input-group-text">Ad Image Path(Encrypted)</span>
                                         </div>
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="chooseFile" accept="image/*">
+                                            <input type="file" class="custom-file-input required" name="chooseFile" accept="image/*" required>
                                             <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                                         </div>
                                     </div>
@@ -435,21 +435,83 @@ require_once "../bat/phpmailer/PHPMailerAutoload.php";
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="jobTitle2">Ad Heading :</label>
-                                                    <input type="text" name="head" class="form-control required" id="jobTitle2">
+                                                    <label for="jobTitle2">Ad Heading (<span id="h_c">0</span> / 50 characters) :</label>
+                                                    <input type="text" name="head" class="form-control required" id="head">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="webUrl3">Ad Sub-Heading :</label>
-                                                    <input type="text" name="title" class="form-control required" id="jobTitle2"> </div>
+                                                    <label for="webUrl3">Ad Sub-Heading (<span id="s_h">0</span> / 50 characters) :</label>
+                                                    <input type="text" name="title" class="form-control required" id="sub"> </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label for="shortDescription3">Short Description :</label>
+                                                    <label for="shortDescription3">Short Description (<span id="s_d">0</span> / 500 characters) :</label>
                                                     <textarea name="shortDescription" id="shortDescription3" rows="6" class="form-control"></textarea>
                                                 </div>
                                             </div>
+                                            <script>
+                                            $(document).ready(function () {
+                                                $('#head').on("change keyup paste click", function(e){
+                                                    var head = $('#head').val()
+                                                    var h_c = document.getElementById("h_c");
+                                                    var head_count = head.length;
+                                                    // end the count
+                                                    h_c.innerHTML = head_count;
+                                                    if (head_count > 49 && e.keyCode !== 46  && e.keyCode !== 8) {
+                                                        document.getElementById('head').readOnly = true;
+                                                        //  console.log(head_count);
+                                                        var calc_head = head_count - 49;
+                                                        if (calc_head > 1) {
+                                                            var new_head = desc.slice(0, -calc_head);
+                                                            $('#head').val(new_head);
+                                                        } 
+                                                    } else {
+                                                        document.getElementById('head').readOnly = false;
+                                                    }
+                                                });
+                                                // check sub body
+                                                $('#sub').on("change keyup paste click", function(x){
+                                                    var sub = $('#sub').val()
+                                                    var sub_count = sub.length;
+                                                    var s_h = document.getElementById("s_h");
+                                                    // end the count
+                                                    s_h.innerHTML = sub_count;
+                                                    if (sub_count > 49 && x.keyCode !== 46  && x.keyCode !== 8) {
+                                                        document.getElementById('sub').readOnly = true;
+                                                        //  console.log(head_count);
+                                                        var calc_sub = sub_count - 49;
+                                                        if (calc_sub > 1) {
+                                                            var new_sub = desc.slice(0, -calc_sub);
+                                                            $('#sub').val(new_sub);
+                                                        } 
+                                                    } else {
+                                                        document.getElementById('sub').readOnly = false;
+                                                    }
+                                                    // end the count
+                                                });
+                                                // end
+                                                $('#shortDescription3').on("change keyup paste click", function(c){
+                                                    var desc = $('#shortDescription3').val()
+                                                    var desc_count = desc.length;
+                                                    // end the count
+                                                    var s_d = document.getElementById("s_d");
+                                                    // end the count
+                                                    s_d.innerHTML = desc_count;
+                                                    if (desc_count > 499 && c.keyCode !== 46  && c.keyCode !== 8) {
+                                                        document.getElementById('shortDescription3').readOnly = true;
+                                                        //  console.log(head_count);
+                                                        var calc_desc = desc_count - 499;
+                                                        if (calc_desc > 1) {
+                                                            var new_desc = desc.slice(0, -calc_desc);
+                                                            $('#shortDescription3').val(new_desc);
+                                                        } 
+                                                    } else {
+                                                        document.getElementById('shortDescription3').readOnly = false;
+                                                    }
+                                                });
+                                             });
+                                            </script>
                                         </div>
                                     </section>
                                     <!-- Step 3 -->

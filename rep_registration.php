@@ -143,7 +143,7 @@ include("ajaxcall.php");
                                 </div>
                                 <div class="form-group col-lg-6 col-md-6 col-sm-12">
                                     <div class="field-inner">
-                                        <input type="text" name="password" value="" placeholder="Password"
+                                        <input type="password" name="password" value="" placeholder="Password"
                                             required="" />
                                     </div>
                                 </div>
