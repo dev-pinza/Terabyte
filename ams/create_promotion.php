@@ -463,7 +463,7 @@ require_once "../bat/phpmailer/PHPMailerAutoload.php";
                                                         //  console.log(head_count);
                                                         var calc_head = head_count - 49;
                                                         if (calc_head > 1) {
-                                                            var new_head = desc.slice(0, -calc_head);
+                                                            var new_head = head.slice(0, -calc_head);
                                                             $('#head').val(new_head);
                                                         } 
                                                     } else {
@@ -482,7 +482,7 @@ require_once "../bat/phpmailer/PHPMailerAutoload.php";
                                                         //  console.log(head_count);
                                                         var calc_sub = sub_count - 49;
                                                         if (calc_sub > 1) {
-                                                            var new_sub = desc.slice(0, -calc_sub);
+                                                            var new_sub = sub.slice(0, -calc_sub);
                                                             $('#sub').val(new_sub);
                                                         } 
                                                     } else {
