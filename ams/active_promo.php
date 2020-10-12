@@ -156,6 +156,7 @@ include("header.php");
                                         <h4 class="mb-0"><?php echo $row["ad_head"]; ?></h4>
                                         <?php
                                         $a_s = $row["approval_status"];
+                                        // get the approve post
                                         if ($a_s == "0") {
                                             $ap_stat = "Pending Approval";
                                             $color = "warning";
@@ -165,6 +166,9 @@ include("header.php");
                                         }
                                         ?>
                                         <span class="text-muted"><?php echo $row["ad_sub_head"]; ?> | status: <?php echo $ap_stat; ?></span>
+                                        <center>
+                                      <a class="btn btn-primary" href="update_promotion.php?ad_id=<?php echo $row["id"]; ?>" style="color: white;">Edit Ad</a>
+                                    </center>
                                     </div>
                                     <div class="ml-auto mr-3">
                                         <button type="button" class="btn btn-<?php echo $color ?> btn-circle">&#8358;</button>

@@ -1,86 +1,49 @@
 <?php
-$web_title = "Create Promotion";
+$web_title = "Edit Promotion";
 include("header.php");
 require_once "../bat/phpmailer/PHPMailerAutoload.php";
 ?>
 <!-- START FROM HOME -->
 <?php
-                    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                        // END
-                        $client_id = $user_id;
-                        // we are ready to start
-                        $dest = $_POST["location"];
-                        $fire = $_POST["webUrl3"];
-                        $cat = $_POST["ad_cat"];
-                        $head = addslashes($_POST["head"]);
-                        $title = addslashes( $_POST["title"]);
-                        $body = addslashes($_POST["shortDescription"]);
-                        $aud_name = addslashes($_POST["aud_name"]);
-                        $age_gend = $_POST["wintType1"];
-                        $int_loc = $_POST["int_loc"];
-                        $auto_renew = $_POST["customRadio"];
-                        // PICTURES
-                        // END PICTURES
-                        $temp1 = explode(".", $_FILES['chooseFile']['name']);
-                        $digits = 10;
-                        $randms1 = str_pad(rand(0, pow(10, $digits)-1), $digits, '0', STR_PAD_LEFT);
-                        $sig_passport_one = $randms1. '.' .end($temp1);
-                        if (move_uploaded_file($_FILES['chooseFile']['tmp_name'], "ad_img/" . $sig_passport_one)) {
-                        $msg = "Image uploaded successfully";
-                        } else {
-                          $msg = "Image Failed";
-                        }
-                       $mex = substr($sig_passport_one, -3);
-                       if ($mex != "png" && $mex != "jpg" && $mex != "peg") {
-                          $sig_passport_one = "av.jpg";
-                        }
-                        // POST LINK GEN
-                        $digits = 5;
-                        $randms = str_pad(rand(0, pow(10, $digits)-1), $digits, '0', STR_PAD_LEFT);
-                        $hitcode = $randms;
-                        $trans = "TERA".$hitcode;
-                        $post_link = strtok($aud_name, " ").$hitcode;
-                        // now we will talk about Ad promotion tables AND the POST ID
-                        $tot_rch = $_POST["total_reach"];
-                        $tot_clk = $_POST["total_click"];
-                        $tot_con = $_POST["total_conver"];
-                        $tot_amt = $_POST["amount"];
-                        // AD End date
-                        $gen_date = date('Y-m-d');
-                        $date2 = date('Y-m-d H:i:s');
-                        $dura = $_POST["duration"];
-                        $cache_id = $_POST["fake_cache"];
-                        // query to get client account
-                        // get balance
-                        if ($x) {
-                            // out
-                        } else {
-                            // qwerty
-                            echo '
-                        <script>
-                        $(document).ready(function(){
-                            swal.fire({
-                                type: "error",
-                                title: "Insufficient Fund",
-                                text: "Refill your Tera-wallet",
-                                showConfirmButton: false,
-                                timer: 3000
-                        });
-                        });
-                        </script>
-                        ';
-                            // throw an error here
-                        }
-                        // calculate balance
-                        
-                        // take cash to ad promotion
-                        // record cash
-                        // update
-                    }
+                    // if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    //     // END
+                    //     $client_id = $user_id;
+                    //     // we are ready to start
+                    //     $dest = $_POST["location"];
+                    //     $fire = $_POST["webUrl3"];
+                    //     $cat = $_POST["ad_cat"];
+                    //     $head = addslashes($_POST["head"]);
+                    //     $title = addslashes( $_POST["title"]);
+                    //     $body = addslashes($_POST["shortDescription"]);
+                    //     $aud_name = addslashes($_POST["aud_name"]);
+                    //     $age_gend = $_POST["wintType1"];
+                    //     $int_loc = $_POST["int_loc"];
+                    //     $auto_renew = $_POST["customRadio"];
+                    //     // PICTURES
+                    //     // END PICTURES
+                    //     $temp1 = explode(".", $_FILES['chooseFile']['name']);
+                    //     $digits = 10;
+                    //     $randms1 = str_pad(rand(0, pow(10, $digits)-1), $digits, '0', STR_PAD_LEFT);
+                    //     $sig_passport_one = $randms1. '.' .end($temp1);
+                    //     if (move_uploaded_file($_FILES['chooseFile']['tmp_name'], "ad_img/" . $sig_passport_one)) {
+                    //     $msg = "Image uploaded successfully";
+                    //     } else {
+                    //       $msg = "Image Failed";
+                    //     }
+                    //    $mex = substr($sig_passport_one, -3);
+                    //    if ($mex != "png" && $mex != "jpg" && $mex != "peg") {
+                    //       $sig_passport_one = "av.jpg";
+                    //     }
+                    //     // POST LINK GEN
+                    //     // mke the move
+                    //     // end ove
+                    // }
                     ?>
 <!-- <script src="..assets/libs/jquery/dist/jquery.min.js"></script> -->
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script> -->
-
+<?php 
+if (isset($_GET["ad_id"]) && $_GET["ad_id"] != "") {
+?>
 <!-- ALI -->
 <style> 
   
@@ -122,17 +85,16 @@ require_once "../bat/phpmailer/PHPMailerAutoload.php";
                 <div class="row">
                        <!-- ============================================================== -->
                     <!-- Example -->
-                  <?php
-                  ?>
+                  
                     <!-- ============================================================== -->
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body wizard-content">
-                                <h4 class="card-title">Promote your Business</h4>
-                                <h6 class="card-subtitle">create a promoted AD</h6>
+                                <h4 class="card-title">Edit Business Promotion</h4>
+                                <h6 class="card-subtitle">Update a promoted AD</h6>
                                 <form method="POST" id="dman_sub" class="validation-wizard wizard-circle mt-5" enctype="multipart/form-data">
                                     <!-- Step 1 -->
-                                    <h6>Step 1 - Destination</h6>
+                                    <h6>Step 1 - Destination (Update)</h6>
                                     <section>
                                         <div class="row"> 
                                         <div class="col-md-6">
@@ -159,14 +121,14 @@ require_once "../bat/phpmailer/PHPMailerAutoload.php";
                                             <span class="input-group-text">Ad Image Path(Encrypted)</span>
                                         </div>
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="chooseFile" accept="image/*">
+                                            <input type="file" class="custom-file-input required" name="chooseFile" accept="image/*" required>
                                             <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                                         </div>
                                     </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="wlocation2"> Ad Category : <span class="danger">*</span> </label>
+                                                    <label for="wlocation2"> Ad Category(Update) : <span class="danger">*</span> </label>
                                                     <select class="custom-select form-control required" id="wlocation2" name="ad_cat">
                                                         <option value="1">Finance & Investment</option>
                                                         <option value="2">Transportation</option>
@@ -187,30 +149,92 @@ require_once "../bat/phpmailer/PHPMailerAutoload.php";
                                         
                                     </section>
                                     <!-- Step 2 -->
-                                    <h6>Step 2 - Ad Content</h6>
+                                    <h6>Step 2 - Ad Content(Update)</h6>
                                     <section>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="jobTitle2">Ad Heading :</label>
-                                                    <input type="text" name="head" class="form-control required" id="jobTitle2">
+                                                    <label for="jobTitle2">Ad Heading (<span id="h_c">0</span> / 50 characters) :</label>
+                                                    <input type="text" name="head" class="form-control required" id="head">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="webUrl3">Ad Sub-Heading :</label>
-                                                    <input type="text" name="title" class="form-control required" id="jobTitle2"> </div>
+                                                    <label for="webUrl3">Ad Sub-Heading (<span id="s_h">0</span> / 50 characters) :</label>
+                                                    <input type="text" name="title" class="form-control required" id="sub"> </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label for="shortDescription3">Short Description :</label>
+                                                    <label for="shortDescription3">Short Description (<span id="s_d">0</span> / 500 characters) :</label>
                                                     <textarea name="shortDescription" id="shortDescription3" rows="6" class="form-control"></textarea>
                                                 </div>
                                             </div>
+                                            <script>
+                                            $(document).ready(function () {
+                                                $('#head').on("change keyup paste click", function(e){
+                                                    var head = $('#head').val()
+                                                    var h_c = document.getElementById("h_c");
+                                                    var head_count = head.length;
+                                                    // end the count
+                                                    h_c.innerHTML = head_count;
+                                                    if (head_count > 49 && e.keyCode !== 46  && e.keyCode !== 8) {
+                                                        document.getElementById('head').readOnly = true;
+                                                        //  console.log(head_count);
+                                                        var calc_head = head_count - 49;
+                                                        if (calc_head > 1) {
+                                                            var new_head = head.slice(0, -calc_head);
+                                                            $('#head').val(new_head);
+                                                        } 
+                                                    } else {
+                                                        document.getElementById('head').readOnly = false;
+                                                    }
+                                                });
+                                                // check sub body
+                                                $('#sub').on("change keyup paste click", function(x){
+                                                    var sub = $('#sub').val()
+                                                    var sub_count = sub.length;
+                                                    var s_h = document.getElementById("s_h");
+                                                    // end the count
+                                                    s_h.innerHTML = sub_count;
+                                                    if (sub_count > 49 && x.keyCode !== 46  && x.keyCode !== 8) {
+                                                        document.getElementById('sub').readOnly = true;
+                                                        //  console.log(head_count);
+                                                        var calc_sub = sub_count - 49;
+                                                        if (calc_sub > 1) {
+                                                            var new_sub = sub.slice(0, -calc_sub);
+                                                            $('#sub').val(new_sub);
+                                                        } 
+                                                    } else {
+                                                        document.getElementById('sub').readOnly = false;
+                                                    }
+                                                    // end the count
+                                                });
+                                                // end
+                                                $('#shortDescription3').on("change keyup paste click", function(c){
+                                                    var desc = $('#shortDescription3').val()
+                                                    var desc_count = desc.length;
+                                                    // end the count
+                                                    var s_d = document.getElementById("s_d");
+                                                    // end the count
+                                                    s_d.innerHTML = desc_count;
+                                                    if (desc_count > 499 && c.keyCode !== 46  && c.keyCode !== 8) {
+                                                        document.getElementById('shortDescription3').readOnly = true;
+                                                        //  console.log(head_count);
+                                                        var calc_desc = desc_count - 499;
+                                                        if (calc_desc > 1) {
+                                                            var new_desc = desc.slice(0, -calc_desc);
+                                                            $('#shortDescription3').val(new_desc);
+                                                        } 
+                                                    } else {
+                                                        document.getElementById('shortDescription3').readOnly = false;
+                                                    }
+                                                });
+                                             });
+                                            </script>
                                         </div>
                                     </section>
                                     <!-- Step 3 -->
-                                    <h6>Step 3 - Audience</h6>
+                                    <h6>Step 3 - Audience(Update)</h6>
                                     <section>
                                         <div class="row">
                                             <div class="col-md-6">
@@ -254,7 +278,7 @@ return $output;
 echo fill_in($connection);
 ?>
 </select>
-<a id="add_up" class="btn btn-success">Add</a>
+<a id="add_up" class="btn btn-success">Update</a>
                                                     </div>
                                                    <!-- <div id="show_int"></div> -->
                                                 </div>
@@ -332,163 +356,6 @@ $(document).ready(function () {
                                         </div>
                                     </section>
                                     <!-- Step 4 -->
-                                    <h6>Step 4 - Budget & Duration</h6>
-                                    <section>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                            <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Budget - NGN <span id="demo" >300</span> (Amount Due - NGN <span id="amt_due">300</span>) </h4>
-                                <div class="form-group">
-                                <div class="rangeslider"> 
-                                    <input type="range" min="300" max="500000" value="300"
-                                    class="myslider" id="sliderRange">
-                                </div> 
-                                </div>
-                                <h4 class="card-title">Duration - <span id="demoa">0</span> Day(s)</h4>
-                                <div class="form-group">
-                                <div class="rangeslider">
-                                    <input type="range" min="1" max="30" value="1"
-                                    class="myslider" id="sliderRangea" name="duration">
-                                </div> 
-                                </div>
-                                <div class="form-group">
-                                <input type="text" value="1818" name="total_reach" id="tot_rch" hidden>
-                                <input type="text" value="727" name="total_click" id="clk" hidden>
-                                <input type="text" value="364" name="total_conver" id="cnv" hidden>
-                                <input type="number" value="300" name="amount" id="cash_paid" hidden>
-                                </div>
-                            </div>
-                            <script> 
-                            var rangeslider = document.getElementById("sliderRange");
-                            var output = document.getElementById("demo");
-                            var qamt = document.getElementById("amt_due");
-                            var calc_reach = document.getElementById("est_reach");
-                            var calc_click = document.getElementById("clicks");
-                            var calc_conv = document.getElementById("conversion");
-                            // aiit
-                            // AIIT
-                            output.innerHTML = rangeslider.value; 
-                            rangeslider.oninput = function() { 
-                            output.innerHTML = this.value; 
-                            // GET Min Aud
-                            var x = 50;
-                            // Total No of Rep
-                            var y = 2000;
-                            // Total Conversion
-                            var z = 10000;
-                            // Min ad Amt
-                            var a = 300;
-                            // D Dura  
-                            var d = document.getElementById("sliderRangea").value;
-                            // Budget amt.
-                            var ba = document.getElementById("sliderRange").value;
-                            // DO THE MATHS
-                            var fst = ((ba / a) * x) * d;
-                            var snd = fst - (y + z);
-                            if ( snd < fst) {
-                                Reach = snd * 0.7;
-                            } 
-                            else if (snd >= fst) {
-                                Reach = snd + (y + z);
-                            }
-                            Max_r  = Reach + (y + z);
-                            if (d < 7 && ba < 500000) {
-                                Max_r = Max_r * 0.5;
-                            }
-                            // showing
-                            var amount_due = d * ba;
-                            // end
-                            calc_reach.innerHTML = Math.round(Max_r);
-                            calc_click.innerHTML = Math.round(Max_r * 0.4);
-                            calc_conv.innerHTML = Math.round(Max_r * 0.2);
-                            qamt.innerHTML = amount_due;
-                            // geting amount
-                            $('#tot_rch').val(Math.round(Max_r));
-                            $('#clk').val(Math.round(Max_r * 0.4));
-                            $('#cnv').val(Math.round(Max_r * 0.2));
-                            $('#cash_paid').val(amount_due);
-                            }
-                            </script>
-                             <script> 
-                            var rangeslidera = document.getElementById("sliderRangea"); 
-                            var outputa = document.getElementById("demoa"); 
-                            var qamt = document.getElementById("amt_due");
-                            var calc_reach = document.getElementById("est_reach");
-                            var calc_click = document.getElementById("clicks");
-                            var calc_conv = document.getElementById("conversion");
-                            outputa.innerHTML = rangeslidera.value; 
-                            rangeslidera.oninput = function() { 
-                            outputa.innerHTML = this.value;
-                            // GET Min Aud
-                            var x = 50;
-                            // Total No of Rep
-                            var y = 2000;
-                            // Total Conversion
-                            var z = 10000;
-                            // Min ad Amt
-                            var a = 300;
-                            // D Dura  
-                            var d = document.getElementById("sliderRangea").value;
-                            // Budget amt.
-                            var ba = document.getElementById("sliderRange").value;
-                            // DO THE MATHS
-                            // we good
-                            var fst = ((ba / a) * x) * d;
-                            var snd = fst - (y + z);
-                            if ( snd < fst) {
-                                Reach = snd * 0.7;
-                            }
-                            else if (snd >= fst) {
-                                Reach = snd + (y + z);
-                            }
-                            Max_r  = Reach + (y + z);
-                            if (d < 7 && ba < 500000) {
-                                Max_r = Max_r * 0.5;
-                            }
-                            // amount
-                            var amount_due = d * ba;
-                            // done with
-                            calc_reach.innerHTML = Math.round(Max_r);
-                            calc_click.innerHTML = Math.round(Max_r * 0.4);
-                            calc_conv.innerHTML = Math.round(Max_r * 0.2);
-                            qamt.innerHTML = amount_due;
-                            // showing
-                            $('#tot_rch').val(Math.round(Max_r));
-                            $('#clk').val(Math.round(Max_r * 0.4));
-                            $('#cnv').val(Math.round(Max_r * 0.2));
-                            $('#cash_paid').val(amount_due);
-                            // $('#amt_due').val(amount_due);
-                            // DATE
-                            } 
-                            </script>
-                            </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                            <div class="card">
-                                                <!-- incalculating, you need MIN REACH, NO of Rep -->
-                                <div class="card-body text-center">
-                                    <h4 class="text-center text-info">Est. Reach</h4>
-                                    <h2> <span id="est_reach">1818</span> </h2>
-                                    <div class="row pt-2 pb-2">
-                                        <!-- Column -->
-                                        <div class="col text-center align-self-center">
-                                            <div data-label="100%" class="css-bar mb-0 css-bar-primary css-bar-100"><i class="display-6 mdi mdi-account-circle"></i></div>
-                                        </div>
-                                    </div>
-                                    <div class="row" hidden>
-                                        <div class="col-md-6 col-sm-12">
-                                            <h4 class="font-medium mb-0"><i class="ti-angle-up text-success"></i> <br> clicks <span id="clicks">727</span> </h4>
-                                        </div>
-                                        <div class="col-md-6 col-sm-12">
-                                            <h4 class="font-medium mb-0"><i class="ti-angle-down text-danger"></i> <br> conversion <span id="conversion">364</span> </h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                                            </div>
-                                        </div>
-                                    </section>
                                 </form>
                             </div>
                         </div>
@@ -498,6 +365,27 @@ $(document).ready(function () {
                     <!-- ============================================================== -->
                 </div>
             </div>
+            <?php
+} else {
+     // GO BACK
+     echo '<script type="text/javascript">
+     $(document).ready(function(){
+      swal.fire({
+       type: "error",
+       title: "No Promotion Found",
+       text: "Please Select an Ad",
+      showConfirmButton: false,
+       timer: 2000
+       }).then(
+       function (result) {
+         history.go(-1);
+       }
+       )
+       });
+      </script>
+     ';
+}
+            ?>
 <?php
 include("footer.php");
 ?>
