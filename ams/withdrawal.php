@@ -376,39 +376,111 @@ if ($wall_bal >= 100) {
                                                 <form>
                                                     <div class="form-group input-group mt-5">
                                                         <div class="input-group-prepend">
+                                                            <script>
+                               $(document).ready(function() {
+                                   var acct = $('#acct_no').val();
+                                  $.ajax({
+                                    url:"ajax_post/bill/bank_code_check.php",
+                                    method:"POST",
+                                    data:{ acct:acct },
+                                    success:function(data){
+                                      $('#display_bank').html(data);
+                                    }
+                                  });
+                                //   account verification
+                                $('#acct_no').on("change keyup paste", function(x){
+                                    var account_no = $('#acct_no').val()
+                                    var bank_code = $('#bank_data').val()
+                                    var count_account = account_no.length;
+                                    if (count_account == 10 && bank_code != "" && x.keyCode !== 46  && x.keyCode !== 8) {
+                                        Swal.fire({
+  title: 'Finding Account',
+  html: 'Please Wait! <b></b> .',
+  timer: 2000,
+  timerProgressBar: true,
+  onBeforeOpen: () => {
+    Swal.showLoading()
+    timerInterval = setInterval(() => {
+      const content = Swal.getContent()
+      if (content) {
+        const b = content.querySelector('b')
+        if (b) {
+          b.textContent = Swal.getTimerLeft()
+        }
+      }
+    }, 100)
+  },
+  onClose: () => {
+    clearInterval(timerInterval)
+  }
+}).then((result) => {
+  /* Read more about handling dismissals below */
+  if (result.dismiss === Swal.DismissReason.timer) {
+    console.log('I was closed by the timer')
+  }
+//   DO SOMETHING
+                                   $.ajax({
+                                    url:"ajax_post/bill/verify_account.php",
+                                    method:"POST",
+                                    data:{ account_no:account_no, bank_code:bank_code },
+                                    success:function(data){
+                                      $('#display_name').html(data);
+                                    }
+                                  });
+                                //   END 
+})
+                                    }
+                                });
+                              $(document).ready(function() {
+                                $('#bank_payment').on("click", function() {
+                                  var recipient_code = $('#recipient_code').val();
+                                  var bank_amount = $('#bank_amount').val();
+                                  var password_bank = $('#password_bank').val();
+                                  if (recipient_code != "" && bank_amount != "" && password_bank != "") {
+                                    $.ajax({
+                                    url:"ajax_post/bill/bank_transfer.php",
+                                    method:"POST",
+                                    data:{recipient_code:recipient_code, bank_amount:bank_amount, password_bank:password_bank},
+                                    success:function(data){
+                                      $('#final_transaction').html(data);
+                                    }
+                                  });
+                                  $("#bank_payment").prop("disabled", true);
+                                  }
+                                });
+                              });
+                              });
+                            </script>
                                                             <span class="input-group-text"><i class="mdi mdi-bank"></i></span>
                                                         </div>
-                                                        <select name="" class="form-control" id="">
-                                                            <option value="">SELECT BANK</option>
-                                                            <option value="">GT BANK</option>
-                                                            <option value="">WEMA BANK PLC</option>
-                                                        </select>
+                                                        <div id="display_bank"></div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-xs-7 col-md-7">
                                                             <div class="form-group">
                                                                 <label>Account Number</label>
-                                                                <input type="number" class="form-control" name="Expiry" placeholder="Enter Phone Number" required=""> </div>
+                                                                <input type="number" class="form-control" name="Expiry" id="acct_no" placeholder="Enter Account No." required=""> </div>
                                                         </div>
                                                         <div class="col-xs-5 col-md-5 pull-right">
                                                             <div class="form-group">
                                                                 <label>Amount</label>
-                                                                <input type="number" class="form-control" name="CVC" placeholder="Enter Amount" required=""> </div>
+                                                                <input type="number" class="form-control" id="bank_amount" placeholder="Enter Amount" required=""> </div>
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-12">
                                                             <div class="form-group">
                                                                 <label>Password</label>
-                                                                <input type="password" class="form-control" name="nameCard" placeholder="Enter Password"> </div>
+                                                                <input type="password" id="password_bank" class="form-control" placeholder="Enter Password"> </div>
                                                         </div>
                                                     </div>
-                                                    <button class="btn btn-info">Withdraw</button>
+                                                    <button id="bank_payment" class="btn btn-info">Withdraw</button>
                                                 </form>
                                             </div>
                                             <div class="col-md-4 ml-auto">
-                                                <h4 class="card-title mt-4">General Info</h4>
-                                                <p>Any Bank.</p>
+                                                <h4 class="card-title mt-4">BANK DETAILS</h4>
+                                                <div id="final_transaction"></div>
+                                                <div id="display_name"></div>
                                                 <!-- last  -->
                                             </div>
                                         </div>
