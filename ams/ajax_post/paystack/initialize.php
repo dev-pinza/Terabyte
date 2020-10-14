@@ -7,9 +7,12 @@ session_start();
     $firstname = $_SESSION["username"];
     // SESSION THE AMOUNT
     // SESSION THE DESCRIPTION
+    $user_id = $_POST["id"];
     $_SESSION["amount"] = $amount;
     $_SESSION["transaction_id"] = $trans;
 
+    // check stateent
+    if ($user_id != "") {
   $curl = curl_init();
 
 // url to go to after payment
@@ -54,4 +57,8 @@ print_r($tranx);
 // redirect to page so User can pay
 // uncomment this line to allow the user redirect to the payment page
 header('Location: ' . $tranx['data']['authorization_url']);
+// END statement
+    } else {
+      echo header("Location: ../../client_bal.php");
+    }
 ?>

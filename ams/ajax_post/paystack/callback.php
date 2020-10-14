@@ -47,6 +47,8 @@ $trans = $_SESSION["transaction_id"];
 $date = date('Y-m-d');
 $date2 = date('Y-m-d H:i:s');
 
+if ($user_id != "") {
+
 // CHECK IF SAME REFERENC
 $wallet = mysqli_query($connection, "SELECT * FROM `account` WHERE user_id = '$user_id'");
 $xm = mysqli_fetch_array($wallet);
@@ -77,6 +79,14 @@ if ($update_wallet) {
     ?>
     <a href="thisistera.com/ams/client_bal.php" >CLICK ME</a>
     <?php
+}
+} else {
+  $query_transaction_f = mysqli_query($connection, "INSERT INTO `payment_failure` (`user_id`, `amount`, `date`, `trans`) VALUES ('{$reference}', '{$amount}', '{$date}', '{$trans}')");
+  if ($query_transaction_f) {
+    echo "This is a failed transaction - Please contact +2348162399614 on whatsapp";
+  } else {
+    echo "This Transaction Failed, Please send a message to +2348162399614 on whatsapp";
+  }
 }
 }
 // OUT IN THE EAST
