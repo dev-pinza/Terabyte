@@ -7,7 +7,7 @@ session_start();
     $firstname = $_SESSION["username"];
     // SESSION THE AMOUNT
     // SESSION THE DESCRIPTION
-    $user_id = $_POST["id"];
+    $user_id = $_SESSION["id"];
     $_SESSION["amount"] = $amount;
     $_SESSION["transaction_id"] = $trans;
 
