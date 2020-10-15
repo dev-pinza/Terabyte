@@ -31,7 +31,7 @@ if ($pass != "") {
                     $url = "https://api.paystack.co/transfer";
                     $fields = [
                       'source' => "balance",
-                      'amount' => $bank_amount,
+                      'amount' => $bank_amount*100,
                       'recipient' => "$recipient_code",
                       'reason' => "Terabyte Bank Payment"
                     ];
@@ -76,7 +76,7 @@ if ($pass != "") {
             $update_transaction = mysqli_query($connection, "UPDATE account SET balance_derived = '$cal_bal', total_with = '$cal_with' WHERE account.user_id = '$user_id'");
             if ($update_transaction) {
                 // WE ARE DONE
-                $insert_transaction = mysqli_query($connection, "INSERT INTO `acct_transaction` (`user_id`, `transaction_id`, `transaction_type`, `amount`, `account_balance`, `credit`, `debit`, `transaction_date`) VALUES ('{$user_id}', '{$trans}', 'bank_transfer', '{$amount}', '{$cal_bal}', '0.00', '{$amount}', '{$date2}')");
+                $insert_transaction = mysqli_query($connection, "INSERT INTO `acct_transaction` (`user_id`, `transaction_id`, `transaction_type`, `amount`, `account_balance`, `credit`, `debit`, `transaction_date`) VALUES ('{$user_id}', '{$trans}', 'bank_transfer', '{$charge_amount}', '{$cal_bal}', '0.00', '{$charge_amount}', '{$date2}')");
                  if ($insert_transaction) {
                     //  go withdra
                     echo '<script type="text/javascript">
