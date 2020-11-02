@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="refresh" content="300;url=../function/logout.php" />
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
@@ -104,6 +105,22 @@
     }
     ?>
     <input type="text" value="<?php echo $usertype ?>" id="main_user" hidden>
+    <input type="text" value="<?php echo $user_id; ?>" id="usernameoioio" hidden>
+    <script>
+    setInterval(function() {
+    // alert('I will appear every 4 seconds');
+    var user = $('#usernameoioio').val();
+    $.ajax({
+      url:"ajax_post/logout/record.php",
+      method:"POST",
+      data:{user: user},
+      success:function(data){
+        $('#time_recorder').html(data);
+      }
+    });
+}, 4000);   // Interval set to 6 seconds
+    </script>
+    <div id="time_recorder"></div>
     <!-- ============================================================== -->
     <div id="main-wrapper">
         <!-- ============================================================== -->

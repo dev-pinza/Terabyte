@@ -133,7 +133,7 @@ include("header.php");
                 <!-- CHECK PRODUCT -->
                 <?php
                 $gen_date = date('Y-m-d');
-                $result = mysqli_query($connection, "SELECT * FROM `client_post` WHERE client_id = '$user_id' AND end_date > '$gen_date' OR end_date = '$gen_date' ORDER BY id DESC");
+                $result = mysqli_query($connection, "SELECT * FROM `client_post` WHERE (client_id = '$user_id') AND (end_date > '$gen_date' OR end_date = '$gen_date') ORDER BY id DESC");
                 ?>
                 <div class="row el-element-overlay">
                 <?php if (mysqli_num_rows($result) > 0) {
@@ -156,8 +156,11 @@ include("header.php");
                                         <h4 class="mb-0"><?php echo $row["ad_head"]; ?></h4>
                                         <?php
                                         $a_s = $row["approval_status"];
+                                        $post_link = $row["post_link"];
+                                        $query_approed = mysqli_query($connection, "SELECT * FROM `man_approval` WHERE post_link = '$post_link'");
+                                        $get_feedback = mysqli_num_rows($query_approed);
                                         // get the approve post
-                                        if ($a_s == "0") {
+                                        if ($get_feedback < 0) {
                                             $ap_stat = "Pending Approval";
                                             $color = "warning";
                                         } else {
@@ -167,7 +170,7 @@ include("header.php");
                                         ?>
                                         <span class="text-muted"><?php echo $row["ad_sub_head"]; ?> | status: <?php echo $ap_stat; ?></span>
                                         <center>
-                                      <a class="btn btn-primary" href="update_promotion.php?ad_id=<?php echo $row["id"]; ?>" style="color: white;">Edit Ad</a>
+                                      <a class="btn btn-primary" href="update_promotion.php#" style="color: white;">Edit Ad</a>
                                     </center>
                                     </div>
                                     <div class="ml-auto mr-3">

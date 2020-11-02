@@ -1254,3 +1254,23 @@ if (mysqli_num_rows($query_end_post) > 0) {
     echo "NO AD IS ENDING TODAY";
 }
 ?>
+
+<?php
+// script to check all the users current time
+// logic if the current time is different then make it non active
+$current_time = date('Y-m-d H:i:s', strtotime('-2 minutes'));
+// line to query the users
+$select_user = mysqli_query($connection, "SELECT * FROM users");
+while ($row = mysqli_fetch_array($select_user)) {
+    // display each - lastlogged, id and int_id.
+    $id = $row["id"];
+    $ll = $row["last_logged"];
+
+    if ($current_time > $ll) {
+        // make a query to update users profile to not active
+        $activeq = "UPDATE users SET users.is_active ='0' WHERE id = '$id'";
+$rezz = mysqli_query($connection, $activeq);
+        echo "F LATE";
+    }
+}
+// ?>

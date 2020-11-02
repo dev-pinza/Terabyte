@@ -61,6 +61,34 @@ include("header.php");
                     <div class="col-md-6 col-lg-3">
                         <div class="card">
                             <div class="card-body">
+                                <h5 class="card-title text-uppercase">Loggedin Users</h5>
+                                <div class="d-flex align-items-center mb-2 mt-4">
+                                    <h2 class="mb-0 display-5"><i class="icon-people text-dark"></i></h2>
+                                    <div class="ml-auto">
+                                    <script>
+setInterval(function() {
+    // alert('I will appear every 4 seconds');
+    // which kind vex be this abeg :-}
+    var user = $('#usernameoioio').val();
+    $.ajax({
+      url:"ajax_post/logout/log_staff.php",
+      method:"POST",
+      data:{user: user},
+      success:function(data){
+        $('#logged_staff').html(data);
+      }
+    });
+}, 1000);   // Interval set to 4 seconds
+</script>
+                                        <h2 class="mb-0 display-6"><span class="font-normal"><div id="logged_staff">0</div></span></h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
                                 <h5 class="card-title text-uppercase">Total Promoted Ads</h5>
                                 <div class="d-flex align-items-center mb-2 mt-4">
                                     <h2 class="mb-0 display-5"><i class="fas fa-chart-line text-primary"></i></h2>
