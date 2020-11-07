@@ -183,7 +183,7 @@ include("header.php");
                                     $head = $row["ad_head"];
                                     $sub_head = $row["ad_sub_head"]; ?>
 <?php $body = $row["short_description"]; ?>
-<?php $link = 'https://thisistera.com/ads/ad.php?no='.$row["post_link"].'&harsh='.$user_id.'';?>
+<?php $link = 'https://thisistera.com/ads/ad.php?no='.$row["post_link"];?>
 <span>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -193,18 +193,18 @@ js = d.createElement(s); js.id = id;
 js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
 fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-<a class="fa fa-facebook fb-share-button" style="color: #008080; font-size: 30px;" data-href="<?php echo $link; ?>" 
+<a class="fa fa-facebook fb-share-button" style="color: #008080; font-size: 30px;" data-href="<?php echo $link.'&harsh='.$user_id; ?>" 
 data-layout="button_count"></a>
-<a href="https://twitter.com/home?status=<?php echo $link; ?> <?php echo $head." \n".$sub_head." \n".$body."\n";?>" class="fa fa-twitter" style="color: #008080; font-size: 30px; padding: 20px;
+<a href="https://twitter.com/home?status=<?php echo $link.'&harsh='.$user_id; ?> <?php echo $head." \n".$sub_head." \n".$body."\n";?>" class="fa fa-twitter" style="color: #008080; font-size: 30px; padding: 20px;
   width: 50px;
   text-align: center;
   text-decoration: none;"></a>
-<a href="mailto:name@yourmail.com?&subject=<?php echo $head; ?>&body=<?php echo $link;?> Click Me! <?php echo $sub_head." ".$body;?>" class="fa fa-google" style="color: #008080; padding: 20px;
+<a href="mailto:name@yourmail.com?&subject=<?php echo $head; ?>&body=<?php echo $link.'&harsh='.$user_id;?> Click Me! <?php echo $sub_head." ".$body;?>" class="fa fa-google" style="color: #008080; padding: 20px;
   font-size: 30px;
   width: 50px;
   text-align: center;
   text-decoration: none;"></a>
-<a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo $link; ?>&title=<?php echo $head; ?>&summary=<?php echo $sub_head." ".$body;?>&source=" class="fa fa-linkedin" style="color: #008080; padding: 20px;
+<a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo $link.'&harsh='.$user_id; ?>&title=<?php echo $head; ?>&summary=<?php echo $sub_head." ".$body;?>&source=" class="fa fa-linkedin" style="color: #008080; padding: 20px;
   font-size: 30px;
   width: 50px;
   text-align: center;
@@ -255,7 +255,7 @@ Swal.fire({
   font-size: 30px;
   width: 50px;
   text-align: center;
-  text-decoration: none;" href="whatsapp://send?text=<?php echo $head." \n".$sub_head." \n".$body."\n".$link;?>"></a>
+  text-decoration: none;" href="whatsapp://send?text=<?php echo $head." \n".$sub_head." \n".$body."\n".$link.'&harsh='.$user_id;?>"></a>
 <p>COPY LINK BELOW</p>
 <input class="form-control form-control-lg" id="myInput" value="<?php echo $link;?>">
 <a id="download" class="btn btn-warning" href="ad_img/<?php echo $row["img"]; ?>" download="ad_img/<?php echo $row["img"]; ?>">Download Ad Image</a> 
