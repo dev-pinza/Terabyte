@@ -199,7 +199,7 @@ data-layout="button_count"></a>
   width: 50px;
   text-align: center;
   text-decoration: none;"></a>
-<a href="mailto:name@yourmail.com?&subject=<?php echo $head; ?>&body=https://pinzastudio.com Click Me! <?php echo $sub_head." ".$body;?>" class="fa fa-google" style="color: #008080; padding: 20px;
+<a href="mailto:name@yourmail.com?&subject=<?php echo $head; ?>&body=<?php echo $link;?> Click Me! <?php echo $sub_head." ".$body;?>" class="fa fa-google" style="color: #008080; padding: 20px;
   font-size: 30px;
   width: 50px;
   text-align: center;
@@ -255,7 +255,7 @@ Swal.fire({
   font-size: 30px;
   width: 50px;
   text-align: center;
-  text-decoration: none;" href="whatsapp://send?text=<?php echo $head." \n".$sub_head." \n".$body."\n"." \n".$link;?>"></a>
+  text-decoration: none;" href="whatsapp://send?text=<?php echo $head." \n".$sub_head." \n".$body."\n".$link;?>"></a>
 <p>COPY LINK BELOW</p>
 <input class="form-control form-control-lg" id="myInput" value="<?php echo $link;?>">
 <a id="download" class="btn btn-warning" href="ad_img/<?php echo $row["img"]; ?>" download="ad_img/<?php echo $row["img"]; ?>">Download Ad Image</a> 

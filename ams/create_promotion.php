@@ -435,18 +435,18 @@ require_once "../bat/phpmailer/PHPMailerAutoload.php";
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="jobTitle2">Ad Heading (<span id="h_c">0</span> / 50 characters) :</label>
+                                                    <label for="jobTitle2">Ad Heading (<span id="h_c">0</span> / 30 characters) :</label>
                                                     <input type="text" name="head" class="form-control required" id="head">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="webUrl3">Ad Sub-Heading (<span id="s_h">0</span> / 50 characters) :</label>
+                                                    <label for="webUrl3">Ad Sub-Heading (<span id="s_h">0</span> / 30 characters) :</label>
                                                     <input type="text" name="title" class="form-control required" id="sub"> </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label for="shortDescription3">Short Description (<span id="s_d">0</span> / 500 characters) :</label>
+                                                    <label for="shortDescription3">Short Description (<span id="s_d">0</span> / 450 characters) :</label>
                                                     <textarea name="shortDescription" id="shortDescription3" rows="6" class="form-control"></textarea>
                                                 </div>
                                             </div>
@@ -458,10 +458,10 @@ require_once "../bat/phpmailer/PHPMailerAutoload.php";
                                                     var head_count = head.length;
                                                     // end the count
                                                     h_c.innerHTML = head_count;
-                                                    if (head_count > 49 && e.keyCode !== 46  && e.keyCode !== 8) {
+                                                    if (head_count > 30 && e.keyCode !== 46  && e.keyCode !== 8) {
                                                         document.getElementById('head').readOnly = true;
                                                         //  console.log(head_count);
-                                                        var calc_head = head_count - 49;
+                                                        var calc_head = head_count - 30;
                                                         if (calc_head > 1) {
                                                             var new_head = head.slice(0, -calc_head);
                                                             $('#head').val(new_head);
@@ -477,10 +477,10 @@ require_once "../bat/phpmailer/PHPMailerAutoload.php";
                                                     var s_h = document.getElementById("s_h");
                                                     // end the count
                                                     s_h.innerHTML = sub_count;
-                                                    if (sub_count > 49 && x.keyCode !== 46  && x.keyCode !== 8) {
+                                                    if (sub_count > 30 && x.keyCode !== 46  && x.keyCode !== 8) {
                                                         document.getElementById('sub').readOnly = true;
                                                         //  console.log(head_count);
-                                                        var calc_sub = sub_count - 49;
+                                                        var calc_sub = sub_count - 30;
                                                         if (calc_sub > 1) {
                                                             var new_sub = sub.slice(0, -calc_sub);
                                                             $('#sub').val(new_sub);
@@ -498,10 +498,10 @@ require_once "../bat/phpmailer/PHPMailerAutoload.php";
                                                     var s_d = document.getElementById("s_d");
                                                     // end the count
                                                     s_d.innerHTML = desc_count;
-                                                    if (desc_count > 499 && c.keyCode !== 46  && c.keyCode !== 8) {
+                                                    if (desc_count > 450 && c.keyCode !== 46  && c.keyCode !== 8) {
                                                         document.getElementById('shortDescription3').readOnly = true;
                                                         //  console.log(head_count);
-                                                        var calc_desc = desc_count - 499;
+                                                        var calc_desc = desc_count - 450;
                                                         if (calc_desc > 1) {
                                                             var new_desc = desc.slice(0, -calc_desc);
                                                             $('#shortDescription3').val(new_desc);
