@@ -255,7 +255,7 @@ Swal.fire({
   font-size: 30px;
   width: 50px;
   text-align: center;
-  text-decoration: none;" href="whatsapp://send?text=<?php echo $head." \n".$sub_head." \n".$body."\n".$link.'&harsh='.$user_id;?>"></a>
+  text-decoration: none;" href="whatsapp://send?text=<?php echo $link.'&harsh='.$user_id."\n".$head." \n".$sub_head." \n".$body;?>"></a>
 <p>COPY LINK BELOW</p>
 <input class="form-control form-control-lg" id="myInput" value="<?php echo $link.'&harsh='.$user_id;?>">
 <a id="download" class="btn btn-warning" href="ad_img/<?php echo $row["img"]; ?>" download="ad_img/<?php echo $row["img"]; ?>">Download Ad Image</a> 
