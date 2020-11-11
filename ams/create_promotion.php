@@ -12,8 +12,10 @@ require_once "../bat/phpmailer/PHPMailerAutoload.php";
                         $dest = $_POST["location"];
                         $fire = $_POST["webUrl3"];
                         $cat = $_POST["ad_cat"];
-                        $head = addslashes($_POST["head"]);
-                        $title = addslashes( $_POST["title"]);
+                        // $head = addslashes($_POST["head"]);
+                        // $title = addslashes( $_POST["title"]);
+                        $head = "";
+                        $title = "";
                         $body = addslashes($_POST["shortDescription"]);
                         $aud_name = addslashes($_POST["aud_name"]);
                         $age_gend = $_POST["wintType1"];
@@ -44,7 +46,7 @@ require_once "../bat/phpmailer/PHPMailerAutoload.php";
                         $tot_rch = $_POST["total_reach"];
                         $tot_clk = $_POST["total_click"];
                         $tot_con = $_POST["total_conver"];
-                        $tot_amt = $_POST["amount"];
+                        $tot_amt = $_POST["amount_done"];
                         // AD End date
                         $gen_date = date('Y-m-d');
                         $date2 = date('Y-m-d H:i:s');
@@ -433,7 +435,7 @@ require_once "../bat/phpmailer/PHPMailerAutoload.php";
                                     <h6>Step 2 - Ad Content</h6>
                                     <section>
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <!-- <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="jobTitle2">Ad Heading (<span id="h_c">0</span> / 30 characters) :</label>
                                                     <input type="text" name="head" class="form-control required" id="head">
@@ -443,7 +445,7 @@ require_once "../bat/phpmailer/PHPMailerAutoload.php";
                                                 <div class="form-group">
                                                     <label for="webUrl3">Ad Sub-Heading (<span id="s_h">0</span> / 30 characters) :</label>
                                                     <input type="text" name="title" class="form-control required" id="sub"> </div>
-                                            </div>
+                                            </div> -->
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label for="shortDescription3">Short Description (<span id="s_d">0</span> / 450 characters) :</label>
@@ -452,44 +454,44 @@ require_once "../bat/phpmailer/PHPMailerAutoload.php";
                                             </div>
                                             <script>
                                             $(document).ready(function () {
-                                                $('#head').on("change keyup paste click", function(e){
-                                                    var head = $('#head').val()
-                                                    var h_c = document.getElementById("h_c");
-                                                    var head_count = head.length;
-                                                    // end the count
-                                                    h_c.innerHTML = head_count;
-                                                    if (head_count > 30 && e.keyCode !== 46  && e.keyCode !== 8) {
-                                                        document.getElementById('head').readOnly = true;
-                                                        //  console.log(head_count);
-                                                        var calc_head = head_count - 30;
-                                                        if (calc_head > 1) {
-                                                            var new_head = head.slice(0, -calc_head);
-                                                            $('#head').val(new_head);
-                                                        } 
-                                                    } else {
-                                                        document.getElementById('head').readOnly = false;
-                                                    }
-                                                });
+                                                // $('#head').on("change keyup paste click", function(e){
+                                                //     var head = $('#head').val()
+                                                //     var h_c = document.getElementById("h_c");
+                                                //     var head_count = head.length;
+                                                //     // end the count
+                                                //     h_c.innerHTML = head_count;
+                                                //     if (head_count > 30 && e.keyCode !== 46  && e.keyCode !== 8) {
+                                                //         document.getElementById('head').readOnly = true;
+                                                //         //  console.log(head_count);
+                                                //         var calc_head = head_count - 30;
+                                                //         if (calc_head > 1) {
+                                                //             var new_head = head.slice(0, -calc_head);
+                                                //             $('#head').val(new_head);
+                                                //         } 
+                                                //     } else {
+                                                //         document.getElementById('head').readOnly = false;
+                                                //     }
+                                                // });
                                                 // check sub body
-                                                $('#sub').on("change keyup paste click", function(x){
-                                                    var sub = $('#sub').val()
-                                                    var sub_count = sub.length;
-                                                    var s_h = document.getElementById("s_h");
-                                                    // end the count
-                                                    s_h.innerHTML = sub_count;
-                                                    if (sub_count > 30 && x.keyCode !== 46  && x.keyCode !== 8) {
-                                                        document.getElementById('sub').readOnly = true;
-                                                        //  console.log(head_count);
-                                                        var calc_sub = sub_count - 30;
-                                                        if (calc_sub > 1) {
-                                                            var new_sub = sub.slice(0, -calc_sub);
-                                                            $('#sub').val(new_sub);
-                                                        } 
-                                                    } else {
-                                                        document.getElementById('sub').readOnly = false;
-                                                    }
-                                                    // end the count
-                                                });
+                                                // $('#sub').on("change keyup paste click", function(x){
+                                                //     var sub = $('#sub').val()
+                                                //     var sub_count = sub.length;
+                                                //     var s_h = document.getElementById("s_h");
+                                                //     // end the count
+                                                //     s_h.innerHTML = sub_count;
+                                                //     if (sub_count > 30 && x.keyCode !== 46  && x.keyCode !== 8) {
+                                                //         document.getElementById('sub').readOnly = true;
+                                                //         //  console.log(head_count);
+                                                //         var calc_sub = sub_count - 30;
+                                                //         if (calc_sub > 1) {
+                                                //             var new_sub = sub.slice(0, -calc_sub);
+                                                //             $('#sub').val(new_sub);
+                                                //         } 
+                                                //     } else {
+                                                //         document.getElementById('sub').readOnly = false;
+                                                //     }
+                                                //     // end the count
+                                                // });
                                                 // end
                                                 $('#shortDescription3').on("change keyup paste click", function(c){
                                                     var desc = $('#shortDescription3').val()
@@ -643,10 +645,12 @@ $(document).ready(function () {
                                             <div class="col-md-6">
                                             <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Budget - NGN <span id="demo" >300</span> (Amount Due - NGN <span id="amt_due">300</span>) </h4>
+                                <h4 class="card-title">Budget - NGN <span id="demo" >500</span> (Amount Due - NGN <span id="amt_due">500</span>) </h4>
                                 <div class="form-group">
+                                    <!-- making style -->
+                                   
                                 <div class="rangeslider"> 
-                                    <input type="range" min="300" max="500000" value="300"
+                                    <input type="range" min="500" max="200000" value="500"
                                     class="myslider" id="sliderRange">
                                 </div> 
                                 </div>
@@ -655,15 +659,32 @@ $(document).ready(function () {
                                 <div class="rangeslider">
                                     <input type="range" min="1" max="30" value="1"
                                     class="myslider" id="sliderRangea" name="duration">
+                                    
                                 </div> 
                                 </div>
                                 <div class="form-group">
                                 <input type="text" value="1818" name="total_reach" id="tot_rch" hidden>
                                 <input type="text" value="727" name="total_click" id="clk" hidden>
                                 <input type="text" value="364" name="total_conver" id="cnv" hidden>
-                                <input type="number" value="300" name="amount" id="cash_paid" hidden>
+                                <input type="number" value="500" name="amount" id="cash_paid" hidden>
+                                <div id="display_calculator"></div>
                                 </div>
                             </div>
+                            <script>
+                            setInterval(function() {
+                var c_id = $('#cache_id').val();
+                // amount cu
+                var amount = $('#cash_paid').val();
+                    $.ajax({
+                 url: "ajax_post/calculator.php",
+                 method: "POST",
+                 data:{c_id:c_id, amount:amount},
+                 success: function (data) {
+                   $('#display_calculator').html(data);
+                 }
+               });
+            }, 1000); 
+                            </script>
                             <script> 
                             var rangeslider = document.getElementById("sliderRange");
                             var output = document.getElementById("demo");
@@ -683,7 +704,7 @@ $(document).ready(function () {
                             // Total Conversion
                             var z = 10000;
                             // Min ad Amt
-                            var a = 300;
+                            var a = 500;
                             // D Dura  
                             var d = document.getElementById("sliderRangea").value;
                             // Budget amt.
@@ -732,7 +753,7 @@ $(document).ready(function () {
                             // Total Conversion
                             var z = 10000;
                             // Min ad Amt
-                            var a = 300;
+                            var a = 500;
                             // D Dura  
                             var d = document.getElementById("sliderRangea").value;
                             // Budget amt.
