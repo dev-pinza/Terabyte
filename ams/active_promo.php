@@ -171,6 +171,7 @@ include("header.php");
                                         <span class="text-muted"><?php echo $row["ad_sub_head"]; ?> | status: <?php echo $ap_stat; ?></span>
                                         <center>
                                       <a class="btn btn-primary" href="update_promotion.php#" style="color: white;">Edit Ad</a>
+                                      <a class="btn btn-danger" href="../function/delete_ad.php?del=<?php echo $row["id"]; ?>" style="color: white;">Stop Ad</a>
                                     </center>
                                     </div>
                                     <div class="ml-auto mr-3">

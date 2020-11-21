@@ -79,6 +79,7 @@
     $user_img = $pip["img"];
     $_SESSION["img"] = $user_img;
     $int_id = $pip["int_id"];
+    $_SESSION["int_id_x"] = $int_id;
     $user_phone = $pip["phone"];
     $user_location = $pip["country"];
     $fullname = $pip["fullname"];
@@ -118,9 +119,19 @@
         $('#time_recorder').html(data);
       }
     });
+    // return
+    $.ajax({
+      url:"../script/ad_end.php",
+      method:"POST",
+      data:{user: user},
+      success:function(data){
+        $('#end_ad').html(data);
+      }
+    });
 }, 4000);   // Interval set to 6 seconds
     </script>
     <div id="time_recorder"></div>
+    <div id="end_ad" hidden></div>
     <!-- ============================================================== -->
     <div id="main-wrapper">
         <!-- ============================================================== -->

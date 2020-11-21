@@ -260,7 +260,9 @@ Swal.fire({
 <input class="form-control form-control-lg" id="myInput" value="<?php echo $link.'&harsh='.$user_id;?>">
 <a id="download" class="btn btn-warning" href="ad_img/<?php echo $row["img"]; ?>" download="ad_img/<?php echo $row["img"]; ?>">Download Ad Image</a> 
 </span>
+
                                       <a class="btn btn-<?php echo $color; ?>" href="single_man.php?no=<?php echo $row["post_link"]; ?>"><?php echo $action; ?></a> 
+                                      <a class="btn btn-danger" href="../function/disapprove_ad.php?del=<?php echo $row["id"]; ?>">Disapprove Ad</a> 
                                     </center>
                             </div>
                         </div>

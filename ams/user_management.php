@@ -389,7 +389,7 @@ if (isset($_GET["message1"])) {
                                         <thead>
                                         <?php
                                         if ($usertype == "super") {
-                                            $query = "SELECT * FROM `institution` WHERE active = '1'";
+                                            $query = "SELECT * FROM `institution`";
                                         } else if ($usertype == "man") {
                                             $query = "SELECT * FROM `institution` WHERE id = '$int_id' AND active = '1'";
                                         }
@@ -405,6 +405,7 @@ if (isset($_GET["message1"])) {
                                                 <th>Total Audience</th>
                                                 <th>Key Manager</th>
                                                 <th>Modify</th>
+                                                <th>Action</th>
                                                 <!-- <th>Joining date</th>
                                                 <th>Earning</th> -->
                                             </tr>
@@ -436,6 +437,27 @@ if (isset($_GET["message1"])) {
                                                         class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn"
                                                         data-toggle="tooltip" data-original-title="Edit"><i
                                                             class="ti-pencil" aria-hidden="true"></i></a></td>
+                                                            <td>
+                                                                <?php 
+                                                                if ($row["active"] == "1") {
+                                                                ?>
+                                                <a href="../function/decommission_int.php?del=<?php echo $row["id"]; ?>"
+                                                        class="btn btn-danger btn-pure btn-outline delete-row-btn"
+                                                        data-toggle="tooltip" data-original-title="Delete">
+                                                        Decommission
+                                                        </a>
+                                                        <?php
+                                                                } else {
+                                                                    ?>
+                                                                    <a href="../function/activate_int.php?del=<?php echo $row["id"]; ?>"
+                                                        class="btn btn-success btn-pure btn-outline delete-row-btn"
+                                                        data-toggle="tooltip" data-original-title="Activate">
+                                                        Activate Inst.
+                                                        </a>
+                                                                    <?php
+                                                                }
+                                                        ?>
+                                                </td>
                                                 <!-- <td>18-05-2020</td>
                                                 <td>NGN 4200</td> -->
                                             </tr>
