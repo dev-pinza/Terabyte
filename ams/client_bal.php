@@ -39,6 +39,7 @@ $transaction_id = "TERA".$randms;
                                     <?php
                                             } else {
                                                 ?>
+                                                
                                                 <div class="ml-auto">
                                                 <div class="btn-group">
                                             <button type="button" class="btn btn-dark" data-toggle="modal"
@@ -52,6 +53,17 @@ $transaction_id = "TERA".$randms;
                                                 Withdrawal Earning
                                             </a>
                                         </div>
+                                        <?php
+                                        if ($usertype == "super"){
+                                        ?>
+                                        <div class="btn-group">
+                                            <a type="button" class="btn btn-dark" href="manual_transfer.php">
+                                                Manual Funding
+                                            </a>
+                                        </div>
+                                        <?php
+                                        }
+                                        ?>
                                     </div>
                                                 <?php
                                             }

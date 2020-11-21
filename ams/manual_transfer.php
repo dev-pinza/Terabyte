@@ -79,7 +79,11 @@ if ($usertype == "super") {
                                                             $res = mysqli_query($connection, $org);
                                                             $output = '';
                                                             while ($row = mysqli_fetch_array($res)) {
-                                                                $output .= '<option value="' . $row["id"] . '">' .strtoupper($row["username"])." - " .strtoupper($row["fullname"]). '</option>';
+                                                                $int_id = $row["int_id"];
+                                                                $query_m = mysqli_query($connection, "SELECT * FROM `institution` WHERE id = '$int_id'");
+                                                                $xc = mysqli_fetch_array($query_m);
+                                                                $int_name = $xc["name"];
+                                                                $output .= '<option value="' . $row["id"] . '">' .strtoupper($row["username"])." - " .strtoupper($row["fullname"]). " - " .strtoupper($int_name).'</option>';
                                                             }
                                                             return $output;
                                                         }
