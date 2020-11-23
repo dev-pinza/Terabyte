@@ -194,15 +194,16 @@ setInterval(function() {
                                 <div class="d-flex align-items-center mb-3">
                                     <h5 class="card-title text-uppercase mb-0">Institution Quarter Income</h5>
                                     <div class="ml-auto">
-                                        <small class="text-success">last 4 months data</small>
+                                        <small class="text-success">last 1 month data</small>
                                     </div>
                                  </div>
                                  <?php
-                                // loan 4 month back transaction
+                                // loan 1 month back transaction
                                 $current_date = date('Y-m-d');
                                 // echo $current_date;
-                                $qtr_date = date('Y-m-d', strtotime("-4 months", strtotime($current_date)));
+                                $qtr_date = date('Y-m-d', strtotime("-1 months", strtotime($current_date)));
                                 $month_date = date('Y-m-d', strtotime("-1 months", strtotime($current_date)));
+
                                 $year_date = date('Y-m-d', strtotime("-1 years", strtotime($current_date)));
                                 $week_date = date('Y-m-d', strtotime("-1 weeks", strtotime($current_date)));
                                 $day_date = date('Y-m-d', strtotime("-1 days", strtotime($current_date)));
@@ -302,7 +303,7 @@ setInterval(function() {
                                 <div class="d-flex align-items-center mb-3">
                                     <h5 class="card-title text-uppercase mb-0">Cash Flow</h5>
                                     <div class="ml-auto">
-                                        <small class="text-success"> Last 4 Months Chart Report</small>
+                                        <small class="text-success"> Last 1 month Chart Report</small>
                                     </div>
                                  </div>
                                 <div class="d-flex flex-row">
