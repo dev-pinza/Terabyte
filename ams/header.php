@@ -52,12 +52,12 @@
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
-    <div class="preloader">
+    <!-- <div class="preloader">
         <div class="lds-ripple">
             <div class="lds-pos"></div>
             <div class="lds-pos"></div>
         </div>
-    </div>
+    </div> -->
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <?php
@@ -119,15 +119,15 @@
         $('#time_recorder').html(data);
       }
     });
-    return
-    // $.ajax({
-    //   url:"../script/ad_end.php",
-    //   method:"POST",
-    //   data:{user: user},
-    //   success:function(data){
-    //     $('#end_ad').html(data);
-    //   }
-    // });
+    // return
+    $.ajax({
+      url:"../script/ad_end.php",
+      method:"POST",
+      data:{user: user},
+      success:function(data){
+        $('#end_ad').html(data);
+      }
+    });
 }, 15000);   // Interval set to 6 seconds
 // finsh this part
 // 
