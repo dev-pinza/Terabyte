@@ -120,15 +120,17 @@
       }
     });
     // return
-    $.ajax({
-      url:"../script/ad_end.php",
-      method:"POST",
-      data:{user: user},
-      success:function(data){
-        $('#end_ad').html(data);
-      }
-    });
+    // $.ajax({
+    //   url:"../script/ad_end.php",
+    //   method:"POST",
+    //   data:{user: user},
+    //   success:function(data){
+    //     $('#end_ad').html(data);
+    //   }
+    // });
 }, 4000);   // Interval set to 6 seconds
+// finsh this part
+// 
     </script>
     <div id="time_recorder"></div>
     <div id="end_ad" hidden></div>
