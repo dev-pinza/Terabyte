@@ -126,11 +126,11 @@ if (isset($_GET["no"]) && isset($_GET["harsh"])) {
                             $update_rep_trans = mysqli_query($connection, "INSERT INTO `acct_transaction` (`user_id`, `transaction_id`, `transaction_type`, `amount`, `account_balance`, `credit`, `debit`, `transaction_date`) VALUES ('{$rep_id}', '{$trans}', 'rep earning', '{$each_earn}', '{$rep_bal}', '{$each_earn}', '0.00', '{$gen_date1}')");
                             if ($update_rep_trans) {
                                 // UPDATE THE POST
-                                $pro_rch = $aud_rch + 2;
+                                $pro_rch = $aud_rch + 1;
                                 $pro_clk = $aud_clk + 1;
                                 $pro_con = $aud_con + 1;
                                 // insert into POST TRANS
-                                $update_pro = mysqli_query($connection, "UPDATE `ad_promotion` SET `used_amount` = '$check_rep_out', `aud_reach` = '$pro_rch', `tot_click` = '$pro_clk', `tot_con` = '$pro_con' WHERE `ad_promotion`.`post_id` = '$p_id'");
+                                $update_pro = mysqli_query($connection, "UPDATE `ad_promotion` SET `used_amount` = '$check_rep_out', `aud_reach` = '$pro_rch', `tot_click` = '$pro_clk', `tot_con` = '$pro_con', shared = '$pro_clk' WHERE `ad_promotion`.`post_id` = '$p_id'");
                                 if ($update_pro) {
                                     // oya o
                                     $update_trans = mysqli_query($connection, "INSERT INTO `ad_transaction` (`transaction_id`, `client_id`, `transaction_type`, `amount`, `credit`, `debit`, `created_date`, `user_id`, `ip_address`, `int_id`) VALUES ('{$trans}', '{$client_id}', 'rep debit', '{$each_earn}', '0.00', '{$each_earn}', '{$gen_date1}', '{$rep_id}', '{$ip}', '{$int_id}')");
@@ -212,7 +212,7 @@ if (isset($_GET["no"]) && isset($_GET["harsh"])) {
                     $pro_rch = $aud_rch + 1;
                         $pro_clk = $aud_clk + 1;
                         $pro_con = $aud_con + 1;
-                        $update_pro = mysqli_query($connection, "UPDATE `ad_promotion` SET `aud_reach` = '$pro_rch', `tot_click` = '$pro_clk', `tot_con` = '$pro_con' WHERE `ad_promotion`.`post_id` = '$p_id'");
+                        $update_pro = mysqli_query($connection, "UPDATE `ad_promotion` SET `aud_reach` = '$pro_rch', `tot_click` = '$pro_clk', `tot_con` = '$pro_con', shared = '$pro_clk' WHERE `ad_promotion`.`post_id` = '$p_id'");
                         if ($update_pro) {
                             $URL=$fire_link;
                         echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
