@@ -232,7 +232,7 @@ if (mysqli_num_rows($res) <= 0) {
                 <div>
                     <div class="logo">
                         <!-- <span class="db"><img src="../../assets/images/logos/logo-icon.png" alt="logo" /></span> -->
-                        <h5 class="font-medium mb-3">Sign Up to Terabyte</h5>
+                        <h5 class="font-medium mb-3">Terabyte Client Signup</h5>
                     </div>
                     <!-- Form -->
                     <div class="row">

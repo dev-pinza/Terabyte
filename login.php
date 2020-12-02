@@ -200,7 +200,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                 </div>
                                 <div class="form-group mb-0 mt-2">
                                     <div class="col-sm-12 text-center">
-                                        Don't have an account? <a href="signup.php" class="text-info ml-1"><b>Sign Up</b></a>
+                                        Don't have an account? <a href="signup.php" class="text-info ml-1"><b>Signup as Client</b></a>
+                                         OR <a href="rep_registration.php" class="text-danger ml-1"><b>Signup as Rep</b></a>
                                     </div>
                                 </div>
                             </form>
