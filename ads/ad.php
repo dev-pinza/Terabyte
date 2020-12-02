@@ -111,7 +111,7 @@ if (isset($_GET["no"]) && isset($_GET["harsh"])) {
                 // est reach
                 if ($used_amt <= $budget_amt) {
                     // done process
-                    $each_earn = ($rep_share / $est_rch * 10);
+                    $each_earn = ($rep_share / $est_rch * 2.2);
                     $each_man_earn = ($man_share / $est_rch) / $man_count;
                     // test each earn
                     $check_rep_out = $used_amt + $each_earn;
