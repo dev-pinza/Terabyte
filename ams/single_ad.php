@@ -160,7 +160,14 @@ include("header.php");
                                                     </tr>
                                                     <tr>
                                                         <td>Ad Status</td>
-                                                        <td> <?php echo $n["payment_status"]; ?> </td>
+                                                        <td> <?php 
+                                                        $query_post_yo = mysqli_query($connection, "SELECT * FROM `client_post` WHERE not_ended_status = '1' AND post_link = '$post_id' AND client_id = '$user_id'");
+                                                        if (mysqli_num_rows($query_post_yo) > 0) {
+                                                            echo "Active";
+                                                        } else {
+                                                            echo "Not Active";
+                                                        }
+                                                         ?> </td>
                                                     </tr>
                                                     <tr>
                                                         <td>Created Date</td>

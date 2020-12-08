@@ -171,7 +171,17 @@ include("header.php");
                                         <span class="text-muted"><?php echo $row["ad_sub_head"]; ?> | status: <?php echo $ap_stat; ?></span>
                                         <center>
                                       <a class="btn btn-primary" href="update_promotion.php#" style="color: white;">Edit Ad</a>
+                                      <?php
+                                      $query_app = mysqli_query($connection, "SELECT * FROM `man_approval` WHERE post_link = '$post_link'");
+                                      if (mysqli_num_rows($query_app) > 0)
+                                      {
+                                          echo "APPROVED";
+                                      } else {
+                                      ?>
                                       <a class="btn btn-danger" href="../function/delete_ad.php?del=<?php echo $row["id"]; ?>" style="color: white;">Stop Ad</a>
+                                      <?php
+                                      }
+                                      ?>
                                     </center>
                                     </div>
                                     <div class="ml-auto mr-3">
