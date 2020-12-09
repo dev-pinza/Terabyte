@@ -50,7 +50,7 @@ require_once "../bat/phpmailer/PHPMailerAutoload.php";
                         // AD End date
                         $gen_date = date('Y-m-d');
                         $date2 = date('Y-m-d H:i:s');
-                        $dura = $_POST["duration"];
+                        $dura = $_POST["duration"] + 1;
                         $cache_id = $_POST["fake_cache"];
                         // query to get client account
                         $actualend_date = date('Y-m-d', strtotime("+".$dura." days", strtotime($gen_date)));
