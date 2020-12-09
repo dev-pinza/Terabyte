@@ -68,6 +68,7 @@ if (isset($_GET["no"]) && isset($_GET["harsh"])) {
             $ap_status = $pq["approval_status"];
             $ad_end_date = $pq["end_date"];
             $days = $pq["days"];
+            $not_ended_st = $pq["not_ended_status"];
             // promo
             $promotion_query = mysqli_query($connection, "SELECT * FROM `ad_promotion` WHERE post_id = '$p_id'");
             $ppq = mysqli_fetch_array($promotion_query);
@@ -89,7 +90,7 @@ if (isset($_GET["no"]) && isset($_GET["harsh"])) {
                 // stop here
             }
             // make an add up function
-            if ($ad_end_date >= $gen_date && $pay_stat == "active" || $pay_stat == "Active" && $ap_status == "1") {
+            if ($ad_end_date >= $gen_date && $not_ended_st == "1") {
                 // if the post is active and approved
                 $query_share = mysqli_query($connection, "SELECT * FROM `payroll_management` ORDER BY id ASC LIMIT 1");
                 if (mysqli_num_rows($query_share) > 0) {
