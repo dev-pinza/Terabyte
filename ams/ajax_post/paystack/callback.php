@@ -48,10 +48,10 @@ $trans = $obj['data']['reference'];
 $date = date('Y-m-d');
 $date2 = date('Y-m-d H:i:s');
 
-$query_select = mysqli_query($connection, "SELECT * FROM `transaction_track` WHERE trans_id = '$trans'");
+$query_select_mm = mysqli_query($connection, "SELECT * FROM `transaction_track` WHERE trans_id = '$trans'");
 
-if (mysqli_num_rows($query_select) > 0) {
-$uqx = mysqli_fetch_row($query_select);
+if (mysqli_num_rows($query_select_mm) > 0) {
+$uqx = mysqli_fetch_array($query_select_mm);
 $update_id = $uqx["id"];
 $user_id = $uqx["user_id"];
 $amount = $uqx["amount"];
