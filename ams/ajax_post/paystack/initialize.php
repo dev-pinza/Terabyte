@@ -1,4 +1,6 @@
 <?php
+include('../../../function/db/connect.php');
+
 session_start();
 
     $amount = $_POST["amt"];
@@ -10,9 +12,12 @@ session_start();
     $user_id = $_SESSION["id"];
     $_SESSION["amount"] = $amount;
     $_SESSION["transaction_id"] = $trans;
-
+    $datetime = date('Y-m-d H:i:s');
+    // make inser
+    $query_trans_track = mysqli_query($connection, "INSERT INTO `transaction_track` (`user_id`, `trans_id`, `amount`, `date`, `status`) VALUES ('{$user_id}', '{$trans}', '{$amount}', '{$datetime}', 'Pending')");
     // check stateent
-    if ($user_id != "") {
+    if ($query_trans_track) {
+      // end
   $curl = curl_init();
 
 // url to go to after payment
@@ -27,7 +32,7 @@ curl_setopt_array($curl, array(
     'email'=>$email,
     'firstname'=>$firstname,
     'reference'=>$trans,
-    'channels'=>['card', 'ussd', 'mobile_money'],
+    'channels'=>['card', 'bank', 'ussd', 'qr', 'mobile_money', 'bank_transfer'],
     'callback_url' => $callback_url
   ]),
   CURLOPT_HTTPHEADER => [

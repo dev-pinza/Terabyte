@@ -39,16 +39,22 @@ if('success' == $tranx->data->status){
   // if the email matches the customer who owns the product etc
   // Give value
   echo "<h2>Processing....</h2>";
+  session_start();
 //   STORE THE TRANSACTION - GET THE INT_ID AND OTHER STUDDS
-session_start();
-$user_id = $_SESSION["id"];
-$amount = $_SESSION["amount"];
-$trans = $_SESSION["transaction_id"];
+$obj = json_decode($response, TRUE);
+$status = $obj['data']['status'];
+$trans = $obj['data']['reference'];
+
 $date = date('Y-m-d');
 $date2 = date('Y-m-d H:i:s');
 
-if ($user_id != "") {
+$query_select = mysqli_query($connection, "SELECT * FROM `transaction_track` WHERE trans_id = '$trans'");
 
+if (mysqli_num_rows($query_select) > 0) {
+$uqx = mysqli_fetch_row($query_select);
+$update_id = $uqx["id"];
+$user_id = $uqx["user_id"];
+$amount = $uqx["amount"];
 // CHECK IF SAME REFERENC
 $wallet = mysqli_query($connection, "SELECT * FROM `account` WHERE user_id = '$user_id'");
 $xm = mysqli_fetch_array($wallet);
@@ -64,9 +70,14 @@ $update_wallet = mysqli_query($connection, "UPDATE `account` SET balance_derived
 if ($update_wallet) {
     $insert_transaction = mysqli_query($connection, "INSERT INTO `acct_transaction` (`user_id`, `transaction_id`, `transaction_type`, `amount`, `account_balance`, `credit`, `debit`, `transaction_date`) VALUES ('{$user_id}', '{$trans}', 'refill', '{$amount}', '{$run_bal}', '{$amount}', '0.00', '{$date2}')");
      if ($insert_transaction) {
-        //  destroy ref, amount and descriptiomn
-        //  ------
+       $query_update = mysqli_query($connection, "UPDATE transaction_track SET status = '$status' WHERE trans_id = '$trans'");
+       if ($query_update) {
         echo header("Location: ../../client_bal.php");
+       } else 
+       {
+         echo "Failed Transaction";
+       }
+        //  destroy ref, amount
         // redirect
      } else {
          echo "ERROR IN TRANSACTION";
